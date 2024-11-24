@@ -198,7 +198,9 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <h2 id="一-网址："><a href="#一-网址：" class="headerlink" title="一.网址："></a>一.网址：</h2><h3 id="Hexo官网："><a href="#Hexo官网：" class="headerlink" title="Hexo官网："></a>Hexo官网：</h3><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">https://hexo.io/zh-cn/index.html</a></p>
+            <p>免费的搭建一个免费的个人博客（网站）</p>
+<p>零基础，手把手，不需要任何代码基础（看不懂代码也没事）</p>
+<h2 id="一-网址："><a href="#一-网址：" class="headerlink" title="一.网址："></a>一.网址：</h2><h3 id="Hexo官网："><a href="#Hexo官网：" class="headerlink" title="Hexo官网："></a>Hexo官网：</h3><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">https://hexo.io/zh-cn/index.html</a></p>
 <h3 id="Gitee官网-（Gitee-Pages-暂停提供服务）"><a href="#Gitee官网-（Gitee-Pages-暂停提供服务）" class="headerlink" title="Gitee官网:（Gitee Pages 暂停提供服务）"></a>Gitee官网:（Gitee Pages 暂停提供服务）</h3><p> <a target="_blank" rel="noopener" href="https://gitee.com/">https://gitee.com/</a>  </p>
 <h3 id="Git-官网"><a href="#Git-官网" class="headerlink" title="Git 官网:"></a>Git 官网:</h3><p> <a target="_blank" rel="noopener" href="https://git-scm.com/">https://git-scm.com/</a>  </p>
 <h3 id="Node-js官网：推荐18"><a href="#Node-js官网：推荐18" class="headerlink" title="Node.js官网：推荐18"></a>Node.js官网：推荐18</h3><p><a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">https://nodejs.org/zh-cn/</a>  </p>
@@ -216,10 +218,21 @@
 </li>
 <li><p>npm install</p>
 </li>
-<li><p>hexo server<br>（1）步骤的解释：<br>npm install hexo-cli -g：（这个命令使用npm（Node.js的包管理器）全局安装Hexo命令行工具。-g标志表示全局安装，这样您就可以在任何地方使用hexo命令。）<br>hexo init blog：（这个命令初始化一个新的Hexo博客文件夹。blog是您想要创建的文件夹的名称，您可以根据需要更改它。）<br>cd blog：（这个命令将当前工作目录更改为您刚刚创建的blog文件夹。）<br>npm install：（这个命令在blog文件夹中安装Hexo博客所需的依赖项。）<br>hexo server：（这个命令启动Hexo本地服务器，您可以通过浏览器访问<a href="http://localhost:4000来查看您的博客。）">http://localhost:4000来查看您的博客。）</a><br>如果您按照这些步骤操作，您应该能够成功安装和初始化一个Hexo博客。如果您遇到任何问题，请提供错误信息，我会尽力帮助您解决。</p>
+<li><p>hexo server （hexo s）<br>（1）步骤的解释：<br>npm install hexo-cli -g：（这个命令使用npm（Node.js的包管理器）全局安装Hexo命令行工具。-g标志表示全局安装，这样您就可以在任何地方使用hexo命令。）<br>hexo init blog：（这个命令初始化一个新的Hexo博客文件夹。blog是您想要创建的文件夹的名称，您可以根据需要更改它。）<br>cd blog：（这个命令将当前工作目录更改为您刚刚创建的blog文件夹。）<br>npm install：（这个命令在blog文件夹中安装Hexo博客所需的依赖项。）<br>hexo server：（这个命令启动Hexo本地服务器，您可以通过浏览器访问<a href="http://localhost:4000来查看您的博客。）">http://localhost:4000来查看您的博客。）</a><br>解决下载慢的问题：</p>
+</li>
+<li><p>方法一：</p>
+<p>淘宝提供了一个 npm 的镜像，可以大大加快安装速度。首先安装 cnpm：</p>
+<p>npm install -g cnpm –registry&#x3D;<a target="_blank" rel="noopener" href="https://registry.npmmirror.com/">https://registry.npmmirror.com</a></p>
+<p>然后使用 cnpm 代替 npm 进行安装：</p>
+<p>cnpm install hexo-cli -g</p>
+<p>方法二：</p>
+<p>npm config set registry <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org(切换镜像)/">https://registry.npm.taobao.org（切换镜像）</a></p>
 </li>
 </ul>
-<p><img src="https://postimage.me/images/2024/11/23/180a242b-f476-4acd-8cad-a381afafa034.md.png" alt="img"></p>
+<img title="" src="https://postimage.me/images/2024/11/23/180a242b-f476-4acd-8cad-a381afafa034.md.png" alt="img" style="zoom:200%;">
+
+
+
 <p>（2）运行显示（<a href="http://localhost:4000）">http://localhost:4000）</a></p>
 <p><img src="https://postimage.me/images/2024/11/23/-2024-11-22-195835.md.png" alt="img"></p>
 <p>主题推荐：</p>
@@ -240,15 +253,17 @@
 <h3 id="第四步：下载主题"><a href="#第四步：下载主题" class="headerlink" title="第四步：下载主题"></a>第四步：下载主题</h3><p>hexo的主题</p>
 <p><a target="_blank" rel="noopener" href="https://hexo.io/themes/">Themes | Hexo</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/D-Sketon/hexo-theme-reimu">https://github.com/D-Sketon/hexo-theme-reimu</a></p>
+<p>阿洛学长同款：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">theme-particlex&#x2F;hexo-theme-particlex: A concise Hexo theme, based on Particle.</a></p>
 <p>主题优化：（看给的文档即可）</p>
 <h3 id="第五步：使用github部署网站"><a href="#第五步：使用github部署网站" class="headerlink" title="第五步：使用github部署网站"></a>第五步：使用github部署网站</h3><p>（1）登录注册</p>
 <p>（2）创建仓库</p>
 <p><img src="https://postimage.me/images/2024/11/23/a61b8660-326f-49e8-83a2-3b03a58b9f5e.png" alt="a61b8660 326f 49e8 83a2 3b03a58b9f5e"></p>
 <p>（3）获取SSH密钥</p>
-<p>（4）创建密钥：ssh-keygen -t rsa -C “<a href="mailto:&#x33;&#88;&#x58;&#x58;&#88;&#x58;&#x58;&#x58;&#x58;&#x58;&#88;&#x58;&#x40;&#113;&#113;&#46;&#x63;&#111;&#x6d;">&#x33;&#88;&#x58;&#x58;&#88;&#x58;&#x58;&#x58;&#x58;&#x58;&#88;&#x58;&#x40;&#113;&#113;&#46;&#x63;&#111;&#x6d;</a>“</p>
+<p>（4）创建密钥：ssh-keygen -t rsa -C “<a href="mailto:&#x33;&#88;&#88;&#x58;&#88;&#88;&#88;&#x58;&#88;&#x58;&#88;&#88;&#64;&#113;&#113;&#46;&#99;&#111;&#x6d;">&#x33;&#88;&#88;&#x58;&#88;&#88;&#88;&#x58;&#88;&#x58;&#88;&#88;&#64;&#113;&#113;&#46;&#99;&#111;&#x6d;</a>“</p>
 <p>（5）获取密钥：cat ~&#x2F;.ssh&#x2F;id_rsa.pub</p>
 <p>（密钥样式）</p>
-<p>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDTZJPBngwsPeJ8&#x2F;Kagh’f’gdhfgD9LEWIYYf+jKSDsiM2eLesROa4llQbhfghh’f’g’hmWhfghh’f’g&#x2F;bbX54vcqVwVdlopJUu4ZP4azn&#x2F;qQWRRTHJXXKj0GGM&#x2F;AlQjshfgh’f’g’hOsyKq22bL4wjI8ZJvT7AGDzC&#x2F;Nrn6cDhc+hy5z1HPVMVDX9i0sG18MmKtOCJ8dCagIjIWEWCyN7e+HuciTXZUHO+k6dLhfxK6YUmw3U6hWcRH+30mgHydr9mL&#x2F;QdiXa&#x2F;N4OUva7Xmh9l6hfgh’f’g’h9DC&#x2F;u+Xu2Sghftghfh’f’g’hKRljwj8nZf4FCdA0UQJE4Ynf6SYYLJBKLotbeWWvPhfghh’f’g2TdMeSlCHyex9FGhvkbm94&#x2F;vQv0xYSD2WMg’h’f’t’g’h’fmIfPWSJ5xWZ7NIBAR+9cFiq7VDrXhavs5v5nY9iwiPd+Fy6Z65QfezEmz9flU+kuA94v03TIKZC+Zf9hlZhfghh’f’g’hWj+g4&#x2F;fJ4Nc4biC2nY8TD+H0HnkXPCJgtOiLxaSgi08LFmwJyzt9&#x2F;zCadO&#x2F;IEtRol7RVvTx6NPn9LVy0xPy7ZvQIRIxx4B75fohI9WM&#x3D; <a href="mailto:&#x33;&#50;&#x66;&#103;&#x34;&#53;&#x34;&#53;&#52;&#53;&#x34;&#x35;&#56;&#x40;&#113;&#113;&#46;&#99;&#111;&#109;">&#x33;&#50;&#x66;&#103;&#x34;&#53;&#x34;&#53;&#52;&#53;&#x34;&#x35;&#56;&#x40;&#113;&#113;&#46;&#99;&#111;&#109;</a></p>
+<p>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDTZJPBngwsPeJ8&#x2F;Kagh’f’gdhfgD9LEWIYYf+jKSDsiM2eLesROa4llQbhfghh’f’g’hmWhfghh’f’g&#x2F;bbX54vcqVwVdlopJUu4ZP4azn&#x2F;qQWRRTHJXXKj0GGM&#x2F;AlQjshfgh’f’g’hOsyKq22bL4wjI8ZJvT7AGDzC&#x2F;Nrn6cDhc+hy5z1HPVMVDX9i0sG18MmKtOCJ8dCagIjIWEWCyN7e+HuciTXZUHO+k6dLhfxK6YUmw3U6hWcRH+30mgHydr9mL&#x2F;QdiXa&#x2F;N4OUva7Xmh9l6hfgh’f’g’h9DC&#x2F;u+Xu2Sghftghfh’f’g’hKRljwj8nZf4FCdA0UQJE4Ynf6SYYLJBKLotbeWWvPhfghh’f’g2TdMeSlCHyex9FGhvkbm94&#x2F;vQv0xYSD2WMg’h’f’t’g’h’fmIfPWSJ5xWZ7NIBAR+9cFiq7VDrXhavs5v5nY9iwiPd+Fy6Z65QfezEmz9flU+kuA94v03TIKZC+Zf9hlZhfghh’f’g’hWj+g4&#x2F;fJ4Nc4biC2nY8TD+H0HnkXPCJgtOiLxaSgi08LFmwJyzt9&#x2F;zCadO&#x2F;IEtRol7RVvTx6NPn9LVy0xPy7ZvQIRIxx4B75fohI9WM&#x3D; <a href="mailto:&#x33;&#x32;&#x66;&#x67;&#52;&#x35;&#x34;&#x35;&#x34;&#x35;&#52;&#53;&#x38;&#x40;&#113;&#113;&#46;&#99;&#111;&#109;">&#x33;&#x32;&#x66;&#x67;&#52;&#x35;&#x34;&#x35;&#x34;&#x35;&#52;&#53;&#x38;&#x40;&#113;&#113;&#46;&#99;&#111;&#109;</a></p>
 <p>（6）配置密钥，上传项目   ssh    hexo d</p>
 <p>（7）配置密钥</p>
 <p><img src="https://postimage.me/images/2024/11/23/Snipaste_2024-11-23_00-24-11.md.png" alt="img"></p>
@@ -258,7 +273,7 @@
 <p>修改的代码部分</p>
 <p>deploy:</p>
 <p>  type: ‘git’</p>
-<p>  repository: <a href="mailto:&#103;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#x65;&#x65;&#46;&#x63;&#x6f;&#109;">&#103;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#x65;&#x65;&#46;&#x63;&#x6f;&#109;</a>:aluolove&#x2F;boke.git（ssh的地址）</p>
+<p>  repository: <a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#x65;&#x65;&#46;&#x63;&#111;&#x6d;">&#103;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#x65;&#x65;&#46;&#x63;&#111;&#x6d;</a>:aluolove&#x2F;boke.git（ssh的地址）</p>
 <p>branch：main （分支）</p>
 <p>npm install hexo-deployer-git –save</p>
 <p>hexo d（上传博客文件）</p>
@@ -273,7 +288,7 @@
 <p><img src="https://postimage.me/images/2024/11/23/f43a9e31-0864-4986-8eea-2903b18731cb.md.png" alt="md"></p>
 <p>创建仓库</p>
 <p>配置仓库</p>
-<p>创建密钥：ssh-keygen -t rsa -C “<a href="mailto:&#88;&#88;&#88;&#x58;&#88;&#x58;&#x58;&#x58;&#88;&#88;&#64;&#x71;&#113;&#x2e;&#99;&#111;&#109;">&#88;&#88;&#88;&#x58;&#88;&#x58;&#x58;&#x58;&#88;&#88;&#64;&#x71;&#113;&#x2e;&#99;&#111;&#109;</a>“</p>
+<p>创建密钥：ssh-keygen -t rsa -C “<a href="mailto:&#x58;&#x58;&#x58;&#x58;&#88;&#88;&#88;&#88;&#88;&#88;&#x40;&#113;&#113;&#x2e;&#x63;&#111;&#109;">&#x58;&#x58;&#x58;&#x58;&#88;&#88;&#88;&#88;&#88;&#88;&#x40;&#113;&#113;&#x2e;&#x63;&#111;&#109;</a>“</p>
 <p>获取密钥：cat ~&#x2F;.ssh&#x2F;id_rsa.pub</p>
 
             
