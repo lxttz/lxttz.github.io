@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>专升本高数笔记 第一章：函数、极限与连续 | 阿洛学长的世界</title>
+    <meta name="author" content="阿洛学长" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>阿洛学长的世界</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;阿洛学长的世界</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>专升本高数笔记 第一章：函数、极限与连续</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/12/3
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p>专升本高数笔记，高等应用数学笔记。阿洛学长笔记     love ttz</p>
+<h1 id="第一章：函数、极限与连续"><a href="#第一章：函数、极限与连续" class="headerlink" title="第一章：函数、极限与连续"></a>第一章：函数、极限与连续</h1><p>知识导图</p>
+<p><img src="https://postimage.me/images/2024/12/03/0a040d256242a8e0d0abef027a475809.md.png" alt="md"></p>
+<h2 id="一-函数（阿洛学长）"><a href="#一-函数（阿洛学长）" class="headerlink" title="一.函数（阿洛学长）"></a>一.函数（阿洛学长）</h2><h3 id="（1）函数的定义："><a href="#（1）函数的定义：" class="headerlink" title="（1）函数的定义："></a>（1）函数的定义：</h3><img title="" src="https://postimage.me/images/2024/12/02/01.md.png" alt="md" style="zoom:100%;">
+
+<img title="" src="https://postimage.me/images/2024/12/02/02.md.png" alt="02" style="zoom:100%;">
+
+<p><img src="https://postimage.me/images/2024/12/02/03.md.png" alt="03"></p>
+<p><img src="https://postimage.me/images/2024/12/02/04.md.png" alt="04"></p>
+<p><img src="https://postimage.me/images/2024/12/02/05.md.png" alt="05"></p>
+<p><img src="https://postimage.me/images/2024/12/02/05luo.md.png" alt="05luo"></p>
+<h3 id="（2）函数的表示方法："><a href="#（2）函数的表示方法：" class="headerlink" title="（2）函数的表示方法："></a>（2）函数的表示方法：</h3><p><img src="https://postimage.me/images/2024/12/02/06.md.png" alt="06"></p>
+<h4 id="单调性："><a href="#单调性：" class="headerlink" title="单调性："></a>单调性：</h4><p><img src="https://postimage.me/images/2024/12/02/07.md.png" alt="07"></p>
+<p><img src="https://postimage.me/images/2024/12/02/08.md.png" alt="08"></p>
+<h4 id="有界性："><a href="#有界性：" class="headerlink" title="有界性："></a>有界性：</h4><p>值域</p>
+<p><img src="https://postimage.me/images/2024/12/02/09.md.png" alt="09"> </p>
+<p><img src="https://postimage.me/images/2024/12/03/10aa1ef4bf3da44419.md.png" alt="md"></p>
+<h4 id="奇偶性："><a href="#奇偶性：" class="headerlink" title="奇偶性："></a>奇偶性：</h4><p><img src="https://postimage.me/images/2024/12/02/11.md.png" alt="11"></p>
+<p><img src="https://postimage.me/images/2024/12/02/12.md.png" alt="12"></p>
+<p><img src="https://postimage.me/images/2024/12/02/13.md.png" alt="13"></p>
+<h4 id="周期性："><a href="#周期性：" class="headerlink" title="周期性："></a>周期性：</h4><p><img src="https://postimage.me/images/2024/12/02/14.md.png" alt="14"></p>
+<h3 id="（3）初等函数"><a href="#（3）初等函数" class="headerlink" title="（3）初等函数"></a>（3）初等函数</h3><p>常数函数、幂函数、指数函数、对数函数、三角函数、反三角函数统称为基本初等函数</p>
+<p><img src="https://postimage.me/images/2024/12/02/15.md.png" alt="15"></p>
+<p><img src="https://postimage.me/images/2024/12/02/16.md.jpg" alt="md"></p>
+<h4 id="初等函数的定义："><a href="#初等函数的定义：" class="headerlink" title="初等函数的定义："></a>初等函数的定义：</h4><p><img src="https://postimage.me/images/2024/12/02/17.md.png" alt="17"></p>
+<h4 id="函数的四则运算："><a href="#函数的四则运算：" class="headerlink" title="函数的四则运算："></a>函数的四则运算：</h4><p><img src="https://postimage.me/images/2024/12/02/18.md.png" alt="18"></p>
+<h4 id="函数的复合运算："><a href="#函数的复合运算：" class="headerlink" title="函数的复合运算："></a>函数的复合运算：</h4><p><img src="https://postimage.me/images/2024/12/02/19.md.png" alt="19"></p>
+<p><img src="https://postimage.me/images/2024/12/02/20.md.png" alt="20"></p>
+<p><img src="https://postimage.me/images/2024/12/02/21.md.png" alt="21"></p>
+<h3 id="（4）反函数和分段函数"><a href="#（4）反函数和分段函数" class="headerlink" title="（4）反函数和分段函数"></a>（4）反函数和分段函数</h3><h4 id="反函数："><a href="#反函数：" class="headerlink" title="反函数："></a>反函数：</h4><p><img src="https://postimage.me/images/2024/12/02/23.md.png" alt="23"></p>
+<p><img src="https://postimage.me/images/2024/12/02/24.md.png" alt="24"></p>
+<p><img src="https://postimage.me/images/2024/12/02/25.md.png" alt="25"></p>
+<h4 id="分段函数："><a href="#分段函数：" class="headerlink" title="分段函数："></a>分段函数：</h4><p><img src="https://postimage.me/images/2024/12/02/26.md.png" alt="26"></p>
+<h4 id="求反函数"><a href="#求反函数" class="headerlink" title="求反函数:"></a>求反函数:</h4><p><img src="https://postimage.me/images/2024/12/02/27.md.png" alt="27"></p>
+<p>步骤：解出x的关系式，将x换成y，将y换成x</p>
+<p>求y&#x3D;2x-1的反函数：y&#x3D;x-1  &#x3D;&#x3D;》 x&#x3D;y+1   &#x3D;（将y换成x）&#x3D;》  y&#x3D;x+1</p>
+<p>最终解出：y&#x3D;x-1的反函数是y&#x3D;x+1</p>
+<h2 id="二-极限（阿洛学长）"><a href="#二-极限（阿洛学长）" class="headerlink" title="二.极限（阿洛学长）"></a>二.极限（阿洛学长）</h2><h3 id="（1）数例的定义"><a href="#（1）数例的定义" class="headerlink" title="（1）数例的定义"></a>（1）数例的定义</h3><p><img src="https://postimage.me/images/2024/12/02/28.md.png" alt="28"></p>
+<h3 id="（2）数例极限的定义"><a href="#（2）数例极限的定义" class="headerlink" title="（2）数例极限的定义"></a>（2）数例极限的定义</h3><p><img src="https://postimage.me/images/2024/12/02/29.md.png" alt="29"></p>
+<p><img src="https://postimage.me/images/2024/12/02/30.md.png" alt="30"></p>
+<p><img src="https://postimage.me/images/2024/12/02/31.md.png" alt="31"></p>
+<p><img src="https://postimage.me/images/2024/12/02/32.md.png" alt="32"></p>
+<p>求数列极限：</p>
+<p><img src="https://postimage.me/images/2024/12/02/33.md.png" alt="33"></p>
+<p><img src="https://postimage.me/images/2024/12/02/34.md.png" alt="34"></p>
+<p><img src="https://postimage.me/images/2024/12/02/35.md.png" alt="35"></p>
+<h2 id="三-函数极限（阿洛学长）"><a href="#三-函数极限（阿洛学长）" class="headerlink" title="三.函数极限（阿洛学长）"></a>三.函数极限（阿洛学长）</h2><h3 id="（1）函数极限的定义："><a href="#（1）函数极限的定义：" class="headerlink" title="（1）函数极限的定义："></a>（1）函数极限的定义：</h3><p><img src="https://postimage.me/images/2024/12/02/36.md.png" alt="36"></p>
+<p><img src="https://postimage.me/images/2024/12/02/37.md.png" alt="37"></p>
+<p><img src="https://postimage.me/images/2024/12/02/38.md.png" alt="38"></p>
+<p><img src="https://postimage.me/images/2024/12/02/39.md.png" alt="39"></p>
+<h3 id="2-函数极限的充分必要条件"><a href="#2-函数极限的充分必要条件" class="headerlink" title="(2)函数极限的充分必要条件"></a>(2)函数极限的充分必要条件</h3><p><img src="https://postimage.me/images/2024/12/02/40.md.png" alt="40"></p>
+<h3 id="（3）函数极限的性质"><a href="#（3）函数极限的性质" class="headerlink" title="（3）函数极限的性质"></a>（3）函数极限的性质</h3><p><img src="https://postimage.me/images/2024/12/02/41.md.png" alt="41"></p>
+<p><img src="https://postimage.me/images/2024/12/02/42.md.png" alt="42"></p>
+<p><img src="https://postimage.me/images/2024/12/02/43.md.png" alt="43"></p>
+<p><img src="https://postimage.me/images/2024/12/02/44.md.png" alt="44"></p>
+<p><img src="https://postimage.me/images/2024/12/02/47.md.png" alt="47"></p>
+<p><img src="https://postimage.me/images/2024/12/02/45.md.png" alt="45"></p>
+<p><img src="https://postimage.me/images/2024/12/02/46.md.png" alt="46"></p>
+<h2 id="四-无穷小量与无穷大量（阿洛学长）"><a href="#四-无穷小量与无穷大量（阿洛学长）" class="headerlink" title="四.无穷小量与无穷大量（阿洛学长）"></a>四.无穷小量与无穷大量（阿洛学长）</h2><h4 id="（1）定义："><a href="#（1）定义：" class="headerlink" title="（1）定义："></a>（1）定义：</h4><p><img src="https://postimage.me/images/2024/12/02/48.md.png" alt="48"></p>
+<p><img src="https://postimage.me/images/2024/12/02/49.md.png" alt="49"></p>
+<h3 id="（2）无穷大与无穷小的关系"><a href="#（2）无穷大与无穷小的关系" class="headerlink" title="（2）无穷大与无穷小的关系"></a>（2）无穷大与无穷小的关系</h3><p><img src="https://postimage.me/images/2024/12/02/50.md.png" alt="50"></p>
+<p><img src="https://postimage.me/images/2024/12/03/51png.md.png" alt="md"></p>
+<h3 id="（3）无穷大与无穷小的性质"><a href="#（3）无穷大与无穷小的性质" class="headerlink" title="（3）无穷大与无穷小的性质"></a>（3）无穷大与无穷小的性质</h3><p><img src="https://postimage.me/images/2024/12/03/52.md.png" alt="md"></p>
+<p><img src="https://postimage.me/images/2024/12/03/53.md.png" alt="53"></p>
+<img title="" src="https://postimage.me/images/2024/12/03/54.md.png" alt="54" style="zoom:100%;">
+
+<img title="" src="https://postimage.me/images/2024/12/03/55.md.png" alt="55" style="zoom:100%;">
+
+<img title="" src="https://postimage.me/images/2024/12/03/55.md.png" alt="56" style="zoom:100%;">
+
+<img title="" src="https://postimage.me/images/2024/12/03/57.md.png" alt="57" style="zoom:100%;">
+
+<img title="" src="https://postimage.me/images/2024/12/03/58.md.png" alt="58" style="zoom:100%;">
+
+<h3 id="（4）两个重要极限的运用"><a href="#（4）两个重要极限的运用" class="headerlink" title="（4）两个重要极限的运用"></a>（4）两个重要极限的运用</h3><img title="" src="https://postimage.me/images/2024/12/03/59.md.png" alt="59" style="zoom:100%;">
+
+<img title="" src="https://postimage.me/images/2024/12/03/60.md.png" alt="60" style="zoom:100%;">
+
+<h3 id="（5）比较两个无穷小的阶"><a href="#（5）比较两个无穷小的阶" class="headerlink" title="（5）比较两个无穷小的阶"></a>（5）比较两个无穷小的阶</h3><img title="" src="https://postimage.me/images/2024/12/03/61.md.png" alt="61" style="zoom:100%;">
+
+<img title="" src="https://postimage.me/images/2024/12/03/62.md.png" alt="62" style="zoom:100%;">
+
+<img title="" src="https://postimage.me/images/2024/12/03/63.md.png" alt="63" style="zoom:100%;">
+
+
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2024 阿洛学长的世界
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;阿洛学长
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>
