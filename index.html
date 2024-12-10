@@ -181,6 +181,150 @@
         
 
 <div class="post">
+    <a href="/2024/12/10/%E4%B8%93%E5%8D%87%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E4%BA%8C%E7%AB%A0%E7%BA%BF%E6%80%A7%E8%A1%A8/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/12/10
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>title:专升本数据结构笔记 第二章:线性表</p>
+<h1 id="专升本数据结构笔记-第二章线性表"><a href="#专升本数据结构笔记-第二章线性表" class="headerlink" title="专升本数据结构笔记 第二章线性表"></a>专升本数据结构笔记 第二章线性表</h1><p>阿洛学长笔记 love ttz</p>
+<h1 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h1><h2 id="任务一-线性表的定义和基本操作（阿洛学长）"><a href="#任务一-线性表的定义和基本操作（阿洛学长）" class="headerlink" title="任务一 线性表的定义和基本操作（阿洛学长）"></a>任务一 线性表的定义和基本操作（阿洛学长）</h2><h3 id="一、线性表的定义"><a href="#一、线性表的定义" class="headerlink" title="一、线性表的定义"></a>一、线性表的定义</h3><p>线性表是由n（n≥0）个类型相同的数据元素a1,a2,…,an组成的有限序列，数据元素之间是一对一的关系，记作<br>L＝(a1, a2, …, ai－1, ai, ai＋1, …, an)</p>
+<p><mark>（由n（n≥0）个类型相同的数据元素，组成的有限序列，数据元素之间是一对一的关系，为线性表）</mark></p>
+<p><mark>可以理解为有序数组</mark></p>
+<h3 id="二、线性表的基本操作"><a href="#二、线性表的基本操作" class="headerlink" title="二、线性表的基本操作"></a>二、线性表的基本操作</h3><p><img src="https://i-blog.csdnimg.cn/direct/30998a7270cd4ec2b6ffc08a62127cc8.png#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="https://i-blog.csdnimg.cn/direct/d642e2a95a094d26a49bc1219a333392.png#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="任务二-线性表的顺序存储结构（阿洛学长）"><a href="#任务二-线性表的顺序存储结构（阿洛学长）" class="headerlink" title="任务二  线性表的顺序存储结构（阿洛学长）"></a>任务二  线性表的顺序存储结构（阿洛学长）</h2><p>线性表的顺序存储是指，<mark>在内存中用一组地址连续的存储单元依次存储线性表</mark>中的各个数据元素。</p>
+<p>采用顺序存储结构的线性表称为顺序表。</p>
+<h3 id="一、顺序表的结构特点"><a href="#一、顺序表的结构特点" class="headerlink" title="一、顺序表的结构特点"></a>一、顺序表的结构特点</h3><p>  假设线性表中有n个数据元素，每个元素占用k个存储单元，其中第一个数据元素a1的存储地址称为线性表的起始位置或基地址，线性表的顺序存储结构如图2-1所示。<br><img src="https://i-blog.csdnimg.cn/direct/ea9acdcf39804e19bb07674d441d5344.png#pic_center" alt="在这里插入图片描述"></p>
+<p>线性表的顺序存储结构是一种随机存取的存储结构。</p>
+<p>若已知线性表的起始位置（基地址）和表中每个数据元素所占存储单元的大小k，就可以计算出线性表中任意一个数据元素的存储地址，这种存取元素的方法称为随机存取法</p>
+<p>顺序表的存储结构通常用一维数组来描述，用C语言实现线性表的顺序存储结构的类型定义如下： </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> c 100        <span class="comment">//线性表的最大长度</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">ElemType elem [MAXSIZE];    <span class="comment">//存储线性表中数据元素的数组</span></span><br><span class="line"><span class="type">int</span> length;            <span class="comment">//线性表的当前长度</span></span><br><span class="line">&#125;SeqList;</span><br><span class="line"></span><br><span class="line">也可以这样来定义： </span><br><span class="line">    <span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">ElemType *elem;        <span class="comment">//线性表中数据元素的基地址</span></span><br><span class="line"><span class="type">int</span> length;            <span class="comment">//线性表的当前长度</span></span><br><span class="line"><span class="type">int</span> listsize;            <span class="comment">//当前为线性表分配的存储容量</span></span><br><span class="line">&#125;SeqList;</span><br><span class="line"></span><br><span class="line">定义一个顺序表的方法有两种：</span><br><span class="line"></span><br><span class="line">方法一：SeqList L，表示将L定义为SeqList类型的变量；</span><br><span class="line"></span><br><span class="line">对表中数据元素进行操作应使用L.elem[i] </span><br></pre></td></tr></table></figure>
+
+<p>方法二：SeqList *L，表示将L定义为指向SeqList类型的指针。</p>
+<p>对表中数据元素进行操作应使用L-&gt;elem[i] </p>
+<h3 id="二、顺序表的基本操作"><a href="#二、顺序表的基本操作" class="headerlink" title="二、顺序表的基本操作"></a>二、顺序表的基本操作</h3><p>1．初始化顺序表 （构造一个空的顺序表，并分配存储空间）</p>
+<p>2．插入数据元素 </p>
+<p>3．删除数据元素 </p>
+<p>4．查找数据元素 </p>
+<h4 id="1．初始化顺序表"><a href="#1．初始化顺序表" class="headerlink" title="1．初始化顺序表"></a>1．初始化顺序表</h4><p>初始化顺序表操作是指构造一个空的顺序表，并为其分配存储空间。 </p>
+<p>其算法描述如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    Status <span class="title function_">InitList</span> <span class="params">(SqList *L)</span></span><br><span class="line"></span><br><span class="line">&#123;    <span class="comment">//初始化顺序表</span></span><br><span class="line">L -&gt; elem = (ElemType *) <span class="built_in">malloc</span> (MAXSIZE * <span class="keyword">sizeof</span> (ElemType));</span><br><span class="line">                                                              <span class="comment">//分配存储空间</span></span><br><span class="line"><span class="keyword">if</span> (! L -&gt; elem)  <span class="keyword">return</span> OVERFLOW;    <span class="comment">//存储空间分配失败</span></span><br><span class="line">L -&gt; length = <span class="number">0</span>;            <span class="comment">//当前线性表长度为0</span></span><br><span class="line">L -&gt; listsize = LIST_MAX_SIZE;     <span class="comment">//初始化存储容量</span></span><br><span class="line"><span class="keyword">return</span> TRUE; &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2．插入数据元素"><a href="#2．插入数据元素" class="headerlink" title="2．插入数据元素"></a>2．插入数据元素</h4><p>在n元素和m元素中插入X        总长度为k</p>
+<p>初始位置</p>
+<p>序列：       i       i+1         ……….       k</p>
+<p>元素：       n       m         ………..       k</p>
+<p>插入X后的位置</p>
+<p>序列： i     i+1      i+2      ……….      k+1</p>
+<p>元素： n      x       m       ………..      k+1</p>
+<p><mark>（元素往后退1）</mark></p>
+<p><img src="https://i-blog.csdnimg.cn/direct/a1fc924dcad44ad2a2723c8b9fadd2bb.png#pic_center" alt="在这里插入图片描述"></p>
+<p>算法描述如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">    Status <span class="title function_">ListInsert</span> <span class="params">(SqList *L, <span class="type">int</span> i, ElemType e)</span></span><br><span class="line"></span><br><span class="line">&#123;<span class="type">int</span> j;</span><br><span class="line"><span class="keyword">if</span> (i &lt; <span class="number">1</span> || i &gt; L -&gt; length + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> FALSE;            <span class="comment">//i值不合法，出错处理</span></span><br><span class="line"><span class="keyword">if</span> (L -&gt; length = L.listsize)        <span class="comment">//当前存储空间满</span></span><br><span class="line">    <span class="keyword">return</span> OVERFLOW</span><br><span class="line"><span class="keyword">for</span> (j = L -&gt; length – <span class="number">1</span>; j &gt;= i - <span class="number">1</span>; j --)</span><br><span class="line">    L -&gt; elem [j + <span class="number">1</span>] = L -&gt; elem[j];</span><br><span class="line">                <span class="comment">//第i个位置之后的元素依次向后移</span></span><br><span class="line">L -&gt; elem[i –<span class="number">1</span>] = e;         <span class="comment">//将e插入到第i个位置</span></span><br><span class="line">L -&gt; length ++;         <span class="comment">//表长增1</span></span><br><span class="line"><span class="keyword">return</span> TRUE; &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i-blog.csdnimg.cn/direct/6785014340fe42a090ed028763c9cbba.png#pic_center" alt="在这里插入图片描述"></p>
+<p>n个元素移动1次，累计就n*1&#x3D;n        </p>
+<h4 id="3．删除数据元素"><a href="#3．删除数据元素" class="headerlink" title="3．删除数据元素"></a>3．删除数据元素</h4><p>在n元素和m元素中删除n      总长度为k</p>
+<p>初始位置</p>
+<p>序列： i    i+1   i+2 ………. k</p>
+<p>元素： n    x     m ……….. k</p>
+<p>插入X后的位置</p>
+<p>序列： i i+1 i+2 ………. k+1nc</p>
+<p>元素：x  m    c……….. k+1</p>
+<p><mark>（元素往前加1）</mark><br><img src="https://i-blog.csdnimg.cn/direct/36950f130caa486a9fa5a7b421a56d7a.png#pic_center" alt="在这里插入图片描述"></p>
+<p>算法描述如下： </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  Status <span class="title function_">ListDelete</span> <span class="params">(SqList *L, <span class="type">int</span> i)</span></span><br><span class="line"></span><br><span class="line">&#123;<span class="comment">//在顺序表L中删除第i个数据元素，其中1≤i≤L-&gt;length</span></span><br><span class="line"><span class="type">int</span> j;</span><br><span class="line"><span class="keyword">if</span> (i &lt; <span class="number">1</span> || i &gt; L -&gt; length)  <span class="keyword">return</span> FALSE; <span class="comment">//i值不合法，出错处理</span></span><br><span class="line"><span class="keyword">for</span> (j = i; j &lt; L -&gt; length; j ++)</span><br><span class="line">    L -&gt; elem[j - <span class="number">1</span>] = L -&gt; elem[j];   </span><br><span class="line">                  <span class="comment">//第i个位置之后的元素依次向前移</span></span><br><span class="line">L -&gt; length --;           <span class="comment">//表长减1</span></span><br><span class="line"><span class="keyword">return</span> TRUE; &#125; </span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i-blog.csdnimg.cn/direct/1ccedeb481d54404b567ff4745e385c6.png#pic_center" alt="在这里插入图片描述"></p>
+<p>n个元素移动1次，累计就n*1&#x3D;n</p>
+<h4 id="4．查找数据元素"><a href="#4．查找数据元素" class="headerlink" title="4．查找数据元素"></a>4．查找数据元素</h4><p>在顺序表中查找值为e的数据元素，并返回该元素在表中的位置。</p>
+<p>方法：从第一个数据元素开始，依次将表中的元素与e进行比较，若相等，则返回该元素在表中的位置；否则，查找失败。</p>
+<p>算法描述如下：<br>    int Locate (SqList L, ElemType e)</p>
+<p>{&#x2F;&#x2F;在顺序表中查找值为e的数据元素，查找成功，返回该元素的位置；否则返回0<br>for (i &#x3D; 0; i &lt; L.length; i ++)<br>  if (L.elem[i] &#x3D;&#x3D; e)<br>     return i + 1;        &#x2F;&#x2F;查找成功，返回序号<br>  return 0; }                              &#x2F;&#x2F;查找失败，返回0</p>
+<p>该算法的时间复杂度为O(n)n</p>
+<p><mark>所有元素都与查找元素e进行对比了一次，n*1&#x3D;n</mark></p>
+<p>【例2-1】一个线性表L中的数据元素按升序排列，编写一个算法，实现在线性表中插入一个数据元素item，使得线性表仍然保持升序排列。 </p>
+<p>算法如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Insert</span> <span class="params">(SqList L, ElemType item)</span></span><br><span class="line">&#123; <span class="type">int</span> i;</span><br><span class="line">  <span class="type">int</span> j;</span><br><span class="line"> <span class="keyword">if</span> (item &gt;= L.elem[L.length - <span class="number">1</span>]) <span class="comment">//item值大于表中最大的数据元素</span></span><br><span class="line">   L.elem[L.length] = item;     <span class="comment">//将item插入到表尾</span></span><br><span class="line"><span class="keyword">else</span>&#123;  i = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> (item &gt;= L.elem[i])     <span class="comment">//寻找item的插入位置i</span></span><br><span class="line">   i ++;</span><br><span class="line">   ListInsert (&amp;L, i, item); &#125;     <span class="comment">//将item插入到位置i</span></span><br><span class="line">   L.length ++; &#125;                  <span class="comment">//表长增1</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="任务三-线性表的链式存储结构-（阿洛学长）"><a href="#任务三-线性表的链式存储结构-（阿洛学长）" class="headerlink" title="任务三  线性表的链式存储结构 （阿洛学长）"></a>任务三  线性表的链式存储结构 （阿洛学长）</h2><p>一、单链表的结构特点 </p>
+<p>二、单链表的基本操作 </p>
+<p>三、静态链表及其基本操作 </p>
+<p>四、循环链表及其基本操作 </p>
+<p>五、双向链表及其基本操作 </p>
+<h4 id="一、单链表的结构特点"><a href="#一、单链表的结构特点" class="headerlink" title="一、单链表的结构特点"></a>一、单链表的结构特点</h4><p>数据域和指针域组成<br><img src="https://i-blog.csdnimg.cn/direct/d4844143d5c144b5b60fa5297cbafb83.png#pic_center" alt="在这里插入图片描述"><br><img src="https://i-blog.csdnimg.cn/direct/bbfdb95c220540e4a68edba1eccd10cf.png#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="https://i-blog.csdnimg.cn/direct/83ceb1d9ba974852856bd3a9519a8156.png#pic_center" alt="在这里插入图片描述"><br><img src="https://i-blog.csdnimg.cn/direct/850f773608884f0fa35d6b0c624a8946.png#pic_center" alt="在这里插入图片描述"><br><img src="https://i-blog.csdnimg.cn/direct/b96299b43abe4ea6b24043516c2413ae.png#pic_center" alt="在这里插入图片描述"></p>
+<h4 id="二、单链表的基本操作"><a href="#二、单链表的基本操作" class="headerlink" title="二、单链表的基本操作"></a>二、单链表的基本操作</h4><p>1．建立单链表 </p>
+<p>2．插入数据元素 </p>
+<p>3．删除数据元素 </p>
+<p>4．查找数据元素 </p>
+<p>5．求单链表的长度 </p>
+<h5 id="1．建立单链表"><a href="#1．建立单链表" class="headerlink" title="1．建立单链表"></a>1．建立单链表</h5><p><img src="https://i-blog.csdnimg.cn/direct/49b58c73ad764ee284684683cbf10865.png#pic_center" alt="在这里插入图片描述"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">     LinkList *<span class="title function_">Create</span> <span class="params">(LinkList *L)</span></span><br><span class="line"></span><br><span class="line">&#123;<span class="comment">//建立一个单链表，将新结点插入表尾</span></span><br><span class="line">Node *r, *s;</span><br><span class="line">ElemType c;</span><br><span class="line"><span class="type">int</span> i;</span><br><span class="line">*L = (LinkList) <span class="built_in">malloc</span> (<span class="keyword">sizeof</span>(Node));    <span class="comment">//为头结点分配存储空间</span></span><br><span class="line">r = *L;                    <span class="comment">//r初值指向头结点</span></span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">&#123;READ (c);                <span class="comment">//获取一个数据元素</span></span><br><span class="line">s = (LinkList) <span class="built_in">malloc</span> (<span class="keyword">sizeof</span>(Node));    <span class="comment">//生成一个新结点 </span></span><br><span class="line">s -&gt; data = c;        <span class="comment">//将要插入数据元素的值赋给新结点的数据域</span></span><br><span class="line">s -&gt; next = <span class="literal">NULL</span>;            <span class="comment">//链表末尾结点指针域为空</span></span><br><span class="line">r -&gt; next = s;                <span class="comment">//将新结点插入到当前链表的表尾上</span></span><br><span class="line">r = s;     &#125;                 <span class="comment">//r始终指向链表的当前表尾</span></span><br><span class="line"><span class="keyword">return</span> L; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>该算法的时间复杂度为O(n)</p>
+<h5 id="2．插入数据元素-1"><a href="#2．插入数据元素-1" class="headerlink" title="2．插入数据元素"></a>2．插入数据元素</h5><p><img src="https://i-blog.csdnimg.cn/direct/7ffc6d5cffd34baca02c0a5b6d69f44b.png#pic_center" alt="在这里插入图片描述"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">    Status <span class="title function_">ListInsert</span> <span class="params">(LinkList *L, <span class="type">int</span> i, ElemType e)</span></span><br><span class="line"></span><br><span class="line">&#123;<span class="comment">//在单链表L中第i个位置插入一个数据元素e</span></span><br><span class="line">Node *p, *s;</span><br><span class="line"><span class="type">int</span> j = <span class="number">0</span>;</span><br><span class="line">p = *L;</span><br><span class="line"><span class="keyword">while</span> (p != <span class="literal">NULL</span> &amp;&amp; j &lt; i - <span class="number">1</span>)</span><br><span class="line">&#123;<span class="comment">//找到第i－1个结点</span></span><br><span class="line">  p = p -&gt; next;</span><br><span class="line">  j ++; &#125;</span><br><span class="line"><span class="keyword">if</span> (j != i - <span class="number">1</span>)    <span class="keyword">return</span> FALSE;        <span class="comment">//未找到插入位置，出错处理</span></span><br><span class="line">s = (LinkList) <span class="built_in">malloc</span> (<span class="keyword">sizeof</span> (Node));<span class="comment">//生成新结点</span></span><br><span class="line">s -&gt; data = e;        <span class="comment">//将要插入数据元素的值赋给新结点的数据域</span></span><br><span class="line">s -&gt; next = p-&gt; next;            <span class="comment">//插入新结点</span></span><br><span class="line">p -&gt; next = s;</span><br><span class="line"><span class="keyword">return</span> TRUE; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>该算法的时间复杂度为O(n) </p>
+<h5 id="3．删除数据元素-1"><a href="#3．删除数据元素-1" class="headerlink" title="3．删除数据元素"></a>3．删除数据元素</h5><p><img src="https://i-blog.csdnimg.cn/direct/8d31427ad85a414eb506cd686c1b458f.png#pic_center" alt="在这里插入图片描述"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Status <span class="title function_">ListDelete</span> <span class="params">(LinkList *L, <span class="type">int</span> i, ElemType *e)</span></span><br><span class="line">&#123;<span class="comment">//删除单链表L中的第i个结点，并用e返回被删除的元素</span></span><br><span class="line">Node *p, *r;</span><br><span class="line"><span class="type">int</span> j = <span class="number">0</span>;</span><br><span class="line">p = *L;</span><br><span class="line"><span class="keyword">while</span> (p -&gt; next != <span class="literal">NULL</span> &amp;&amp; j &lt; i - <span class="number">1</span>)</span><br><span class="line">&#123;<span class="comment">//找到第i－1个结点</span></span><br><span class="line">p = p -&gt; next;</span><br><span class="line">j ++; &#125;</span><br><span class="line"><span class="keyword">if</span> (j != i - <span class="number">1</span>)  <span class="keyword">return</span> FALSE;    <span class="comment">//未找到要删除的结点，出错处理</span></span><br><span class="line">r = p -&gt; next;            <span class="comment">//指针r指向要删除的结点</span></span><br><span class="line">p -&gt; next = p -&gt; next -&gt; next;    <span class="comment">//删除结点r</span></span><br><span class="line">*e = r -&gt; data;        <span class="comment">//将删除结点的值保存在e中</span></span><br><span class="line"><span class="built_in">free</span> (r);            <span class="comment">//释放被删除结点所占的内存空间</span></span><br><span class="line"><span class="keyword">return</span> TRUE; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>该算法的时间复杂度为O(n)</p>
+<h5 id="4．查找数据元素-1"><a href="#4．查找数据元素-1" class="headerlink" title="4．查找数据元素"></a>4．查找数据元素</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    LinkList <span class="title function_">GetElem</span> <span class="params">(LinkList L, <span class="type">int</span> i)</span></span><br><span class="line"></span><br><span class="line">&#123;<span class="comment">//在单链表L中查找第i个结点，并返回该结点的指针</span></span><br><span class="line">Node *p;</span><br><span class="line"><span class="type">int</span> j = <span class="number">0</span>;</span><br><span class="line">p = L;            <span class="comment">//指针p初值指向头结点</span></span><br><span class="line"><span class="keyword">while</span> ((p -&gt; next != <span class="literal">NULL</span>) &amp;&amp; (j &lt; i))</span><br><span class="line">&#123;    <span class="comment">//逐个结点扫描</span></span><br><span class="line">  p = p -&gt; next;        <span class="comment">//指向下一个结点</span></span><br><span class="line">  j ++; &#125;                <span class="comment">//已扫描过的结点数</span></span><br><span class="line"><span class="keyword">return</span> p; &#125;             <span class="comment">//返回第i个结点</span></span><br></pre></td></tr></table></figure>
+
+<p>算法的时间复杂度为O(n)</p>
+<p>（2）按值查找 </p>
+<p>查找单链表中值为e的结点，算法描述如下</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> LinkList <span class="title function_">Locate</span> <span class="params">(LinkList L, ElemType e)</span></span><br><span class="line"></span><br><span class="line">&#123;    <span class="comment">//在单链表中查找值为e的结点，并返回该结点的指针</span></span><br><span class="line">    Node *p;</span><br><span class="line">    p = L -&gt; next;        <span class="comment">//指针p初值指向表中第1个结点</span></span><br><span class="line">    <span class="keyword">while</span> ((p != <span class="literal">NULL</span>) &amp;&amp; (p -&gt; data != e))    </span><br><span class="line">          <span class="comment">//从表中第1个结点开始逐个比较</span></span><br><span class="line">        p = p -&gt; next;</span><br><span class="line">    <span class="keyword">return</span> p; &#125;         <span class="comment">//返回值为e的结点</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="5．求单链表的长度"><a href="#5．求单链表的长度" class="headerlink" title="5．求单链表的长度"></a>5．求单链表的长度</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="type">int</span> <span class="title function_">ListLength</span> <span class="params">(LinkList L)</span></span><br><span class="line"></span><br><span class="line">&#123;    <span class="comment">//返回单链表的长度</span></span><br><span class="line">    Node *p;</span><br><span class="line">    <span class="type">int</span> j = <span class="number">0</span>;        <span class="comment">//用来保存单链表的长度</span></span><br><span class="line">    p = L -&gt; next;        <span class="comment">//指针p初值指向表中第1个结点</span></span><br><span class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span>)    <span class="comment">//用指针p依次指向表中各个结点</span></span><br><span class="line">    &#123; p = p -&gt; next;</span><br><span class="line">       j ++; &#125;</span><br><span class="line">    <span class="keyword">return</span> j; &#125;         <span class="comment">//返回单链表的长度</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="三、静态链表及其基本操作"><a href="#三、静态链表及其基本操作" class="headerlink" title="三、静态链表及其基本操作"></a>三、静态链表及其基本操作</h4><p>1．初始化静态链表 </p>
+<p>2．分配结点 </p>
+<p>3．回收结点 </p>
+<h5 id="1．初始化静态链表"><a href="#1．初始化静态链表" class="headerlink" title="1．初始化静态链表"></a>1．初始化静态链表</h5><p><img src="https://i-blog.csdnimg.cn/direct/0a40e17010694e22974f27cc6856c546.png#pic_center" alt="在这里插入图片描述"></p>
+<h5 id="2．分配结点"><a href="#2．分配结点" class="headerlink" title="2．分配结点"></a>2．分配结点</h5><p><img src="https://i-blog.csdnimg.cn/direct/15c89f9fad58490aba63f7d85ed221d3.png#pic_center" alt="在这里插入图片描述"></p>
+<h5 id="3．回收结点"><a href="#3．回收结点" class="headerlink" title="3．回收结点"></a>3．回收结点</h5><p><img src="https://i-blog.csdnimg.cn/direct/715f5268aa954edba803320f7b2bf7a7.png#pic_center" alt="在这里插入图片描述"></p>
+<h4 id="四、循环链表及其基本操作"><a href="#四、循环链表及其基本操作" class="headerlink" title="四、循环链表及其基本操作"></a>四、循环链表及其基本操作</h4><p>将表中最后一个结点的指针域指向头结点，从而形成一个首尾相接的链表，称为循环链表。<br><img src="https://i-blog.csdnimg.cn/direct/aaac8bfbcc1f4dc998705dc9b699dbc3.png#pic_center" alt="在这里插入图片描述"><br>所有结点被链接到一个环上，从循环链表中任一结点出发均可找到表中其他结点。 <img src="https://i-blog.csdnimg.cn/direct/3bc2c9cea812426484e12275a1a870de.png#pic_center" alt="在这里插入图片描述"></p>
+<h4 id="五、双向链表及其基本操作"><a href="#五、双向链表及其基本操作" class="headerlink" title="五、双向链表及其基本操作"></a>五、双向链表及其基本操作</h4><p>1．插入数据元素 </p>
+<p>2．删除数据元素 </p>
+<h5 id="1．插入数据元素"><a href="#1．插入数据元素" class="headerlink" title="1．插入数据元素"></a>1．插入数据元素</h5><p><img src="https://i-blog.csdnimg.cn/direct/0168e318024449de8244b1b787994764.png#pic_center" alt="在这里插入图片描述"></p>
+<p>算法描述如下： </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">    Status <span class="title function_">DListInsert</span> <span class="params">(DLinkList *L,<span class="type">int</span> i, ElemType e)</span></span><br><span class="line"></span><br><span class="line">&#123;    <span class="comment">//在双向循环链表L中第i个位置插入一个数据元素e</span></span><br><span class="line">    DNode *s, *p</span><br><span class="line">    <span class="title function_">if</span> <span class="params">(! (p = GetElem (L, i)))</span>  <span class="keyword">return</span> FALSE; <span class="comment">//插入位置不合法</span></span><br><span class="line">    s = (DLinkList) <span class="built_in">malloc</span> (<span class="keyword">sizeof</span> (DNode) <span class="comment">//生成新结点</span></span><br><span class="line">    <span class="keyword">if</span> (! s)    <span class="keyword">return</span> FALSE;</span><br><span class="line">    s -&gt; data = e;        <span class="comment">//将e赋给新结点的数据域</span></span><br><span class="line">    s -&gt; prior = p -&gt; prior;    <span class="comment">//新结点的前驱指向p结点的前驱</span></span><br><span class="line">    p -&gt; prior -&gt; next = s;    <span class="comment">//p结点前驱的后继指向新结点</span></span><br><span class="line">    s -&gt; next = p;        <span class="comment">//新结点的后继指向p结点</span></span><br><span class="line">    p -&gt; prior = s;        <span class="comment">//p结点的前驱指向新结点</span></span><br><span class="line">    <span class="keyword">return</span> TRUE; &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2．删除数据元素"><a href="#2．删除数据元素" class="headerlink" title="2．删除数据元素"></a>2．删除数据元素</h5><p><img src="https://i-blog.csdnimg.cn/direct/98db5e39ee9a41b59ef0f45484fb2635.png#pic_center" alt="在这里插入图片描述"></p>
+<p>算法描述如下： </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">    Status <span class="title function_">DListDelete</span> <span class="params">(DLinkList *L,<span class="type">int</span> i, ElemType *e)</span></span><br><span class="line">&#123;<span class="comment">//删除双向链表L中的第i个结点</span></span><br><span class="line">DNode *p</span><br><span class="line"><span class="title function_">if</span> <span class="params">(! (p = GetElem (L, i)))</span>  <span class="keyword">return</span> FALSE;<span class="comment">//i值不合法</span></span><br><span class="line">*e = p -&gt; data;		<span class="comment">//将要删除结点的值赋给e</span></span><br><span class="line">p -&gt; prior -&gt; next = p -&gt; next; <span class="comment">//要删除结点前驱的后继指向其后继</span></span><br><span class="line">p -&gt; next -&gt; prior = p -&gt; prior; <span class="comment">//要删除结点后继的前驱指向其前驱</span></span><br><span class="line"><span class="built_in">free</span> (p);			<span class="comment">//释放p结点</span></span><br><span class="line"><span class="keyword">return</span> TRUE;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2024/12/10/%E4%B8%93%E5%8D%87%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E4%BA%8C%E7%AB%A0%E7%BA%BF%E6%80%A7%E8%A1%A8/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2024/12/10/%E4%B8%93%E5%8D%87%E6%9C%AC%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%AF%BC%E6%95%B0%E4%B8%8E%E5%BE%AE%E5%88%86%E4%B9%8B%E5%AF%BC%E6%95%B0/">
         <h2 class="post-title">专升本高数笔记 第二章：导数与微分之导数</h2>
     </a>
@@ -634,10 +778,10 @@
 <img src="https://postimage.me/images/2024/11/23/a61b8660-326f-49e8-83a2-3b03a58b9f5e.png" title="" alt="a61b8660 326f 49e8 83a2 3b03a58b9f5e" style="zoom:200%;">
 
 <p>（3）获取SSH密钥</p>
-<p>（4）创建密钥：ssh-keygen -t rsa -C “<a href="mailto:&#x33;&#x58;&#x58;&#88;&#x58;&#x58;&#88;&#88;&#x58;&#x58;&#88;&#x58;&#x40;&#113;&#113;&#x2e;&#x63;&#x6f;&#x6d;">&#x33;&#x58;&#x58;&#88;&#x58;&#x58;&#88;&#88;&#x58;&#x58;&#88;&#x58;&#x40;&#113;&#113;&#x2e;&#x63;&#x6f;&#x6d;</a>“</p>
+<p>（4）创建密钥：ssh-keygen -t rsa -C “<a href="mailto:&#51;&#88;&#88;&#88;&#88;&#x58;&#x58;&#x58;&#x58;&#x58;&#x58;&#88;&#x40;&#113;&#113;&#46;&#x63;&#111;&#x6d;">&#51;&#88;&#88;&#88;&#88;&#x58;&#x58;&#x58;&#x58;&#x58;&#x58;&#88;&#x40;&#113;&#113;&#46;&#x63;&#111;&#x6d;</a>“</p>
 <p>（5）获取密钥：cat ~&#x2F;.ssh&#x2F;id_rsa.pub</p>
 <p>（密钥样式）</p>
-<p>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDTZJPBngwsPeJ8&#x2F;Kagh’f’gdhfgD9LEWIYYf+jKSDsiM2eLesROa4llQbhfghh’f’g’hmWhfghh’f’g&#x2F;bbX54vcqVwVdlopJUu4ZP4azn&#x2F;qQWRRTHJXXKj0GGM&#x2F;AlQjshfgh’f’g’hOsyKq22bL4wjI8ZJvT7AGDzC&#x2F;Nrn6cDhc+hy5z1HPVMVDX9i0sG18MmKtOCJ8dCagIjIWEWCyN7e+HuciTXZUHO+k6dLhfxK6YUmw3U6hWcRH+30mgHydr9mL&#x2F;QdiXa&#x2F;N4OUva7Xmh9l6hfgh’f’g’h9DC&#x2F;u+Xu2Sghftghfh’f’g’hKRljwj8nZf4FCdA0UQJE4Ynf6SYYLJBKLotbeWWvPhfghh’f’g2TdMeSlCHyex9FGhvkbm94&#x2F;vQv0xYSD2WMg’h’f’t’g’h’fmIfPWSJ5xWZ7NIBAR+9cFiq7VDrXhavs5v5nY9iwiPd+Fy6Z65QfezEmz9flU+kuA94v03TIKZC+Zf9hlZhfghh’f’g’hWj+g4&#x2F;fJ4Nc4biC2nY8TD+H0HnkXPCJgtOiLxaSgi08LFmwJyzt9&#x2F;zCadO&#x2F;IEtRol7RVvTx6NPn9LVy0xPy7ZvQIRIxx4B75fohI9WM&#x3D; <a href="mailto:&#x33;&#x32;&#102;&#x67;&#52;&#x35;&#52;&#53;&#52;&#53;&#52;&#x35;&#56;&#x40;&#x71;&#x71;&#46;&#99;&#x6f;&#109;">&#x33;&#x32;&#102;&#x67;&#52;&#x35;&#52;&#53;&#52;&#53;&#52;&#x35;&#56;&#x40;&#x71;&#x71;&#46;&#99;&#x6f;&#109;</a></p>
+<p>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDTZJPBngwsPeJ8&#x2F;Kagh’f’gdhfgD9LEWIYYf+jKSDsiM2eLesROa4llQbhfghh’f’g’hmWhfghh’f’g&#x2F;bbX54vcqVwVdlopJUu4ZP4azn&#x2F;qQWRRTHJXXKj0GGM&#x2F;AlQjshfgh’f’g’hOsyKq22bL4wjI8ZJvT7AGDzC&#x2F;Nrn6cDhc+hy5z1HPVMVDX9i0sG18MmKtOCJ8dCagIjIWEWCyN7e+HuciTXZUHO+k6dLhfxK6YUmw3U6hWcRH+30mgHydr9mL&#x2F;QdiXa&#x2F;N4OUva7Xmh9l6hfgh’f’g’h9DC&#x2F;u+Xu2Sghftghfh’f’g’hKRljwj8nZf4FCdA0UQJE4Ynf6SYYLJBKLotbeWWvPhfghh’f’g2TdMeSlCHyex9FGhvkbm94&#x2F;vQv0xYSD2WMg’h’f’t’g’h’fmIfPWSJ5xWZ7NIBAR+9cFiq7VDrXhavs5v5nY9iwiPd+Fy6Z65QfezEmz9flU+kuA94v03TIKZC+Zf9hlZhfghh’f’g’hWj+g4&#x2F;fJ4Nc4biC2nY8TD+H0HnkXPCJgtOiLxaSgi08LFmwJyzt9&#x2F;zCadO&#x2F;IEtRol7RVvTx6NPn9LVy0xPy7ZvQIRIxx4B75fohI9WM&#x3D; <a href="mailto:&#x33;&#x32;&#x66;&#x67;&#52;&#53;&#x34;&#x35;&#x34;&#x35;&#x34;&#53;&#56;&#64;&#113;&#x71;&#x2e;&#99;&#111;&#109;">&#x33;&#x32;&#x66;&#x67;&#52;&#53;&#x34;&#x35;&#x34;&#x35;&#x34;&#53;&#56;&#64;&#113;&#x71;&#x2e;&#99;&#111;&#109;</a></p>
 <p>（6）配置密钥，上传项目   ssh    hexo d</p>
 <p>（7）配置密钥</p>
 <p><img src="https://postimage.me/images/2024/11/23/Snipaste_2024-11-23_00-24-11.md.png" alt="img"></p>
@@ -647,7 +791,7 @@
 <p>修改的代码部分</p>
 <p>deploy:</p>
 <p>  type: ‘git’</p>
-<p>  repository: <a href="mailto:&#103;&#105;&#x74;&#64;&#103;&#x69;&#116;&#x65;&#x65;&#46;&#x63;&#x6f;&#x6d;">&#103;&#105;&#x74;&#64;&#103;&#x69;&#116;&#x65;&#x65;&#46;&#x63;&#x6f;&#x6d;</a>:aluolove&#x2F;boke.git（ssh的地址）</p>
+<p>  repository: <a href="mailto:&#103;&#x69;&#116;&#64;&#103;&#x69;&#116;&#x65;&#101;&#x2e;&#99;&#111;&#109;">&#103;&#x69;&#116;&#64;&#103;&#x69;&#116;&#x65;&#101;&#x2e;&#99;&#111;&#109;</a>:aluolove&#x2F;boke.git（ssh的地址）</p>
 <p>branch：main （分支）</p>
 <p>npm install hexo-deployer-git –save</p>
 <p>hexo d（上传博客文件）</p>
@@ -672,7 +816,7 @@
 <p><img src="https://postimage.me/images/2024/11/23/f43a9e31-0864-4986-8eea-2903b18731cb.md.png" alt="md"></p>
 <p>创建仓库</p>
 <p>配置仓库</p>
-<p>创建密钥：ssh-keygen -t rsa -C “<a href="mailto:&#88;&#x58;&#88;&#88;&#x58;&#x58;&#x58;&#x58;&#88;&#88;&#64;&#x71;&#x71;&#46;&#99;&#x6f;&#x6d;">&#88;&#x58;&#88;&#88;&#x58;&#x58;&#x58;&#x58;&#88;&#88;&#64;&#x71;&#x71;&#46;&#99;&#x6f;&#x6d;</a>“</p>
+<p>创建密钥：ssh-keygen -t rsa -C “<a href="mailto:&#x58;&#88;&#88;&#88;&#88;&#x58;&#x58;&#88;&#88;&#x58;&#x40;&#113;&#113;&#x2e;&#x63;&#111;&#x6d;">&#x58;&#88;&#88;&#88;&#88;&#x58;&#x58;&#88;&#88;&#x58;&#x40;&#113;&#113;&#x2e;&#x63;&#111;&#x6d;</a>“</p>
 <p>获取密钥：cat ~&#x2F;.ssh&#x2F;id_rsa.pub</p>
 
             
