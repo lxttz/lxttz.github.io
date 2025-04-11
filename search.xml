@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>免费API接口调用平台推荐</title>
+      <link href="/posts/d46dd430.html"/>
+      <url>/posts/d46dd430.html</url>
+      
+        <content type="html"><![CDATA[<h1>🌟 免费 API 接口调用平台推荐</h1><hr><h2 id="🔹-1-RapidAPI">🔹 <strong>1. RapidAPI</strong></h2><p>🎯 <strong>优点</strong>:<br>✅ 全球最大的 API 市场，覆盖 40,000+ 个 API<br>✅ 提供免费层（通常每月 500-1000 次调用）<br>✅ 支持多种编程语言代码片段生成<br>✅ 可视化测试工具</p><p>⚠️ <strong>缺点</strong>:<br>❌ 部分高需求 API 免费额度较低<br>❌ 需要注册账号才能使用</p><p><a href="https://rapidapi.com/">官网链接</a></p><hr><h2 id="🔹-2-Postman-Public-API-Network">🔹 <strong>2. Postman Public API Network</strong></h2><p>🎯 <strong>优点</strong>:<br>✅ 开发友好的可视化调试界面<br>✅ 可直接导入他人分享的 API 集合<br>✅ 支持自动化测试和工作流<br>✅ 免费层足够个人开发者使用</p><p>⚠️ <strong>缺点</strong>:<br>❌ 高级功能需要付费<br>❌ 需下载客户端/注册账号</p><p><a href="https://www.postman.com/api/">官网链接</a></p><hr><h2 id="🔹-3-APILayer-前身：RESTCountries">🔹 <strong>3. APILayer (前身：RESTCountries)</strong></h2><p>🎯 <strong>优点</strong>:<br>✅ 专精实用型 API（如货币汇率、地理位置等）<br>✅ 无需认证即可试用基础功能<br>✅ 响应速度快，文档清晰</p><p>⚠️ <strong>缺点</strong>:<br>❌ 免费版有功能限制<br>❌ API 种类较垂直</p><p><a href="https://apilayer.com/">官网链接</a></p><hr><h2 id="🔹-4-OpenWeatherMap">🔹 <strong>4. OpenWeatherMap</strong></h2><p>🎯 <strong>优点</strong>:<br>✅ 天气 API 领域头部服务<br>✅ 免费 tier（60次/分钟调用）<br>✅ 提供全球气象数据</p><p>⚠️ <strong>缺点</strong>:<br>❌ 历史数据需要付费<br>❌ 免费版广告较多</p><p><a href="https://openweathermap.org/api">官网链接</a></p><hr><h2 id="🔹-5-JSONPlaceholder">🔹 <strong>5. JSONPlaceholder</strong></h2><p>🎯 <strong>优点</strong>:<br>✅ 完全免费的模拟 REST API<br>✅ 适合前端开发和测试<br>✅ 零配置，开箱即用</p><p>⚠️ <strong>缺点</strong>:<br>❌ 仅提供模拟数据<br>❌ 无真实业务逻辑</p><p><a href="https://jsonplaceholder.typicode.com/">官网链接</a></p><hr><h2 id="🔹-6-AnyAPI">🔹 <strong>6. AnyAPI</strong></h2><p>🎯 <strong>优点</strong>:<br>✅ 无需注册直接调用<br>✅ 聚合实用小工具 API（IP查询、UA解析等）<br>✅ 响应速度快</p><p>⚠️ <strong>缺点</strong>:<br>❌ 功能较简单<br>❌ 无商业级支持</p><p><a href="https://any-api.com/">官网链接</a></p><hr><h2 id="🔹-7-MockAPI">🔹 <strong>7. MockAPI</strong></h2><p>🎯 <strong>优点</strong>:<br>✅ 快速创建自定义 Mock API<br>✅ 支持 REST/GraphQL<br>✅ 免费 tier 可创建 1 个项目</p><p>⚠️ <strong>缺点</strong>:<br>❌ 高级功能付费<br>❌ 需要学习配置</p><p><a href="https://mockapi.io/">官网链接</a></p><hr><h2 id="🔹-8-Public-APIs-GitHub-项目">🔹 <strong>8. Public APIs (GitHub 项目)</strong></h2><p>🎯 <strong>优点</strong>:<br>✅ 社区维护的免费 API 清单<br>✅ 按类别分类（动物/金融/游戏等）<br>✅ 完全开源透明</p><p>⚠️ <strong>缺点</strong>:<br>❌ 需要自行测试稳定性<br>❌ 无统一管理平台</p><p><a href="https://github.com/public-apis/public-apis">GitHub 链接</a></p><hr><p>📌 <strong>使用建议</strong>：根据具体需求选择，测试型开发推荐 JSONPlaceholder，生产环境建议关注 RapidAPI/APILayer 的免费 tier。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> api </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> api </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SpringBoot+Vue前后端分离项目如何运行</title>
       <link href="/posts/b9ef3e19.html"/>
       <url>/posts/b9ef3e19.html</url>
