@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>若依笔记入门</title>
+      <link href="/posts/25bfe5f9.html"/>
+      <url>/posts/25bfe5f9.html</url>
+      
+        <content type="html"><![CDATA[<h1>若依笔记入门</h1><h2 id="1-什么是若依？">1.什么是若依？</h2><p>开源项目，学习开源项目的目标</p><p>1、使用若依来开减少工作量</p><p>2、学习优秀开源 项目的底层逻辑的编程思想， 设计思路，提高编程能力</p><h2 id="2-若依官网">2.若依官网</h2><p>官网：（<a href="https://ruoyi.vip">https://ruoyi.vip</a>）</p><p><a href="https://ruoyi.vip/">RuoYi 若依官方网站 |后台管理系统|权限管理系统|快速开发框架|企业管理系统|开源框架|微服务框架|前后端分离框架|开源后台系统|RuoYi|RuoYi-Vue|RuoYi-Cloud|RuoYi框架|RuoYi开源|RuoYi视频|若依视频|RuoYi开发文档|若依开发文档|Java开源框架|Java|SpringBoot|SrpingBoot2.0|SrpingCloud|Alibaba|MyBatis|Shiro|OAuth2.0|Thymeleaf|BootStrap|Vue|Element-UI||www.ruoyi.vip</a></p><h2 id="3-若依源码地址">3.若依源码地址</h2><h3 id="若依-RuoYi">若依/RuoYi</h3><p><a href="https://gitee.com/y_project/RuoYi">RuoYi: 🎉 基于SpringBoot的权限管理系统 易读易懂、界面简洁美观。 核心技术采用Spring、MyBatis、Shiro没有任何其它重度依赖。直接运行即可用</a></p><h3 id="若依-RuoYi-Vue">若依/RuoYi-Vue</h3><p><a href="https://gitee.com/y_project/RuoYi-Vue">RuoYi-Vue: 🎉 基于SpringBoot，Spring Security，JWT，Vue &amp; Element 的前后端分离权限管理系统，同时提供了 Vue3 的版本</a></p><h3 id="若依-RuoYi-Cloud">若依/RuoYi-Cloud</h3><p><a href="https://gitee.com/y_project/RuoYi-Cloud">RuoYi-Cloud: 🎉 基于Spring Boot、Spring Cloud &amp; Alibaba的分布式微服务架构权限管理系统，同时提供了 Vue3 的版本</a></p><h3 id="若依-RuoYi-App">若依/RuoYi-App</h3><p><a href="https://gitee.com/y_project/RuoYi-App">RuoYi-App: 🎉 RuoYi APP 移动端框架，基于uniapp+uniui封装的一套基础模版，支持H5、APP、微信小程序、支付宝小程序等，实现了与RuoYi-Vue、RuoYi-Cloud后台完美对接。</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 若依 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 若依笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>免费API接口调用平台推荐</title>
       <link href="/posts/d46dd430.html"/>
       <url>/posts/d46dd430.html</url>
