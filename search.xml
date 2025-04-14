@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>若依前后端分离笔记01</title>
+      <link href="/posts/11ad3b33.html"/>
+      <url>/posts/11ad3b33.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-登录界面"><a href="#1-登录界面" class="headerlink" title="1,登录界面"></a>1,登录界面</h1><p>友情链接;<a href="https://www.bilibili.com/video/BV1HT4y1d7oA?spm_id_from=333.788.videopod.episodes&amp;vd_source=1a2ba67b8224ba6daa0aff71044d4787&amp;p=2">2、验证码的前端实现_哔哩哔哩_bilibili</a></p><h2 id="1-1生成验证码"><a href="#1-1生成验证码" class="headerlink" title="1.1生成验证码"></a>1.1生成验证码</h2><h3 id="（1）基本思路："><a href="#（1）基本思路：" class="headerlink" title="（1）基本思路："></a>（1）基本思路：</h3><p>后端生成一个表达式：</p><p>列如1+1=2 </p><p>1+1=？@2</p><p>（1）1+1=？转成图片，传到前端进行展示</p><p>（2）把答案存入Reids 中，key存在前端</p><h3 id="（2）代码实现："><a href="#（2）代码实现：" class="headerlink" title="（2）代码实现："></a>（2）代码实现：</h3><p>前端页面：A:\卓面\ruoyi\RuoYi-Vue\ruoyi-ui\src\views      都在views文件中</p><p>登录前端页面（login.vue）：A:\卓面\ruoyi\RuoYi-Vue\ruoyi-ui\src\views\login.vue</p><p>login.vue107行代码：</p><p>  created() {</p><pre><code>this.getCode();       //方法this.getCookie();</code></pre><p>  },</p><p>  methods: {</p><pre><code>getCode() &#123;  getCodeImg().then(res =&gt; &#123;    this.captchaEnabled = res.captchaEnabled === undefined ? true : res.captchaEnabled;    if (this.captchaEnabled) &#123;      this.codeUrl = &quot;data:image/gif;base64,&quot; + res.img;        //图片      this.loginForm.uuid = res.uuid;      //res存储    &#125;  &#125;);&#125;,</code></pre><p>login.vue的api接口路径 </p><p>A:\卓面\ruoyi\RuoYi-Vue\ruoyi-ui\src\api\login.js</p><p><img src="themes\butterfly\source\img\Snipaste_2025-04-14_15-29-02.png" alt="Snipaste_2025-04-14_15-29-02"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 若依 </category>
+          
+          <category> 验证码的前端实现 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 验证码的前端实现 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>AI设计工具导出PSD格式能力对比</title>
       <link href="/posts/c876a53a.html"/>
       <url>/posts/c876a53a.html</url>

@@ -6,7 +6,7 @@
   <link href="https://lxttz.github.io/atom.xml" rel="self"/>
   
   <link href="https://lxttz.github.io/"/>
-  <updated>2025-04-14T04:52:14.311Z</updated>
+  <updated>2025-04-14T07:31:05.410Z</updated>
   <id>https://lxttz.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>若依前后端分离笔记01</title>
+    <link href="https://lxttz.github.io/posts/11ad3b33.html"/>
+    <id>https://lxttz.github.io/posts/11ad3b33.html</id>
+    <published>2025-04-14T07:05:59.000Z</published>
+    <updated>2025-04-14T07:31:05.410Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1-登录界面"><a href="#1-登录界面" class="headerlink" title="1,登录界面"></a>1,登录界面</h1><p>友情链接;<a href="https://www.bilibili.com/video/BV1HT4y1d7oA?spm_id_from=333.788.videopod.episodes&amp;vd_source=1a2ba67b8224ba6daa0aff71044d4787&amp;p=2">2、验证码的前端实现_哔哩哔哩_bilibili</a></p><h2 id="1-1生成验证码"><a href="#1-1生成验证码" class="headerlink" title="1.1生成验证码"></a>1.1生成验证码</h2><h3 id="（1）基本思路："><a href="#（1）基本思路：" class="headerlink" title="（1）基本思路："></a>（1）基本思路：</h3><p>后端生成一个表达式：</p><p>列如1+1=2 </p><p>1+1=？@2</p><p>（1）1+1=？转成图片，传到前端进行展示</p><p>（2）把答案存入Reids 中，key存在前端</p><h3 id="（2）代码实现："><a href="#（2）代码实现：" class="headerlink" title="（2）代码实现："></a>（2）代码实现：</h3><p>前端页面：A:\卓面\ruoyi\RuoYi-Vue\ruoyi-ui\src\views      都在views文件中</p><p>登录前端页面（login.vue）：A:\卓面\ruoyi\RuoYi-Vue\ruoyi-ui\src\views\login.vue</p><p>login.vue107行代码：</p><p>  created() {</p><pre><code>this.getCode();       //方法this.getCookie();</code></pre><p>  },</p><p>  methods: {</p><pre><code>getCode() &#123;  getCodeImg().then(res =&gt; &#123;    this.captchaEnabled = res.captchaEnabled === undefined ? true : res.captchaEnabled;    if (this.captchaEnabled) &#123;      this.codeUrl = &quot;data:image/gif;base64,&quot; + res.img;        //图片      this.loginForm.uuid = res.uuid;      //res存储    &#125;  &#125;);&#125;,</code></pre><p>login.vue的api接口路径 </p><p>A:\卓面\ruoyi\RuoYi-Vue\ruoyi-ui\src\api\login.js</p><p><img src="themes\butterfly\source\img\Snipaste_2025-04-14_15-29-02.png" alt="Snipaste_2025-04-14_15-29-02"></p>]]></content>
+    
+    
+    <summary type="html">验证码的前端实现</summary>
+    
+    
+    
+    <category term="若依" scheme="https://lxttz.github.io/categories/%E8%8B%A5%E4%BE%9D/"/>
+    
+    <category term="验证码的前端实现" scheme="https://lxttz.github.io/categories/%E8%8B%A5%E4%BE%9D/%E9%AA%8C%E8%AF%81%E7%A0%81%E7%9A%84%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0/"/>
+    
+    
+    <category term="验证码的前端实现" scheme="https://lxttz.github.io/tags/%E9%AA%8C%E8%AF%81%E7%A0%81%E7%9A%84%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>AI设计工具导出PSD格式能力对比</title>
@@ -430,27 +453,6 @@
     
     
     <category term="Trae" scheme="https://lxttz.github.io/tags/Trae/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>springboot部署的问题</title>
-    <link href="https://lxttz.github.io/posts/a8a2f7d9.html"/>
-    <id>https://lxttz.github.io/posts/a8a2f7d9.html</id>
-    <published>2025-03-05T06:15:23.000Z</published>
-    <updated>2025-03-10T06:25:04.225Z</updated>
-    
-    <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试!" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">  <script id="hbeData" type="hbeData" data-hmacdigest="2ecbb369c05e0e2c80ef5684f56c6bae7c0d4ce7d2274ea8822854f4988429ae">a225aaeba5e546997ae504eef50c6509eaa2250882d944be287a727e99edacfd13ed24683e66afdc8b98fb0bccdb7e05cd9044f30f91baeea3d6de41a1ecfd3e5d420866d23b72aaf2afb5d3c87ce1cf9dca1d96138938f8006b1239d7c925f81e7d1b055484581ad0da18bb4c88a63475e23070fcd7e4537644bab5bc904fb4fc10c34d8c55e50329c1dd70bd9caffc4f97f2822f7836f9639f5d2dc1fd7f90f2c6c75aa8e33d45eda2104943d370468f69ba23dd6bf253d7e1ccac526c4bcc8ee3a59291b065d9fa71c786838ab5dbe91c9763c3a0ef1c36999195050cd8a99c917d5e9d168d34c9c300cb0ef7e549f28a5016ab084e82e1112b156dea2d5389f820be6a83e0720c5215933bd840a068a29bdb71a802063a4965c7e3b2c3cda2e188020555576d6edcbd340a7d69df4e1aef40430a5708c257ef5eb555ec395b832d9326195665a13f33eb9275362640aada658f7e712bcd0e315354aee12c8757208d1cc44e26d302f49acc9ef9d414c152a768c84ef8c86e811a3ae05419bd96cffeb08fda579a8490a9d4b925259a93a85adeedb1065f73b0ad29a9b73e84cf6b4afced73de3f02d1bb24145d9dfaed66c463b95e89a9f89826a1b343881b0bce1182ea140c08786661346f89cb08fa98ef200368ee730da64b6f8abbf62fb64f289512d97aea0f78cefcf583ea43afd04c2947dee7d2fe4bc3b8f526b6ce0e715831763cebdc22e124e8776086b1689273ea38349497c7b143533597a3160e32096ccf31cbbb04ac1a134863608fed3feb5ad2a898fa7a68eab68901527cdf28ff1f44bf069481dbe6cffa900889e5b0887e02df17292156a008e61315407c3d21035da64645f4d9cef1515ff011e31de88b05bc730f94bddf6043735055fa3812b394d1fd47c01c9d28b760de0197e2ebe413a790027ebadbafbadd8187fac88a957dd7b829e7744c5598288e6b62bde814c19d7f18e6a334f6a53193365c68a5e3b9d32183592ed09bb53f4cae2ec9a7b7b2ed0da4de3efbd050cfa679dba4bbdfa93f953ed5ddda2510b87813e20f7532b3516d0d5a23d274d44aded4fa068402ff7250a98ac70e7d6dd9076ab17e8b80f968e9c72a19b1792b8ade40ab387217453c7fe94bd6ec57fe3b6218feebf5ebe444f3f286f69118804e93a9ca086390b0709f9585f9fe9fa1d88d4147d549ad03b9481a5975095dac75208c0aee344c5267cbfae77ec05367ba0cc3dd16cf586c526a3d6ddf9f535a68882255acd40e3b9620e5dda9b5d566ec4e2883cda5bd21eabca2a327ce84174b5a392367d9086b996a21903ca68372544ab6e679f1bf25d78c1bd8b6acd727699bc2d11d7ce57eecade19caa84bcf7a7f7ea513651a511066daba57e219d8e142b7bbca9c2c41f4b5ad3f0b278bd4e1f6567697b29bdd95de4cf7a51b1fcab6c7b18cbad8964642c51c4afb118feda12e1449650f0a6d620149bba1f4f5696b98e01b5a05aa258448cf488e465e08d12bc5e5d82e9168e7836188e8bf364aa08d926ff49a2080fcc11c142433d8c4a893fa2312ae87ea9dc30b982808c0d016a30cced1501ebbfc868868999652242345f9a1f2b94512650ae38e761c57ede1b306c0efae0829d8f92f2ae0dff1cade0623c420c4ca5898902fbf345c5deeec0430614d31efd91319fb05664a07cd257bd12642f2b9bf7214da9b269869c753765e4f3a207eda8d13273bbc9d8fb95db611116e337854be104324452edc2af9c796a515206402696ba2d6cbbb60b958f2b5943fce4521563ebf9267a5ce2a8144ac79d77a998255520d90797b64fa2b145</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-xray">      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">springboot部署的问题，需要密码才能进入!</span>      </label>      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>      </svg>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-    
-    
-    <summary type="html">springboot部署的问题</summary>
-    
-    
-    
-    <category term="专升本" scheme="https://lxttz.github.io/categories/%E4%B8%93%E5%8D%87%E6%9C%AC/"/>
-    
-    
-    <category term="专升本自我介绍" scheme="https://lxttz.github.io/tags/%E4%B8%93%E5%8D%87%E6%9C%AC%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/"/>
     
   </entry>
   
