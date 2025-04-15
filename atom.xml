@@ -6,7 +6,7 @@
   <link href="https://lxttz.github.io/atom.xml" rel="self"/>
   
   <link href="https://lxttz.github.io/"/>
-  <updated>2025-04-15T08:27:14.920Z</updated>
+  <updated>2025-04-15T08:28:46.108Z</updated>
   <id>https://lxttz.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://lxttz.github.io/posts/87b2622f.html"/>
     <id>https://lxttz.github.io/posts/87b2622f.html</id>
     <published>2025-04-15T07:54:33.000Z</published>
-    <updated>2025-04-15T08:27:14.920Z</updated>
+    <updated>2025-04-15T08:28:46.108Z</updated>
     
     <content type="html"><![CDATA[<p>需要PY310和git</p><p>py3.10.8版本地址下载链接<br><a href="https://www.python.org/downloads/release/python-3108/">https://www.python.org/downloads/release/python-3108/</a></p><p><a href="https://github.com/mattyamonaca/layerdivider">https://github.com/mattyamonaca/layerdivider</a></p><p><a href="https://visualstudio.microsoft.com/zh-hans/thank-you-downloading-visual-studio/?sku=Community&amp;channel=Release&amp;version=VS2022&amp;source=VSLandingPage&amp;cid=2030&amp;passive=false">https://visualstudio.microsoft.com/zh-hans/thank-you-downloading-visual-studio/?sku=Community&amp;channel=Release&amp;version=VS2022&amp;source=VSLandingPage&amp;cid=2030&amp;passive=false</a><br>安装方法<br>1、下载代码解压或者git clone <a href="https://github.com/mattyamonaca/layerdivider">https://github.com/mattyamonaca/layerdivider</a><br>2、双击install.ps1安装，等安装完毕。<br>3、双击run_gui.ps1运行。<br>4、打开网页，将run_gui.ps1的地址输入浏览器(默认是localhost:7860).</p><p>使用方法：<br>把图片上传或拖拽即可</p>]]></content>
     
