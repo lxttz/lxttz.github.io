@@ -6,7 +6,7 @@
   <link href="https://lxttz.github.io/atom.xml" rel="self"/>
   
   <link href="https://lxttz.github.io/"/>
-  <updated>2025-04-14T14:49:04.862Z</updated>
+  <updated>2025-04-15T08:27:14.920Z</updated>
   <id>https://lxttz.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【图层分离导出PSD】图层分离插件</title>
+    <link href="https://lxttz.github.io/posts/87b2622f.html"/>
+    <id>https://lxttz.github.io/posts/87b2622f.html</id>
+    <published>2025-04-15T07:54:33.000Z</published>
+    <updated>2025-04-15T08:27:14.920Z</updated>
+    
+    <content type="html"><![CDATA[<p>需要PY310和git</p><p>py3.10.8版本地址下载链接<br><a href="https://www.python.org/downloads/release/python-3108/">https://www.python.org/downloads/release/python-3108/</a></p><p><a href="https://github.com/mattyamonaca/layerdivider">https://github.com/mattyamonaca/layerdivider</a></p><p><a href="https://visualstudio.microsoft.com/zh-hans/thank-you-downloading-visual-studio/?sku=Community&amp;channel=Release&amp;version=VS2022&amp;source=VSLandingPage&amp;cid=2030&amp;passive=false">https://visualstudio.microsoft.com/zh-hans/thank-you-downloading-visual-studio/?sku=Community&amp;channel=Release&amp;version=VS2022&amp;source=VSLandingPage&amp;cid=2030&amp;passive=false</a><br>安装方法<br>1、下载代码解压或者git clone <a href="https://github.com/mattyamonaca/layerdivider">https://github.com/mattyamonaca/layerdivider</a><br>2、双击install.ps1安装，等安装完毕。<br>3、双击run_gui.ps1运行。<br>4、打开网页，将run_gui.ps1的地址输入浏览器(默认是localhost:7860).</p><p>使用方法：<br>把图片上传或拖拽即可</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;需要PY310和git&lt;/p&gt;
+&lt;p&gt;py3.10.8版本地址下载链接&lt;br&gt;
+&lt;a href=&quot;https://www.python.org/downloads/release/python-3108/&quot;&gt;https://www.python.org/downloads/</summary>
+      
+    
+    
+    
+    <category term="ps" scheme="https://lxttz.github.io/categories/ps/"/>
+    
+    <category term="图片分层插件" scheme="https://lxttz.github.io/categories/ps/%E5%9B%BE%E7%89%87%E5%88%86%E5%B1%82%E6%8F%92%E4%BB%B6/"/>
+    
+    
+    <category term="图层分离导出PSD" scheme="https://lxttz.github.io/tags/%E5%9B%BE%E5%B1%82%E5%88%86%E7%A6%BB%E5%AF%BC%E5%87%BAPSD/"/>
+    
+  </entry>
+  
+  <entry>
     <title>若依前后端笔记二次开发</title>
     <link href="https://lxttz.github.io/posts/1f114b5f.html"/>
     <id>https://lxttz.github.io/posts/1f114b5f.html</id>
     <published>2025-04-14T08:10:23.000Z</published>
-    <updated>2025-04-14T14:49:04.862Z</updated>
+    <updated>2025-04-14T16:07:36.182Z</updated>
     
     <content type="html"><![CDATA[<p>运行成功若依后台管理</p><p>（1）删除若依自带的个性<br>若依管理  改成  ***管理系统</p><p>（2）新建子模块在后端<br>新建模块<br>路径：A:\卓面\RuoYi-Vue\pom.xml<br>在pom.xml通用工具，标签modules增加新的模块配置<br>路径：A:\卓面\RuoYi-Vue\ruoyi-admin\pom.xml<br>在pom.xml代码生成增加新的模块配置<br>（3）ai设计数据库<br>提示词：设计一下XXXXX系统的数据库<br>设计一下该系统的数据库，用列表展示，最后所有sql指令全部放在一起</p><p>系统管理——》菜单管理<br>系统工具——》生成代码——》导入数据库</p>]]></content>
     
@@ -47,7 +75,7 @@
     <link href="https://lxttz.github.io/posts/88a46a89.html"/>
     <id>https://lxttz.github.io/posts/88a46a89.html</id>
     <published>2025-04-14T07:35:01.000Z</published>
-    <updated>2025-04-14T07:43:16.905Z</updated>
+    <updated>2025-04-14T16:07:36.177Z</updated>
     
     <content type="html"><![CDATA[<h1>若依前后端分离笔记02</h1><h1>1.验证码的后端实现</h1><h2 id="后端代码">后端代码</h2><p>ctrl+shift+f  全局搜索    生成验证码</p><p>路径：src/main/java/com/ruoyi/web/controller/common/CaptchaController.java</p><p>代码部分</p><p>/**</p><ul><li>生成验证码<br>*/<br>@GetMapping(“/captchaImage”)<br>public AjaxResult getCode(HttpServletResponse response) throws IOException<br>{<br>AjaxResult ajax = AjaxResult.success();<br>boolean captchaEnabled = configService.selectCaptchaEnabled();<br>ajax.put(“captchaEnabled”, captchaEnabled);<br>if (!captchaEnabled)<br>{<br>return ajax;<br>}</li></ul>]]></content>
     
@@ -451,27 +479,6 @@
     
     
     <category term="GitHub" scheme="https://lxttz.github.io/tags/GitHub/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ai话术指南</title>
-    <link href="https://lxttz.github.io/posts/5a4cdc93.html"/>
-    <id>https://lxttz.github.io/posts/5a4cdc93.html</id>
-    <published>2025-03-11T10:00:54.000Z</published>
-    <updated>2025-03-19T10:11:30.706Z</updated>
-    
-    <content type="html"><![CDATA[<h1>ai话术</h1><h2 id="1-爬取网址内容">1.爬取网址内容</h2><p>网址+将该网页的内容拷贝下来，整理总结最后以markdown的文件格式输出</p><h2 id="2-梳理内容笔记">2.梳理内容笔记</h2><p>整理以上最后以markdown的文件格式输出，加上每一给平台的网址，标题加上一些小图标</p><h2 id="3-写某一方面的笔记">3.写某一方面的笔记</h2><p>给我写一份XXX的详细笔记，从0到1，越详细越好，最后以markdown的格式输出，简单通俗易懂，标题前加上一些小图标</p>]]></content>
-    
-    
-    <summary type="html">ai话术指南</summary>
-    
-    
-    
-    <category term="ai" scheme="https://lxttz.github.io/categories/ai/"/>
-    
-    
-    <category term="ai话术" scheme="https://lxttz.github.io/tags/ai%E8%AF%9D%E6%9C%AF/"/>
     
   </entry>
   
