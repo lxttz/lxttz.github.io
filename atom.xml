@@ -6,7 +6,7 @@
   <link href="https://lxttz.github.io/atom.xml" rel="self"/>
   
   <link href="https://lxttz.github.io/"/>
-  <updated>2025-04-15T08:28:46.108Z</updated>
+  <updated>2025-04-18T05:06:43.104Z</updated>
   <id>https://lxttz.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>最直接解决C盘爆红</title>
+    <link href="https://lxttz.github.io/posts/439c0790.html"/>
+    <id>https://lxttz.github.io/posts/439c0790.html</id>
+    <published>2025-04-18T04:55:00.000Z</published>
+    <updated>2025-04-18T05:06:43.104Z</updated>
+    
+    <content type="html"><![CDATA[<h1>方法：</h1><p>最直接有效的就是删除用不到的程序和文件<br>设置桌面的存储位置<br>更改文件下载路径<br>还有QQ微信的文件存储</p><h1>工具使用:(不要去下载哪些流氓的清理APP，会导致你越用越卡)</h1><h2 id="工具一：Everything（磁盘文件搜索神器）">工具一：Everything（磁盘文件搜索神器）</h2><p>下载链接：<a href="https://www.voidtools.com/zh-cn/downloads/">https://www.voidtools.com/zh-cn/downloads/</a><br>下载安装使用教程：<br><a href="https://blog.csdn.net/lh155136/article/details/126208006">https://blog.csdn.net/lh155136/article/details/126208006</a></p><h2 id="工具二：SpaceSniffer-exe（扫描磁盘空间利器）">工具二：SpaceSniffer.exe（扫描磁盘空间利器）</h2><p>下载链接：<a href="https://www.voidtools.com/zh-cn/downloads/">https://www.voidtools.com/zh-cn/downloads/</a><br>下载安装使用教程：<br><a href="https://blog.csdn.net/qwe122343/article/details/104782881">https://blog.csdn.net/qwe122343/article/details/104782881</a></p><h2 id="工具三：Geek（程序软件卸载神器）">工具三：Geek（程序软件卸载神器）</h2><p>下载链接：<a href="https://geekuninstaller.com/download">https://geekuninstaller.com/download</a>    （下载免费版本够用）<br>下载安装使用教程：<br><a href="https://blog.csdn.net/weixin_64944512/article/details/138968441?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522bb51f3962d36fe405b94576003beba5c%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=bb51f3962d36fe405b94576003beba5c&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-2-138968441-null-null.142%5Ev102%5Econtrol&amp;utm_term=geek%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85&amp;spm=1018.2226.3001.4187">https://blog.csdn.net/weixin_64944512/article/details/138968441?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522bb51f3962d36fe405b94576003beba5c%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=bb51f3962d36fe405b94576003beba5c&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-2-138968441-null-null.142^v102^control&amp;utm_term=geek下载安装&amp;spm=1018.2226.3001.4187</a></p>]]></content>
+    
+    
+    <summary type="html">快速解决C盘爆红</summary>
+    
+    
+    
+    <category term="电脑技巧" scheme="https://lxttz.github.io/categories/%E7%94%B5%E8%84%91%E6%8A%80%E5%B7%A7/"/>
+    
+    <category term="C盘爆红" scheme="https://lxttz.github.io/categories/%E7%94%B5%E8%84%91%E6%8A%80%E5%B7%A7/C%E7%9B%98%E7%88%86%E7%BA%A2/"/>
+    
+    
+    <category term="直接解决C盘爆红" scheme="https://lxttz.github.io/tags/%E7%9B%B4%E6%8E%A5%E8%A7%A3%E5%86%B3C%E7%9B%98%E7%88%86%E7%BA%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>【图层分离导出PSD】图层分离插件</title>
@@ -444,27 +467,6 @@
     
     
     <category term="AI提示词" scheme="https://lxttz.github.io/tags/AI%E6%8F%90%E7%A4%BA%E8%AF%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GitHub获取个人访问令牌（PAT）</title>
-    <link href="https://lxttz.github.io/posts/671aa288.html"/>
-    <id>https://lxttz.github.io/posts/671aa288.html</id>
-    <published>2025-03-11T10:05:19.000Z</published>
-    <updated>2025-03-11T10:07:13.772Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="🤖-Assistant"><a href="#🤖-Assistant" class="headerlink" title="🤖 Assistant"></a>🤖 Assistant</h3><h1 id="🔑-GitHub-获取个人访问令牌（PAT）全流程指南"><a href="#🔑-GitHub-获取个人访问令牌（PAT）全流程指南" class="headerlink" title="🔑 GitHub 获取个人访问令牌（PAT）全流程指南"></a>🔑 GitHub 获取个人访问令牌（PAT）全流程指南</h1><h2 id="🌐-1-登录-GitHub-账户"><a href="#🌐-1-登录-GitHub-账户" class="headerlink" title="🌐 1. 登录 GitHub 账户"></a>🌐 1. 登录 GitHub 账户</h2><ul><li>访问 <a href="https://github.com/">GitHub 官网</a> </li><li>👉 点击右上角 “Sign in” 登录账户</li><li>🔒 推荐开启两步验证（<a href="https://github.com/settings/security">设置路径</a>）</li></ul><h2 id="⚙️-2-进入开发者设置"><a href="#⚙️-2-进入开发者设置" class="headerlink" title="⚙️ 2. 进入开发者设置"></a>⚙️ 2. 进入开发者设置</h2><ol><li>点击右上角头像 → <strong>Settings</strong></li><li>左侧导航栏定位 → <strong>Developer settings</strong></li><li>选择 ▶️ <strong>Personal access tokens</strong> → <strong>Tokens (classic)</strong></li></ol><h2 id="🛠️-3-创建新令牌"><a href="#🛠️-3-创建新令牌" class="headerlink" title="🛠️ 3. 创建新令牌"></a>🛠️ 3. 创建新令牌</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">    A[开始] --&gt; B[命名令牌]</span><br><span class="line">    B --&gt; C[设置有效期]</span><br><span class="line">    C --&gt; D[配置权限]</span><br><span class="line">    D --&gt; E[生成令牌]</span><br></pre></td></tr></table></figure><h2 id="🔐-4-核心参数配置（带图标说明）"><a href="#🔐-4-核心参数配置（带图标说明）" class="headerlink" title="🔐 4. 核心参数配置（带图标说明）"></a>🔐 4. 核心参数配置（带图标说明）</h2><div class="table-container"><table><thead><tr><th>配置项</th><th>选项说明</th><th>推荐设置</th></tr></thead><tbody><tr><td><strong>🔖 名称</strong></td><td>识别用途的标识名称</td><td><code>gicnuo_2024PAT</code></td></tr><tr><td><strong>📅 有效期</strong></td><td>最长可设置365天</td><td>选择自定义日期</td></tr><tr><td><strong>📂 仓库权限</strong></td><td><code>repo</code>全库或指定库</td><td>✅ 全库访问</td></tr><tr><td><strong>👥 账户权限</strong></td><td><code>user</code>可操作账户设置</td><td>❌ 默认关闭</td></tr></tbody></table></div><h3 id="权限详细说明"><a href="#权限详细说明" class="headerlink" title="权限详细说明"></a>权限详细说明</h3><ul><li><strong>repo</strong>（必选）<ul><li>✅ <code>repo:status</code>  </li><li>✅ <code>repo_deployment</code></li><li>✅ <code>public_repo</code>（公开库访问）</li></ul></li><li><strong>admin</strong>（高危操作）<ul><li>❗ <code>repo:delete</code>（删除仓库权限）</li><li>❗ <code>admin:org</code>（组织管理权限）</li></ul></li></ul><h2 id="⚠️-5-令牌安全警告"><a href="#⚠️-5-令牌安全警告" class="headerlink" title="⚠️ 5. 令牌安全警告"></a>⚠️ 5. 令牌安全警告</h2><figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">- 生成后应立即保存至密码管理器！</span></span><br><span class="line"><span class="deletion">- 泄露的令牌可能导致账户被完全控制！</span></span><br><span class="line"><span class="addition">+ 建议使用1Password/Bitwarden等工具加密存储</span></span><br></pre></td></tr></table></figure><h2 id="📋-6-使用场景示例"><a href="#📋-6-使用场景示例" class="headerlink" title="📋 6. 使用场景示例"></a>📋 6. 使用场景示例</h2><div class="table-container"><table><thead><tr><th>使用场景</th><th>CLI命令示例</th><th>权限要求</th></tr></thead><tbody><tr><td>克隆私有库</td><td><code>git clone https://&lt;TOKEN&gt;@github.com/user/repo.git</code></td><td>repo</td></tr><tr><td>API调用</td><td><code>curl -H &quot;Authorization: Bearer &lt;TOKEN&gt;&quot; https://api.github.com/user</code></td><td>user</td></tr><tr><td>CI/CD集成</td><td>在GitHub Actions中设为<code>secrets.GH_TOKEN</code></td><td>repo + workflow</td></tr></tbody></table></div><h2 id="🔄-7-管理令牌方法"><a href="#🔄-7-管理令牌方法" class="headerlink" title="🔄 7. 管理令牌方法"></a>🔄 7. 管理令牌方法</h2><ol><li><strong>禁用令牌</strong>：开发者设置中点击令牌右侧的🔄按钮</li><li><strong>监控日志</strong>：<a href="https://github.com/settings/security-log">审计日志查看</a></li><li><strong>紧急撤销</strong>：进入页面立即点击❌撤销按钮</li></ol><blockquote><p>💡 TIPS：结合<a href="https://cli.github.com/">GitHub CLI</a> 使用更安全：<br><code>gh auth login --with-token &lt; mytoken.txt</code></p></blockquote><h2 id="流程图解全流程"><a href="#流程图解全流程" class="headerlink" title="流程图解全流程"></a>流程图解全流程</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line">    用户-&gt;&gt;GitHub: 登录账户</span><br><span class="line">    用户-&gt;&gt;GitHub: 进入开发者设置</span><br><span class="line">    GitHub--&gt;&gt;用户: 显示PAT创建界面</span><br><span class="line">    用户-&gt;&gt;GitHub: 配置令牌参数</span><br><span class="line">    GitHub--&gt;&gt;用户: 生成加密令牌</span><br><span class="line">    用户-&gt;&gt;本地: 保存至安全位置</span><br></pre></td></tr></table></figure><p><strong><a href="#-github-获取个人访问令牌pat全流程指南">⬆️ 返回顶部</a></strong><br><strong><a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">📚 官方文档参考</a></strong><br>``` </p><blockquote><p>✨ 最佳实践建议：  </p><ul><li>为不同用途创建独立令牌（如<code>CI_PAT</code>/<code>API_PAT</code>）  </li><li>定期使用<a href="https://github.com/github/token-scan">GitHub Token Scanner</a>检查代码中的令牌泄露  </li><li>企业用户建议使用<a href="https://docs.github.com/en/developers/apps/getting-started-with-apps/about-apps">OAuth Apps</a>代替PAT</li></ul></blockquote>]]></content>
-    
-    
-    <summary type="html">GitHub获取个人访问令牌（PAT）</summary>
-    
-    
-    
-    <category term="GitHub技巧" scheme="https://lxttz.github.io/categories/GitHub%E6%8A%80%E5%B7%A7/"/>
-    
-    
-    <category term="GitHub" scheme="https://lxttz.github.io/tags/GitHub/"/>
     
   </entry>
   
