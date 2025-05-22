@@ -6,7 +6,7 @@
   <link href="https://lxttz.github.io/atom.xml" rel="self"/>
   
   <link href="https://lxttz.github.io/"/>
-  <updated>2025-05-22T08:22:26.503Z</updated>
+  <updated>2025-05-22T08:23:40.927Z</updated>
   <id>https://lxttz.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://lxttz.github.io/posts/e19c53d6.html"/>
     <id>https://lxttz.github.io/posts/e19c53d6.html</id>
     <published>2025-05-22T08:05:37.000Z</published>
-    <updated>2025-05-22T08:22:26.503Z</updated>
+    <updated>2025-05-22T08:23:40.927Z</updated>
     
     <content type="html"><![CDATA[<h1 id="具体实现步骤："><a href="#具体实现步骤：" class="headerlink" title="具体实现步骤："></a>具体实现步骤：</h1><h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>切换到 SSH 密钥存储目录<br>命令：<br>cd ~/.ssh</p><h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p>使用正确的文件名重新生成密钥<br>执行以下命令（不要在文件名中包含.pub）：<br>命令：<br>ssh-keygen -t rsa -C “邮箱地址@qq.com” -f ~/.ssh/id_密钥名称</p><p>-f参数指定文件名（无需.pub后缀）<br>系统会自动创建：<br>私钥：~/.ssh/id<em>密钥名称<br>公钥：~/.ssh/id</em>密钥名称.pub</p><h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><p>查看生成的密钥<br>命令：<br> cat ~/.ssh/id_密钥名称.pub</p><h2 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h2><p>查看所有生成的密钥<br>命令：<br>ls -al ~/.ssh</p><p>删除生成的密钥<br>命令：<br>rm ~/.ssh/密钥名称.pub</p>]]></content>
     
