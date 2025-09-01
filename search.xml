@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Windows环境下写入Realtek网卡MAC地址</title>
+      <link href="/posts/32774921.html"/>
+      <url>/posts/32774921.html</url>
+      
+        <content type="html"><![CDATA[<p>MAC地址用于win11电脑在网络中唯一标示，每一个电脑都会有一个唯一的MAC地址，就像我们的身份证一样。但是有的时候我们需要修改Windows 11系统中的MAC地址可，例如，在更换网络设备或绕过MAC地址绑定限制时，可能需要修改MAC地址。<br>以下是修改MAC地址的详细教程，注意事项以及说明。</p><h1>一、教程系统环境</h1><p>操作系统：Windows 　<br>　　网络适配器：支持修改MAC地址的网卡(大部分现代网卡都支持)<br>　　二、在许多场景下，用户可能需要修改MAC地址：<br>　　1. 绕过网络限制：某些网络基于MAC地址进行访问控制，更换MAC地址可以帮助你绕开这些限制。<br>　　2. 隐私保护：更改MAC地址能够在一定程度上提高隐私保护，避免被特定的网络监控。<br>　　3. 解决冲突：有时网络中会出现MAC地址冲突的问题，修改MAC地址可以解决这个问题。<br>　　4. 安全性：在某些情况下为了网络安全，需要更改MAC地址以提升防护能力。<br>　　三、在修改MAC地址之前，请注意以下几点：<br>　　1. 确保新的MAC地址符合规范，通常是由六对十六进制数字组成(例如：00-14-22-01-23-45)。<br>　　2. 修改MAC地址可能会影响网络连接的稳定性，请谨慎操作。<br>　　3. 临时修改可能在某些系统重启后失效，如果需要永久修改需考虑使用第三方工具或编辑注册表。<br>　　四、Win11网卡的MAC地址修改方法</p><p>1、首先，在打开win11系统桌面的开始菜单，在里面的搜索框中输入“cmd”，然后在搜索结果中双击“命令提示符”打开，在命令提示窗口中输入“ipconfig /all”按回车就可以查看win11电脑网卡的mac地址(图中的物理地址)。</p><p><img src="https://i-blog.csdnimg.cn/direct/3c2195604e3c43d5bf8d13c9562d3fad.webp" alt="在这里插入图片描述"><br>2、接着我们可以开始修改mac地址，鼠标右击win11桌面右下角网络图标，选择“打开网络和internet设置”，在里面找到高级网络设置，接着再找到正在使用网卡点击“更改适配器设置”选项后面的编辑，在网卡的属性界面选择进入“配置”选项。</p><p><img src="https://i-blog.csdnimg.cn/direct/b8e53e6a76064fd1b678a448ea8d7816.webp" alt="在这里插入图片描述"></p><p>3、在打开的网卡属性界面中，切换到“高级”选项，在属性列表中找到“Network Address”，然后点击“值”，填写新的mac地址。</p><p><img src="https://i-blog.csdnimg.cn/direct/2e4beb447ba64a0c9d8506f4ebeddf38.webp" alt="在这里插入图片描述"></p><p>4、再次查看mac地址是否修改成功，重新在命令窗口输入“ipconfig /all”回车，可以看到此时的mac地址已经改变，变成刚刚输入的“E0-26-B6-CB-37-C1”了。</p><p>原文链接：<a href="https://blog.csdn.net/lza20001103/article/details/145969912">https://blog.csdn.net/lza20001103/article/details/145969912</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 改电脑mac地址 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>使用Linux命令下载文件</title>
       <link href="/posts/ab6ed258.html"/>
       <url>/posts/ab6ed258.html</url>
