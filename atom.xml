@@ -6,7 +6,7 @@
   <link href="https://lxttz.github.io/atom.xml" rel="self"/>
   
   <link href="https://lxttz.github.io/"/>
-  <updated>2025-09-02T08:54:27.874Z</updated>
+  <updated>2025-09-02T09:17:54.277Z</updated>
   <id>https://lxttz.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PS笔记之概念篇（二）</title>
+    <link href="https://lxttz.github.io/posts/79ccc5f2.html"/>
+    <id>https://lxttz.github.io/posts/79ccc5f2.html</id>
+    <published>2025-09-02T09:17:17.000Z</published>
+    <updated>2025-09-02T09:17:54.277Z</updated>
+    
+    <content type="html"><![CDATA[<h1>PS公开课笔记（概念篇）</h1><p>若没有图片显示请前往csdn博客地址：(<a href="https://blog.csdn.net/lxttzlove/article/details/151117474">https://blog.csdn.net/lxttzlove/article/details/151117474</a>)</p><h1>ps的版本介绍与挑选</h1><p><img src="https://i-blog.csdnimg.cn/direct/9170ef696049496a82313faca5f32351.png#pic_center" alt="在这里插入图片描述"></p><p><img src="https://i-blog.csdnimg.cn/direct/7c2de81049b54801853fd704961cb1ba.png#pic_center" alt="在这里插入图片描述"></p><h1>1.ps的版本介绍</h1><p>[<a href="https://so.csdn.net/so/search?q=Adobe&amp;spm=1001.2101.3001.7020">Adobe</a> Photoshop，简称“PS”]，是由Adobe 开发和发行的[图像处理软件]。</p><p><a href="https://so.csdn.net/so/search?q=Photoshop&amp;spm=1001.2101.3001.7020">Photoshop</a>主要处理以像素所构成的数字图像。使用其众多的编修与绘图工具，可以有效地进行图片编辑工作。</p><p>ps有很多功能，在图像、图形、文字、视频、出版等各方面都有涉及。</p><h2 id="2-ps的版本挑选">2.ps的版本挑选</h2><p>选择一个好的版本使用起来会更加的高效</p><p><img src="https://i-blog.csdnimg.cn/direct/35d9fc69738c43a48cc24839ab2d7116.png#pic_center" alt="在这里插入图片描述"><br>下载新的ps cs6版本<br>下载链接:链接：<a href="https://pan.baidu.com/s/1H98ByCH0Ur6DD6RTggBo8g">https://pan.baidu.com/s/1H98ByCH0Ur6DD6RTggBo8g</a> 提取码: gytb<br>补丁:链接: <a href="https://pan.baidu.com/s/1W8A7nqK-cU1WkEzwe6rCAA">https://pan.baidu.com/s/1W8A7nqK-cU1WkEzwe6rCAA</a> 提取码: nxfx<br>————————————————<br>原文链接：<a href="https://blog.csdn.net/k778899jx/article/details/79973230">https://blog.csdn.net/k778899jx/article/details/79973230</a></p>]]></content>
+    
+    
+    <summary type="html">s的版本介绍与挑选</summary>
+    
+    
+    
+    
+    <category term="ps笔记" scheme="https://lxttz.github.io/tags/ps%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>PS笔记之概念篇（一）</title>
@@ -443,31 +462,6 @@
     
     
     <category term="SpringBoot+Vue前后端分离项目如何运行" scheme="https://lxttz.github.io/tags/SpringBoot-Vue%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AE%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringBoot+Vue前后端分离项目结构</title>
-    <link href="https://lxttz.github.io/posts/23a338a7.html"/>
-    <id>https://lxttz.github.io/posts/23a338a7.html</id>
-    <published>2025-04-08T12:32:26.000Z</published>
-    <updated>2025-04-08T12:36:02.197Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="🤖-Assistant">🤖 Assistant</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 🌱 SpringBoot + Vue 前后端分离项目结构</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 📁 项目根目录</span></span><br></pre></td></tr></table></figure><p>project-root/<br>├── backend/          # 🖥️ SpringBoot 后端代码<br>├── frontend/         # 🖌️ Vue 前端代码<br>├── docs/             # 📚 项目文档<br>└── <a href="http://README.md">README.md</a>         # 📋 项目说明文件</p><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 🖥️ 后端结构 (SpringBoot)</span><br></pre></td></tr></table></figure><p>backend/<br>├── src/<br>│   ├── main/<br>│   │   ├── java/com/example/<br>│   │   │   ├── config/       # ⚙️ 配置类<br>│   │   │   ├── controller/   # 🎮 API接口层<br>│   │   │   ├── service/      # 🔧 业务逻辑层<br>│   │   │   ├── repository/   # 💾 数据访问层<br>│   │   │   ├── model/        # 🧩 数据实体类<br>│   │   │   └── exception/    # ❌ 异常处理<br>│   │   └── resources/<br>│   │       ├── application.yml  # 🛠️ 应用配置<br>│   │       └── static/          # 🏗️ 前端构建后资源（可选）<br>├── target/           # 📦 构建输出目录<br>└── pom.xml           # 🧶 Maven依赖管理</p><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 🖌️ 前端结构 (Vue <span class="number">3</span>)</span><br></pre></td></tr></table></figure><p>frontend/<br>├── public/           # 🏠 静态资源<br>├── src/<br>│   ├── api/          # 📡 接口请求封装<br>│   ├── assets/       # 🎨 静态资源<br>│   ├── components/   # 🧩 公共组件<br>│   ├── router/       # 🗺️ 路由配置<br>│   ├── store/        # 🏪 Vuex状态管理<br>│   ├── views/        # 🖼️ 页面组件<br>│   ├── App.vue       # 🌐 根组件<br>│   └── main.js       # ⚡ 入口文件<br>├── package.json      # 📦 依赖管理<br>└── vite.config.js    # ⚙️ Vite配置</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="section">## 🔄 交互流程</span></span><br><span class="line"><span class="bullet">1.</span> 🌐 用户访问前端页面 (Vue)</span><br><span class="line"><span class="bullet">2.</span> 📡 前端通过axios调用后端API (SpringBoot)</span><br><span class="line"><span class="bullet">3.</span> 🛠️ 后端处理请求并返回JSON数据</span><br><span class="line"><span class="bullet">4.</span> 🎨 前端动态渲染页面</span><br><span class="line"></span><br><span class="line"><span class="section">## 🔧 开发环境</span></span><br></pre></td></tr></table></figure><p>🛠️ 后端: JDK 17+ + IDE（IntelliJ IDEA/VSCode）<br>🎨 前端: Node.js 16+ + VSCode<br>📦 构建: Maven（后端） + Vite（前端）</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="section">## ⚠️ 注意事项</span></span><br><span class="line"><span class="bullet">-</span> 🔒 跨域配置（后端需添加<span class="code">`@CrossOrigin`</span>或全局配置）</span><br><span class="line"><span class="bullet">-</span> 🔄 API文档建议使用Swagger</span><br><span class="line"><span class="bullet">-</span> 🌐 部署时前端打包后文件可放入后端static目录或单独部署</span><br></pre></td></tr></table></figure><blockquote><p>图标说明：📁 文件夹 🖥️ 后端 🎨 前端 ⚙️ 配置 📡 接口 🧩 组件</p></blockquote>]]></content>
-    
-    
-    <summary type="html">SpringBoot+Vue前后端分离项目结构</summary>
-    
-    
-    
-    <category term="springboot" scheme="https://lxttz.github.io/categories/springboot/"/>
-    
-    <category term="vue" scheme="https://lxttz.github.io/categories/springboot/vue/"/>
-    
-    <category term="全栈" scheme="https://lxttz.github.io/categories/springboot/vue/%E5%85%A8%E6%A0%88/"/>
-    
-    
-    <category term="pringBoot+Vue前后端分离项目结构" scheme="https://lxttz.github.io/tags/pringBoot-Vue%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
