@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>VisualStudio下载安装教程及其旧版本</title>
+      <link href="/posts/52e3f91c.html"/>
+      <url>/posts/52e3f91c.html</url>
+      
+        <content type="html"><![CDATA[<h1>Visual Studio下载安装教程及其旧版本（非常详细）从零基础入门到精通</h1><h2 id="Visual-Studio安装教程若图片加载失败请前往博客地址：https-blog-csdn-net-lxttzlove-article-details-151245850">Visual Studio安装教程<br>若图片加载失败请前往博客地址：<a href="https://blog.csdn.net/lxttzlove/article/details/151245850">https://blog.csdn.net/lxttzlove/article/details/151245850</a></h2><h2 id="一、官网下载">一、官网下载</h2><p>官网下载地址：<br><a href="https://visualstudio.microsoft.com/zh-hans/downloads/">https://visualstudio.microsoft.com/zh-hans/downloads/</a></p><p><img src="https://i-blog.csdnimg.cn/direct/89f0cfb7d43b4260ab68429af1fdfe7b.png" alt="在这里插入图片描述"></p><p>因为是个人学习用途，我建议下载的是社区版本，就足够用了。<br>下载下来的是一个.exe文件</p><p><img src="https://i-blog.csdnimg.cn/direct/8ad6d8905bbe409da5ef352e4e8d7d10.png#pic_center" alt="在这里插入图片描述"></p><p>双击打开后，会加载一些东西。出现下面的界面  点击（继续）</p><p><img src="https://i-blog.csdnimg.cn/direct/dd37185ca2d344528ebcab7882a98f21.png#pic_center" alt="在这里插入图片描述"></p><p>下载安装程序<br><img src="https://i-blog.csdnimg.cn/direct/f32b4b26fc174b5b87e4013870696f28.png#pic_center" alt="在这里插入图片描述"></p><p>没办法只能继续等<br><img src="https://i-blog.csdnimg.cn/direct/3f991324fe01490f89902f6f5b36cfab.png#pic_center" alt="在这里插入图片描述"></p><p>选择关闭<br><img src="https://i-blog.csdnimg.cn/direct/7bf36637e7204369902a85f1c022b989.png#pic_center" alt="在这里插入图片描述"></p><p><img src="https://i-blog.csdnimg.cn/direct/1ecc8a60f2004d12a028951473fc736a.png#pic_center" alt="在这里插入图片描述"></p><p>更改安装路径；<br><img src="https://i-blog.csdnimg.cn/direct/85d5b328bf184dfda39162068054c1ac.png#pic_center" alt="在这里插入图片描述"></p><p>（二）自定义安装组件<br>这时我们就可以自定义选择组件进行下载<br>因为我是需要使用C++，所以这里选择了使用C++的桌面开发和visual studio扩展开发<br><img src="https://i-blog.csdnimg.cn/direct/0512a88453f646b6b4848b1d57f44d6f.png" alt="在这里插入图片描述"></p><p><img src="https://i-blog.csdnimg.cn/blog_migrate/d60c68460aea60402c494e6cbc303674.png" alt="在这里插入图片描述"></p><p>下面会显示下载所占的空间，供参考（我这里因为已经下载过了）</p><p>大家可以根据具体需求，选择自己需要下载的组件<br>选择好后，在右下角选择安装，就会出现下载界面，等下载完毕后如图所示，点击启动就可以使用啦~</p><p>最后汇总一下，visual studio安装中使用的内存情况：</p><p>D盘占用6.8G<br>C盘占用1.G</p><p>三、开始使用<br>进入visual studio开发界面，点击创建新项目。</p><p><img src="https://i-blog.csdnimg.cn/blog_migrate/9ba6cf0c31f40412bcb2d0daba2cf751.png" alt="在这里插入图片描述"></p><p>这里我选择了新建一个c++的空项目</p><p><img src="https://i-blog.csdnimg.cn/blog_migrate/4cb78d174ea44ff51dc2b1f671038f88.png" alt="在这里插入图片描述"></p><p>在这里定义你的项目名字，以及项目的存储位置（建议放在除C盘外的空间内）</p><p><img src="https://i-blog.csdnimg.cn/blog_migrate/fbcc71ce6ff79ea8a4ea9acf321e8590.png" alt="在这里插入图片描述"></p><p>最后点击创建就可以了</p><p>（四）创建第一个程序</p><p><img src="https://i-blog.csdnimg.cn/blog_migrate/4f6538c77ba28cf67841e49225f374bc.png" alt="在这里插入图片描述"></p><p>进入项目界面后，选择右侧的源文件，右键添加—新建项</p><p>修改一下c++项的名称，然后点击添加</p><p><img src="https://i-blog.csdnimg.cn/blog_migrate/ec7b9e4756b06c21a4ff8582a0f0415c.png" alt="在这里插入图片描述"></p><p>这样就创建好了</p><p><img src="https://i-blog.csdnimg.cn/blog_migrate/d44c705c02f2f86fbc6e5ed7de52db5e.png" alt="在这里插入图片描述"></p><p>（五）万能的HelloWorld<br>在界面输入hello world代码</p><p>#include <iostream><br>using namespace std;<br>int main() {<br>cout &lt;&lt; “Hello World” &lt;&lt; endl;<br>return 0;<br>}</p><p>点击上方的执行按钮</p><p><img src="https://i-blog.csdnimg.cn/blog_migrate/6db953038d14a4829877c186b5693192.png" alt="在这里插入图片描述"></p><p>等待一会就会调出控制台，显示执行结果。</p><p><img src="https://i-blog.csdnimg.cn/blog_migrate/f8aeaa9f1ce3a31e8a2e2e23e4affe8c.png" alt="在这里插入图片描述"></p><p>————————————————</p><h2 id="二-旧版本下载">二.旧版本下载</h2><p>下载地址：<a href="https://visualstudio.microsoft.com/zh-hans/vs/older-downloads/">Visual Studio 旧版下载 - 2019、2017、2015</a></p><p><img src="https://i-blog.csdnimg.cn/direct/afde43b68df64ee790294ba244b7cef1.png#pic_center" alt="在这里插入图片描述"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> VisualStudio下载安装教程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title></title>
       <link href="/posts/0.html"/>
       <url>/posts/0.html</url>
