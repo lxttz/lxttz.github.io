@@ -6,7 +6,7 @@
   <link href="https://lxttz.github.io/atom.xml" rel="self"/>
   
   <link href="https://lxttz.github.io/"/>
-  <updated>2025-12-27T11:48:13.817Z</updated>
+  <updated>2025-12-27T11:48:45.765Z</updated>
   <id>https://lxttz.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://lxttz.github.io/posts/4a0b52cf.html"/>
     <id>https://lxttz.github.io/posts/4a0b52cf.html</id>
     <published>2025-12-27T11:47:50.000Z</published>
-    <updated>2025-12-27T11:48:13.817Z</updated>
+    <updated>2025-12-27T11:48:45.765Z</updated>
     
     <content type="html"><![CDATA[<h1>Hexo 服务器 4000 端口占用解决方案</h1><p>这个错误的核心原因是 <strong>4000端口已经被其他程序占用</strong>，Hexo的本地服务器无法在该端口启动。下面提供几种解决方法，按从简单到复杂的顺序排列：</p><h3 id="方法一：临时更换Hexo启动端口">方法一：临时更换Hexo启动端口</h3><p>这是最快捷的方式，不需要关闭占用端口的程序，直接指定新端口启动Hexo：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 例如使用4001端口（可换成任意未被占用的端口，如5000、8080等）</span></span><br><span class="line">hexo server -p 4001</span><br></pre></td></tr></table></figure><p>启动后，访问 <code>http://localhost:4001</code> 即可查看博客。</p><h3 id="方法二：找到并关闭占用4000端口的程序">方法二：找到并关闭占用4000端口的程序</h3><p>如果想固定使用4000端口，需要找到占用该端口的进程并关闭。<strong>Windows系统</strong>操作步骤如下：</p><ol><li><p>按下 <code>Win + R</code>，输入 <code>cmd</code> 打开命令提示符；</p></li><li><p>执行命令查找占用4000端口的进程ID（PID）：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano | findstr :4000</span><br></pre></td></tr></table></figure><p>输出示例：<code>TCP    0.0.0.0:4000           0.0.0.0:0              LISTENING       1234</code>（其中<code>1234</code>是PID）；</p></li><li><p>执行命令结束该进程（将<code>1234</code>替换为实际查到的PID）：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">taskkill /F /PID 1234</span><br></pre></td></tr></table></figure><ul><li><p><code>/F</code>：强制终止进程；</p></li><li><p>如果提示“找不到进程”，可能是端口被临时占用，重启电脑即可释放。</p></li></ul></li><li><p>重新执行 <code>hexo server</code>，即可在4000端口正常启动。</p></li></ol><h3 id="方法三：修改Hexo配置文件，永久更换端口">方法三：修改Hexo配置文件，永久更换端口</h3><p>如果希望每次启动Hexo都默认使用新端口，可修改配置文件：</p><ol><li><p>打开Hexo博客根目录下的 <code>_config.yml</code> 文件；</p></li><li><p>找到 <code>server</code> 相关配置（如果没有，手动添加），修改端口号：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">4001</span>  <span class="comment"># 替换为你想使用的端口（如5000、8080）</span></span><br><span class="line">  <span class="attr">host:</span> <span class="string">localhost</span></span><br></pre></td></tr></table></figure></li><li><p>保存文件后，执行 <code>hexo server</code>，即可默认在新端口启动。</p></li></ol><h3 id="补充说明">补充说明</h3><ul><li><p>常见占用4000端口的程序：其他本地服务（如Node.js服务、Python Flask/Django服务）、调试工具、杀毒软件、虚拟机等；</p></li><li><p>如果是<strong>macOS/Linux系统</strong>，查找占用端口的命令为：<code>lsof -i :4000</code>，关闭进程的命令为：<code>kill -9 &lt;PID&gt;</code>（<code>&lt;PID&gt;</code>为进程ID）。</p></li></ul><p>解决端口占用问题后，重新执行 <code>hexo server</code> 即可正常启动Hexo本地服务器。</p><blockquote></blockquote>]]></content>
     
@@ -269,9 +269,9 @@
     <category term="星舞轻氧站项目代码" scheme="https://lxttz.github.io/categories/%E6%98%9F%E8%88%9E%E8%BD%BB%E6%B0%A7%E7%AB%99%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81/"/>
     
     
-    <category term="源码" scheme="https://lxttz.github.io/tags/%E6%BA%90%E7%A0%81/"/>
-    
     <category term="项目" scheme="https://lxttz.github.io/tags/%E9%A1%B9%E7%9B%AE/"/>
+    
+    <category term="源码" scheme="https://lxttz.github.io/tags/%E6%BA%90%E7%A0%81/"/>
     
   </entry>
   

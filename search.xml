@@ -287,9 +287,9 @@
       
         <tags>
             
-            <tag> 源码 </tag>
-            
             <tag> 项目 </tag>
+            
+            <tag> 源码 </tag>
             
         </tags>
       
@@ -1671,33 +1671,6 @@
         <tags>
             
             <tag> 博客 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>博客搭建教程</title>
-      <link href="/posts/116b0f3c.html"/>
-      <url>/posts/116b0f3c.html</url>
-      
-        <content type="html"><![CDATA[<p>免费的搭建一个免费的个人博客（网站）</p><p>零基础，手把手，不需要任何代码基础（看不懂代码也没事）</p><h2 id="一-网址：">一.网址：</h2><h3 id="Hexo官网：">Hexo官网：</h3><p><a href="https://hexo.io/zh-cn/index.html">https://hexo.io/zh-cn/index.html</a></p><h3 id="Gitee官网-（Gitee-Pages-暂停提供服务）">Gitee官网:（Gitee Pages 暂停提供服务）</h3><p><a href="https://gitee.com/">https://gitee.com/</a></p><h3 id="Git-官网">Git 官网:</h3><p><a href="https://git-scm.com/">https://git-scm.com/</a></p><h3 id="Node-js官网：推荐18">Node.js官网：推荐18</h3><p><a href="https://nodejs.org/zh-cn/">https://nodejs.org/zh-cn/</a></p><h3 id="github官网：">github官网：</h3><p><a href="https://github.com/">https://github.com/</a></p><h3 id="Butterfly官网：">Butterfly官网：</h3><p><a href="https://butterfly.js.org/posts/21cfbf15/">Butterfly 文檔(一) 快速開始 | Butterfly</a></p><h3 id="百度网盘资料：">百度网盘资料：</h3><p>通过百度网盘分享的文件：搭建博客资料<br>链接：<a href="https://pan.baidu.com/s/14pLuBgcTT-_8o0fiT5Hl9w">https://pan.baidu.com/s/14pLuBgcTT-_8o0fiT5Hl9w</a><br>提取码：boke</p><p>如果访问node和git官网卡顿，可以点击下方链接下载。<br>蓝奏云：<a href="https://xiaoyuboi.lanzoum.com/b0c5k65ih">https://xiaoyuboi.lanzoum.com/b0c5k65ih</a>  （在线下载）<br>制作视频不易，如果对你有帮助。<br>记得一键三连加关注呀～<br>我是阿洛学长，下期再见～</p><h2 id="二-实现步骤">二.实现步骤</h2><h3 id="第一步：下载git">第一步：下载git</h3><h3 id="第二步：下载node-js">第二步：下载node.js</h3><p>node -v（检查版本号，若是版本号显示则成功）</p><h3 id="第三步：下载hexo">第三步：下载hexo</h3><ul><li><p>npm install hexo-cli -g</p></li><li><p>hexo init blog</p></li><li><p>cd blog</p></li><li><p>npm install</p></li><li><p>hexo server （hexo s）<br>（1）步骤的解释：<br>npm install hexo-cli -g：（这个命令使用npm（Node.js的包管理器）全局安装Hexo命令行工具。-g标志表示全局安装，这样您就可以在任何地方使用hexo命令。）<br>hexo init blog：（这个命令初始化一个新的Hexo博客文件夹。blog是您想要创建的文件夹的名称，您可以根据需要更改它。）<br>cd blog：（这个命令将当前工作目录更改为您刚刚创建的blog文件夹。）<br>npm install：（这个命令在blog文件夹中安装Hexo博客所需的依赖项。）<br>hexo server：（这个命令启动Hexo本地服务器，您可以通过浏览器访问http://localhost:4000来查看您的博客。）<br>解决下载慢的问题：</p></li><li><p>方法一：<br>淘宝提供了一个 npm 的镜像，可以大大加快安装速度。首先安装 cnpm：<br>npm install -g cnpm --registry=<a href="https://registry.npmmirror.com">https://registry.npmmirror.com</a><br>然后使用 cnpm 代替 npm 进行安装：<br>cnpm install hexo-cli -g<br>方法二：<br>npm config set registry <a href="https://registry.npm.taobao.org">https://registry.npm.taobao.org</a>（切换镜像）</p></li></ul><img title="" src="https://postimage.me/images/2024/11/23/180a242b-f476-4acd-8cad-a381afafa034.md.png" alt="img" style="zoom:200%;"><p>（2）运行显示（<a href="http://localhost:4000">http://localhost:4000</a>）</p><p><img src="https://postimage.me/images/2024/11/23/-2024-11-22-195835.md.png" alt="img"></p><p>主题推荐：</p><p><a href="https://github.com/D-Sketon/hexo-theme-reimu">D-Sketon/hexo-theme-reimu: 一款博丽灵梦风格的Hexo主题 | A Hakurei Reimu style Hexo theme. 💘Touhou💘</a></p><p><a href="https://github.com/theme-particlex/hexo-theme-particlex">theme-particlex/hexo-theme-particlex: A concise Hexo theme, based on Particle.</a></p><p>基本命令：<br>hexo cl<br>hexo g<br>hexo s<br>hexo d</p><p>命令的解释：</p><ol><li><p><code>hexo cl</code>：这个命令用于清除Hexo的缓存文件。缓存文件是在生成静态文件时创建的，清除缓存可以解决一些生成过程中的问题。</p></li><li><p><code>hexo g</code>：这个命令是<code>hexo generate</code>的简写，用于生成静态文件。Hexo会将您的Markdown文件转换为HTML文件，并将它们放在<code>public</code>文件夹中。</p></li><li><p><code>hexo s</code>：这个命令是<code>hexo server</code>的简写，用于启动Hexo本地服务器。启动服务器后，您可以通过浏览器访问<code>http://localhost:4000</code>来查看您的博客。</p></li><li><p><code>hexo d</code>：这个命令是<code>hexo deploy</code>的简写，用于部署您的Hexo博客到远程服务器。通常，这会将您的静态文件上传到GitHub Pages、GitLab Pages或其他支持的服务</p></li></ol><h3 id="第四步：下载主题">第四步：下载主题</h3><p>hexo的主题</p><p><a href="https://hexo.io/themes/">Themes | Hexo</a></p><p><a href="https://github.com/D-Sketon/hexo-theme-reimu">https://github.com/D-Sketon/hexo-theme-reimu</a></p><p>阿洛学长同款：</p><p><a href="https://github.com/theme-particlex/hexo-theme-particlex">theme-particlex/hexo-theme-particlex: A concise Hexo theme, based on Particle.</a></p><p>主题优化：（看给的文档即可）</p><p>Extensions</p><p>Plugins: <a href="https://hexo.io/plugins/">https://hexo.io/plugins/</a></p><p>Themes: <a href="https://hexo.io/themes/">https://hexo.io/themes/</a></p><p>theme: landscape</p><h3 id="第五步：使用github部署网站">第五步：使用github部署网站</h3><p>（1）登录注册</p><p>（2）创建仓库</p><img src="https://postimage.me/images/2024/11/23/a61b8660-326f-49e8-83a2-3b03a58b9f5e.png" title="" alt="a61b8660 326f 49e8 83a2 3b03a58b9f5e" style="zoom:200%;"><p>（3）获取SSH密钥</p><p>（4）创建密钥：ssh-keygen -t rsa -C “<a href="mailto:3XXXXXXXXXXX@qq.com">3XXXXXXXXXXX@qq.com</a>”</p><p>（5）获取密钥：cat ~/.ssh/id_rsa.pub</p><p>（密钥样式）</p><p>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDTZJPBngwsPeJ8/Kagh’f’gdhfgD9LEWIYYf+jKSDsiM2eLesROa4llQbhfghh’f’g’hmWhfghh’f’g/bbX54vcqVwVdlopJUu4ZP4azn/qQWRRTHJXXKj0GGM/AlQjshfgh’f’g’hOsyKq22bL4wjI8ZJvT7AGDzC/Nrn6cDhc+hy5z1HPVMVDX9i0sG18MmKtOCJ8dCagIjIWEWCyN7e+HuciTXZUHO+k6dLhfxK6YUmw3U6hWcRH+30mgHydr9mL/QdiXa/N4OUva7Xmh9l6hfgh’f’g’h9DC/u+Xu2Sghftghfh’f’g’hKRljwj8nZf4FCdA0UQJE4Ynf6SYYLJBKLotbeWWvPhfghh’f’g2TdMeSlCHyex9FGhvkbm94/vQv0xYSD2WMg’h’f’t’g’h’fmIfPWSJ5xWZ7NIBAR+9cFiq7VDrXhavs5v5nY9iwiPd+Fy6Z65QfezEmz9flU+kuA94v03TIKZC+Zf9hlZhfghh’f’g’hWj+g4/fJ4Nc4biC2nY8TD+H0HnkXPCJgtOiLxaSgi08LFmwJyzt9/zCadO/IEtRol7RVvTx6NPn9LVy0xPy7ZvQIRIxx4B75fohI9WM= <a href="mailto:32fg454545458@qq.com">32fg454545458@qq.com</a></p><p>（6）配置密钥，上传项目   ssh    hexo d</p><p>（7）配置密钥</p><p><img src="https://postimage.me/images/2024/11/23/Snipaste_2024-11-23_00-24-11.md.png" alt="img"></p><p><img src="https://postimage.me/images/2024/11/23/Snipaste_2024-11-23_00-25-25.md.png" alt="img"></p><p>（8）配置config文件</p><p><img src="https://postimage.me/images/2024/11/23/Snipaste_2024-11-23_00-07-50.md.png" alt="img"></p><p>修改的代码部分</p><p>deploy:</p><p>type: ‘git’</p><p>repository: <a href="mailto:git@gitee.com">git@gitee.com</a>:aluolove/boke.git（ssh的地址）</p><p>branch：main （分支）</p><p>npm install hexo-deployer-git --save</p><p>hexo d（上传博客文件）</p><h3 id="第六步：运行打开博客">第六步：运行打开博客</h3><p><img src="https://postimage.me/images/2024/11/23/Snipaste_2024-11-23_00-28-23.md.png" alt="img"></p><p><img src="https://postimage.me/images/2024/11/23/Snipaste_2024-11-23_00-29-42.md.png" alt="img"></p><h3 id="第七步：更新网页">第七步：更新网页</h3><p>hexo g</p><p>hexo s</p><p>hexo d</p><p>记得每次上传的适合关闭加速器</p><p>遇到报错，99%的原因都是网络问题建议，科学上网，如果不能建议重启一下电脑</p><p><a href="https://lxttz.github.io/">Hexo</a></p><h4 id="更新网页：">更新网页：</h4><p>文件形式是md格式，就只需要像word，做笔记一样（没有任何的代码理论知识）</p><h4 id="md工具推荐：">md工具推荐：</h4><p>软件：微软商城里的    Typedown（免费）</p><p>网页：<a href="https://www.yuque.com/">https://www.yuque.com/</a>   （语雀  需要注册   免费）</p><p>除了以上工具了解过md文件的，也可以使用自己喜欢的工具，有的工具需要付费</p><p>可以尝试破解</p><h4 id="md文件中的图片处理：">md文件中的图片处理：</h4><p>推荐使用图层：图层（就是将图片放置云端，通过网址（url）来访问到你的图片）</p><p>图层推荐：</p><p>（1） postimage图层          官网：<a href="https://postimage.me/">https://postimage.me/</a></p><p>（2）<a href="https://imgse.com/">路过图床 - 免费图片上传, 专业图片外链, 免费公共图床</a>   官网： <a href="https://imgse.com/">https://imgse.com/</a></p><h3 id="666废路（gitee）不要在gitee上搭建">666废路（gitee）不要在gitee上搭建</h3><p>登录注册</p><p>实名认证</p><p><img src="https://postimage.me/images/2024/11/23/f43a9e31-0864-4986-8eea-2903b18731cb.md.png" alt="md"></p><p>创建仓库</p><p>配置仓库</p><p>创建密钥：ssh-keygen -t rsa -C “<a href="mailto:XXXXXXXXXX@qq.com">XXXXXXXXXX@qq.com</a>”</p><p>获取密钥：cat ~/.ssh/id_rsa.pub</p><h2 id="友谊链接：">友谊链接：</h2><h3 id="一-Hexo博客搭建基础教程-一">一. Hexo博客搭建基础教程(一)</h3><p><a href="https://www.fomal.cc/posts/e593433d.html">Hexo博客搭建基础教程(一) | 阿洛🥝</a></p><h3 id="二-Hexo博客搭建基础教程-二">二. Hexo博客搭建基础教程(二)</h3><p><a href="https://www.fomal.cc/posts/4aa2d85f.html#1-%E5%89%8D%E8%A8%80">Hexo博客搭建基础教程(二) | 阿洛🥝</a></p><h3 id="三-Hexo博客搭建基础教程-三">三.Hexo博客搭建基础教程(三)</h3><p><a href="https://www.fomal.cc/posts/3451f874.html">Hexo博客搭建基础教程(三) | 阿洛🥝</a></p><h3 id="四-博客魔改教程总结-一">四.博客魔改教程总结(一)</h3><p><a href="https://www.fomal.cc/posts/eec9786.html">Hexo博客魔改教程总结(一)| 阿洛🥝</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 博客 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> hexo </tag>
-            
-            <tag> 博客标签 </tag>
             
         </tags>
       
