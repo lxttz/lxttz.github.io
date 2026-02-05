@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>关闭电脑休眠释放空间</title>
+      <link href="/posts/7dde12a1.html"/>
+      <url>/posts/7dde12a1.html</url>
+      
+        <content type="html"><![CDATA[<h1>关闭系统休眠功能指南</h1><h2 id="如何关闭系统休眠功能">如何关闭系统休眠功能</h2><h3 id="方法一：使用命令行">方法一：使用命令行</h3><ol><li><strong>以管理员身份运行命令提示符或PowerShell</strong></li><li><strong>执行以下命令</strong>：<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powercfg <span class="literal">-h</span> off</span><br></pre></td></tr></table></figure></li></ol><h3 id="方法二：使用PowerShell（无需手动提权）">方法二：使用PowerShell（无需手动提权）</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Start-Process</span> powershell <span class="literal">-ArgumentList</span> <span class="string">&quot;-NoProfile -ExecutionPolicy Bypass -Command powercfg -h off&quot;</span> <span class="literal">-Verb</span> RunAs <span class="literal">-Wait</span></span><br></pre></td></tr></table></figure><h2 id="关闭休眠功能的影响">关闭休眠功能的影响</h2><h3 id="正面影响">正面影响</h3><ol><li><p><strong>释放磁盘空间</strong>：</p><ul><li>删除 <code>hiberfil.sys</code> 文件</li><li>通常可释放与物理内存大小相当的空间（例如 8GB 内存可释放约 8GB 空间）</li></ul></li><li><p><strong>加快关机速度</strong>：</p><ul><li>系统不再需要将内存内容写入硬盘</li></ul></li><li><p><strong>减少磁盘写入</strong>：</p><ul><li>降低对硬盘的写入操作</li><li>延长 SSD 寿命</li></ul></li></ol><h3 id="负面影响">负面影响</h3><ol><li><p><strong>无法使用休眠模式</strong>：</p><ul><li>系统只能使用睡眠模式或完全关机</li></ul></li><li><p><strong>睡眠模式耗电量增加</strong>：</p><ul><li>睡眠模式会保持内存供电</li><li>而休眠模式则完全断电</li></ul></li><li><p><strong>启动速度可能变慢</strong>：</p><ul><li>从休眠状态恢复比从关机状态启动更快</li></ul></li><li><p><strong>系统崩溃时无法保存状态</strong>：</p><ul><li>休眠功能可以在系统崩溃前保存工作状态</li></ul></li></ol><h2 id="适用场景">适用场景</h2><ul><li><p><strong>适合 SSD 用户</strong>：</p><ul><li>SSD 寿命有限，减少写入操作有益</li></ul></li><li><p><strong>内存较小的电脑</strong>：</p><ul><li>如果内存不足 8GB，关闭休眠可释放宝贵空间</li></ul></li><li><p><strong>不经常使用休眠功能的用户</strong>：</p><ul><li>如果平时主要使用睡眠或关机，关闭休眠无影响</li></ul></li></ul><h2 id="注意事项">注意事项</h2><ul><li>关闭休眠后，电源选项中的&quot;休眠&quot;选项会消失</li><li>系统更新或重启后不会自动恢复休眠功能</li><li>如果需要重新启用，可执行命令：<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powercfg <span class="literal">-h</span> on</span><br></pre></td></tr></table></figure></li></ul><h2 id="验证休眠功能是否已关闭">验证休眠功能是否已关闭</h2><p>执行以下命令检查 <code>hiberfil.sys</code> 文件是否存在：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-ChildItem</span> <span class="literal">-Path</span> <span class="string">&quot;C:\hiberfil.sys&quot;</span> <span class="literal">-ErrorAction</span> SilentlyContinue</span><br></pre></td></tr></table></figure><p>如果没有返回结果，则表示休眠功能已成功关闭，<code>hiberfil.sys</code> 文件已被删除。</p><h2 id="总结">总结</h2><p>综合来看，关闭休眠功能对大多数现代电脑用户影响不大，尤其是那些使用 SSD 且内存充足的用户，反而能获得更多的磁盘空间和更快的关机速度。如果您发现关闭休眠后系统使用受到影响，可以随时通过上述命令重新启用休眠功能。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>多github账号部署hexo项目方法</title>
       <link href="/posts/347b7ac9.html"/>
       <url>/posts/347b7ac9.html</url>
@@ -312,9 +325,9 @@
       
         <tags>
             
-            <tag> 源码 </tag>
-            
             <tag> 项目 </tag>
+            
+            <tag> 源码 </tag>
             
         </tags>
       

@@ -6,7 +6,7 @@
   <link href="https://lxttz.github.io/atom.xml" rel="self"/>
   
   <link href="https://lxttz.github.io/"/>
-  <updated>2026-02-04T16:32:03.976Z</updated>
+  <updated>2026-02-05T10:23:08.924Z</updated>
   <id>https://lxttz.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关闭电脑休眠释放空间</title>
+    <link href="https://lxttz.github.io/posts/7dde12a1.html"/>
+    <id>https://lxttz.github.io/posts/7dde12a1.html</id>
+    <published>2026-02-05T10:22:34.000Z</published>
+    <updated>2026-02-05T10:23:08.924Z</updated>
+    
+    <content type="html"><![CDATA[<h1>关闭系统休眠功能指南</h1><h2 id="如何关闭系统休眠功能">如何关闭系统休眠功能</h2><h3 id="方法一：使用命令行">方法一：使用命令行</h3><ol><li><strong>以管理员身份运行命令提示符或PowerShell</strong></li><li><strong>执行以下命令</strong>：<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powercfg <span class="literal">-h</span> off</span><br></pre></td></tr></table></figure></li></ol><h3 id="方法二：使用PowerShell（无需手动提权）">方法二：使用PowerShell（无需手动提权）</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Start-Process</span> powershell <span class="literal">-ArgumentList</span> <span class="string">&quot;-NoProfile -ExecutionPolicy Bypass -Command powercfg -h off&quot;</span> <span class="literal">-Verb</span> RunAs <span class="literal">-Wait</span></span><br></pre></td></tr></table></figure><h2 id="关闭休眠功能的影响">关闭休眠功能的影响</h2><h3 id="正面影响">正面影响</h3><ol><li><p><strong>释放磁盘空间</strong>：</p><ul><li>删除 <code>hiberfil.sys</code> 文件</li><li>通常可释放与物理内存大小相当的空间（例如 8GB 内存可释放约 8GB 空间）</li></ul></li><li><p><strong>加快关机速度</strong>：</p><ul><li>系统不再需要将内存内容写入硬盘</li></ul></li><li><p><strong>减少磁盘写入</strong>：</p><ul><li>降低对硬盘的写入操作</li><li>延长 SSD 寿命</li></ul></li></ol><h3 id="负面影响">负面影响</h3><ol><li><p><strong>无法使用休眠模式</strong>：</p><ul><li>系统只能使用睡眠模式或完全关机</li></ul></li><li><p><strong>睡眠模式耗电量增加</strong>：</p><ul><li>睡眠模式会保持内存供电</li><li>而休眠模式则完全断电</li></ul></li><li><p><strong>启动速度可能变慢</strong>：</p><ul><li>从休眠状态恢复比从关机状态启动更快</li></ul></li><li><p><strong>系统崩溃时无法保存状态</strong>：</p><ul><li>休眠功能可以在系统崩溃前保存工作状态</li></ul></li></ol><h2 id="适用场景">适用场景</h2><ul><li><p><strong>适合 SSD 用户</strong>：</p><ul><li>SSD 寿命有限，减少写入操作有益</li></ul></li><li><p><strong>内存较小的电脑</strong>：</p><ul><li>如果内存不足 8GB，关闭休眠可释放宝贵空间</li></ul></li><li><p><strong>不经常使用休眠功能的用户</strong>：</p><ul><li>如果平时主要使用睡眠或关机，关闭休眠无影响</li></ul></li></ul><h2 id="注意事项">注意事项</h2><ul><li>关闭休眠后，电源选项中的&quot;休眠&quot;选项会消失</li><li>系统更新或重启后不会自动恢复休眠功能</li><li>如果需要重新启用，可执行命令：<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powercfg <span class="literal">-h</span> on</span><br></pre></td></tr></table></figure></li></ul><h2 id="验证休眠功能是否已关闭">验证休眠功能是否已关闭</h2><p>执行以下命令检查 <code>hiberfil.sys</code> 文件是否存在：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-ChildItem</span> <span class="literal">-Path</span> <span class="string">&quot;C:\hiberfil.sys&quot;</span> <span class="literal">-ErrorAction</span> SilentlyContinue</span><br></pre></td></tr></table></figure><p>如果没有返回结果，则表示休眠功能已成功关闭，<code>hiberfil.sys</code> 文件已被删除。</p><h2 id="总结">总结</h2><p>综合来看，关闭休眠功能对大多数现代电脑用户影响不大，尤其是那些使用 SSD 且内存充足的用户，反而能获得更多的磁盘空间和更快的关机速度。如果您发现关闭休眠后系统使用受到影响，可以随时通过上述命令重新启用休眠功能。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1&gt;关闭系统休眠功能指南&lt;/h1&gt;
+&lt;h2 id=&quot;如何关闭系统休眠功能&quot;&gt;如何关闭系统休眠功能&lt;/h2&gt;
+&lt;h3 id=&quot;方法一：使用命令行&quot;&gt;方法一：使用命令行&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;以管理员身份运行命令提示符或PowerShell&lt;/strong&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>多github账号部署hexo项目方法</title>
@@ -290,9 +314,9 @@
     <category term="星舞轻氧站项目代码" scheme="https://lxttz.github.io/categories/%E6%98%9F%E8%88%9E%E8%BD%BB%E6%B0%A7%E7%AB%99%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81/"/>
     
     
-    <category term="源码" scheme="https://lxttz.github.io/tags/%E6%BA%90%E7%A0%81/"/>
-    
     <category term="项目" scheme="https://lxttz.github.io/tags/%E9%A1%B9%E7%9B%AE/"/>
+    
+    <category term="源码" scheme="https://lxttz.github.io/tags/%E6%BA%90%E7%A0%81/"/>
     
   </entry>
   
@@ -423,25 +447,6 @@ airmon-ng ch</summary>
     
     
     <category term="VisualStudio下载安装教程" scheme="https://lxttz.github.io/tags/VisualStudio%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PS笔记之工具篇（三）</title>
-    <link href="https://lxttz.github.io/posts/bdd84190.html"/>
-    <id>https://lxttz.github.io/posts/bdd84190.html</id>
-    <published>2025-09-03T05:38:32.000Z</published>
-    <updated>2025-09-03T05:39:41.704Z</updated>
-    
-    <content type="html"><![CDATA[<h1>PS公开课笔记（工具篇）</h1><p>若没有图片显示请前往csdn博客地址：<a href="https://blog.csdn.net/lxttzlove/article/details/151147099">03工具篇-ps图层的使用方法，合理利用图层-CSDN博客</a></p><h1>ps图层的使用方法，合理利用图层</h1><h3 id="1-图层的概念">1.图层的概念</h3><p><img src="https://i-blog.csdnimg.cn/direct/4f2f80ea638549e589d4a9b3430c7e99.png#pic_center" alt="在这里插入图片描述"></p><h2 id="2-图层的种类">2.图层的种类</h2><p>文字图层，背景图层，智能图层，钢笔图层等</p><p><img src="https://i-blog.csdnimg.cn/direct/b2fa496259404d758bc9f33a6dc8324b.png#pic_center" alt="在这里插入图片描述"></p><p>编组快捷键<br><img src="https://i-blog.csdnimg.cn/direct/b0a1905541ac4810916ec265a799d13e.png#pic_center" alt="在这里插入图片描述"><br><img src="https://i-blog.csdnimg.cn/direct/ca23fb5646f04b29bf819a1ebc73d3fd.png#pic_center" alt="在这里插入图片描述"></p><h2 id="3-图层混合选项">3.图层混合选项</h2><p><img src="https://i-blog.csdnimg.cn/direct/ea453f0e910148f8bf8f4d520736f05e.png#pic_center" alt="在这里插入图片描述"><br><img src="https://i-blog.csdnimg.cn/direct/0d8c17be9438401aa265be091bbdf9d9.png#pic_center" alt="在这里插入图片描述"></p><h2 id="4-图层混合模式">4.图层混合模式</h2><p><img src="https://i-blog.csdnimg.cn/direct/b6149ab66bf44815916914b1736c6d99.png#pic_center" alt="在这里插入图片描述"></p><p><img src="https://i-blog.csdnimg.cn/direct/9d8c38fd817a4363a0fe6f9f16cf2604.png#pic_center" alt="在这里插入图片描述"></p><h2 id="5-图层的筛选">5.图层的筛选</h2><p><img src="https://i-blog.csdnimg.cn/direct/8e092c18f11749dcab14cf8fbcee5091.png#pic_center" alt="在这里插入图片描述"></p><h2 id="6-图层锁定工具">6.图层锁定工具</h2><p><img src="https://i-blog.csdnimg.cn/direct/cd53b75e64a44f7e994b56ff2d46e101.png#pic_center" alt="在这里插入图片描述"></p><h2 id="7-总结">7.总结</h2><p><img src="https://i-blog.csdnimg.cn/direct/ec9931901ae0496f90e5a95026ec3448.png#pic_center" alt="在这里插入图片描述"></p>]]></content>
-    
-    
-    <summary type="html">ps图层的使用方法，合理利用图层</summary>
-    
-    
-    
-    
-    <category term="ps笔记" scheme="https://lxttz.github.io/tags/ps%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
