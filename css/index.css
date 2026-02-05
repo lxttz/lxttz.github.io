@@ -1874,7 +1874,7 @@ figure.highlight pre .javascript .function {
 #article-container .code-expand-btn:not(.expand-done) ~ table,
 #article-container .code-expand-btn:not(.expand-done) ~ pre {
   overflow: hidden;
-  height: 230px;
+  height: 330px;
 }
 @-moz-keyframes code-expand-key {
   0% {
@@ -6573,8 +6573,8 @@ blockquote.pullquote.right {
   border-radius: 2em !important;
 }
 
-/* 字体引入 */
-@font-face {
+/* 字体引入 - 已禁用,避免连接超时错误 */
+/* @font-face {
   font-family: YSHST;
   src: url(https://data-static.netdun.net/Fomalhaut/fonts/优设好身体.woff2);
   font-display: swap;
@@ -6614,7 +6614,7 @@ blockquote.pullquote.right {
   font-family: ZhuZiAWan;
   src: url(https://data-static.netdun.net/Fomalhaut/fonts/ZhuZiAWan2.woff2);
   font-display: swap;
-}
+} */
 
 /* 特定部件字体调用 */
 div#menus {
@@ -7695,13 +7695,13 @@ button#go-up:hover #percent {
 
 /* 个人信息卡片背景图 */
 [data-theme="light"] #aside-content > .card-widget.card-info {
-  background-image: url(https://tuchuang.voooe.cn/images/2023/02/28/springBg.png);
+  background-image: url(https://lxttz.github.io/assets/zhizhuxia/toxiang.jpg);
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: 100%;
 }
 [data-theme="dark"] #aside-content > .card-widget.card-info {
-  background-image: url(https://tuchuang.voooe.cn/images/2023/02/28/aurora.webp);
+  background-image: url(https://lxttz.github.io/assets/zhizhuxia/toxiang.jpg);
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: 100%;
@@ -7767,7 +7767,7 @@ input#pic-link {
 
 /* heo 加载动画头像 */
 .loading-img {
-  background: url(https://tuchuang.voooe.cn/images/2023/01/02/avatar.webp)
+  background: url(https://lxttz.github.io/assets/zhizhuxia/toxiang.jpg)
     no-repeat center center;
   background-size: cover;
 }
@@ -9202,7 +9202,7 @@ figure.highlight pre .deletion {
   padding: 1rem;
   position: relative;
   border-radius: 12px;
-  background-image: url(https://tuchuang.voooe.cn/images/2023/01/02/tunian.webp);
+  background-image: url(https://lxttz.github.io/assets/zhizhuxia/toxiang.jpg);
   background-size: cover;
   background-position: center;
 }
