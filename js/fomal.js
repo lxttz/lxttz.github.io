@@ -3162,32 +3162,44 @@ let bingDayBg = screen.width <= 768 ? "url(https://bing.img.run/m.php)" : "url(h
 // 必应历史壁纸API
 let bingHistoryBg = screen.width <= 768 ? "url(https://bing.img.run/rand_m.php)" : "url(https://bing.img.run/rand.php)";
 // EEE.DOG
-let EEEDog = "url(https://api.yimian.xyz/img?type=moe&size=1920x1080)";
+let EEEDog = "url(https://wp.upx8.com/api.php)";
 // 随机美图cdn.seovx.com
 let seovx = "url(https://cdn.seovx.com/?mom=302)";
 // picsum随机
 let picsum = "url(https://picsum.photos/1920/1080.webp)";
 // 小歪二次元
-// let waiDongman = "url(https://api.ixiaowai.cn/api/api.php)";
+let waiDongman = "url(https://api.mtyqx.cn/api/random.php)";
+//  小洛动漫高清壁纸
+let waiBizhi = "url(https://wp.upx8.com/api.php?content=动漫)";
 //  小歪高清壁纸
-let waiBizhi = "url(https://api.ixiaowai.cn/gqapi/gqapi.php)";
+let mei = "url(https://wp.upx8.com/api.php?content=美女)";
 // 博天随机
 let btstu = "url(http://api.btstu.cn/sjbz/?lx=suiji)";
 // tuapi 动漫
-// let tuapi = "url(https://tuapi.eees.cc/api.php?category=dongman)";
+let tuapi = "url(https://tuapi.eees.cc/api.php?category=dongman)";
 // unsplash随机 https://source.unsplash.com/random/1920x1080/daily (weekly)
-let unsplash = "url(https://source.unsplash.com/random/1920x1080/)";
-
-
+let unsplash = "url(https://api.mtyqx.cn/tapi/random.php)";
+//随机二次元
+let comic = "url(https://api.suyanw.cn/api/comic.php)";
+//随机二次元2
+let comic2 = "url(https://api.suyanw.cn/api/comic2.php)";
+//随机二次元3
+let comic3 = "url(https://api.suyanw.cn/api/comic3.php)";
+//淘宝卖家秀
+let tbmjx = "url(https://api.suyanw.cn/api/tbmjx.php)";
+//小姐姐
+let ksxjj = "url(https://api.suyanw.cn/api/ksxjj.php)";
+//meitui
+let meitui = "url(https://api.suyanw.cn/api/jk.php)";
 // 更换背景(自己的代码)
 if (localStorage.getItem("blogbg") != undefined) {
   setBg(localStorage.getItem("blogbg"));
 } else {
   document.getElementById("defineBg").innerText = `:root{
-    --default-bg: url(https://lxttz.github.io/assets/zhizhuxia/toxiang.jpg);
-    --darkmode-bg:url(https://lxttz.github.io/assets/zhizhuxia/toxiang.jpg);
-    --mobileday-bg: url(https://lxttz.github.io/assets/zhizhuxia/toxiang.jpg);
-    --mobilenight-bg: url(https://lxttz.github.io/assets/zhizhuxia/toxiang.jpg);
+    --default-bg: url(https://bing.img.run/m.php);
+    --darkmode-bg:url(https://bing.img.run/m.php);
+    --mobileday-bg: url(https://bing.img.run/m.php);
+
   }`;
 }
 // 切换背景主函数
@@ -3483,15 +3495,43 @@ function createWinbox() {
 
 <h3>7. 壁纸API</h3>
 {% folding cyan, 查看壁纸API系列背景 %}
+<style>
+.bgbox .apiBox {
+  position: relative;
+  overflow: hidden;
+}
+.bgbox .apiBox::after {
+  content: attr(data-name);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  padding: 4px;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 0 0 4px 4px;
+  z-index: 1;
+}
+</style>
 <div class="bgbox">
-<a id="bingDayBox" rel="noopener external nofollow" style="background-image: ${bingDayBg}" class="box apiBox" onclick="changeBg('${bingDayBg}')"></a>
-<a id="bingHistoryBox" rel="noopener external nofollow" style="background-image: ${bingHistoryBg}" class="box apiBox" onclick="changeBg('${bingHistoryBg}')"></a>
-<a id="EEEDogBox" rel="noopener external nofollow" style="background-image: ${EEEDog}" class="box apiBox" onclick="changeBg('${EEEDog}')"></a>
-<a id="seovxBox" rel="noopener external nofollow" style="background-image: ${seovx}" class="box apiBox" onclick="changeBg('${seovx}')"></a>
-<a id="picsumBox" rel="noopener external nofollow" style="background-image: ${picsum}" class="box apiBox" onclick="changeBg('${picsum}')"></a>
-<a id="waiBizhiBox" rel="noopener external nofollow" style="background-image: ${waiBizhi}" class="box apiBox" onclick="changeBg('${waiBizhi}')"></a>
-<a id="btstuBox" rel="noopener external nofollow" style="background-image: ${btstu}" class="box apiBox" onclick="changeBg('${btstu}')"></a>
-<a id="unsplashBox" rel="noopener external nofollow" style="background-image: ${unsplash}" class="box apiBox" onclick="changeBg('${unsplash}')"></a>
+<a id="bingDayBox" rel="noopener external nofollow" style="background-image: ${bingDayBg}" class="box apiBox" data-name="必应每日壁纸" onclick="changeBg('${bingDayBg}')"></a>
+<a id="bingHistoryBox" rel="noopener external nofollow" style="background-image: ${bingHistoryBg}" class="box apiBox" data-name="必应历史壁纸" onclick="changeBg('${bingHistoryBg}')"></a>
+<a id="EEEDogBox" rel="noopener external nofollow" style="background-image: ${EEEDog}" class="box apiBox" data-name="EEE.Dog壁纸" onclick="changeBg('${EEEDog}')"></a>
+<a id="seovxBox" rel="noopener external nofollow" style="background-image: ${seovx}" class="box apiBox" data-name="seovx随机壁纸" onclick="changeBg('${seovx}')"></a>
+<a id="picsumBox" rel="noopener external nofollow" style="background-image: ${picsum}" class="box apiBox" data-name="picsum随机壁纸" onclick="changeBg('${picsum}')"></a>
+<a id="waiDongmanBox" rel="noopener external nofollow" style="background-image: ${waiDongman}" class="box apiBox" data-name="小歪二次元" onclick="changeBg('${waiDongman}')"></a>
+<a id="waiBizhiBox" rel="noopener external nofollow" style="background-image: ${waiBizhi}" class="box apiBox" data-name="小洛动漫壁纸" onclick="changeBg('${waiBizhi}')"></a>
+<a id="meiBox" rel="noopener external nofollow" style="background-image: ${mei}" class="box apiBox" data-name="小歪高清壁纸" onclick="changeBg('${mei}')"></a>
+<a id="comicBox" rel="noopener external nofollow" style="background-image: ${comic}" class="box apiBox" data-name="随机二次元" onclick="changeBg('${comic}')"></a>
+<a id="comic2Box" rel="noopener external nofollow" style="background-image: ${comic2}" class="box apiBox" data-name="随机二次元2" onclick="changeBg('${comic2}')"></a>
+<a id="comic3Box" rel="noopener external nofollow" style="background-image: ${comic3}" class="box apiBox" data-name="随机二次元3" onclick="changeBg('${comic3}')"></a>
+<a id="tbmjxBox" rel="noopener external nofollow" style="background-image: ${tbmjx}" class="box apiBox" data-name="淘宝卖家秀" onclick="changeBg('${tbmjx}')"></a>
+<a id="ksxjjBox" rel="noopener external nofollow" style="background-image: ${ksxjj}" class="box apiBox" data-name="小姐姐" onclick="changeBg('${ksxjj}')"></a>
+<a id="meituiBox" rel="noopener external nofollow" style="background-image: ${meitui}" class="box apiBox" data-name="meitui" onclick="changeBg('${meitui}')"></a>
+<a id="btstuBox" rel="noopener external nofollow" style="background-image: ${btstu}" class="box apiBox" data-name="博天随机壁纸" onclick="changeBg('${btstu}')"></a>
+<a id="unsplashBox" rel="noopener external nofollow" style="background-image: ${unsplash}" class="box apiBox" data-name="Unsplash随机壁纸" onclick="changeBg('${unsplash}')"></a>
 </div>
 {% endfolding %}
 
