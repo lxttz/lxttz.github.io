@@ -35,6 +35,35 @@
     
     
     <entry>
+      <title>ER图</title>
+      <link href="/posts/7dde12a1.html"/>
+      <url>/posts/7dde12a1.html</url>
+      
+        <content type="html"><![CDATA[<p>怎么画ER图？ 国内的ER图一般采用的是Chen Model，ER图分为两种：完整的总ER图(实体、字段属性、关联关系和关联关系属性)和简易总ER图(实体、关联关系和关联关系属性)。 1.ER图中图形 ER图的图形元素有矩形、双实线矩形(弱实体)、实线椭圆、双实线椭圆(多值属性)、虚线椭圆(派生属性)、菱形、双实线菱形(弱关联关系)、单竖线倒三角形(概化&#x2F;分组)、双竖线倒三角形(全部概化)、连线。  </p><p><img src="https://i-blog.csdnimg.cn/img_convert/c61ed62d0062bbfbab132608951220f6.png" alt="image"></p><p> 矩形：表示实体。 什么是实体？实体是客观存在的事物。例如用户、商品、订单、供应商等。说直白点！！！你 数据库 的表名就可以做一个实体对象。一个系统是由很多个实体对象构 成的，然后它们之间存在一定的关系和属性。 椭圆形：表示属性。 什么是属性？举例子：用户实体拥有属性【id、姓名、年龄、电话、身份证号】、商品实体拥有属性【id、商品名称、商品类型、商品价格、商品图片、商品描述、供应 商名称】、订单实体拥有属性【id、订单编号、用户名称、商品名称、下单日期】、供应商实体拥有属性【id、名称、地址、联系电话】。 菱形：表示关系。 什么是关系？例如用户和商品应该购买关系（一个用户购买多件商品）、订单与商品应该是包含关系（一个订单中包含多件商品）。 双实线矩形：表示弱实体。 什么是弱实体？如果一个实体依赖于某个实体而存在，那么前者是弱实体，后者为强实体。例如订单实体依赖于商品实体而存在，为什么？因为如果没有商品你能够下 订单吗？不可能！所以订单为弱实体，商品为强实体。 双实线椭圆形：表示多值属性。 什么是多值属性？例如一个用户可能拥有多个电话号码，所以电话号码可以作为多值属性。一个用户只能拥有一个身份证号码，所以身份证号不能作为多值属性。 虚线椭圆形：表示派生属性。 什么是派生属性？例如一个用户的年龄我们可以作为派生属性，为什么？因为它可以通过身份证号推导出来。所以需要注意的是能推导出来的属性我们都可以作为派生属性。 双实线菱形：表示弱关系。 什么是弱关系？弱关系一般是和弱实体一起使用的，只有弱实体才会用到弱关系。 单竖线倒三角形：表示概化。 什么是概化？说直白点就是分组！！！一个商品类型可能包含图书类、服装类、数码类等。 双竖线倒三角形：表示全部概化。 什么是全部概化？说直白点也是分组！！！但是！！！一个商品类型只能包含图书类、服装类、数码类。这就是概化与全部概化的区别。 2.ER图中关联关系 一对一（1:1） ：1对1关系是指对于实体集A与实体集B，A中的每一个实体至多与B中一个实体有关系；反之，在实体集B中的每个实体至多与实体集A中一个实体有关 系。例如：一个用户只能拥有一张身份证，而一张身份证只属于一个用户。所以这就是一对一的关系。 一对多（1:n） ：1对多关系是指实体集A与实体集B中至少有n(n&gt;0)个实体有关系；并且实体集B中每一个实体至多与实体集A中一个实体有关系。例如：一对多和多对一是一样的。一个用户拥有多张银行卡，但是一张银行卡只属于一个用户。所以这就是一对多的关系。反过来说法就是多对一。 多对多（m:n） ：多对多关系是指实体集A中的每一个实体与实体集B中至少有m(m&gt;0)个实体有关系，并且实体集B中的每一个实体与实体集A中的至少n（n&gt;0）个实体 有关系。例如：学生与课程的关系，一个学生可以选择0个或者多个课程，一个课程可以0个或者多个学生所选择。这就是多对多的关系。 3.画ER图方法 一般我们要完整地分析出系统的实体、字段属性、关联关系、关联关系属性，最好实体的关系模式满足3NF或者BCNF，画出来的ER图才能比较合理。 我们可以先将每一个实体单个画出来，包括实体的字段属性，如下：  </p><p><img src="https://i-blog.csdnimg.cn/img_convert/f686a488420aa00a4a3d1243d3acc7dc.png" alt="image"></p><p> 然后画菱形关联关系，将实体和实体连接起来，如下：  </p><p><img src="https://i-blog.csdnimg.cn/img_convert/a761c67a5a064383305bf7d1a0c504b8.png" alt="image"></p><p> 最后我们再核对下整体ER图，优化图，比如对多对多的关联关系补充关联关系属性，如下：  </p><p><img src="https://i-blog.csdnimg.cn/img_convert/d545e04bdd666de1471ea0a474b8f6fc.png" alt="image"></p><p> 4.快速生成ER图方法 <a href="https://zhzsoft.cn/er">ER图快速生成</a> 两种方式生成ER图： 《1》导入sql来生成er图–准备好sql文件，点击“导入SQL”，等待画图区域生成图；然后点击“显示&#x2F;刷新实体关联关系”，在画图区域上方会出现实体关联关系选择框，选择合理的实体关联关系(1对1、1对多、多对多)，输入合理的关联关系名称，点击“添加关联关系”，将关联关系添加进关联关系列表里面，如果觉得不合适的关联关系，可以选中，点击“删除选中关系”将选中的关联关系从关联关系列表移除，确定所有实体关联关系都添加完了，点击“生成ER图”，等待画图区域生成图，最后调整图对象，进行排版，排版在画图区域生成图后，选择调整图形-布局-力导向图，这样图自动就调整了。 《2》输入实体名和字段属性来生成er图–确定实体数目，输入实体数目，点击“生成实体”，生成对应数目的实体框和字段属性框，给每个实体框和字段属性框输入内容；输入完毕后，点击“显示&#x2F;刷新实体关联关系”，在画图区域上方会出现实体关联关系选择框，选择合理的实体关联关系(1对1、1对多、多对多)，输入合理的关联关系名称，点击“添加关联关系”，将关联关系添加进关联关系列表里面，如果觉得不合适的关联关系，可以选中，点击“删除选中关系”将选中的关联关系从关联关系列表移除，确定所有实体关联关系都添加完了，点击“生成ER图”，等待画图区域生成图，最后调整图对象，进行排版，排版在画图区域生成图后，选择调整图形-布局-力导向图，这样图自动就调整了。 效果图：  </p><p><img src="https://i-blog.csdnimg.cn/img_convert/e5697a358de8a4d3f97780302fc21d57.png" alt="image"></p><p>  </p><p><img src="https://i-blog.csdnimg.cn/img_convert/b74be84a900f7f567b14430e0ff2062a.png" alt="image"></p><p>  </p><p><img src="https://i-blog.csdnimg.cn/img_convert/48fcfe29af76dc31eaf1a01a98a521a1.png" alt="image"></p><p>  </p><p><img src="https://i-blog.csdnimg.cn/img_convert/8fdcee9ece56f38462b3eca7e64e35a4.png" alt="image"></p><p>  </p><p><img src="https://i-blog.csdnimg.cn/img_convert/3f3c4222dfa3487e88920facf0b54507.png" alt="image"></p><p>  </p><p><img src="https://i-blog.csdnimg.cn/img_convert/f75d66ee5eca7ad50b55470d3b030105.png" alt="image"></p><p>  </p><p><img src="https://i-blog.csdnimg.cn/img_convert/3ffad47d225a71fabd5209414cc0e2b8.png" alt="image"></p><p>功能结构图画法：快速生成功能结构图-<a href="https://zhzsoft.cn/func/">功能结构图快速生成平台</a></p><p>功能结构图的图形有：(水平&#x2F;垂直)矩形框和连线</p><p><img src="https://i-blog.csdnimg.cn/direct/16d52a9145e340bd82abb493f1ecc9a1.png" alt="image"></p><p>首先我们要确定我们的项目程序的功能有哪些？比如注册、登录、查看新闻公告、管理用户信息、管理商品信息等。项目程序分哪些角色?比如用户、管理员。 确定好功能和角色后，我们就可以画图了。</p><p>在画布里面拖入矩形框，调整为合适的水平矩形框，输入项目程序的名称。根据角色多少复制对应个数的水平矩形框，宽度调短一些，在每个水平矩形框输入角色名称。然后在画布里面拖入矩形框，调整为合适的垂直矩形框，根据功能多少复制对应个数的垂直矩形框，调整每个垂直矩形框的间距，在每个垂直矩形框输入功能名称。最后连接标题框、角色框、功能框。</p><p>效果图:</p><p><img src="https://i-blog.csdnimg.cn/direct/40630346fbab4b82a3637061f325c1a3.png" alt="image"></p><p><img src="https://i-blog.csdnimg.cn/direct/995daf2d75674b74a7d6ed6fb2b48f76.png" alt="image"></p><p>用例图画法：快速生成功用例图-<a href="https://zhzsoft.cn/case/">用例图快速生成平台</a></p><p>用例图的图形有：角色小人、用例椭圆、无箭头实线连线、有箭头虚线连线</p><p><img src="https://i-blog.csdnimg.cn/direct/e787e8d1aa4e4c59871b8fc66b18dcb5.png" alt="image"></p><p>首先我们要确定我们的项目程序分哪些角色?比如用户、管理员。 项目程序的功能有哪些？比如注册、登录、购买车票、退票、管理用户信息、管理车票信息等。功能要细分一下，考虑包含关系和扩展关系，比如管理用户信息包含：添加用户信息、修改用户信息、删除用户信息，购买车票扩展：退票或者换票。确定好功能和角色后，我们就可以画图了。</p><p>在画布里面拖入小人，根据角色多少复制对应个数的小人，给每个小人输入角色名。然后在画布里面拖入用例椭圆，根据功能多少复制对应个数的用例椭圆，在每个用例椭圆内输入功能名称。最后使用无箭头实线连线连接角色小人和用例，使用有箭头虚线连线连接用例和用例(包含include或者扩展extend)。</p><p>效果图:</p><p><img src="https://i-blog.csdnimg.cn/direct/45f0aea6993c487e9c4d636c932495e4.png" alt="image"></p><p><img src="https://i-blog.csdnimg.cn/direct/ab39a6a98cbc4192ba2ea29699014a30.png" alt="image"></p><p><img src="https://i-blog.csdnimg.cn/direct/f01152dd63e548668b0239715ec75dd8.png" alt="image"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 教程 </tag>
+            
+            <tag> ER图 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Steam下载安装与注册_（超详细版）</title>
       <link href="/posts/7dde12a1.html"/>
       <url>/posts/7dde12a1.html</url>
@@ -85,6 +114,35 @@
             <tag> 教程 </tag>
             
             <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Enterprise_Architect使用教程</title>
+      <link href="/posts/7dde12a1.html"/>
+      <url>/posts/7dde12a1.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h3><p>Enterprise Architect是一个对于软件系统开发有着极好支持的CASE软件（Computer Aided Software Engineering）。EA不同于普通的UML画图工具（如VISIO），它将支撑系统开发的全过程。在需求分析阶段，系统分析与设计阶段，系统开发及部署等方面有着强大的支持，同时加上对10种编程语言的正反向工程，项目管理，文档生成，数据建模等方面。可以让系统开发中各个角色都获得最好的开发效率。</p><h3 id="二、下载-安装"><a href="#二、下载-安装" class="headerlink" title="二、下载&amp;安装"></a>二、下载&amp;安装</h3><pre><code class="language-bash">链接：https://pan.baidu.com/s/1xQ2q-_cSt_DTI3zIDvxkFw 提取码：wq83 ```### 三、使用教程#### 构建类图打开EA，点击左上角的图标新建项目。![image](https://i-blog.csdnimg.cn/blog_migrate/219fba9db72dbc1a82f2960e26c60343.png)起一个项目名称，我这里就叫test2好了。![image](https://i-blog.csdnimg.cn/blog_migrate/5b9d336ddfe4bcc2201054d0f906a3da.png)新建好后的页面应该和我现在的差不多，可能会有个欢迎页面，不过差不多。![image](https://i-blog.csdnimg.cn/blog_migrate/599009fee6446d9d199b9c69fd043447.png)先要在工程下新建一个包，点击Browser下的文件夹图标：![image](https://i-blog.csdnimg.cn/blog_migrate/d9560437a72364e52639d898f595e09c.png)起一个名字后点击ok，然后会出现一个窗口：![image](https://i-blog.csdnimg.cn/blog_migrate/7f126bcc66ca7af10d4af31c41ce97e4.png)我理解这个窗口是预设模板，可以快速构建一些特定的类图啥的，我们这里直接关闭这个窗口就行了。![image](https://i-blog.csdnimg.cn/blog_migrate/048351c35f0f860fe5662b7ab94767aa.png)现在我们的包建好了，需要在包里添加视图，我们的类图和活动图等都是创建在视图上的。点击包右边的小图标添加视图：![image](https://i-blog.csdnimg.cn/blog_migrate/f934436350a58f92d6af03aedc16e95b.png)我这里构建的是类图，这样选择视图类型：![image](https://i-blog.csdnimg.cn/blog_migrate/7ac1dfe4650b24a75b4c82732fa9c4c7.png)好了，我们的类图创建好了。![image](https://i-blog.csdnimg.cn/blog_migrate/44b34e61f91ed5d8a6a183b433305896.png)我们现在需要做的就是添加类等类图组件，这一步我折腾了半天，硬是找不到组件工具栏，后来发现的时候相当无语。居然是在类图标签左边的小图标`&gt;&gt;`，点击一下即可展开组件工具栏。![image](https://i-blog.csdnimg.cn/blog_migrate/37e8be8778648555e5733adc791419e4.png)通过拖拽，我们可以简单添加类![image](https://i-blog.csdnimg.cn/blog_migrate/a4a43eb682507bd8f6ea348a6243aec7.png)我们现在要加上继承关系，选择子类，点击右上角小箭头，进行拖拽到父类：![image](https://i-blog.csdnimg.cn/blog_migrate/2794b29f924a28ed2c8f32b754a63b94.png)在弹出的菜单中选择Generalization：![image](https://i-blog.csdnimg.cn/blog_migrate/25fe6f3fb28b8056c5cd334a12ce416f.png)+ Generalization在UML中准确的讲是表示泛化关系，但在类图中就是表示继承关系。+ 更详细的UML介绍可以看[这里](https://www.w3cschool.cn/uml_tutorial/uml_tutorial-46u228pf.html)。注意，这个是个山寨w3school网站，真身是没有UML相关教程的。我们用同样的方法还可以把类关联到接口上，当然这时候选择关系为Realization（实现）。![image](https://i-blog.csdnimg.cn/blog_migrate/66364389b4eb1c26618b2b092a3f06a6.png)与之类似的，我们可以给接口和抽象类Carrier加上聚合关系，此时我们可以通过`TakeoffMode`拖拽箭头到`Carrier`，然后选择`Composition to whuole`，即组合到整体。Aggregation是聚合，Composition是组合，这两者很容易傻傻分不清，我在某个地方看到的例子非常好，大雁和雁群是聚合关系，翅膀和大雁是组合关系。![image](https://i-blog.csdnimg.cn/blog_migrate/cdf96569e38e33975e7ff4a4f303e119.png)我们还可以在关系上添加数目，即1对1关系，双击关系，在弹出的窗口中选择Role，并填入1：![image](https://i-blog.csdnimg.cn/blog_migrate/10cfedc55c93982ccccd9786ab763707.png)现在该给类加入属性和方法了，选定一个类，在右侧Properties窗口的小图标下拉菜单中选择`Attributes`。![image](https://i-blog.csdnimg.cn/blog_migrate/412b73f982cdb7059d4e9a9a0e325df6.png)视图下方会打开一个管理属性的窗口，我们可以在这里快速添加属性：![image](https://i-blog.csdnimg.cn/blog_migrate/2d4e2b463a43b302a471f5d3fef80fd0.png)可以用同样的方式添加方法：![image](https://i-blog.csdnimg.cn/blog_migrate/609ec5db58f94ac0736175b8d31a97d7.png)经过一番设置后，我们可以完成一个简单的类图：[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-2KqRiNF1-1617263331076)(https://i.loli.net/2021/04/01/EztO1JnLajlmCSI.png)]最后我们再修改一下类的层级：![image](https://i-blog.csdnimg.cn/blog_migrate/4a42b9f7d378b87921e9d9bd7d68c06c.png)我们现在有了类图，可以尝试导出代码了。### 导出代码先修改相关设置：![image](https://i-blog.csdnimg.cn/blog_migrate/510f4f2754d267d5c9f31f3b58aa0825.png)我们把项目默认语言改为自己常用的语言：![image](https://i-blog.csdnimg.cn/blog_migrate/fc5066a5fb4db097e34b4c0dbe76ffe6.png)还需要修改我们项目的源码类型，在包上右键选择properties&gt;properties：[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-1hwp9kG5-1617263331086)(https://i.loli.net/2021/04/01/rTZ6sdcqMwuVtN2.png)]在打开的窗口右侧选择源码语言为你的目标语言：![image](https://i-blog.csdnimg.cn/blog_migrate/05f9d3cca14134fb0f29e09be955ea36.png)导出源码的功能我同样找了好半天，以前老版本是直接在包上右键菜单就有，新版难找的一B：![image](https://i-blog.csdnimg.cn/blog_migrate/822693b2e97344488fdd5e81ba4ce12c.png)在打开的窗口中选择如下设置后点击生成：![image](https://i-blog.csdnimg.cn/blog_migrate/523f91b1e4e47cbdbd624c0f9ce0093c.png)大功告成。可以用VSCode打开项目看一下：![image](https://i-blog.csdnimg.cn/blog_migrate/43d6bfc092098780ed7364d6a1910654.png)这里要特别说明一下，如果你遇到和我一样，不管怎么设置，导出代码都是原本默认的Java代码的话，那你要检查一下项目所有类的property中的language：![image](https://i-blog.csdnimg.cn/blog_migrate/7e706022a656553db82e914152937830.png)这里有个大坑，如果是在类图创建好后再改项目语言，只有你改的那个包的语言会变，包下面的子包和类以及视图的语言都是不会变的，你需要手动一个个把那些都改成Python，这样你导出的程序才是Python，否则不管你怎么弄都是Java。这个设定无比坑爹！所以使用EA的时候最好一开始就设定好语言。</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 教程 </tag>
+            
+            <tag> Enterprise_Architect </tag>
             
         </tags>
       
