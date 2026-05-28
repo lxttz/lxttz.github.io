@@ -2,6 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lxttz.github.io/posts/yuming520.html</loc>
+    
+    <lastmod>2026-05-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lxttz.github.io/posts/hduan520.html</loc>
+    
+    <lastmod>2026-05-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lxttz.github.io/posts/qianduan520.html</loc>
+    
+    <lastmod>2026-05-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lxttz.github.io/posts/fuwuqi520.html</loc>
+    
+    <lastmod>2026-05-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lxttz.github.io/posts/shujuku520.html</loc>
+    
+    <lastmod>2026-05-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://lxttz.github.io/posts/edgeTunnelvpn.html</loc>
     
     <lastmod>2026-05-28</lastmod>
@@ -2063,6 +2108,48 @@
   
   <url>
     <loc>https://lxttz.github.io/tags/%E9%AD%94%E6%B3%95/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://lxttz.github.io/tags/%E6%A1%86%E6%9E%B6/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://lxttz.github.io/tags/%E5%90%8E%E7%AB%AF/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://lxttz.github.io/tags/%E7%A5%9E%E7%BA%A7%E7%A7%98%E7%B1%8D/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://lxttz.github.io/tags/%E6%89%98%E7%AE%A1/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://lxttz.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://lxttz.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
