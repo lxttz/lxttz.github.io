@@ -1,0 +1,766 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><div id="myscoll"></div><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>数据库课堂代码 | Arlos Blog World🥝</title><meta name="keywords" content="数据库"><meta name="author" content="阿洛博客世界🥝"><meta name="copyright" content="阿洛博客世界🥝"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库课堂代码">
+<meta property="og:url" content="https://lxttz.github.io/posts/shujukuketang.html">
+<meta property="og:site_name" content="Arlos Blog World🥝">
+<meta property="og:description" content="数据库">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://source.fomal.cc/img/default_cover_60.webp">
+<meta property="article:published_time" content="2026-06-24T02:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-28T07:46:35.522Z">
+<meta property="article:author" content="阿洛博客世界🥝">
+<meta property="article:tag" content="数据库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://source.fomal.cc/img/default_cover_60.webp"><link rel="shortcut icon" href="https://lxttz.github.io/assets/zhizhuxia/zhizhu01.png"><link rel="canonical" href="https://lxttz.github.io/posts/shujukuketang"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.staticfile.org/fancyapps-ui/4.0.31/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdnjs.cloudflare.com/ajax/libs/flickr-justified-gallery/2.1.2/fjGallery.min.js',
+      css: 'https://cdnjs.cloudflare.com/ajax/libs/flickr-justified-gallery/2.1.2/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '数据库课堂代码',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-05-28 15:46:35'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn1.tianli0.top/npm/element-ui@2.15.6/packages/theme-chalk/lib/index.css"><style id="themeColor"></style><style id="rightSide"></style><style id="transPercent"></style><style id="blurNum"></style><style id="settingStyle"></style><span id="fps"></span><style id="defineBg"></style><style id="menu_shadow"></style><svg aria-hidden="true" style="position:absolute; overflow:hidden; width:0; height:0"><symbol id="icon-sun" viewBox="0 0 1024 1024"><path d="M960 512l-128 128v192h-192l-128 128-128-128H192v-192l-128-128 128-128V192h192l128-128 128 128h192v192z" fill="#FFD878" p-id="8420"></path><path d="M736 512a224 224 0 1 0-448 0 224 224 0 1 0 448 0z" fill="#FFE4A9" p-id="8421"></path><path d="M512 109.248L626.752 224H800v173.248L914.752 512 800 626.752V800h-173.248L512 914.752 397.248 800H224v-173.248L109.248 512 224 397.248V224h173.248L512 109.248M512 64l-128 128H192v192l-128 128 128 128v192h192l128 128 128-128h192v-192l128-128-128-128V192h-192l-128-128z" fill="#4D5152" p-id="8422"></path><path d="M512 320c105.888 0 192 86.112 192 192s-86.112 192-192 192-192-86.112-192-192 86.112-192 192-192m0-32a224 224 0 1 0 0 448 224 224 0 0 0 0-448z" fill="#4D5152" p-id="8423"></path></symbol><symbol id="icon-moon" viewBox="0 0 1024 1024"><path d="M611.370667 167.082667a445.013333 445.013333 0 0 1-38.4 161.834666 477.824 477.824 0 0 1-244.736 244.394667 445.141333 445.141333 0 0 1-161.109334 38.058667 85.077333 85.077333 0 0 0-65.066666 135.722666A462.08 462.08 0 1 0 747.093333 102.058667a85.077333 85.077333 0 0 0-135.722666 65.024z" fill="#FFB531" p-id="11345"></path><path d="M329.728 274.133333l35.157333-35.157333a21.333333 21.333333 0 1 0-30.165333-30.165333l-35.157333 35.157333-35.114667-35.157333a21.333333 21.333333 0 0 0-30.165333 30.165333l35.114666 35.157333-35.114666 35.157334a21.333333 21.333333 0 1 0 30.165333 30.165333l35.114667-35.157333 35.157333 35.157333a21.333333 21.333333 0 1 0 30.165333-30.165333z" fill="#030835" p-id="11346"></path></symbol></svg><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="Arlos Blog World🥝" type="application/atom+xml">
+</head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://lxttz.github.io/assets/zhizhuxia/toxiang.jpg" onerror="onerror=null;src='/assets/toxiang.jpg'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">111</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">138</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">75</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-home"></use></svg><span class="menu_word" style="font-size:17px"> 首页</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--article"></use></svg><span class="menu_word" style="font-size:17px"> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-guidang1">                   </use></svg><span class="menu_word" style="font-size:17px"> 归档</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-sekuaibiaoqian">                   </use></svg><span class="menu_word" style="font-size:17px"> 标签</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-fenlei">                   </use></svg><span class="menu_word" style="font-size:17px"> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-pinweishenghuo"></use></svg><span class="menu_word" style="font-size:17px"> 休闲</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/life/music/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-yinle">                   </use></svg><span class="menu_word" style="font-size:17px"> 八音盒</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/life/movies/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-dianying1">                   </use></svg><span class="menu_word" style="font-size:17px"> 影院</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/life/games/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-youxishoubing">                   </use></svg><span class="menu_word" style="font-size:17px"> 娱乐</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xiangzi"></use></svg><span class="menu_word" style="font-size:17px"> 八宝箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/box/gallery/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-tubiaozhizuomoban">                   </use></svg><span class="menu_word" style="font-size:17px"> 智能AI</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/box/animation/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-nvwumao">                   </use></svg><span class="menu_word" style="font-size:17px"> 学习院</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/box/nav/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-zhifengche">                   </use></svg><span class="menu_word" style="font-size:17px"> 百宝箱</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shejiaoxinxi"></use></svg><span class="menu_word" style="font-size:17px"> 社交</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/social/fcircle/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-pengyouquan">                   </use></svg><span class="menu_word" style="font-size:17px"> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-liuyan">                   </use></svg><span class="menu_word" style="font-size:17px"> 留言板</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/social/link/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-lianjie">                   </use></svg><span class="menu_word" style="font-size:17px"> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-wangye"></use></svg><span class="menu_word" style="font-size:17px"> 网站</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/site/census/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--tongjibiao">                   </use></svg><span class="menu_word" style="font-size:17px"> 网站统计</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/site/echarts/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shujutongji1">                   </use></svg><span class="menu_word" style="font-size:17px"> 文章统计</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/site/time/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xianxingshalou">                   </use></svg><span class="menu_word" style="font-size:17px"> 个人世界</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shejiaoxinxi"></use></svg><span class="menu_word" style="font-size:17px"> 博客</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/blog/notes/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--tongjibiao">                   </use></svg><span class="menu_word" style="font-size:17px"> 文章笔记</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/blog/link/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shujutongji1">                   </use></svg><span class="menu_word" style="font-size:17px"> 博客相关</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/blog/about/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xianxingshalou">                   </use></svg><span class="menu_word" style="font-size:17px"> 关于页面</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-maoliang"></use></svg><span class="menu_word" style="font-size:17px"> 个人</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/personal/bb/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-qunliaotian">                   </use></svg><span class="menu_word" style="font-size:17px"> 唠叨</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/personal/love/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-love-sign">                   </use></svg><span class="menu_word" style="font-size:17px"> 恋爱小屋</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/personal/about/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-paperplane">                   </use></svg><span class="menu_word" style="font-size:17px"> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Arlos Blog World🥝</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-home"></use></svg><span class="menu_word" style="font-size:17px"> 首页</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--article"></use></svg><span class="menu_word" style="font-size:17px"> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-guidang1">                   </use></svg><span class="menu_word" style="font-size:17px"> 归档</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-sekuaibiaoqian">                   </use></svg><span class="menu_word" style="font-size:17px"> 标签</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-fenlei">                   </use></svg><span class="menu_word" style="font-size:17px"> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-pinweishenghuo"></use></svg><span class="menu_word" style="font-size:17px"> 休闲</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/life/music/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-yinle">                   </use></svg><span class="menu_word" style="font-size:17px"> 八音盒</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/life/movies/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-dianying1">                   </use></svg><span class="menu_word" style="font-size:17px"> 影院</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/life/games/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-youxishoubing">                   </use></svg><span class="menu_word" style="font-size:17px"> 娱乐</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xiangzi"></use></svg><span class="menu_word" style="font-size:17px"> 八宝箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/box/gallery/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-tubiaozhizuomoban">                   </use></svg><span class="menu_word" style="font-size:17px"> 智能AI</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/box/animation/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-nvwumao">                   </use></svg><span class="menu_word" style="font-size:17px"> 学习院</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/box/nav/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-zhifengche">                   </use></svg><span class="menu_word" style="font-size:17px"> 百宝箱</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shejiaoxinxi"></use></svg><span class="menu_word" style="font-size:17px"> 社交</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/social/fcircle/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-pengyouquan">                   </use></svg><span class="menu_word" style="font-size:17px"> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-liuyan">                   </use></svg><span class="menu_word" style="font-size:17px"> 留言板</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/social/link/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-lianjie">                   </use></svg><span class="menu_word" style="font-size:17px"> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-wangye"></use></svg><span class="menu_word" style="font-size:17px"> 网站</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/site/census/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--tongjibiao">                   </use></svg><span class="menu_word" style="font-size:17px"> 网站统计</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/site/echarts/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shujutongji1">                   </use></svg><span class="menu_word" style="font-size:17px"> 文章统计</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/site/time/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xianxingshalou">                   </use></svg><span class="menu_word" style="font-size:17px"> 个人世界</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shejiaoxinxi"></use></svg><span class="menu_word" style="font-size:17px"> 博客</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/blog/notes/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--tongjibiao">                   </use></svg><span class="menu_word" style="font-size:17px"> 文章笔记</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/blog/link/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shujutongji1">                   </use></svg><span class="menu_word" style="font-size:17px"> 博客相关</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/blog/about/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xianxingshalou">                   </use></svg><span class="menu_word" style="font-size:17px"> 关于页面</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-maoliang"></use></svg><span class="menu_word" style="font-size:17px"> 个人</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/personal/bb/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-qunliaotian">                   </use></svg><span class="menu_word" style="font-size:17px"> 唠叨</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/personal/love/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-love-sign">                   </use></svg><span class="menu_word" style="font-size:17px"> 恋爱小屋</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/personal/about/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-paperplane">                   </use></svg><span class="menu_word" style="font-size:17px"> 关于</span></a></li></ul></div></div><center id="name-container"><a id="page-name" href="javascript:scrollToTop()">PAGE_NAME</a></center><div id="nav-right"><div id="search-button"><a class="search faa-parent animated-hover" title="检索站内任何你想要的信息"><svg class="faa-tada icon" style="height:24px;width:24px;fill:currentColor;position:relative;top:6px" aria-hidden="true"><use xlink:href="#icon-valentine_-search-love-find-heart"></use></svg><span> 搜索</span></a></div><a class="meihua faa-parent animated-hover" onclick="toggleWinbox()" title="美化设置-自定义你的风格" id="meihua-button"><svg class="faa-tada icon" style="height:26px;width:26px;fill:currentColor;position:relative;top:8px" aria-hidden="true"><use xlink:href="#icon-tupian1"></use></svg></a><a class="sun_moon faa-parent animated-hover" onclick="switchNightMode()" title="浅色和深色模式转换" id="nightmode-button"><svg class="faa-tada" style="height:25px;width:25px;fill:currentColor;position:relative;top:7px" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-moon">       </use></svg></a><div id="toggle-menu"><a><i class="fas fa-bars fa-fw"></i></a></div></div></div></nav><div id="post-info"><h1 class="post-title">数据库课堂代码</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><svg class="meta_icon post-meta-icon" style="width:30px;height:30px;position:relative;top:10px"><use xlink:href="#icon-rili"></use></svg><span class="post-meta-label">发表于 </span><time class="post-meta-date-created" datetime="2026-06-24T02:00:00.000Z" title="发表于 2026-06-24 10:00:00">2026-06-24</time><span class="post-meta-separator">|</span><svg class="meta_icon post-meta-icon" style="width:18px;height:18px;position:relative;top:5px"><use xlink:href="#icon-gengxin1"></use></svg><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-05-28T07:46:35.522Z" title="更新于 2026-05-28 15:46:35">2026-05-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><svg class="meta_icon post-meta-icon" style="width:18px;height:18px;position:relative;top:5px"><use xlink:href="#icon-biaoqian"></use></svg><a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B/">教程</a><i class="fas fa-angle-right post-meta-separator"></i><svg class="meta_icon post-meta-icon" style="width:18px;height:18px;position:relative;top:5px"><use xlink:href="#icon-biaoqian"></use></svg><a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><svg class="meta_icon post-meta-icon" style="width:25px;height:25px;position:relative;top:8px"><use xlink:href="#icon-charuword"></use></svg><span class="post-meta-label">字数总计:</span><span class="word-count">6116</span><span class="post-meta-separator">|</span><svg class="meta_icon post-meta-icon" style="width:20px;height:20px;position:relative;top:5px"><use xlink:href="#icon-shizhong"></use></svg><span class="post-meta-label">阅读时长:</span><span>27分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="数据库课堂代码"><svg class="meta_icon post-meta-icon" style="width:25px;height:25px;position:relative;top:5px"><use xlink:href="#icon-eye"></use></svg><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="第四章："><a href="#第四章：" class="headerlink" title="第四章："></a>第四章：</h1><p>#4.1 查看MySQL服务器中的已有数据库。</p>
+<p>SHOW DATABASES;</p>
+<p>#4.2 创建名称为stusys的学生信息数据库，该数据库是本书的重要数据库。</p>
+<p>CREATE DATABASE stusys;</p>
+<p>#4.3 选择stusys为当前数据库。</p>
+<p>USE stusys;</p>
+<p>#4.4 修改数据库stusys的默认字符集和校对规则。</p>
+<p>ALTER DATABASE stusys<br>DEFAULT CHARACTER SET gb2312<br>DEFAULT COLLATE gb2312_chinese_ci;</p>
+<p>#4.5 删除数据库stusys。</p>
+<p>DROP DATABASE stusys;</p>
+<p>#4.6 在学生信息数据库stusys中创建student表。</p>
+<p>USE stusys;</p>
+<p>CREATE TABLE student<br>    (<br>       sno char(6) NOT NULL PRIMARY KEY,<br>       sname char(8) NOT NULL,<br>       ssex char(2) NOT NULL DEFAULT ‘男’,<br>       sbirthday date NOT NULL,<br>       speciality char(12) NULL,<br>       tc tinyint NULL<br>    );</p>
+<p>#4.7 在stusys数据库中，使用复制方式创建student1表，表结构取自student表。</p>
+<p>USE stusys;</p>
+<p>CREATE TABLE student1 like student;</p>
+<p>#4.8 查看数据库stusys中所有表名。</p>
+<p>USE stusys;</p>
+<p>SHOW TABLES;</p>
+<p>#4.9 查看数据库stusys中student表的基本结构。</p>
+<p>SHOW COLUMNS FROM student;</p>
+<p>#4.10 查看数据库stusys中student表的详细结构。</p>
+<p>SHOW CREATE TABLE student\G</p>
+<p>#4.11 在数据库stusys的student1表中增加一列sid，添加到表的第1列，不为空，取值唯一并自动增加。</p>
+<p>ALTER TABLE stusys.student1<br>ADD COLUMN sid int NOT NULL UNIQUE AUTO_INCREMENT FIRST;</p>
+<p>DESC stusys.student1;</p>
+<p>#4.12 将stusys数据库的student1表的列sbirthday修改为sage，将数据类型改为tinyint，可空，默认值为18。</p>
+<p>ALTER TABLE stusys.student1<br>CHANGE COLUMN sbirthday sage tinyint DEFAULT 18;</p>
+<p>DESC stusys.student1;</p>
+<p>#4.13 删除数据库stusys的表student1中的列sid。</p>
+<p>ALTER TABLE stusys.student<br>DROP COLUMN sid;</p>
+<p>#4.14 在stusys数据库中，将 student1表重命名为student2表。</p>
+<p>ALTER TABLE stusys.student1<br>RENAME TO stusys.student2;</p>
+<p>#4.15 在stusys数据库中，将 student2表重命名为student3表。</p>
+<p>RENAME TABLE stusys.student2 TO stusys.student3;</p>
+<p>#4.16 删除stusys数据库中的student3表。</p>
+<p>DROP TABLE stusys.student3;</p>
+<p>#4.17 查看存储引擎。</p>
+<p>SHOW ENGINES;</p>
+<h1 id="第五章："><a href="#第五章：" class="headerlink" title="第五章："></a>第五章：</h1><p>#5.1 向student1表插入一条记录(‘196001’,’董明霞’,’女’,’1999-05-02’,’通信’,50)。</p>
+<p>INSERT INTO student1<br>    VALUES (‘196001’,’董明霞’,’女’,’1999-05-02’,’通信’,50);</p>
+<p>#5.2 向student1表插入一条记录，学号为“196002”，姓名为“李茜”，专业为“通信”，总学分48，性别为“女”，出生日期为“1998-07-25”。</p>
+<p>INSERT INTO student1 (sno, sname, speciality, tc, ssex, sbirthday)<br>    VALUES(‘196002’,’李茜’,’通信’,48,’女’,’1998-07-25’);</p>
+<p>#5.3 向student1表插入一条记录，学号为“196004”，姓名为“周俊文”，性别为“男”、取默认值，出生日期为“1998-03-10”，专业为空值，总学分为52。</p>
+<p>INSERT INTO student1 (sno, sname, sbirthday, tc)<br>    VALUES(‘196004’,’周俊文’, ‘1998-03-10’, 52);</p>
+<p>#5.4 向student表插入样本数据，共6条记录，参见附录B。</p>
+<p>INSERT INTO student<br>    VALUES(‘191001’,’刘清泉’,’男’,’1998-06-21’,’计算机’,52),<br>    (‘191002’,’张慧玲’,’女’,’1999-11-07’,’计算机’,50),<br>    (‘191003’,’冯涛’,’男’,’1999-08-12’,’计算机’,52),<br>    (‘196001’,’董明霞’,’女’,’1999-05-02’,’通信’,50),<br>    (‘196002’,’李茜’,’女’,’1998-07-25’,’通信’,48),<br>    (‘196004’,’周俊文’,’男’,’1998-03-10’,’通信’,52);</p>
+<p>#5.5 对student1表，重新插入记录(‘196002’,’李茜’,’女’,’1998-07-25’,’通信’,48)。</p>
+<p>REPLACE INTO student1 VALUES<br>    (‘196002’,’李茜’,’女’,’1998-07-25’,’通信’,48);</p>
+<p>#5.6 向student2表插入student表的记录。</p>
+<p>INSERT INTO student2<br>    SELECT * FROM student;</p>
+<p>#5.7 在student1表中，将学生周俊文的出生日期改为“1999-03-10”。</p>
+<p>UPDATE student1<br>    SET sbirthday&#x3D;’1999-03-10’<br>    WHERE sname &#x3D;’周俊文’;</p>
+<p>#5.8 在student1表中，将所有学生的学分增加2分。</p>
+<p>UPDATE student1<br>    SET tc&#x3D;tc+2;</p>
+<p>#5.9 在student1表中，删除学号为196004的行。</p>
+<p>DELETE FROM student1<br>    WHERE sno&#x3D;’196004’;</p>
+<p>#5.10 在student1表中，删除所有行。</p>
+<p>DELETE FROM student1;</p>
+<p>#5.11 在student表中，删除所有行。</p>
+<p>TRUNCATE student;</p>
+<h1 id="第六章："><a href="#第六章：" class="headerlink" title="第六章："></a>第六章：</h1><p>#6.1 查询student表中所有学生的学号、姓名和专业。</p>
+<p>SELECT sno, sname, speciality<br>FROM student;</p>
+<p>#6.2 查询student表中所有列。</p>
+<p>SELECT *<br>FROM student;</p>
+<p>或</p>
+<p>SELECT sno, sname, ssex, sbirthday, speciality, tc<br>FROM student;</p>
+<p>#6.3 查询student表中所有学生的学生的sno、sname、speciality，并将结果中各列的标题分别修改为学号, 姓名, 专业。</p>
+<p>SELECT sno AS 学号, sname AS 姓名, speciality AS 专业<br>FROM student;</p>
+<p>#6.4 设student1表的表结构和样本数据与student表相同，且已创建和插入数据；在student1表中，列出学号、学分和增加4分后的学分。</p>
+<p>SELECT sno AS 学号, tc AS 学分, tc+4 AS 增加4分后的学分<br>FROM student1;</p>
+<p>#6.5 查询student表中speciality列，消除结果中的重复行。</p>
+<p>SELECT DISTINCT speciality<br>FROM student;</p>
+<p>#6.6 查询student表中专业为计算机或性别为女的学生。</p>
+<p>SELECT *<br>FROM student<br>WHERE speciality&#x3D;’计算机’ or ssex&#x3D;’女’;</p>
+<p>#6.7 查询score表成绩为92、95的记录。</p>
+<p>SELECT *<br>FROM score<br>WHERE grade in (92,95);</p>
+<p>#6.8 查询student表中不在1998年出生的学生情况。</p>
+<p>SELECT *<br>FROM student<br>WHERE sbirthday NOT BETWEEN ‘19980101’ AND ‘19981231’;</p>
+<p>#6.9 查询已选课但未参加考试的学生情况。</p>
+<p>SELECT *<br>FROM score<br>WHERE grade IS null;</p>
+<p>#6.10 查询student表中姓董的学生情况。</p>
+<p>SELECT *<br>FROM student<br>WHERE sname LIKE ‘董%’;</p>
+<p>#6.11 查询含有“系统”或“数字”的所有课程名称。</p>
+<p>SELECT *<br>FROM course<br>WHERE cname REGEXP ‘系统|数字’;</p>
+<p>#6.12 求学生的总人数。</p>
+<p>SELECT COUNT(*) AS 总人数<br>FROM student;</p>
+<p>#6.13 查询通信专业学生的总人数。</p>
+<p>SELECT COUNT(*) AS 总人数<br>FROM student<br>WHERE speciality&#x3D;’通信’;</p>
+<p>#6.14 查询1201课程总分。</p>
+<p>SELECT SUM(grade) AS 课程1201总分<br>FROM score<br>WHERE cno&#x3D;’1201’;</p>
+<p>#6.15 查询8001课程的最高分、最低分、平均成绩。</p>
+<p>SELECT MAX(grade) AS 课程8001最高分, MIN(grade) AS 课程8001最低分, AVG(grade) AS 课程8001平均成绩<br>FROM score<br>WHERE cno&#x3D;’8001’;</p>
+<p>#6.16 查询各门课程的最高分、最低分、平均成绩。</p>
+<p>SELECT cno AS 课程号, MAX(grade) AS 最高分,MIN(grade) AS 最低分, AVG(grade) AS 平均成绩<br>FROM score<br>WHERE NOT grade IS null<br>GROUP BY cno;</p>
+<p>#6.17 查询平均成绩在90分以上的学生的学号和平均成绩。</p>
+<p>SELECT sno AS 学号, AVG(grade) AS 平均成绩<br>FROM score<br>GROUP BY sno<br>HAVING AVG(grade)&gt;90;</p>
+<p>#6.18 查询至少有5名学生选修且以8开头的课程号和平均分数。</p>
+<p>SELECT cno AS 课程号, AVG (grade) AS 平均分数<br>FROM score<br>WHERE cno LIKE ‘8%’<br>GROUP BY cno<br>HAVING COUNT(*)&gt;5;</p>
+<p>#6.19 将计算机专业的学生按出生时间降序排序。</p>
+<p>SELECT *<br>FROM student<br>WHERE speciality&#x3D;’计算机’<br>ORDER BY sbirthday DESC;</p>
+<p>#6.20 查询成绩表中成绩前3位学生的学号、课程号和成绩。</p>
+<p>SELECT sno, cno, grade<br>FROM score<br>ORDER BY grade DESC<br>LIMIT 0, 3;</p>
+<p>或</p>
+<p>SELECT sno, cno, grade<br>FROM score<br>ORDER BY grade DESC<br>LIMIT 3 OFFSET 0;</p>
+<p>#6.21 采用交叉连接查询教师和和讲课地点所有可能组合。</p>
+<p>SELECT tname, location<br>FROM teacher, lecture;</p>
+<p>或</p>
+<p>SELECT tname, location<br>FROM teacher CROSS JOIN lecture;</p>
+<p>#6.22 查询每个学生选修课程的情况。</p>
+<p>SELECT student.<em>, score.</em><br>FROM student, score<br>WHERE student.sno&#x3D;score.sno;</p>
+<p>或</p>
+<p>SELECT student.<em>, score.</em><br>FROM student INNER JOIN score ON student.sno&#x3D;score.sno;</p>
+<p>#6.23 查询选修了数据库系统课程且成绩在80分以上的学生情况。</p>
+<p>SELECT a.sno, sname, cname, grade<br>FROM student a, score b, course c<br>WHERE a.sno&#x3D;b.sno AND b.cno&#x3D;c.cno AND cname&#x3D;’数据库系统’ AND grade&gt;&#x3D;80;</p>
+<p>或</p>
+<p>SELECT a.sno, sname, cname, grade<br>FROM student a JOIN score b ON a.sno&#x3D;b.sno JOIN course c ON b.cno&#x3D;c.cno<br>WHERE cname&#x3D;’数据库系统’ AND grade&gt;&#x3D;80;</p>
+<p>#6.24 对例6.22进行自然连接查询。</p>
+<p>SELECT *<br>FROM student NATURAL JOIN score;</p>
+<p>#6.25 查询选修了“1201”课程的成绩高于学号为“191002”的成绩的学生姓名。</p>
+<p>SELECT a.cno, a.sno, a.grade<br>FROM score a, score b<br>WHERE a.grade&gt;b.grade AND a.cno&#x3D;’1201’ AND b.cno&#x3D;’1201’ AND b.sno&#x3D;’191002’<br>ORDER BY a.grade DESC;</p>
+<p>或</p>
+<p>SELECT a.cno, a.sno, a.grade<br>FROM score a JOIN score b ON a.grade&gt;b.grade<br>WHERE a.cno&#x3D;’1201’ AND b.cno&#x3D;’1201’ AND b.sno&#x3D;’191002’<br>ORDER BY a.grade DESC;</p>
+<p>#6.26 采用左外连接查询教师任课情况。</p>
+<p>SELECT tname, cno<br>FROM teacher LEFT JOIN lecture ON (teacher.tno&#x3D;lecture.tno);</p>
+<p>#6.27 采用右外连接查询教师任课情况。</p>
+<p>SELECT tno, cname<br>FROM lecture RIGHT JOIN course ON (course.cno&#x3D;lecture.cno);</p>
+<p>#6.28 查询选修了课程号为8001的课程的学生情况。</p>
+<p>SELECT *<br>FROM student<br>WHERE sno IN<br>    (SELECT sno<br>     FROM score<br>     WHERE cno&#x3D;’8001’<br>    );</p>
+<p>#6.29 查询选修某课程的学生人数多于4人的教师姓名。</p>
+<p>SELECT tname AS 教师姓名<br>FROM teacher<br>WHERE tno IN<br>    (SELECT tno<br>     FROM lecture<br>     WHERE cno IN<br>        (SELECT a.cno<br>         FROM course a, score b<br>         WHERE a.cno&#x3D;b.cno<br>         GROUP BY a.cno<br>         HAVING COUNT(a.cno)&gt;4<br>        )<br>    );</p>
+<p>#6.30 查询比所有通信专业学生年龄都小的学生。</p>
+<p>SELECT *<br>FROM student<br>WHERE sbirthday &gt;ALL<br>    (SELECT sbirthday<br>     FROM student<br>     WHERE speciality&#x3D;’通信’<br>    );</p>
+<p>#6.31 查询选修1004课程的学生姓名。</p>
+<p>SELECT sname AS 姓名<br>FROM student<br>WHERE EXISTS<br>    (SELECT *<br>     FROM score<br>     WHERE score.sno&#x3D;student.sno AND cno&#x3D;’1004’<br>    );</p>
+<p>#6.32 查询性别为女及选修了课程号为4002的学生。</p>
+<p>SELECT sno, sname, ssex<br>FROM student<br>WHERE ssex&#x3D;’女’<br>UNION<br>SELECT a.sno, a.sname, a.ssex<br>FROM student a, score b<br>WHERE a.sno&#x3D;b.sno AND b.cno&#x3D;’4002’;</p>
+<h1 id="第七章："><a href="#第七章：" class="headerlink" title="第七章："></a>第七章：</h1><p>#7.1 在stusys数据库中创建V_StudentScore视图，包括学号、姓名、性别、专业、课程号、成绩，且专业为计算机。</p>
+<p>CREATE OR REPLACE VIEW V_StudentScore<br>AS<br>SELECT a.sno, sname, ssex, speciality, cno, grade<br>FROM student a, score b<br>WHERE a.sno&#x3D;b.sno AND speciality&#x3D;’计算机’<br>WITH CHECK OPTION;</p>
+<p>#7.2 在stusys数据库中创建V_StudentCourseScore视图，包括学号、姓名、性别、课程名、成绩，按学号升序排列，且专业为计算机。</p>
+<p>CREATE OR REPLACE VIEW V_StudentCourseScore<br>AS<br>SELECT a.sno, sname, ssex, speciality, cname, grade<br>FROM student a, course b, score c<br>WHERE a.sno&#x3D;c.sno AND b.cno&#x3D;c.cno AND speciality&#x3D;’计算机’<br>ORDER BY a.sno;</p>
+<p>#7.3  分别查询V_StudentScore视图、V_StudentCourseScore视图。</p>
+<p>SELECT *<br>FROM V_StudentScore;</p>
+<p>SELECT *<br>FROM V_StudentCourseScore;</p>
+<p>#7.4  查询计算机专业学生的学号、姓名、性别、课程名。</p>
+<p>SELECT sno, sname, ssex, cname<br>FROM V_StudentCourseScore;</p>
+<p>#7.5 在stusys数据库中，以student为基表，创建专业为通信的可更新视图V_StudentSpecialityComm。</p>
+<p>CREATE OR REPLACE VIEW V_StudentSpecialityComm<br>AS<br>SELECT *<br>FROM student<br>WHERE speciality&#x3D;’通信’;</p>
+<p>#7.6  向V_StudentSpecialityComm视图中插入一条记录：(‘196006’,’程超’,’男’,’1998-04-28’,’通信’, 50)。 </p>
+<p>INSERT INTO V_StudentSpecialityComm<br>VALUES(‘196006’,’程超’,’男’,’1998-04-28’,’通信’, 50);</p>
+<p>#7.7  将V_StudentSpecialityComm视图中学号为196006的学生的总学分增加2分。</p>
+<p>UPDATE V_StudentSpecialityComm SET tc&#x3D;tc+2<br>WHERE sno&#x3D;’196006’;</p>
+<p>#7.8  删除V_StudentSpecialityComm视图中学号为196006的记录。</p>
+<p>DELETE FROM V_StudentSpecialityComm<br>WHERE sno&#x3D;’196006’;</p>
+<p>#7.9  将例7.1定义的视图V_StudentScore视图进行修改，取消专业为计算机的要求。</p>
+<p>ALTER VIEW V_StudentScore<br>AS<br>SELECT a.sno, sname, ssex, speciality, cno, grade<br>FROM student a, score b<br>WHERE a.sno&#x3D;b.sno<br>WITH CHECK OPTION;</p>
+<p>#7.10 修改例7.2创建的视图V_StudentCourseScore，学号以降序排列。 </p>
+<p>ALTER VIEW V_StudentCourseScore<br>AS<br>SELECT a.sno, sname, ssex, speciality, cname, grade<br>FROM student a, course b, score c<br>WHERE a.sno&#x3D;c.sno AND b.cno&#x3D;c.cno AND speciality&#x3D;’计算机’<br>ORDER BY a.sno DESC;</p>
+<p>#7.11  在stusys数据库中，将视图V_StudentCourseScore删除。</p>
+<p>DROP VIEW V_StudentCourseScore;</p>
+<p>#7.12  在stusys数据库中student表的sname列上，创建一个普通索引I_studentSname。</p>
+<p>CREATE INDEX I_studentSname ON student(sname);</p>
+<p>#7.13  在stusys数据库中course表的cno列上，创建一个索引I_courseCno，要求按课程号cno字段值前2个字符降序排列。</p>
+<p>CREATE INDEX I_courseCno ON course(cno(2) DESC);</p>
+<p>#7.14  在stusys数据库中student表的tc列(降序)和sname列(升序)，创建一个组合索引I_studentTcSname。</p>
+<p>CREATE INDEX I_studentTcSname ON student(tc DESC, sname);</p>
+<p>#7.15 在stusys数据库teacher表的tname列，创建一个唯一性索引I_teacherTname，并按降序排列。</p>
+<p>ALTER TABLE teacher<br>ADD UNIQUE INDEX I_teacherTname(tname DESC);</p>
+<p>#7.16 在stusys数据库中，创建新表score1表，主键为sno和cno，同时在grade列上创建普通索引。</p>
+<p>CREATE TABLE score1<br>(<br>    sno char (6) NOT NULL,<br>    cno char(4) NOT NULL,<br>    grade tinyint NULL,<br>    PRIMARY KEY(sno,cno),<br>    INDEX(grade)<br>);</p>
+<p>#7.17 查看例7.16所创建的score1表的索引。</p>
+<p>SHOW INDEX FROM score1 \G;</p>
+<p>#7.18 删除已建索引I_studentTcSname。</p>
+<p>DROP INDEX I_studentTcSname ON student;</p>
+<p>#7.19 删除已建索引I_teacherTname。</p>
+<p>ALTER TABLE teacher<br>DROP INDEX I_teacherTname;</p>
+<h1 id="第八章："><a href="#第八章：" class="headerlink" title="第八章："></a>第八章：</h1><p>#8.1 在stusys数据库中创建course1表，以列级完整性约束方式定义主键。</p>
+<p>CREATE TABLE course1<br>(<br>    cno char(4) NOT NULL PRIMARY KEY,<br>    cname char(16) NOT NULL,<br>    credit tinyint NULL<br>);</p>
+<p>#8.2 在stusys数据库中创建course2表，以表级完整性约束方式定义主键。</p>
+<p>CREATE TABLE course2<br>(<br>    cno char(4) NOT NULL,<br>    cname char(16) NOT NULL,<br>    credit tinyint NULL,<br>    PRIMARY KEY(cno)<br>);</p>
+<p>#8.3 在stusys数据库中创建course3表，以表级完整性约束方式定义主键，并指定主键约束名称。</p>
+<p>CREATE TABLE course3<br>(<br>    cno char(4) NOT NULL,<br>    cname char(16) NOT NULL,<br>    credit tinyint NULL,<br>    CONSTRAINT PK_course3 PRIMARY KEY(cno)<br>);</p>
+<p>#8.4  删除例8.3创建的在course3表上的主键约束。</p>
+<p>ALTER TABLE course3<br>DROP PRIMARY KEY;</p>
+<p>#8.5 重新在course3表上定义主键约束。</p>
+<p>ALTER TABLE course3<br>ADD CONSTRAINT PK_course3 PRIMARY KEY(cno);</p>
+<p>#8.6 在stusys数据库中创建course4表，以列级完整性约束方式定义唯一性约束。</p>
+<p>CREATE TABLE course4<br>(<br>    cno char(4) NOT NULL PRIMARY KEY,<br>    cname char(16) NOT NULL UNIQUE,<br>    credit tinyint NULL<br>);</p>
+<p>#8.7 在stusys数据库中创建course5表，以表级完整性约束方式定义唯一性约束。</p>
+<p>CREATE TABLE course5<br>(<br>    cno char(4) NOT NULL PRIMARY KEY,<br>    cname char(16) NOT NULL,<br>    credit tinyint NULL,<br>    CONSTRAINT UK_course5 UNIQUE(cname)<br>);</p>
+<p>#8.8  删除例8.7在course5表创建的唯一性约束。</p>
+<p>ALTER TABLE course5<br>DROP INDEX UK_course5;</p>
+<p>#8.9 重新在course5表上定义唯一性约束。</p>
+<p>ALTER TABLE course5<br>ADD CONSTRAINT UK_course5 UNIQUE(cname);</p>
+<p>#8.10 创建score1表，在cno列以列级完整性约束方式定义外键。</p>
+<p>CREATE TABLE score1<br>(<br>   sno char (6) NOT NULL ,<br>   cno char(4) NOT NULL REFERENCES course1(cno),<br>   grade tinyint NULL,<br>   PRIMARY KEY(sno,cno)<br>);</p>
+<p>#8.11 创建score2表，在cno列以表级完整性约束方式定义外键，并定义相应的参照动作。</p>
+<p>CREATE TABLE score2<br>(<br>    sno char (6) NOT NULL ,<br>    cno char(4) NOT NULL,<br>    grade tinyint NULL,<br>    PRIMARY KEY(sno,cno),<br>    CONSTRAINT FK_score2 FOREIGN KEY(cno) REFERENCES course2(cno)<br>    ON DELETE CASCADE<br>    ON UPDATE RESTRICT<br>);</p>
+<p>#8.12 删除例8.11在score2表上定义的外键约束。</p>
+<p>ALTER TABLE score2<br>DROP FOREIGN KEY FK_score2;</p>
+<p>#8.13  重新在score2表上定义外键约束。</p>
+<p>ALTER TABLE score2<br>ADD CONSTRAINT FK_score2 FOREIGN KEY(cno) REFERENCES course2(cno);</p>
+<p>#8.14 在stusys数据库中创建表score3，在grade列以列级完整性约束方式定义检查约束。</p>
+<p>CREATE TABLE score3<br>(<br>    sno char (6) NOT NULL ,<br>    cno char(4) NOT NULL,<br>    grade tinyint NULL CHECK(grade&gt;&#x3D;0 AND grade&lt;&#x3D;100),<br>    PRIMARY KEY(sno,cno)<br>);</p>
+<p>#8.15 在stusys数据库中创建表score4，在grade列以表级完整性约束方式定义检查约束。</p>
+<p>CREATE TABLE score4<br>(<br>    sno char (6) NOT NULL ,<br>    cno char(4) NOT NULL,<br>    grade tinyint NULL,<br>    PRIMARY KEY(sno,cno),<br>    CONSTRAINT CK_score4 CHECK(grade&gt;&#x3D;0 AND grade&lt;&#x3D;100)<br>);</p>
+<p>#8.16 删除例8.15在score4表上定义的检查约束。</p>
+<p>ALTER TABLE score4<br>DROP CHECK CK_score4;</p>
+<p>#8.17 重新在score4表上定义检查约束。</p>
+<p>ALTER TABLE score4<br>ADD CONSTRAINT CK_score4 CHECK(grade&gt;&#x3D;0 AND grade&lt;&#x3D;100);</p>
+<h1 id="第九章："><a href="#第九章：" class="headerlink" title="第九章："></a>第九章：</h1><p>#9.1  使用RAND()函数求3个随机值。</p>
+<p>SELECT RAND(), RAND(), RAND();</p>
+<p>#9.2  求3和4的平方根。</p>
+<p>SELECT SQRT(3), SQRT(4);</p>
+<p>#9.3  求7.2和-7.2的绝对值。</p>
+<p>SELECT ABS(7.2), ABS(-7.2);</p>
+<p>#9.4  求小于或等于-3.5或6.8的最大整数，大于或等于-3.5或6.8的最小整数。</p>
+<p>SELECT FLOOR(-3.5), FLOOR(6.8), CEILING(-3.5), CEILING(6.8);</p>
+<p>#9.5  求8.546小数点后2位的值和四舍五入的整数值。</p>
+<p>SELECT TRUNCATE(8.546, 2), ROUND(8.546);</p>
+<p>#9.6  求X的ASCII码值。</p>
+<p>SELECT ASCII(‘X’);</p>
+<p>#9.7  将ASCII码值88、89、90组合成字符串。</p>
+<p>SELECT CHAR(88, 89, 90);</p>
+<p>#9.8  求joyful左侧和右侧开始的3个字符。</p>
+<p>SELECT LEFT(‘joyful’, 3), RIGHT(‘joyful’, 3);</p>
+<p>#9.9  查询字符串”计算机网络”的长度。</p>
+<p>SELECT LENGTH(‘计算机网络’);</p>
+<p>#9.10  将”数据库原理与应用”中的”原理与应用”替换为”技术”。</p>
+<p>SELECT REPLACE(‘数据库原理与应用’,’原理与应用’,’技术’);</p>
+<p>#9.11  返回字符串joyful的从第4个字符开始的3个字符。</p>
+<p>SELECT SUBSTRING(‘joyful’,4, 3);</p>
+<p>#9.12  获取当前日期。</p>
+<p>SELECT CURDATE(), CURRENT_DATE();</p>
+<p>#9.13  获取当前时间。</p>
+<p>SELECT CURTIME(), CURRENT_TIME();</p>
+<p>#9.14  获取当前日期和时间。</p>
+<p>SELECT NOW();</p>
+<p>#9.15  查询成绩表score，如果分数列的值大于或等于80分，则输出”良好”，否则输出”一般, 不及格或空值”。</p>
+<p>SELECT sno, cno, grade, IF(grade&gt;&#x3D;80, ‘良好’, ‘一般, 不及格或空值’) level FROM score;</p>
+<p>#9.16  使用IFNULL()函数做条件判断。</p>
+<p>SELECT IFNULL(1&#x2F;0, ‘NULL’);</p>
+<p>#9.17  获取当前数据库的版本号。</p>
+<p>SELECT VERSION();</p>
+<h1 id="第十章："><a href="#第十章：" class="headerlink" title="第十章："></a>第十章：</h1><p>#10.1 修改MySQL的结束符为“&#x2F;&#x2F;”。</p>
+<p>DELIMITER &#x2F;&#x2F;</p>
+<p>DELIMITER ;</p>
+<p>#10.2 创建一个不带参数的存储过程P_str，输出“Hello MySQL!”。</p>
+<p>DELIMITER $$<br>CREATE PROCEDURE P_str()<br>BEGIN<br>    SELECT ‘Hello MySQL!’;<br>END $$<br>DELIMITER ;</p>
+<p>CALL P_str();</p>
+<p>#10.3 创建一个带参数的存储过程P_maxGrade，查询指定学号学生的最高分。</p>
+<p>DELIMITER $$<br>CREATE PROCEDURE P_maxGrade(IN v_sno CHAR(6))<br>    &#x2F;<em>创建带参数的存储过程, v_sno为输入参数</em>&#x2F;<br>BEGIN<br>    SELECT MAX(grade) FROM score WHERE sno&#x3D;v_sno;<br>END $$<br>DELIMITER ;</p>
+<p>CALL P_maxGrade(‘191001’);</p>
+<p>#10.4 创建存储过程P_math，如果”高等数学”课程的平均成绩大于80分，则显示”高等数学成绩良好”，否则显示”高等数学成绩一般”。</p>
+<p>DELIMITER $$<br>CREATE PROCEDURE P_math(OUT v_gde char(20))<br>BEGIN<br>    DECLARE v_avg decimal(4,2);<br>    SELECT AVG(grade) INTO v_avg<br>    FROM student a, course b, score c<br>    WHERE a.sno&#x3D;c.sno AND b.cno&#x3D;c.cno AND cname&#x3D;’高等数学’;<br>    IF v_avg &gt;80 THEN<br>        SET v_gde&#x3D;’高等数学成绩良好’;<br>    ELSE<br>        SET v_gde&#x3D;’高等数学成绩一般’;<br>    END IF;<br>END $$<br>DELIMITER ;</p>
+<p>CALL P_math(@gde);<br>SELECT @gde;</p>
+<p>#10.5 创建存储过程P_title，将教师职称转变为职称类型。</p>
+<p>DELIMITER $$<br>CREATE PROCEDURE P_title(IN v_tno char(6), OUT v_type char(10))<br>BEGIN<br>    DECLARE v_str char(12);<br>    SELECT title INTO v_str FROM teacher WHERE tno&#x3D; v_tno;<br>    CASE v_str<br>        WHEN ‘教授’ THEN SET v_type&#x3D;’高级职称’;<br>        WHEN ‘副教授’ THEN SET v_type&#x3D;’高级职称’;<br>        WHEN ‘讲师’ THEN SET v_type&#x3D;’中级职称’;<br>        WHEN ‘助教’ THEN SET v_type&#x3D;’初级职称’;<br>        ELSE SET v_type:&#x3D;’Nothing’;<br>    END CASE;<br>END $$<br>DELIMITER ;</p>
+<p>CALL P_title(‘100006’, @type);<br>SELECT @type;</p>
+<p>#10.6 创建存储过程P_integerSum，计算1~100的整数和。</p>
+<p>DELIMITER $$<br>CREATE PROCEDURE P_integerSum(OUT v_sum1 int)<br>BEGIN<br>    DECLARE v_n int DEFAULT 1;<br>    DECLARE v_s int DEFAULT 0;<br>    WHILE v_n&lt;&#x3D;100 DO<br>        SET v_s&#x3D;v_s+v_n;<br>        SET v_n&#x3D;v_n+1;<br>    END WHILE;<br>    SET v_sum1&#x3D;v_s;<br>END $$<br>DELIMITER ;</p>
+<p>CALL P_integerSum(@sum1);<br>SELECT @sum1;</p>
+<p>#10.7 创建存储过程P_oddSum，计算1~100的奇数和。</p>
+<p>DELIMITER $$<br>CREATE PROCEDURE P_oddSum(OUT v_sum2 int)<br>BEGIN<br>    DECLARE v_n int DEFAULT 1;<br>    DECLARE v_s int DEFAULT 0;<br>    REPEAT<br>        IF MOD(v_n, 2)&lt;&gt;0 THEN<br>            SET v_s&#x3D;v_s+v_n;<br>        END IF;<br>        SET v_n&#x3D;v_n+1;<br>        UNTIL v_n&gt;100<br>    END REPEAT;<br>    SET v_sum2&#x3D;v_s;<br>END $$<br>DELIMITER ;</p>
+<p>CALL P_oddSum(@sum2);<br>SELECT @sum2;</p>
+<p>#10.8 创建存储过程P_factorial，计算10的阶乘。</p>
+<p>DELIMITER $$<br>CREATE PROCEDURE P_factorial(OUT v_prod int)<br>BEGIN<br>    DECLARE v_n int DEFAULT 1;<br>    DECLARE v_p int DEFAULT 1;<br>    label:LOOP<br>        SET v_p:&#x3D;v_p*v_n;<br>        SET v_n&#x3D;v_n+1;<br>        IF v_n&gt;10 THEN<br>            LEAVE label;<br>        END IF;<br>    END LOOP label;<br>    SET v_prod&#x3D;v_p;<br>END $$<br>DELIMITER ;</p>
+<p>CALL P_factorial(@prod);<br>SELECT @prod;</p>
+<p>#10.9 创建一个存储过程，计算student表中行的数目。</p>
+<p>DELIMITER $$<br>CREATE PROCEDURE P_tablerow(OUT v_rows int)<br>BEGIN<br>    DECLARE v_sno char(6);<br>    DECLARE found boolean DEFAULT TRUE;<br>    DECLARE CUR_student CURSOR FOR SELECT sno FROM student;<br>    DECLARE CONTINUE HANDLER FOR NOT found<br>    SET found&#x3D;FALSE;<br>    SET v_rows&#x3D;0;<br>    OPEN CUR_student;<br>    FETCH CUR_student into v_sno;<br>    WHILE found DO<br>        SET v_rows&#x3D;v_rows+1;<br>        FETCH CUR_student INTO v_sno;<br>    END WHILE;<br>    CLOSE CUR_student;<br>END $$<br>DELIMITER ;</p>
+<p>CALL P_tablerow(@rows);<br>SELECT @rows;</p>
+<p>#10.10 创建向学生表插入一条记录的过程P_insertStudent，并调用该过程。</p>
+<p>DELIMITER $$<br>CREATE PROCEDURE P_insertStudent()<br>BEGIN<br>    INSERT INTO student VALUES(‘191005’, ‘王燕’, ‘女’, ‘1999-04-17’, NULL, NULL);<br>    SELECT * FROM student WHERE sno&#x3D;’191005’;<br>END $$<br>DELIMITER ;</p>
+<p>CALL P_insertStudent();</p>
+<p>#10.11 创建修改学生专业和总学分的过程P_updateSpecGrade，并调用该过程。</p>
+<p>DELIMITER $$<br>CREATE PROCEDURE P_updateSpecGrade(IN v_sno char(6), IN v_speciality char(12), IN v_tc int)<br>BEGIN<br>    UPDATE student SET speciality&#x3D;v_speciality, tc&#x3D;v_tc WHERE sno&#x3D;v_sno;<br>    SELECT * FROM student WHERE sno&#x3D;’191005’;<br>END $$<br>DELIMITER ;</p>
+<p>CALL P_updateSpecGrade(‘191005’, ‘计算机’, ‘50’);</p>
+<p>#10.12 创建删除学生记录的过程P_deleteStudent，并调用该过程。</p>
+<p>DELIMITER $$<br>CREATE PROCEDURE P_deleteStudent(IN v_sno char(6), OUT v_msg char(8))<br>BEGIN<br>    DELETE FROM student WHERE sno&#x3D;v_sno;<br>    SET v_msg&#x3D;’删除成功’;<br>END $$<br>DELIMITER ;</p>
+<p>CALL P_deleteStudent(‘191005’, @msg);<br>SELECT @msg;</p>
+<p>#10.13 删除存储过程P_insertStudent。</p>
+<p>DROP PROCEDURE P_insertStudent;</p>
+<p>#10.14 创建一个存储函数F_courseName，由课程号查课程名。</p>
+<p>DELIMITER $$<br>CREATE FUNCTION F_courseName(v_cno char(4))<br>    RETURNS char(12)<br>    DETERMINISTIC<br>BEGIN<br>    RETURN(SELECT cname FROM course WHERE cno&#x3D;v_cno);<br>END $$<br>DELIMITER ;</p>
+<p>#10.15 调用存储函数F_courseName。</p>
+<p>SELECT F_courseName(‘1201’);</p>
+<p>#10.16 删除存储函数F_courseName。</p>
+<p>DROP FUNCTION IF EXISTS F_courseName;</p>
+<h1 id="第十一章："><a href="#第十一章：" class="headerlink" title="第十一章："></a>第十一章：</h1><p>#11.1 在stusys 数据库的score表创建触发器T_insertScoreRecord，当向score表插入一条记录时，显示“正在插入记录”。</p>
+<p>CREATE TRIGGER T_insertScoreRecord AFTER INSERT<br>    ON score FOR EACH ROW SET @str&#x3D;’正在插入记录’;</p>
+<p>INSERT INTO score<br>    VALUES(‘196001’,’1004 ‘,91);</p>
+<p>SELECT @str;</p>
+<p>#11.2  删除触发器T_insertScoreRecord。</p>
+<p>DROP TRIGGER T_insertScoreRecord;</p>
+<p>#11.3  在stusys 数据库的student表创建触发器T_inserStudentRecord，当向student表插入一条记录时，显示插入记录的学生的姓名。</p>
+<p>CREATE TRIGGER T_inserStudentRecord AFTER INSERT<br>    ON student FOR EACH ROW SET @str1&#x3D;NEW.sname;</p>
+<p>INSERT INTO student<br>    VALUES(‘196007’,’刘莉 ‘,’女’,’1999-01-14’,’通信’,50);</p>
+<p>SELECT @str1;</p>
+<p>#11.4 在stusys数据库的course表创建一个触发器T_updateCourseScore，当更新表course中某门课程的课程号时，同时更新score表中所有相应的课程号。</p>
+<p>DELIMITER $$<br>CREATE TRIGGER T_updateCourseScore AFTER UPDATE<br>    ON course FOR EACH ROW<br>BEGIN<br>    UPDATE score SET cno&#x3D;NEW.cno WHERE cno&#x3D;OLD.cno;<br>END $$<br>DELIMITER ;</p>
+<p>UPDATE course SET cno&#x3D;’4017’ WHERE cno&#x3D;’4002’;<br>SELECT * FROM score WHERE cno&#x3D;’4017’;</p>
+<p>#11.5  在stusys 数据库的student表创建一个触发器T_deleteStudentScore，当删除表student中某个学生的记录时，同时将score表中与该学生有关的数据全部删除。</p>
+<p>DELIMITER $$<br>CREATE TRIGGER T_deleteStudentScore AFTER DELETE<br>    ON student FOR EACH ROW<br>BEGIN<br>    DELETE FROM score WHERE sno&#x3D;OLD.sno;<br>END $$<br>DELIMITER ;</p>
+<p>DELETE FROM student WHERE sno&#x3D;’191003’;<br>SELECT * FROM score WHERE sno&#x3D;’191003’;</p>
+<p>#11.6 创建现在立即执行的事件E_direct，执行时创建一个表tb。</p>
+<p>CREATE EVENT E_direct<br>    ON SCHEDULE AT NOW()<br>    DO<br>    CREATE TABLE tb(timeline timestamp);</p>
+<p>SHOW TABLES;<br>SELECT * FROM tb;</p>
+<p>#11.7 创建事件E_insertTb，每2秒钟插入一条记录到表tb。</p>
+<p>CREATE EVENT E_insertTb<br>    ON SCHEDULE EVERY 2 SECOND<br>    DO<br>    INSERT INTO tb VALUES(current_timestamp);</p>
+<p>SELECT * FROM tb;    </p>
+<p>#11.8 创建事件E_startDays，从第2天起，每天清空表tb，在2021年12月31日结束。</p>
+<p>DELIMITER $$<br>CREATE EVENT E_startDays<br>    ON SCHEDULE EVERY 1 DAY<br>    STARTS CURDATE()+INTERVAL 1 DAY<br>    ENDS ‘2021-12-31’<br>    DO<br>    BEGIN<br>        TRUNCATE TABLE tb;<br>    END $$<br>DELIMITER ;</p>
+<p>#11.9 将事件E_startDays更名为E_firstDays。</p>
+<p>ALTER EVENT E_startDays<br>    RENAME TO E_firstDays;</p>
+<p>#11.10 删除事件E_firstDays。</p>
+<p>DROP EVENT E_firstDays;</p>
+<h1 id="第十二章："><a href="#第十二章：" class="headerlink" title="第十二章："></a>第十二章：</h1><p>#12.1 创建用户lee，口令为’1234’； 创建用户zhang，口令为’5678’；创建用户sun，口令为’test’。</p>
+<p>CREATE USER ‘lee‘@’localhost’ IDENTIFIED BY ‘1234’,<br>    ‘zhang‘@’localhost’ IDENTIFIED BY ‘5678’,<br>    ‘sun‘@’localhost’ IDENTIFIED BY ‘test’;</p>
+<p>#12.2  删除用户zhang。</p>
+<p>DROP USER ‘zhang‘@’localhost’;</p>
+<p>#12.3  将用户sun的名字修改为qian。</p>
+<p>RENAME USER ‘sun‘@’localhost’ TO ‘qian‘@’localhost’;</p>
+<p>#12.4  将用户qian的口令修改为’abc’。</p>
+<p>SET PASSWORD FOR ‘qian‘@’localhost’&#x3D;’abc’;</p>
+<p>#12.5  授予用户lee在数据库stusys的student表上对学号列和姓名列的SELECT权限。</p>
+<p>GRANT SELECT(sno, sname)<br>    ON stusys.student<br>    TO ‘lee‘@’localhost’;</p>
+<p>#12.6 先创建新用户hong和liu，然后授予它们在数据库stusys的student表上的SELECT和INSERT权限。</p>
+<p>CREATE USER ‘hong‘@’localhost’ IDENTIFIED BY ‘123’,<br>    ‘liu‘@’localhost’ IDENTIFIED BY ‘456’;</p>
+<p>GRANT SELECT, INSERT<br>    ON stusys.student<br>    TO ‘hong‘@’localhost’, ‘liu‘@’localhost’;</p>
+<p>#12.7 授予用户qian对数据库stusys执行所有数据库操作的权限。</p>
+<p>GRANT ALL<br>    ON stusys.*<br>    TO ‘qian‘@’localhost’;</p>
+<p>#12.8 授予已存在用户liang对所有数据库中所有表的CREATE和DROP的权限。</p>
+<p>GRANT CREATE, DROP<br>    ON <em>.</em><br>    TO ‘liang‘@’localhost’;</p>
+<p>#12.9 授予已存在用户zhou对所有数据库中所有表的SELECT和UPDATE的权限。</p>
+<p>GRANT SELECT, UPDATE<br>     ON <em>.</em><br>     TO ‘zhou‘@’localhost’;</p>
+<p>#12.10 授予已存在用户ben创建新用户的权限。</p>
+<p>GRANT CREATE USER<br>    ON <em>.</em><br>    TO ‘ben‘@’localhost’;</p>
+<p>#12.11 查询以上用户对所有数据库的权限。</p>
+<p>SELECT Host, User, Select_priv, Update_priv, Create_priv, Drop_priv, Create_user_priv<br>    FROM mysql.user;</p>
+<p>#12.12 授予已存在用户qiao在数据库stusys的student表上的SELECT和UPDATE权限，并允许将自身的权限授予其他用户。</p>
+<p>GRANT SELECT, UPDATE<br>    ON stusys.student<br>    TO ‘qiao‘@’localhost’<br>    WITH GRANT OPTION;</p>
+<p>#12.13 收回用户qiao在数据库stusys的student表上的UPDATE权限，</p>
+<p>REVOKE UPDATE<br>    ON stusys.student<br>    FROM ‘qiao‘@’localhost’;</p>
+<p>#12.14 查询以上用户对student表的权限。</p>
+<p>SELECT Host, Db, User, Table_name, Table_priv, Column_priv<br>    FROM mysql.tables_priv;</p>
+<h1 id="第十三章："><a href="#第十三章：" class="headerlink" title="第十三章："></a>第十三章：</h1><p>#13.1 备份stusys数据库中的course表中数据，要求字段值如果是字符就用双引号标注，字段值之间用逗号隔开，每行以问号为结束标志。</p>
+<p>SELECT * FROM course<br>    INTO OUTFILE ‘C:&#x2F;ProgramData&#x2F;MySQL&#x2F;MySQL Server 8.0&#x2F;Uploads&#x2F;course.txt’<br>    FIELDS TERMINATED BY ‘,’<br>    OPTIONALLY ENCLOSED BY ‘“‘<br>    LINES TERMINATED BY ‘?’;</p>
+<p>#13.2 使用mysqldump备份stusys数据库的course表到D盘mysqlbak目录下。</p>
+<p>mysqldump -u root -p stusys course&gt;D:\mysqlbak\course.sql</p>
+<p>#13.3 备份stusys数据库到D盘mysqlbak目录下。</p>
+<p>mysqldump -u root -p stusys&gt;D:\mysqlbak\stusys.sql</p>
+<p>#13.4 备份MySQL服务器上的所有数据库到D盘mysqlbak目录下。</p>
+<p>mysqldump -u root -p –all-databases&gt;D:\mysqlbak\alldata.sql</p>
+<p>#13.5 删除stusys数据库中的course表中数据后，将例13.1备份文件course.txt导入到空表course中。</p>
+<p>DELETE FROM course;</p>
+<p>SELECT * FROM course;</p>
+<p>LOAD DATA INFILE ‘C:&#x2F;ProgramData&#x2F;MySQL&#x2F;MySQL Server 8.0&#x2F;Uploads&#x2F;course.txt’<br>    INTO TABLE course<br>    FIELDS TERMINATED BY ‘,’<br>    OPTIONALLY ENCLOSED BY ‘“‘<br>    LINES TERMINATED BY ‘?’;</p>
+<p>SELECT * FROM course;</p>
+<p>#13.6 删除stusys数据库中各个表后，用例13.3备份文件stusys.sql将其恢复。</p>
+<p>mysql -u root -p stusys&lt;D:\mysqlbak\stusys.sql</p>
+<h1 id="第十四章："><a href="#第十四章：" class="headerlink" title="第十四章："></a>第十四章：</h1><p>#14.1 创建数据库test和表usr，在表中插入记录后，开始第1个事务，更新表的记录，提交第1个事务；开始第2个事务，更新表的记录，回滚第2个事务。<br>（1）查看MySQL隔离级别(隔离级别下一节介绍)</p>
+<p>SHOW VARIABLES LIKE ‘transaction_isolation’;</p>
+<p>（2）创建数据库test和表usr，在表中插入记录</p>
+<p>CREATE DATABASE test;<br>USE test;</p>
+<p>CREATE TABLE usr<br>    (<br>         usrid int,<br>         name varchar(12)<br>    );</p>
+<p>INSERT INTO usr<br>    VALUES(1,’David’),<br>    (2,’Mary’),<br>    (3,’ben’),<br>    (4,’Iris’);</p>
+<p>SELECT * FROM usr;</p>
+<p>（3）开始第1个事务，更新表的记录，提交第1个事务</p>
+<p>BEGIN WORK;</p>
+<p>UPDATE usr SET name&#x3D;’Lee’ WHERE usrid&#x3D;1;</p>
+<p>COMMIT;</p>
+<p>SELECT * FROM usr;</p>
+<p>（4）开始第2个事务，更新表的记录，回滚第2个事务</p>
+<p>START TRANSACTION;</p>
+<p>UPDATE usr SET name&#x3D;’Qian’ WHERE usrid&#x3D;1;</p>
+<p>SELECT * FROM usr;</p>
+<p>ROLLBACK;</p>
+<p>SELECT * FROM usr;</p>
+</article><div class="post-copyright"><div class="post-copyright__title"><span class="post-copyright-info"><h>数据库课堂代码</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="https://lxttz.github.io/posts/shujukuketang.html">https://lxttz.github.io/posts/shujukuketang.html</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a"><h>作者</h><div class="post-copyright-cc-info"><h>阿洛博客世界🥝</h></div></div><div class="post-copyright-c"><h>发布于</h><div class="post-copyright-cc-info"><h>2026-06-24</h></div></div><div class="post-copyright-u"><h>更新于</h><div class="post-copyright-cc-info"><h>2026-05-28</h></div></div><div class="post-copyright-c"><h>许可协议</h><div class="post-copyright-cc-info"><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div></div></div></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><div class="tags-punctuation"><svg class="faa-tada icon" style="height:1.1em;width:1.1em;fill:currentColor;position:relative;top:2px;margin-right:3px" aria-hidden="true"><use xlink:href="#icon-sekuaibiaoqian"></use></svg></div>数据库</a></div></div><link rel="stylesheet" href="/css/coin.css" media="defer" onload="this.media='all'"/><div class="post-reward"><button class="tip-button reward-button"><span class="tip-button__text">投喂作者</span><div class="coin-wrapper"><div class="coin"><div class="coin__middle"></div><div class="coin__back"></div><div class="coin__front"></div></div></div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://postimage.me/images/2025/03/23/weixin.md.jpg" target="_blank"><img class="post-qr-code-img" src="https://postimage.me/images/2025/03/23/weixin.md.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://postimage.me/images/2025/03/23/zhifubao.md.jpg" target="_blank"><img class="post-qr-code-img" src="https://postimage.me/images/2025/03/23/zhifubao.md.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></button></div><audio id="coinAudio" src="https://npm.elemecdn.com/akilar-candyassets@1.0.36/audio/aowu.m4a"></audio><script defer="defer" src="/js/coin.js"></script><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/hduan520.html"><img class="prev-cover" src="https://source.fomal.cc/img/default_cover_53.webp" onerror="onerror=null;src='/assets/r2.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">全编程语言主流后端框架（后端02）</div></div></a></div><div class="next-post pull-right"><a href="/posts/shujuku520.html"><img class="next-cover" src="https://source.fomal.cc/img/default_cover_44.webp" onerror="onerror=null;src='/assets/r2.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">全品类主流数据库（数据库03）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/5a4cdcli.html" title="MongoDB Compass安装和使用教程（新手必看）"><img class="cover" src="https://source.fomal.cc/img/default_cover_38.webp" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2026-05-28</div><div class="title">MongoDB Compass安装和使用教程（新手必看）</div></div></a></div><div><a href="/posts/nosql-database-guide.html" title="关于NoSQL数据库的一切，终于说清楚了"><img class="cover" src="https://source.fomal.cc/img/default_cover_38.webp" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2026-05-28</div><div class="title">关于NoSQL数据库的一切，终于说清楚了</div></div></a></div><div><a href="/posts/postgresql-tutorial.html" title="PostgreSQL_超详细安装与使用教程：从入门到实战"><img class="cover" src="https://source.fomal.cc/img/default_cover_27.webp" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2026-05-28</div><div class="title">PostgreSQL_超详细安装与使用教程：从入门到实战</div></div></a></div><div><a href="/posts/shujuku520.html" title="全品类主流数据库（数据库03）"><img class="cover" src="https://source.fomal.cc/img/default_cover_44.webp" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2026-05-28</div><div class="title">全品类主流数据库（数据库03）</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><svg class="meta_icon" style="width:22px;height:22px;position:relative;top:5px"><use xlink:href="#icon-mulu1"></use></svg><span style="font-weight:bold">目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A"><span class="toc-text">第四章：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0%EF%BC%9A"><span class="toc-text">第五章：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9A"><span class="toc-text">第六章：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9A"><span class="toc-text">第七章：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9A"><span class="toc-text">第八章：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0%EF%BC%9A"><span class="toc-text">第九章：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E7%AB%A0%EF%BC%9A"><span class="toc-text">第十章：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%EF%BC%9A"><span class="toc-text">第十一章：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%EF%BC%9A"><span class="toc-text">第十二章：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0%EF%BC%9A"><span class="toc-text">第十三章：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0%EF%BC%9A"><span class="toc-text">第十四章：</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-color: transparent;"><div id="footer-wrap"><div id="ft"><div class="ft-item-1"><div class="t-top"><div class="t-t-l"><p class="ft-t t-l-t">格言🧬</p><div class="bg-ad"><div>再看看那个光点，它就在这里，这是家园，这是我们 —— 你所爱的每一个人，你认识的一个人，你听说过的每一个人，曾经有过的每一个人，都在它上面度过他们的一生✨</div><div class="btn-xz-box"><a class="btn-xz" target="_blank" rel="noopener" href="https://stellarium.org/">点击开启星辰之旅</a></div></div></div><div class="t-t-r"><p class="ft-t t-l-t">猜你想看💡</p><ul class="ft-links"><li><a href="/posts/eec9786.html">魔改指南</a><a href="/box/nav/">网址导航</a></li><li><a href="/social/link/">我的朋友</a><a href="/comments/">留点什么</a></li><li><a href="/personal/about/">关于作者</a><a href="/archives/">文章归档</a></li><li><a href="/categories/">文章分类</a><a href="/tags/">文章标签</a></li><li><a href="/box/Gallery/">我的画廊</a><a href="/personal/bb/">我的唠叨</a></li><li><a href="/site/time/">建设进程</a><a href="/site/census/">网站统计</a></li></ul></div></div></div><div class="ft-item-2"><p class="ft-t">推荐友链⌛</p><div class="ft-img-group"><div class="img-group-item"><a href="https://lxttz.github.io/" title="阿洛博客世界🥝"><img src="https://lxttz.github.io/assets/zhizhuxia/toxiang.jpg" alt=""/></a></div></div></div></div><div class="copyright"><span><b>&copy;2022-2026</b></span><span><b>&nbsp;&nbsp;By 阿洛博客世界🥝</b></span></div><div id="workboard"></div><!-- 徽章功能已禁用以避免连接超时错误//- a.github-badge(target='_blank' href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style='margin-inline:5px' title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可")
+//-   img(src="https://sourcebucket.s3.ladydaily.com/badge/Copyright-BY--NC--SA--4.svg" alt='')--></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><a class="icon-V hidden" onclick="switchNightMode()" title="浅色和深色模式转换"><svg width="25" height="25" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-moon"></use></svg></a><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button><button class="share" type="button" title="右键模式" onclick="changeMouseMode()"><i class="fas fa-mouse"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog right_side"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button class="share" type="button" title="分享链接" onclick="share()"><i class="fas fa-share-nodes"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i><span id="percent">0<span>%</span></span></button><button id="go-down" type="button" title="直达底部" onclick="btf.scrollToDest(document.body.scrollHeight, 500)"><i class="fas fa-arrow-down"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div class="js-pjax" id="rightMenu"><div class="rightMenu-group rightMenu-small"><a class="rightMenu-item" href="javascript:window.history.back();"><i class="fa fa-arrow-left"></i></a><a class="rightMenu-item" href="javascript:window.history.forward();"><i class="fa fa-arrow-right"></i></a><a class="rightMenu-item" href="javascript:window.location.reload();"><i class="fa fa-refresh"></i></a><a class="rightMenu-item" href="javascript:rmf.scrollToTop();"><i class="fa fa-arrow-up"></i></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-text"><a class="rightMenu-item" href="javascript:rmf.copySelect();"><i class="fa fa-copy"></i><span>复制</span></a><a class="rightMenu-item" href="javascript:window.open(&quot;https://www.baidu.com/s?wd=&quot;+window.getSelection().toString());window.location.reload();"><i class="fa fa-search"></i><span>百度搜索</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-too"><a class="rightMenu-item" href="javascript:window.open(window.getSelection().toString());window.location.reload();"><i class="fa fa-link"></i><span>转到链接</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-paste"><a class="rightMenu-item" href="javascript:rmf.paste()"><i class="fa fa-copy"></i><span>粘贴</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-post"><a class="rightMenu-item" href="#post-comment"><i class="fas fa-comment"></i><span>空降评论</span></a><a class="rightMenu-item" href="javascript:rmf.copyWordsLink()"><i class="fa fa-link"></i><span>复制本文地址</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-to"><a class="rightMenu-item" href="javascript:rmf.openWithNewTab()"><i class="fa fa-window-restore"></i><span>新窗口打开</span></a><a class="rightMenu-item" id="menu-too" href="javascript:rmf.open()"><i class="fa fa-link"></i><span>转到链接</span></a><a class="rightMenu-item" href="javascript:rmf.copyLink()"><i class="fa fa-copy"></i><span>复制链接</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-img"><a class="rightMenu-item" href="javascript:rmf.saveAs()"><i class="fa fa-download"></i><span>保存图片</span></a><a class="rightMenu-item" href="javascript:rmf.openWithNewTab()"><i class="fa fa-window-restore"></i><span>在新窗口打开</span></a><a class="rightMenu-item" href="javascript:rmf.copyLink()"><i class="fa fa-copy"></i><span>复制图片链接</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:randomPost()"><i class="fa fa-paper-plane"></i><span>随便逛逛</span></a><a class="rightMenu-item" href="javascript:switchNightMode();"><i class="fa fa-moon"></i><span>昼夜切换</span></a><a class="rightMenu-item" href="javascript:rmf.switchReadMode();"><i class="fa fa-book"></i><span>阅读模式</span></a><a class="rightMenu-item" href="/personal/about/"><i class="fa fa-info-circle"></i><span>关于博客</span></a><a class="rightMenu-item" href="javascript:toggleWinbox();"><i class="fas fa-cog"></i><span>美化设置</span></a><a class="rightMenu-item" href="javascript:rmf.fullScreen();"><i class="fas fa-expand"></i><span>切换全屏</span></a><a class="rightMenu-item" href="javascript:window.print();"><i class="fa-solid fa-print"></i><span>打印页面</span></a></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.staticfile.org/fancyapps-ui/4.0.31/fancybox.umd.min.js"></script><script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script><script src="/js/search/local-search.js"></script><script async="async">var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())
+setTimeout(function(){preloader.endLoading();}, 5000);
+document.getElementById('loading-box').addEventListener('click',()=> {preloader.endLoading()})</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script src="https://cdn.staticfile.org/jquery/3.6.3/jquery.min.js"></script><script async src="https://cdn1.tianli0.top/npm/vue@2.6.14/dist/vue.min.js"></script><script async src="https://cdn1.tianli0.top/npm/element-ui@2.15.6/lib/index.js"></script><script async src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script><script defer type="text/javascript" src="https://cdn1.tianli0.top/npm/sweetalert2@8.19.0/dist/sweetalert2.all.js"></script><script async src="//npm.elemecdn.com/pace-js@1.2.4/pace.min.js"></script><script defer src="https://cdn1.tianli0.top/gh/nextapps-de/winbox/dist/winbox.bundle.min.js"></script><script async src="//at.alicdn.com/t/c/font_3586335_hsivh70x0fm.js"></script><script async src="//at.alicdn.com/t/c/font_3636804_gr02jmjr3y9.js"></script><script async src="//at.alicdn.com/t/c/font_3612150_kfv55xn3u2g.js"></script><script async src="https://cdn.wpon.cn/2022-sucai/Gold-ingot.js"></script><canvas id="universe"></canvas><canvas id="snow"></canvas><script defer src="/js/fomal.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="30" mobile="false" src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/canvas-nest.min.js"></script><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://cdn1.tianli0.top/npm/js-heo@1.0.12/metingjs/Meting.min.js"></script><script src="https://lib.baomitu.com/pjax/0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show","#web_bg",".js-pjax","#bibi","body > title","#app","#tag-echarts","#posts-echart","#categories-echarts"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var qweather_key = 'b16a1fa0e63c46a4b8f28abfb06ae3fe';
+  var qweather_api_host = 'nj6r6pm8pt.re.qweatherapi.com';
+  var ip_api_key = 'Kq1pRjB3WyDja7rhKcWV9f5QU8';
+  var gaud_map_key = '87220d3a8b12eeb211bbd14528ecd89b';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '113.34532,23.15624';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '2s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '2s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script></div><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.js"></script><script data-pjax src="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.js"></script><script data-pjax>
+  function gitcalendar_injector_config(){
+      var parent_div_git = document.getElementById('gitZone');
+      var item_html = '<div class="recent-post-item" id="gitcalendarBar" style="width:100%;height:auto;padding:10px;"><style>#git_container{min-height: 320px}@media screen and (max-width:650px) {#git_container{min-height: 0px}}</style><div id="git_loading" style="width:10%;height:100%;margin:0 auto;display: block;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animatetransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animatetransform></path></svg><style>#git_container{display: none;}</style></div><div id="git_container"></div></div>';
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      console.log('已挂载gitcalendar')
+      }
+
+    if( document.getElementById('gitZone') && (location.pathname ==='/'|| '/' ==='all')){
+        gitcalendar_injector_config()
+        GitCalendarInit("https://gitcalendar.fomal.cc/api?Fomalhaut-Blog",['#d9e0df', '#c6e0dc', '#a8dcd4', '#9adcd2', '#89ded1', '#77e0d0', '#5fdecb', '#47dcc6', '#39dcc3', '#1fdabe', '#00dab9'],'Fomalhaut-Blog')
+    }
+  </script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/e19c53d6.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_20.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2025-05-22</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/e19c53d6.html&quot;);" href="javascript:void(0);" alt="">如何创建多个公钥</a><div class="blog-slider__text">解决一台电脑上生成多个密钥，从而达到管理多个github账号的网站</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/e19c53d6.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/116b0f3c.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_26.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2025-02-27</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/116b0f3c.html&quot;);" href="javascript:void(0);" alt="">博客搭建教程</a><div class="blog-slider__text">博客搭建笔记，零基础，手把手，不需要任何代码基础（看不懂代码也没事）</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/116b0f3c.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/55a7f856.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_54.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2025-02-27</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/55a7f856.html&quot;);" href="javascript:void(0);" alt="">博客指南</a><div class="blog-slider__text">博客标题含义和常用的指令，vscode 终端无法正常执行脚本命令如何解决，npm下载速度慢 解决方法</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/55a7f856.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/2013454d.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_46.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-08-09</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/2013454d.html&quot;);" href="javascript:void(0);" alt="">Markdown语法与外挂标签写法汇总</a><div class="blog-slider__text">🥧本文汇总Markdown格式以及外挂标签在网页端的渲染效果，可作为文档进行查询</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/2013454d.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":350},"mobile":{"show":true},"log":false});</script></body></html>
