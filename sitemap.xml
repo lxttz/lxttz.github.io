@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lxttz.github.io/posts/f2fe42b9.html</loc>
+    
+    <lastmod>2026-05-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://lxttz.github.io/posts/1df2fff3.html</loc>
     
     <lastmod>2026-05-28</lastmod>
@@ -2159,6 +2168,27 @@
   
   <url>
     <loc>https://lxttz.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://lxttz.github.io/tags/SEO/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://lxttz.github.io/tags/%E7%99%BE%E5%BA%A6%E6%94%B6%E5%BD%95/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://lxttz.github.io/tags/Google%E6%94%B6%E5%BD%95/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
