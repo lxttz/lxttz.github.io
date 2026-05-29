@@ -8,6 +8,7 @@ https://lxttz.github.io/posts/edgeTunnelvpn.html
 https://lxttz.github.io/posts/codex-windows-install.html
 https://lxttz.github.io/posts/steam-install-guide.html
 https://lxttz.github.io/posts/git-install-guide.html
+https://lxttz.github.io/posts/32be98f4.html
 https://lxttz.github.io/posts/f2fe42b9.html
 https://lxttz.github.io/posts/ea-usage-tutorial.html
 https://lxttz.github.io/posts/fix-csdn-hotlink-protection.html
@@ -17,4 +18,3 @@ https://lxttz.github.io/posts/python-uninstall-guide.html
 https://lxttz.github.io/posts/postgresql-tutorial.html
 https://lxttz.github.io/posts/c661a3d8.html
 https://lxttz.github.io/posts/1df2fff3.html
-https://lxttz.github.io/posts/b9ef3e1a.html
