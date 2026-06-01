@@ -1,3 +1,6 @@
+https://lxttz.github.io/posts/kali520.html
+https://lxttz.github.io/posts/Ubuntu.html
+https://lxttz.github.io/posts/VMware520.html
 https://lxttz.github.io/posts/qianduan520.html
 https://lxttz.github.io/posts/hduan520.html
 https://lxttz.github.io/posts/shujukuketang.html
@@ -15,6 +18,3 @@ https://lxttz.github.io/posts/fix-csdn-hotlink-protection.html
 https://lxttz.github.io/posts/edgetunnel-deploy.html
 https://lxttz.github.io/posts/python-install-guide.html
 https://lxttz.github.io/posts/python-uninstall-guide.html
-https://lxttz.github.io/posts/postgresql-tutorial.html
-https://lxttz.github.io/posts/c661a3d8.html
-https://lxttz.github.io/posts/1df2fff3.html
