@@ -1,0 +1,1043 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><div id="myscoll"></div><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Cursor快速上手及无限使用指南 | Arlos Blog World🥝</title><meta name="keywords" content="教程,Cursor,AI编程"><meta name="author" content="阿洛博客世界🥝"><meta name="copyright" content="阿洛博客世界🥝"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="Cursor AI编辑器快速上手教程及科学使用指南，轻松搞定编程任务，适合新手和进阶用户">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cursor快速上手及无限使用指南">
+<meta property="og:url" content="https://lxttz.github.io/posts/cursor-unlimited.html">
+<meta property="og:site_name" content="Arlos Blog World🥝">
+<meta property="og:description" content="Cursor AI编辑器快速上手教程及科学使用指南，轻松搞定编程任务，适合新手和进阶用户">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://source.fomal.cc/img/default_cover_48.webp">
+<meta property="article:published_time" content="2026-08-14T02:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-29T02:14:12.062Z">
+<meta property="article:author" content="阿洛博客世界🥝">
+<meta property="article:tag" content="AI编程">
+<meta property="article:tag" content="Cursor">
+<meta property="article:tag" content="教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://source.fomal.cc/img/default_cover_48.webp"><link rel="shortcut icon" href="https://lxttz.github.io/assets/zhizhuxia/zhizhu01.png"><link rel="canonical" href="https://lxttz.github.io/posts/cursor-unlimited"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.staticfile.org/fancyapps-ui/4.0.31/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdnjs.cloudflare.com/ajax/libs/flickr-justified-gallery/2.1.2/fjGallery.min.js',
+      css: 'https://cdnjs.cloudflare.com/ajax/libs/flickr-justified-gallery/2.1.2/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Cursor快速上手及无限使用指南',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-06-29 10:14:12'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn1.tianli0.top/npm/element-ui@2.15.6/packages/theme-chalk/lib/index.css"><style id="themeColor"></style><style id="rightSide"></style><style id="transPercent"></style><style id="blurNum"></style><style id="settingStyle"></style><span id="fps"></span><style id="defineBg"></style><style id="menu_shadow"></style><svg aria-hidden="true" style="position:absolute; overflow:hidden; width:0; height:0"><symbol id="icon-sun" viewBox="0 0 1024 1024"><path d="M960 512l-128 128v192h-192l-128 128-128-128H192v-192l-128-128 128-128V192h192l128-128 128 128h192v192z" fill="#FFD878" p-id="8420"></path><path d="M736 512a224 224 0 1 0-448 0 224 224 0 1 0 448 0z" fill="#FFE4A9" p-id="8421"></path><path d="M512 109.248L626.752 224H800v173.248L914.752 512 800 626.752V800h-173.248L512 914.752 397.248 800H224v-173.248L109.248 512 224 397.248V224h173.248L512 109.248M512 64l-128 128H192v192l-128 128 128 128v192h192l128 128 128-128h192v-192l128-128-128-128V192h-192l-128-128z" fill="#4D5152" p-id="8422"></path><path d="M512 320c105.888 0 192 86.112 192 192s-86.112 192-192 192-192-86.112-192-192 86.112-192 192-192m0-32a224 224 0 1 0 0 448 224 224 0 0 0 0-448z" fill="#4D5152" p-id="8423"></path></symbol><symbol id="icon-moon" viewBox="0 0 1024 1024"><path d="M611.370667 167.082667a445.013333 445.013333 0 0 1-38.4 161.834666 477.824 477.824 0 0 1-244.736 244.394667 445.141333 445.141333 0 0 1-161.109334 38.058667 85.077333 85.077333 0 0 0-65.066666 135.722666A462.08 462.08 0 1 0 747.093333 102.058667a85.077333 85.077333 0 0 0-135.722666 65.024z" fill="#FFB531" p-id="11345"></path><path d="M329.728 274.133333l35.157333-35.157333a21.333333 21.333333 0 1 0-30.165333-30.165333l-35.157333 35.157333-35.114667-35.157333a21.333333 21.333333 0 0 0-30.165333 30.165333l35.114666 35.157333-35.114666 35.157334a21.333333 21.333333 0 1 0 30.165333 30.165333l35.114667-35.157333 35.157333 35.157333a21.333333 21.333333 0 1 0 30.165333-30.165333z" fill="#030835" p-id="11346"></path></symbol></svg><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="Arlos Blog World🥝" type="application/atom+xml">
+</head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://lxttz.github.io/assets/zhizhuxia/toxiang.jpg" onerror="onerror=null;src='/assets/toxiang.jpg'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">128</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">152</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">75</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-home"></use></svg><span class="menu_word" style="font-size:17px"> 首页</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--article"></use></svg><span class="menu_word" style="font-size:17px"> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-guidang1">                   </use></svg><span class="menu_word" style="font-size:17px"> 归档</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-sekuaibiaoqian">                   </use></svg><span class="menu_word" style="font-size:17px"> 标签</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-fenlei">                   </use></svg><span class="menu_word" style="font-size:17px"> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-pinweishenghuo"></use></svg><span class="menu_word" style="font-size:17px"> 休闲</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/life/music/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-yinle">                   </use></svg><span class="menu_word" style="font-size:17px"> 八音盒</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/life/movies/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-dianying1">                   </use></svg><span class="menu_word" style="font-size:17px"> 影院</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/life/games/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-youxishoubing">                   </use></svg><span class="menu_word" style="font-size:17px"> 娱乐</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xiangzi"></use></svg><span class="menu_word" style="font-size:17px"> 八宝箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/box/gallery/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-tubiaozhizuomoban">                   </use></svg><span class="menu_word" style="font-size:17px"> 智能AI</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/box/animation/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-nvwumao">                   </use></svg><span class="menu_word" style="font-size:17px"> 学习院</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/box/nav/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-zhifengche">                   </use></svg><span class="menu_word" style="font-size:17px"> 百宝箱</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shejiaoxinxi"></use></svg><span class="menu_word" style="font-size:17px"> 社交</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/social/fcircle/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-pengyouquan">                   </use></svg><span class="menu_word" style="font-size:17px"> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-liuyan">                   </use></svg><span class="menu_word" style="font-size:17px"> 留言板</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/social/link/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-lianjie">                   </use></svg><span class="menu_word" style="font-size:17px"> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-wangye"></use></svg><span class="menu_word" style="font-size:17px"> 网站</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/site/census/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--tongjibiao">                   </use></svg><span class="menu_word" style="font-size:17px"> 网站统计</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/site/echarts/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shujutongji1">                   </use></svg><span class="menu_word" style="font-size:17px"> 文章统计</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/site/time/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xianxingshalou">                   </use></svg><span class="menu_word" style="font-size:17px"> 个人世界</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shejiaoxinxi"></use></svg><span class="menu_word" style="font-size:17px"> 博客</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/blog/notes/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--tongjibiao">                   </use></svg><span class="menu_word" style="font-size:17px"> 文章笔记</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/blog/link/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shujutongji1">                   </use></svg><span class="menu_word" style="font-size:17px"> 博客相关</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/blog/about/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xianxingshalou">                   </use></svg><span class="menu_word" style="font-size:17px"> 关于页面</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-maoliang"></use></svg><span class="menu_word" style="font-size:17px"> 个人</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/personal/bb/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-qunliaotian">                   </use></svg><span class="menu_word" style="font-size:17px"> 唠叨</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/personal/love/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-love-sign">                   </use></svg><span class="menu_word" style="font-size:17px"> 恋爱小屋</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/personal/about/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-paperplane">                   </use></svg><span class="menu_word" style="font-size:17px"> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Arlos Blog World🥝</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-home"></use></svg><span class="menu_word" style="font-size:17px"> 首页</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--article"></use></svg><span class="menu_word" style="font-size:17px"> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-guidang1">                   </use></svg><span class="menu_word" style="font-size:17px"> 归档</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-sekuaibiaoqian">                   </use></svg><span class="menu_word" style="font-size:17px"> 标签</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-fenlei">                   </use></svg><span class="menu_word" style="font-size:17px"> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-pinweishenghuo"></use></svg><span class="menu_word" style="font-size:17px"> 休闲</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/life/music/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-yinle">                   </use></svg><span class="menu_word" style="font-size:17px"> 八音盒</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/life/movies/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-dianying1">                   </use></svg><span class="menu_word" style="font-size:17px"> 影院</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/life/games/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-youxishoubing">                   </use></svg><span class="menu_word" style="font-size:17px"> 娱乐</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xiangzi"></use></svg><span class="menu_word" style="font-size:17px"> 八宝箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/box/gallery/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-tubiaozhizuomoban">                   </use></svg><span class="menu_word" style="font-size:17px"> 智能AI</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/box/animation/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-nvwumao">                   </use></svg><span class="menu_word" style="font-size:17px"> 学习院</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/box/nav/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-zhifengche">                   </use></svg><span class="menu_word" style="font-size:17px"> 百宝箱</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shejiaoxinxi"></use></svg><span class="menu_word" style="font-size:17px"> 社交</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/social/fcircle/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-pengyouquan">                   </use></svg><span class="menu_word" style="font-size:17px"> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-liuyan">                   </use></svg><span class="menu_word" style="font-size:17px"> 留言板</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/social/link/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-lianjie">                   </use></svg><span class="menu_word" style="font-size:17px"> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-wangye"></use></svg><span class="menu_word" style="font-size:17px"> 网站</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/site/census/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--tongjibiao">                   </use></svg><span class="menu_word" style="font-size:17px"> 网站统计</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/site/echarts/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shujutongji1">                   </use></svg><span class="menu_word" style="font-size:17px"> 文章统计</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/site/time/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xianxingshalou">                   </use></svg><span class="menu_word" style="font-size:17px"> 个人世界</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shejiaoxinxi"></use></svg><span class="menu_word" style="font-size:17px"> 博客</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/blog/notes/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--tongjibiao">                   </use></svg><span class="menu_word" style="font-size:17px"> 文章笔记</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/blog/link/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shujutongji1">                   </use></svg><span class="menu_word" style="font-size:17px"> 博客相关</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/blog/about/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xianxingshalou">                   </use></svg><span class="menu_word" style="font-size:17px"> 关于页面</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-maoliang"></use></svg><span class="menu_word" style="font-size:17px"> 个人</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/personal/bb/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-qunliaotian">                   </use></svg><span class="menu_word" style="font-size:17px"> 唠叨</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/personal/love/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-love-sign">                   </use></svg><span class="menu_word" style="font-size:17px"> 恋爱小屋</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/personal/about/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-paperplane">                   </use></svg><span class="menu_word" style="font-size:17px"> 关于</span></a></li></ul></div></div><center id="name-container"><a id="page-name" href="javascript:scrollToTop()">PAGE_NAME</a></center><div id="nav-right"><div id="search-button"><a class="search faa-parent animated-hover" title="检索站内任何你想要的信息"><svg class="faa-tada icon" style="height:24px;width:24px;fill:currentColor;position:relative;top:6px" aria-hidden="true"><use xlink:href="#icon-valentine_-search-love-find-heart"></use></svg><span> 搜索</span></a></div><a class="meihua faa-parent animated-hover" onclick="toggleWinbox()" title="美化设置-自定义你的风格" id="meihua-button"><svg class="faa-tada icon" style="height:26px;width:26px;fill:currentColor;position:relative;top:8px" aria-hidden="true"><use xlink:href="#icon-tupian1"></use></svg></a><a class="sun_moon faa-parent animated-hover" onclick="switchNightMode()" title="浅色和深色模式转换" id="nightmode-button"><svg class="faa-tada" style="height:25px;width:25px;fill:currentColor;position:relative;top:7px" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-moon">       </use></svg></a><div id="toggle-menu"><a><i class="fas fa-bars fa-fw"></i></a></div></div></div></nav><div id="post-info"><h1 class="post-title">Cursor快速上手及无限使用指南</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><svg class="meta_icon post-meta-icon" style="width:30px;height:30px;position:relative;top:10px"><use xlink:href="#icon-rili"></use></svg><span class="post-meta-label">发表于 </span><time class="post-meta-date-created" datetime="2026-08-14T02:00:00.000Z" title="发表于 2026-08-14 10:00:00">2026-08-14</time><span class="post-meta-separator">|</span><svg class="meta_icon post-meta-icon" style="width:18px;height:18px;position:relative;top:5px"><use xlink:href="#icon-gengxin1"></use></svg><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-29T02:14:12.062Z" title="更新于 2026-06-29 10:14:12">2026-06-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><svg class="meta_icon post-meta-icon" style="width:18px;height:18px;position:relative;top:5px"><use xlink:href="#icon-biaoqian"></use></svg><a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B/">教程</a><i class="fas fa-angle-right post-meta-separator"></i><svg class="meta_icon post-meta-icon" style="width:18px;height:18px;position:relative;top:5px"><use xlink:href="#icon-biaoqian"></use></svg><a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B/AI/">AI</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><svg class="meta_icon post-meta-icon" style="width:25px;height:25px;position:relative;top:8px"><use xlink:href="#icon-charuword"></use></svg><span class="post-meta-label">字数总计:</span><span class="word-count">1.3w</span><span class="post-meta-separator">|</span><svg class="meta_icon post-meta-icon" style="width:20px;height:20px;position:relative;top:5px"><use xlink:href="#icon-shizhong"></use></svg><span class="post-meta-label">阅读时长:</span><span>45分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Cursor快速上手及无限使用指南"><svg class="meta_icon post-meta-icon" style="width:25px;height:25px;position:relative;top:5px"><use xlink:href="#icon-eye"></use></svg><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Cursor快速上手-科学使用指南"><a href="#Cursor快速上手-科学使用指南" class="headerlink" title="Cursor快速上手+科学使用指南"></a>Cursor快速上手+科学使用指南</h2><h3 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h3><p>简单工作不想做</p>
+<p>复杂工作不会做</p>
+<p>出现错误不会解决</p>
+<p>后端程序员不会写前端</p>
+<p>前端程序员不会写后端</p>
+<p>可爱的大学生要写期末作业</p>
+<h3 id="二、Cursor概述、安装以及环境配置"><a href="#二、Cursor概述、安装以及环境配置" class="headerlink" title="二、Cursor概述、安装以及环境配置"></a>二、Cursor概述、安装以及环境配置</h3><h4 id="2-1-概述"><a href="#2-1-概述" class="headerlink" title="2.1 概述"></a>2.1 概述</h4><p>Cursor 是一款功能强大的 AI 优先代码编辑器，可增强我们的开发工作流程。主要提供三个核心方向，这些功能可以无缝地协同工作，从而提高工作效率：</p>
+<ul>
+<li>深度集成AI模型，不是简单地接入模型，而是让AI充当了编译器的核心交互方式。支持代码块对话、项目级对话、模型自由选择。+ 强上下文理解能力，可以自动识别项目文件、代码块、错误信息等等，提供更直观准确的AI修改能力。+ 对话式开发体验，仅需用自然语言沟通，Cursor就会根据指令完成布置的任务，使用者可以轻松扮演产品经理，让Cursor理解你的命令自行工作。</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/img_convert/2de74e0312e660aa88ba5e7465755465.png" referrerpolicy="no-referrer" alt="image">
+
+
+<p><strong>对比其他编辑工具来说：</strong></p>
+<ul>
+<li>对比VS Code : 基于Visual Studio Code打造而成的AI编程工具，因此界面和基础操作与 VS Code 高度相似，无缝衔接！+ 对比 JetBrains IDEA：Cursor 提供 AI 驱动的现代编码体验，可以取代 JetBrains IDE，JetBrains 程序员可能会感觉不同！</li>
+</ul>
+<h4 id="2-2-安装、登录和无限续杯"><a href="#2-2-安装、登录和无限续杯" class="headerlink" title="2.2 安装、登录和无限续杯"></a>2.2 安装、登录和无限续杯</h4><p>快速安装 Cursor、登录指南！！！！</p>
+<h5 id="2-2-1-安装"><a href="#2-2-1-安装" class="headerlink" title="2.2.1 安装"></a>2.2.1 安装</h5><ul>
+<li>访问 <a target="_blank" rel="noopener" href="https://cursor.com/">cursor.com</a> 并单击 “下载” 按钮（本文使用的版本是0.50.7）+ 运行安装程序并等待安装完成+ 通过桌面快捷方式或从应用菜单启动 Cursor即可</li>
+</ul>
+<h5 id="2-2-2-登录"><a href="#2-2-2-登录" class="headerlink" title="2.2.2 登录"></a>2.2.2 登录</h5><ul>
+<li>点击 <strong>“注册”</strong> 或 <strong>“登录”</strong> 后，系统会提示您设置一个帐户。可以选择使用邮件，或者注册 Google 或 GitHub。</li>
+</ul>
+<p>如果第一次使用 Cursor，将获得 14 天的免费试用期 。</p>
+<ul>
+<li>登录后，返回 Cursor，然后就可以<strong>开始编码了！</strong></li>
+</ul>
+<h5 id="2-2-3-无限续杯"><a href="#2-2-3-无限续杯" class="headerlink" title="2.2.3 无限续杯"></a>2.2.3 无限续杯</h5><p>​ Cursor新注册后有着14天免费，50次免费高级提问的额度，但是也很轻易就会到上限的。其通过检测用户的邮箱账号以及电脑的机器码进行识别。我们出于学习的意图，可以尝试在达到上限后绕过这些限制继续学习，更推荐进行付费使用，功能也会更强大！</p>
+<ul>
+<li>准备新邮箱</li>
+</ul>
+<p>​ 可以去2925无限邮注册一个账号，这个邮箱平台的一个优势是用户申请的邮箱之后，可以自行创建子邮箱。比方说，我创建了<a href="mailto:&#115;&#x75;&#110;&#119;&#117;&#x6b;&#x6f;&#110;&#103;&#x40;&#x32;&#57;&#50;&#53;&#46;&#x63;&#x6f;&#x6d;">sunwukong@2925.com</a>这个邮箱，那么我们在申请账号的时候，可以使用<a href="mailto:&#115;&#117;&#x6e;&#x77;&#117;&#107;&#x6f;&#110;&#x67;&#x36;&#x36;&#x36;&#64;&#x32;&#57;&#x32;&#x35;&#46;&#x63;&#111;&#109;">sunwukong666@2925.com</a>、<a href="mailto:&#115;&#117;&#110;&#x77;&#117;&#x6b;&#x6f;&#110;&#103;&#55;&#55;&#x37;&#64;&#x32;&#57;&#x32;&#53;&#x2e;&#99;&#x6f;&#109;">sunwukong777@2925.com</a>、<a href="mailto:&#115;&#117;&#110;&#x77;&#117;&#x6b;&#111;&#x6e;&#103;&#x38;&#56;&#x38;&#x40;&#50;&#x39;&#x32;&#x35;&#46;&#x63;&#111;&#x6d;">sunwukong888@2925.com</a>等邮箱进行注册（也就是sunwukong数字随意添加@2925.com），邮箱问题得以解决！注册地址： <a target="_blank" rel="noopener" href="https://www.2925.com/">https://www.2925.com/</a></p>
+<ul>
+<li>机器码识别破解</li>
+</ul>
+<p>​ 其次是机器码识别方面。Cursor的团队意识到了人们会通过换邮箱的方式投机取巧，于是加入了校验本机机器码的环节。即使用户注册了一个新的邮箱，但是机器码所属的额度用完之后，也是不能继续免费了。于是此开源项目便诞生了【yeongpin&#x2F;cursor-free-vip】，可以帮我们进行重置机器码，并且快速注册新的账号等功能！</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/yeongpin/cursor-free-vip/releases%E4%B8%8B%E8%BD%BDcusor-free-vip%E8%BD%AF%E4%BB%B6%EF%BC%81%EF%BC%88%E8%B5%84%E6%96%99%E5%90%AB%E4%B8%8B%E8%BD%BD%E5%AE%8C%E7%9A%84%E8%BD%AF%E4%BB%B6%EF%BC%89">https://github.com/yeongpin/cursor-free-vip/releases下载cusor-free-vip软件！（资料含下载完的软件）</a> +  右键管理员身份运行 +  重置机器ID （选择1）</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/img_convert/9c7bd5427b1ed96148984676703879ea.png" referrerpolicy="no-referrer" alt="image">
+ +  重新注册和登录即可（选择2，会跳出注册流程） 
+<img src="https://i-blog.csdnimg.cn/direct/68adb117ad6f4d22af92a956271c1b10.png" referrerpolicy="no-referrer" alt="image">
+ 
+
+
+<h4 id="2-3-Cursor配置说明以及汉化"><a href="#2-3-Cursor配置说明以及汉化" class="headerlink" title="2.3 Cursor配置说明以及汉化"></a>2.3 Cursor配置说明以及汉化</h4><p>在 Cursor 中，<strong>Cursor Settings</strong> 和 <strong>Editor Settings</strong> 是两个不同的配置入口，分别用于管理 <strong>AI 功能</strong> 和 <strong>编辑器基础设置</strong>。<br><strong>对比项<strong><strong>Cursor Settings</strong></strong>Editor Settings****功能定位</strong>管理 AI 相关功能和 Cursor 特有设置调整编辑器基础行为和外观<strong>继承性</strong>与 VS Code 差异较大（Cursor 独有功能）大部分继承自 VS Code（如主题设置）<strong>影响范围</strong>影响 AI 代码生成、分析、对话的效果影响代码编辑体验（如排版、颜色）<strong>典型配置示例</strong>调整 AI 模型参数、代码库索引路径修改字体、启用自动保存、更改主题</p>
+<h5 id="2-3-1-Cursor-AI相关设置"><a href="#2-3-1-Cursor-AI相关设置" class="headerlink" title="2.3.1 Cursor AI相关设置"></a>2.3.1 Cursor AI相关设置</h5><p><code>通过齿轮图标、Cmd/Ctrl + Shift + J</code> 开启&#96;光标设置，即可进行AI编程相关的定制配置：</p>
+<p><strong>以下是对 Cursor Settings 中各项配置的作用解释：</strong></p>
+<ul>
+<li><strong>General（常规）</strong>：包含账户相关设置，可进行登录、注册操作，实现配置在不同设备间的同步 ；能进行 VS Code 配置导入，快速迁移主题、快捷键等设置；还隐私配置管理。+ <strong>Features（功能）</strong>：可开关 AI 代码补全、对话模式（Ask、Edit、Agent ）等核心功能；还能对这些功能的相关参数进行微调，比如调整代码补全的触发灵敏度、对话模式的快捷操作设置等 。+ <strong>Models（模型）：</strong> 允许用户选择不同的 AI 模型（有多个可用选项 ）；添加模型和配置模型访问API Key等。+ <strong>Rules（规则）：</strong> 例如可以制定代码检查规则，像对代码格式、语法规范等进行约束；也能设置特定代码操作的规则，比如当进行代码重构、修改时遵循的逻辑和标准等 。+ <strong>MCP:</strong> 配置多MCP操作的相关行为，比如选择代码时的联动规则、批量编辑代码的方式等，帮助开发者更高效地对多处代码进行统一操作 。+ <strong>Indexing（索引):</strong> 定义需要被索引的代码库路径，让 Cursor 的 AI 能理解代码上下文；设置排除规则，排除不需要索引的文件或文件夹（如第三方库、缓存文件 ），提高索引效率和 AI 分析的准确性。+ <strong>Beta（测试版）:</strong> 可启用或禁用测试功能，提供反馈等。用户能通过这里尝试 Cursor 的新功能，并帮助开发团队测试和改进这些尚未正式发布的特性 。</li>
+</ul>
+<h5 id="2-432-Cursor-编辑器设置"><a href="#2-432-Cursor-编辑器设置" class="headerlink" title="2.432 Cursor 编辑器设置"></a>2.432 Cursor 编辑器设置</h5><p>通过命令面板访问 （<code>Cmd/Ctrl + Shift + P</code>） &gt; <code>&quot;Preferences: Open Settings (UI)&quot;</code></p>
+<p>调整编辑器行为和外观，此处和VS Code一致。</p>
+<p><strong>在 Cursor 编辑器设置中，“User” 和 “Workspace” 存在以下差异：</strong></p>
+<p>User（用户）</p>
+<ul>
+<li>作用范围：User 设置是全局性的，应用于当前登录用户在所有工作空间中的操作。无论打开哪个项目或工作空间，这些设置都始终生效。+ 数据存储：User 设置存储在用户的配置文件中，与特定项目无关。当在不同设备上登录同一账号时，User 设置会同步，保证一致的使用体验。</li>
+</ul>
+<p>Workspace（工作空间）</p>
+<ul>
+<li>作用范围：Workspace 设置仅在特定的工作空间（一般对应一个项目文件夹 ）内有效。不同的工作空间可以有各自独立的设置，互不影响。+ 数据存储：Workspace 设置存储在工作空间根目录下的 <code>.vscode</code> 文件夹（Cursor 基于 VS Code，沿用类似结构 ）中，仅在该工作空间打开时生效。</li>
+</ul>
+<h5 id="2-3-3-Cursor-汉化配置"><a href="#2-3-3-Cursor-汉化配置" class="headerlink" title="2.3.3 Cursor 汉化配置"></a>2.3.3 Cursor 汉化配置</h5><p>Cursor工具汉化配置步骤：</p>
+<ul>
+<li><strong>打开扩展</strong>：启动 Cursor 后，按下<code>Ctrl + Shift + X</code>（Windows&#x2F;Linux）或<code>Cmd + Shift + X</code>（Mac） ，左侧边栏会出现扩展商店界面。 +  <strong>搜索并安装插件</strong>：在搜索框输入 “Chinese” 或 “中文” ，一般选择下载量最高的 “Chinese (Simplified) Language Pack for Visual Studio Code”，点击安装按钮进行安装。</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/direct/f8967d14b5b740b1855e9556029c0709.png" referrerpolicy="no-referrer" alt="image">
+ +  **打开命令面板**：按下`Ctrl + Shift + P`（Windows/Linux）或`Cmd + Shift + P`（Mac） ，输入 “Configure Display Language” 并回车，进入语言配置界面。 +  **选择中文并重启**：在弹出的语言列表中选择 “中文（简体）” 或 “zh-cn” ，保存设置后重启 Cursor。此时界面将完全切换为中文，包括菜单、提示信息和设置选项 。 
+
+
+<h4 id="2-4-从VS-Code配置迁移"><a href="#2-4-从VS-Code配置迁移" class="headerlink" title="2.4 从VS Code配置迁移"></a>2.4 从VS Code配置迁移</h4><h5 id="2-4-1-一键导入配置"><a href="#2-4-1-一键导入配置" class="headerlink" title="2.4.1 一键导入配置"></a>2.4.1 一键导入配置</h5><p>一键导入功能，导入的是当前电脑中默认位置存储的vs code的配置文件！这将转移vs code的：Extensions 扩展、Themes 主题、Settings 设置、Keybindings 键绑定等！</p>
+<p><strong>VS Code 的配置文件默认位置为：</strong></p>
+<ul>
+<li><strong>window系统</strong>: 导入的是 “%appdata%\code\user\” 路径下的配置文件。该路径下的 “settings.json” 文件 +  <strong>macOS系统</strong>: 导入的是 “<del>&#x2F;Library&#x2F;Application Support&#x2F;Code&#x2F;User&#x2F;” 路径下的配置内容。 +  <strong>Linux系统</strong>: 导入的是 “</del>&#x2F;.config&#x2F;code&#x2F;user&#x2F;” 路径下的配置文件，涵盖了个性化设置、快捷键设置等。</li>
+</ul>
+<p>**注意：**并非所有 VS Code 扩展都与 Cursor 兼容。一些依赖 VS Code 特定 API 的插件，在导入时可能导致整个导入过程失败或部分功能（如主题显示）异常。</p>
+<ul>
+<li>打开Cursor设置 （ ⌘ &#x2F; Ctrl + Shift + J ） +  导航到 常规 &gt; 帐户 +  在“VS Code Import（VS Code 导入）”下，单击“导入”按钮</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/img_convert/050d33d60b8a9e13df262ba75ac580c9.png" referrerpolicy="no-referrer" alt="image">
+ 
+
+
+<h5 id="2-4-2-手动配置文件迁移"><a href="#2-4-2-手动配置文件迁移" class="headerlink" title="2.4.2 手动配置文件迁移"></a>2.4.2 手动配置文件迁移</h5><p>如果要在计算机之间移动，或者希望对设置进行更多控制，则可以手动迁移配置文件。</p>
+<p><strong>导出配置文件</strong></p>
+<ul>
+<li>在 VS Code 实例上，打开命令面板 （ ⌘ &#x2F; Ctrl + Shift + P ）+ 搜索 “Preferences： Open Profiles （UI）”+ 在左侧边栏上找到要导出的个人资料+ 单击 3 个点菜单并选择 “Export Profile”+ 选择将其导出到本地计算机或 GitHub Gist</li>
+</ul>
+<p><strong>导入配置文件</strong></p>
+<ul>
+<li>在 Cursor 实例上，打开 Command Palette （ ⌘ &#x2F; Ctrl + Shift + P ）+ 搜索 “Preferences： Open Profiles （UI）”+ 单击“New Profile”旁边的下拉菜单，然后单击“Import Profile”+ 粘贴 GitHub Gist 的 URL 或选择“选择文件”以上传本地文件+ 单击对话框底部的 ‘Import’ 以保存配置文件+ 最后，在侧边栏中，选择新的配置文件，然后单击勾号图标将其激活</li>
+</ul>
+<h4 id="2-5-Java语言环境"><a href="#2-5-Java语言环境" class="headerlink" title="2.5 Java语言环境"></a>2.5 Java语言环境</h4><p>接下来，我们在Cursor中进行 Java 开发配置，包括设置 JDK、安装必要的扩展、调试、运行 Java 应用程序以及集成 Maven等构建工具。</p>
+<h5 id="2-5-1-配置本地jdk和maven配置"><a href="#2-5-1-配置本地jdk和maven配置" class="headerlink" title="2.5.1 配置本地jdk和maven配置"></a>2.5.1 配置本地jdk和maven配置</h5><p><strong>自动读取情况</strong></p>
+<p>如果 Cursor 基于类似 VS Code 的机制运行（Cursor 与 VS Code 有诸多关联），在系统环境变量中正确配置了 <code>JAVA_HOME</code> 和 <code>MAVEN_HOME</code> ，且环境变量配置无误（变量值准确指向 JDK 和 Maven 的安装目录 ），部分情况下 Cursor 能自动识别并应用这些配置。比如，当你在 Cursor 中创建、运行或调试 Java 项目时，它可能会利用自动读取到的环境变量来找到对应的 JDK 和 Maven 位置，完成代码编译、项目构建等操作。</p>
+<p><strong>手动配置情况</strong></p>
+<p>若 Cursor 没有自动读取到 JDK 和 Maven 配置，就需要手动配置。可在 <code>settings.json</code> 文件中进行操作。按 <code>Ctrl + Shift + P</code> （Windows&#x2F;Linux）或 <code>Cmd + Shift + P</code>（Mac）打开命令面板，输入 “Preferences: Open User Settings (JSON)” 并回车，打开 <code>settings.json</code> 文件 。然后添加或修改以下内容：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;java.home&quot;</span><span class="punctuation">:</span> <span class="string">&quot;你的 JDK 安装路径（对应 JAVA_HOME 变量值）&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;java.configuration.maven.userSettings&quot;</span><span class="punctuation">:</span> <span class="string">&quot;你的 Maven 配置文件 settings.xml 所在路径&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>例如：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;java.home&quot;</span><span class="punctuation">:</span> <span class="string">&quot;C:/Program Files/Java/jdk-17&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;java.configuration.maven.userSettings&quot;</span><span class="punctuation">:</span> <span class="string">&quot;D:/maven/apache-maven-3.8.8-bin/apache-maven-3.8.8/conf/settings.xml&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>注意路径里是反斜杠</p>
+<p>保存文件后，重启 Cursor 使配置生效。</p>
+<h5 id="2-5-2-Java环境扩展插件安装和使用"><a href="#2-5-2-Java环境扩展插件安装和使用" class="headerlink" title="2.5.2 Java环境扩展插件安装和使用"></a>2.5.2 Java环境扩展插件安装和使用</h5><p>Java 开发环境中，<strong>即使已安装 JDK 和 Maven 并配置好环境变量，仍需安装 Java 扩展插件</strong>以获得完整的开发体验。这些插件能将编辑器（如 Cursor&#x2F;VS Code）从 “普通文本编辑器” 转变为 “智能 IDE”，提供语法高亮、代码补全、错误提示、调试支持、Maven 项目管理等核心功能。</p>
+<img src="https://i-blog.csdnimg.cn/img_convert/0d9e66d5cb92ec31c0bb01b0f83f7d8e.png" referrerpolicy="no-referrer" alt="image">
+
+
+<p>安装插件过程：</p>
+<ul>
+<li><strong>Cursor</strong>：按 <code>Ctrl + Shift + X</code>（Windows&#x2F;Linux）或 <code>Cmd + Shift + X</code>（Mac），或点击左侧活动栏的方块图标。+ <strong>Extension Pack for Java</strong>，选择由 <strong>Microsoft</strong> 发布的扩展包，并安装。</li>
+</ul>
+<p>“<strong>Extension Pack for Java</strong>” 是一个插件集合，而非具体单个插件。它集成了多个与 Java 开发相关的插件，安装后能为开发者在 Visual Studio Code 或 Cursor 等编辑器中提供完整的 Java 开发环境，涵盖从代码编写、调试、测试到项目管理等多方面功能 。其包含的主要插件及作用如下：</p>
+<ul>
+<li><strong>Language Support for Java™ by Red Hat</strong>：提供语法高亮、智能代码补全、代码检查、代码格式化（<code>Shift + Alt + F</code>（Windows&#x2F;Linux）或 <code>Shift + Option + F</code>（Mac））、代码导航以及重构支持等功能，辅助高效编写和优化 Java 代码。 +  <strong>Debugger for Java</strong>：实现轻量级 Java 程序调试，可设置断点，调试时查看变量值、对象属性和调用栈，追踪程序执行流程以排查问题。 +  <strong>Maven for Java</strong>：用于管理 Maven 项目，能创建新项目，管理项目依赖，执行 Maven 构建任务，如清理、编译、打包项目等。 +  <strong>Test Runner for Java</strong>：支持 JUnit 和 TestNG 等测试框架，方便运行和调试 Java 测试用例，展示测试结果及详细日志，助力开发者定位问题。 +  <strong>Project Manager for Java</strong>：可在编辑器中管理多个 Java 项目，实现快速切换，导入本地 Java 项目，可视化展示项目模块、包和文件结构。 +  <strong>Gradle for Java</strong>：针对 Gradle 构建工具，能创建 Gradle 项目，运行 Gradle 任务，管理项目构建、测试流程，查看 Gradle 任务和工程依赖 。</li>
+</ul>
+<h3 id="三、Cursor三大核心AI功能"><a href="#三、Cursor三大核心AI功能" class="headerlink" title="三、Cursor三大核心AI功能"></a>三、Cursor三大核心AI功能</h3><h4 id="3-1-Tab键：智能小助手"><a href="#3-1-Tab键：智能小助手" class="headerlink" title="3.1 Tab键：智能小助手"></a>3.1 Tab键：智能小助手</h4><p>Cursor 的 Tab 键具有强大的代码自动补全功能，基于 AI 模型，能根据代码上下文自动预测并生成代码补全建议和代码修复重构，还可用于导航代码等！</p>
+<p><code>Tab</code> 键接受建议，也可以通过按 <code>Esc</code> 键拒绝建议。要逐字部分接受建议，请按 <code>Ctrl/⌘ + →</code>。</p>
+<h5 id="3-1-1-单行-多行代码补全"><a href="#3-1-1-单行-多行代码补全" class="headerlink" title="3.1.1 单行&#x2F;多行代码补全"></a>3.1.1 单行&#x2F;多行代码补全</h5><ul>
+<li>已有代码片段：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//需求：写一个工具类计算数组平均值</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ArrayUtils</span> &#123;</span><br><span class="line">   <span class="comment">// 按tab会完成补全</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>按tab键 → Cursor 自动生成代码：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//需求：写一个工具类计算数组平均值</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ArrayUtils</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span>[] nums = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125;;</span><br><span class="line">        System.out.println(average(nums));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">double</span> <span class="title function_">average</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> num : nums) &#123;</span><br><span class="line">            sum += num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (<span class="type">double</span>) sum / nums.length;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="3-1-2-智能代码重写"><a href="#3-1-2-智能代码重写" class="headerlink" title="3.1.2 智能代码重写"></a>3.1.2 智能代码重写</h5><ul>
+<li>已有代码片段：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ArrayUtils</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">arrayFor</span><span class="params">()</span> &#123;    </span><br><span class="line">        List&lt;Integer&gt; numbers = Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line">        List&lt;Integer&gt; evenNumbers = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> num : numbers) &#123;</span><br><span class="line">            <span class="keyword">if</span> (num % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                evenNumbers.add(num);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>按Tab键 → 自动补全：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在循环上方添加注释：// 使用 Stream 重构</span></span><br><span class="line"><span class="comment">//光标放在循环代码块的任意位置，按 Tab 键</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">arrayFor</span><span class="params">()</span> &#123;    </span><br><span class="line">    List&lt;Integer&gt; numbers = Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line">    List&lt;Integer&gt; evenNumbers = numbers.stream().filter(num -&gt; num % <span class="number">2</span> == <span class="number">0</span>).collect(Collectors.toList());</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="3-1-3-多行协同优化"><a href="#3-1-3-多行协同优化" class="headerlink" title="3.1.3 多行协同优化"></a>3.1.3 多行协同优化</h5><p>Cursor 的 <strong>多行协同优化</strong> 核心能力：多行代码，一次性完成 <strong>语法升级、结构重组、安全修复</strong>。</p>
+<ul>
+<li>多行数据联想</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> count; <span class="comment">// 普通变量</span></span><br><span class="line">String name; <span class="comment">// 姓名</span></span><br><span class="line"><span class="type">boolean</span> isValid; <span class="comment">// 是否有效</span></span><br><span class="line"><span class="type">double</span> price; <span class="comment">// 价格</span></span><br><span class="line"><span class="comment">//tab 会继续联想变量类型</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>多行批量修改</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">    <span class="comment">//代码添加注释</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    System.out.println(<span class="string">&quot;第一次输出&quot;</span>);</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    System.out.println(<span class="string">&quot;第二次输出&quot;</span>);</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    System.out.println(<span class="string">&quot;第三次输出&quot;</span>);</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    System.out.println(<span class="string">&quot;第四次输出&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="3-1-4-光标位置预测"><a href="#3-1-4-光标位置预测" class="headerlink" title="3.1.4 光标位置预测"></a>3.1.4 光标位置预测</h5><ul>
+<li>准备测试代码</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ArrayUtils</span> &#123;</span><br><span class="line">    <span class="comment">//给下面方法添加注释</span></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">subtract</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">multiply</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">divide</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试案例说明</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/direct/5d8bce076b1848f987c4fb8dbcb5a79d.png" referrerpolicy="no-referrer" alt="image">
+ 
+
+
+<h5 id="3-1-5-接受，接受部分和拒绝"><a href="#3-1-5-接受，接受部分和拒绝" class="headerlink" title="3.1.5 接受，接受部分和拒绝"></a>3.1.5 接受，接受部分和拒绝</h5><ul>
+<li>准备测试类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span>  age;</span><br><span class="line">    <span class="comment">//tab </span></span><br><span class="line">    <span class="comment">//tab 接收完整补全</span></span><br><span class="line">    <span class="comment">//ctrl + -&gt; 部分和逐步接收补全 [需要开启部分补全配置]</span></span><br><span class="line">    <span class="comment">//esc 或者 继续输入 拒绝补全</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试和演示效果</li>
+</ul>
+<h5 id="3-1-6-Tab相关配置说明"><a href="#3-1-6-Tab相关配置说明" class="headerlink" title="3.1.6 Tab相关配置说明"></a>3.1.6 Tab相关配置说明</h5><p>配置修改位置： <code>cursor settings &gt; features &gt; tab </code></p>
+<ul>
+<li><p><strong>A powerful Copilot replacement that can suggest changes across multiple lines…</strong></p>
+</li>
+<li><p>作用：启用 &#x2F; 禁用 Cursor Tab 功能。+ 通俗理解：相当于 “总开关”，勾选后才能用 Tab 键触发 AI 代码建议（如多行补全、智能续写）；取消勾选则 Tab 仅作普通缩进。</p>
+</li>
+<li><p><strong>Accept the next word of a suggestion via Ctrl+RightArrow</strong></p>
+</li>
+<li><p><strong>作用</strong>：开启后，可用 <code>Ctrl+→</code>（Windows&#x2F;Linux）或 <code>⌘+→</code>（Mac）<strong>逐个单词接受 AI 建议</strong>。+ <strong>通俗理解</strong>：AI 给的建议很长时，不想全要？开这个功能，按快捷键 “挑着用”。</p>
+</li>
+<li><p><strong>场景</strong>：比如 AI 建议 <code>const fullName = firstName + &quot; &quot; + lastName;</code>，但你只想用 <code>firstName + &quot; &quot; + lastName</code> 部分，就可通过该快捷键拆分接受。 +  <strong>Enable Cursor Tab suggestions in comments</strong></p>
+</li>
+<li><p><strong>作用</strong>：让 AI 在<strong>注释内容里也提供 Tab 建议</strong>。+ <strong>通俗理解</strong>：写注释时，AI 帮你补全思路！比如输入 <code>// 实现冒泡排序的步骤：</code>，按 Tab 自动续写步骤说明。</p>
+</li>
+<li><p><strong>Show whitespace only Cursor Tab suggestions</strong></p>
+</li>
+<li><p><strong>作用</strong>：控制是否显示<strong>仅包含空白（空格、换行）的 AI 建议</strong>。 +  <strong>通俗理解</strong>：这个配置项决定了 <strong>当按 Tab 时，是否让那些 “只调整空格、换行、缩进（没有实际代码逻辑变化）” 的建议显示出来</strong> +  <strong>案例</strong>：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class Demo &#123;</span><br><span class="line">public void <span class="function"><span class="title">test</span></span>() &#123;</span><br><span class="line">System.out.println(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">System.out.println(<span class="string">&quot;World&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li><p>勾选：把光标放在混乱的代码里（比如 <code>public void test() {</code> 这行后面） tab 会有修改建议+ 不勾选：把光标放在混乱的代码里（比如 <code>public void test() {</code> 这行后面） tab不会有修改建议</p>
+</li>
+<li><p><strong>Tab to import necessary modules with Cursor Tab. Only supports TypeScript</strong></p>
+</li>
+<li><p><strong>作用</strong>：在 TypeScript 中，写代码时缺模块，按 Tab 自动帮你<strong>导入依赖</strong>。</p>
+</li>
+<li><p><strong>Enable auto import for Python. This is a beta feature.</strong></p>
+</li>
+<li><p><strong>作用</strong>：（测试版）为 Python 开启类似功能，按 Tab 自动导入缺失模块。</p>
+</li>
+</ul>
+<h4 id="3-2-Chat-对话模式"><a href="#3-2-Chat-对话模式" class="headerlink" title="3.2 Chat: 对话模式"></a>3.2 Chat: 对话模式</h4><p>Chat（以前称为“Composer”）是 Cursor 的 AI 助手，位于的侧边栏中，可让您通过自然语言与代码库进行交互。您可以提出问题、请求代码编辑、获取终端命令建议等 - 所有这些都无需切换上下文。</p>
+<p><strong>Cursor chat 主要功能点：</strong></p>
+<ul>
+<li>Chat 能够了解代码库并代表我们对其进行更改。这是实现新功能的强大方法，也是功能请求的完美工具。+ Chat通过深入了解我们的代码库以及每个组件如何组合在一起，Chat 可以帮助您重构代码库。+ Chat可以根据我们的需求，从零开始进行项目搭建，包括创建项目结构，安装依赖项，甚至编写初始代码，让我们尽快开始业务编码。+ Chat也可以根据我项目的错误信息，进行错误定位和错误代码直接调整解决。</li>
+</ul>
+<h5 id="3-2-1-快速开始"><a href="#3-2-1-快速开始" class="headerlink" title="3.2.1 快速开始"></a>3.2.1 快速开始</h5><p>使用 <code>⌘+L</code> （Mac） 或 <code>Ctrl+L</code> （Windows&#x2F;Linux） 访问侧边栏中的聊天。用自然语言输入我们的请求，AI 将做出相应的响应。</p>
+<p>注意： 与Chat 对话时，建议采用清晰、具体的语言格式，最好包含任务类型、上下文描述和具体要求。</p>
+<p>以下是几个参考模板：</p>
+<ul>
+<li><strong>代码生成类</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[任务类型]：请生成一个 &#123;功能描述&#125; 的 &#123;编程语言/框架&#125; 实现</span><br><span class="line"></span><br><span class="line">[具体要求]：</span><br><span class="line">1. 使用 &#123;特定技术/库&#125;</span><br><span class="line">2. 包含 &#123;特定功能点&#125;</span><br><span class="line">3. 符合 &#123;编码规范/设计模式&#125;</span><br></pre></td></tr></table></figure>
+<p> 示例： </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">请生成一个学习计划页面的HTML+CSS+JavaScript实现</span><br><span class="line"></span><br><span class="line">[具体要求]：</span><br><span class="line">1. 使用Tailwind CSS v3和Font Awesome</span><br><span class="line">2. 包含任务添加、编辑、删除功能</span><br><span class="line">3. 包含日历视图展示学习计划</span><br><span class="line">4. 包含学习进度可视化图表</span><br><span class="line">5. 符合现代UI设计原则和响应式设计</span><br><span class="line">6. 具有平滑的动画和交互效果</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>代码修改类</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[任务类型]：请帮我修改 &#123;上下文：具体文件/代码片段&#125;，实现 &#123;预期功能&#125;</span><br><span class="line"></span><br><span class="line">[当前问题]：&#123;现有的错误/不足描述&#125;</span><br><span class="line"></span><br><span class="line">[具体要求]：</span><br><span class="line">1. 保持 &#123;现有功能/结构&#125; 不变</span><br><span class="line">2. 使用 &#123;特定方法/技术&#125; 改进</span><br><span class="line">3. 修复 &#123;具体错误/警告&#125;</span><br></pre></td></tr></table></figure>
+<p> 示例： </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">请帮我修改当前的 React 组件，优化列表渲染性能。</span><br><span class="line">当前问题：滚动时列表卡顿，存在明显性能问题。</span><br><span class="line">要求：</span><br><span class="line">1. 保持现有 UI 不变</span><br><span class="line">2. 使用 React.memo 和虚拟列表技术优化</span><br><span class="line">3. 添加性能监控日志</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>代码解释类</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[任务类型]：请解释 &#123;代码片段/功能模块&#125; 的 &#123;具体方面&#125;</span><br><span class="line"></span><br><span class="line">[上下文信息]：&#123;相关业务背景/技术栈&#125;</span><br><span class="line"></span><br><span class="line">[具体问题]：</span><br><span class="line">1. &#123;不理解的语法/逻辑&#125;</span><br><span class="line">2. &#123;特定设计选择的原因&#125;</span><br><span class="line">3. &#123;潜在的问题/优化点&#125;</span><br></pre></td></tr></table></figure>
+<p> 示例： </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">请解释这段 TypeScript 代码的泛型约束和类型推导逻辑。</span><br><span class="line">上下文：这是一个用于数据验证的工具函数。</span><br><span class="line">具体问题：</span><br><span class="line">1. &lt;T extends object&gt; 这里为什么要加 extends object？</span><br><span class="line">2. 类型推导是如何工作的？</span><br><span class="line">3. 是否存在类型安全隐患？</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>流程自动化类</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[任务类型]：请创建一个自动化流程，实现 &#123;目标描述&#125;</span><br><span class="line"></span><br><span class="line">[操作步骤]：</span><br><span class="line">1. 从 &#123;数据源&#125; 获取 &#123;数据类型&#125;</span><br><span class="line">2. 执行 &#123;数据处理/转换操作&#125;</span><br><span class="line">3. 将结果保存到 &#123;目标位置&#125;</span><br><span class="line">4. 触发 &#123;后续操作/通知&#125;</span><br><span class="line"></span><br><span class="line">[具体要求]：</span><br><span class="line">1. 使用 &#123;特定工具/API&#125;</span><br><span class="line">2. 添加 &#123;错误处理/重试机制&#125;</span><br><span class="line">3. 生成 &#123;日志/报告&#125;</span><br></pre></td></tr></table></figure>
+<p> 示例： </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">请创建一个自动化流程，每天凌晨从 GitHub API 获取仓库星标数，保存到 Google Sheets 并生成趋势图。</span><br><span class="line">要求：</span><br><span class="line">1. 使用 GitHub REST API v3</span><br><span class="line">2. 添加异常处理和邮件通知</span><br><span class="line">3. 生成周/月增长趋势图表</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>命令行辅助类</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[任务类型]：请提供 &#123;操作场景&#125; 的 &#123;操作系统&#125; 命令</span><br><span class="line"></span><br><span class="line">[具体需求]：</span><br><span class="line">1. &#123;执行的具体操作&#125;</span><br><span class="line">2. 包含 &#123;特定参数/选项&#125;</span><br><span class="line">3. 处理 &#123;特殊情况/错误&#125;</span><br></pre></td></tr></table></figure>
+<p> 示例： </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">请提供在 macOS 上批量压缩图片的命令行方案。</span><br><span class="line">需求：</span><br><span class="line">1. 将当前目录下所有 PNG/JPG 图片压缩 50%</span><br><span class="line">2. 保留原始文件并添加 <span class="string">&quot;-compressed&quot;</span> 后缀</span><br><span class="line">3. 显示每个文件的压缩前后大小对比</span><br></pre></td></tr></table></figure>
+<p><strong>提示词技巧总结：</strong></p>
+<ul>
+<li><strong>提供上下文</strong>：提及项目语言、框架、业务背景等信息+ <strong>分点描述</strong>：将复杂需求拆解为具体步骤或要求+ <strong>使用技术术语</strong>：准确的术语能帮助 AI 更精准理解需求+ <strong>明确边界</strong>：说明必须保留的现有功能或禁止的实现方式+ <strong>示例引导</strong>：附上期望输出示例或参考代码风格</li>
+</ul>
+<h5 id="3-2-2-Chat三种模式"><a href="#3-2-2-Chat三种模式" class="headerlink" title="3.2.2 Chat三种模式"></a>3.2.2 Chat三种模式</h5><p>Chat 提供针对特定任务优化的不同模式：</p>
+<ul>
+<li>Agent代理模式（默认）: 允许Cursor学习和理解我们的项目代码，并且代表们可以直接进行项目代码更改！[识别项目结构]+ Ask对话模式：获取项目代码相关的解释和答案，但是不会直接修改项目代码！[识别项目结构]+ Manual手动模式：需要我们执行项目上下文（修改范围，后续会详细讲解）重点编辑！[不识别项目结构]</li>
+</ul>
+<p>3.2.2.1 Agent模式体验</p>
+<p>Agent 是 Cursor 中的默认且最自主的模式，旨在以最少的指导处理复杂的编码任务。它启用了所有[工具 ]，可以自主探索您的代码库、阅读文档、浏览 Web、编辑文件和运行终端命令以高效完成任务。</p>
+<img src="https://i-blog.csdnimg.cn/direct/8762e73e7d8f40e8ad13efd930985547.png" referrerpolicy="no-referrer" alt="image">
+
+
+<p>Agent的能力总结：</p>
+<ul>
+<li>独立探索您的代码库，识别相关文件，并进行必要的更改+ 使用所有可用工具搜索、编辑、创建文件和运行终端命令+ 全面了解项目结构和依赖关系+ 将复杂任务分解为可管理的步骤并按顺序执行</li>
+</ul>
+<p>生成和修改示例：</p>
+<ul>
+<li>新打开一个文件夹 +  ctrl + L 进行对话模式（默认 agent） +  用例对话</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">使用html,css,javascript来实现一个贪吃蛇页面！</span><br><span class="line">要求：</span><br><span class="line">  1. 要求有积分统计</span><br><span class="line">  2. 页面要有多种背景可以切换</span><br><span class="line">  3. 代码添加中文注释</span><br><span class="line">  4. 不能使用var 只能使用<span class="built_in">let</span>和const声明变量</span><br></pre></td></tr></table></figure>
+<ul>
+<li>生成代码 +  运行代码对话</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">把index.html页面在浏览器打开</span><br></pre></td></tr></table></figure>
+<ul>
+<li>后续调整代码对话</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在页面中添加倒计时功能，每次60秒！</span><br></pre></td></tr></table></figure>
+<p>Agent的配置选项：</p>
+<img src="https://i-blog.csdnimg.cn/img_convert/d384503124e4c220367cae6031a216b9.png" referrerpolicy="no-referrer" alt="image">
+
+
+
+<img src="https://i-blog.csdnimg.cn/direct/6821651a1ced47a3b2993891f848c67c.png" referrerpolicy="no-referrer" alt="image">
+
+
+<ul>
+<li>Model（选择模型 ）：为代理模式预先选择大模型+ Edit Keybindings（编辑快捷键）： 为agent模式设置快速开启快捷键（默认 ctrl + i）+ Auto-run ( 自动运行 ) ：当你让 Agent 修改代码后，自动执行相关命令（如编译、测试、运行），验证修改的正确性。+ Auto-fix errors ( 自动修复 ) ：当自动运行过程中出现错误（如编译失败、测试报错），Agent 会尝试分析错误信息并自动修复。</li>
+</ul>
+<p>错误调试和修改示例：</p>
+<ul>
+<li>准备错误信息类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ArrayDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 创建一个整数数组</span></span><br><span class="line">        <span class="type">int</span>[] numbers = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>&#125;;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 使用for循环输出数组内容</span></span><br><span class="line">        System.out.println(<span class="string">&quot;数组内容如下：&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; numbers.length; i++) &#123;</span><br><span class="line">            <span class="comment">//此处 i + 2就会出现下角标越界错误</span></span><br><span class="line">            System.out.println(<span class="string">&quot;第 &quot;</span> + (i + <span class="number">1</span>) + <span class="string">&quot; 个元素是: &quot;</span> + numbers[i+<span class="number">2</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 使用增强型for循环输出数组内容</span></span><br><span class="line">        System.out.println(<span class="string">&quot;\n使用增强型for循环输出：&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> number : numbers) &#123;</span><br><span class="line">            System.out.print(number + <span class="string">&quot; &quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<ul>
+<li>运行报错</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/direct/b4d52da4cb3c472cac03749af8a6693f.png" referrerpolicy="no-referrer" alt="image">
+ +  对话解决错误信息 
+<img src="https://i-blog.csdnimg.cn/direct/f0cb63e7438d4bc19867364f5f2ec5aa.png" referrerpolicy="no-referrer" alt="image">
+ 
+
+<p>3.2.2.2 Ask模式体验</p>
+<p>Ask 是 Chat 的 “只读” 模式，用于提出问题、探索和了解代码库。它是 Cursor 中的一种内置对话模式！</p>
+<p>对比：Ask 是其他默认模式（Agent 和 Manual）所独有的，因为它默认不应用任何建议的更改 - 这使它成为一种 “只读” 模式，具有读取文件和其他上下文的完整能力，但不能自行进行任何更改。这对于了解我们可能不想更改的代码库或在实施之前使用 AI 规划解决方案非常有用！</p>
+<p>示例用例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这个贪吃蛇页面如何添加多种模式！</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="https://i-blog.csdnimg.cn/direct/c59779aca7ae4123b85b0480cbad6fe9.png" referrerpolicy="no-referrer" alt="image">
+
+
+<p>Ask的配置选项：</p>
+<img src="https://i-blog.csdnimg.cn/img_convert/ca7f67cc9f01fa537e8b5a546b6b29a5.png" referrerpolicy="no-referrer" alt="image">
+
+
+<ul>
+<li>Model （模型) : 预先选择应作为 Ask （Ask ） 的默认模型+ Keybinding : 设置键绑定以切换到 Ask 模式+ 搜索代码库 : 允许 Cursor 搜索它自己的上下文，而不是当你希望 AI 看到文件时，你必须手动 @ 文件作为上下文</li>
+</ul>
+<p>3.2.2.3 Manual模式体验</p>
+<p>与 Ask 模式不同，它不探索代码库或运行终端命令;它完全取决于您的具体说明和您提供的上下文（例如，通过 <code>@</code>文件名），AI 生成修改建议后，还要用户<strong>手动点击 “应用”</strong> 才会改动代码，且通常是<strong>单文件 &#x2F; 局部代码调整</strong>。</p>
+<img src="https://i-blog.csdnimg.cn/direct/f49b1d51c8f7444b9f651d4c1460fad4.png" referrerpolicy="no-referrer" alt="image">
+
+
+<p>示例用例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在 @script.js @index.html 中，给所有代码添加注释和解释！</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="https://i-blog.csdnimg.cn/direct/830034203b3e42f09cba1ead3a93b349.png" referrerpolicy="no-referrer" alt="image">
+
+
+<p>Manual的配置选项：</p>
+<img src="https://i-blog.csdnimg.cn/img_convert/83ad5e03c186195b6e78273689235dac.png" referrerpolicy="no-referrer" alt="image">
+
+
+<h5 id="3-2-3-Chat模式的其他细节"><a href="#3-2-3-Chat模式的其他细节" class="headerlink" title="3.2.3 Chat模式的其他细节"></a>3.2.3 Chat模式的其他细节</h5><p>3.2.3.1 代码编辑选项</p>
+<p>当 Chat 建议更改代码时：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">修改页面背景，可以添加多种颜色可以选！！</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li><strong>Review</strong>：在差异视图中查看建议的更改</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/direct/60cc19214dd149d3bd4de3a7b10fdc8e.png" referrerpolicy="no-referrer" alt="image">
+ +  **Apply**: 在“ask / Manual ”模式下，使用“应用”按钮显式应用更改 
+<img src="https://i-blog.csdnimg.cn/direct/a097ec6d19b54a2ea26a95b3a67fab67.png" referrerpolicy="no-referrer" alt="image">
+ +  **Accept/Reject(接受/拒绝)** ：进行更改后，决定是保留还是放弃更改(agent模式下) 
+<img src="https://i-blog.csdnimg.cn/direct/4ba7744fe0db48ba9e03fd0268415064.png" referrerpolicy="no-referrer" alt="image">
+ 
+
+<p>3.2.3.2 Checkpoints 数据还原</p>
+<p>有时，可能希望恢复到代码库的<strong>先前状态</strong>。Cursor 通过在发出的每个请求以及每次 AI 更改的代码库时自动创建代码库的检查点（Checkpoints）来帮助您解决这个问题。</p>
+<p>要恢复到以前的状态，您可以：单击上一个请求的输入框中显示的 <code>Restore Checkpoint</code> 按钮，如下所示</p>
+<img src="https://i-blog.csdnimg.cn/img_convert/c3f947422593a523a5c30eb20b2e27ea.png" referrerpolicy="no-referrer" alt="image">
+
+
+<p>注意：是回复到本次对话之前的状态！！不是本次对话产生的状态！！<br>3.2.3.3 历史和新建会话</p>
+<p>聊天历史记录已移至命令面板。可以通过 Chat 中的 “Show history” 按钮以及运行命令面板中的 “Show Chat History” 命令来访问它。</p>
+<img src="https://i-blog.csdnimg.cn/direct/17209fb4ea6b44cfa44d935da4dcc4b4.png" referrerpolicy="no-referrer" alt="image">
+
+
+<p>开启新任务、避免对话混乱、保留特定记录或解决误操作时，需在 Cursor 的 Chat 新建聊天框。</p>
+<img src="https://i-blog.csdnimg.cn/img_convert/50e2a3a07cd2f71c694e8a793b83442d.png" referrerpolicy="no-referrer" alt="image">
+
+
+<h5 id="3-2-4-Chat相关的配置说明"><a href="#3-2-4-Chat相关的配置说明" class="headerlink" title="3.2.4 Chat相关的配置说明"></a>3.2.4 Chat相关的配置说明</h5><ul>
+<li><p><strong>Default new chat mode</strong>：设置新聊天默认模式，选 “Agent” 则新聊天默认用智能代理交互 ，决定初始聊天交互载体。+ <strong>Chat text size</strong>：调整 AI 聊天消息文字大小，“Default” 是默认尺寸，可按需改显示效果，让阅读更舒适。+ <strong>Auto - refresh chats</strong>：勾选后，聊天面板闲置再打开时自动新建聊天，保持交互新鲜度，避免旧聊天堆积干扰。+ <strong>Auto - scroll to bottom</strong>：新消息生成时自动滚动到聊天面板底部，不用手动翻，方便实时看最新内容。+ <strong>Auto - apply to files outside context in Manual mode</strong>：手动模式下，允许聊天对当前上下文外文件自动应用更改，拓展操作范围，处理跨文件任务更便捷。+ <strong>Include project structure（BETA）</strong>：勾选后，给模型提供简化目录树，辅助理解代码库布局，让 AI 更贴合项目结构做响应，尚处测试阶段。+ <strong>Full folder contents</strong>：启用后，展示完整文件夹内容而非结构大纲，需详细文件内容时开启，便于深度查看。+ <strong>Enable auto - run mode</strong>：允许 Agent 不经确认自动运行工具（如执行命令、写文件），效率高但有风险，需信任场景用，要留意误操作。 </p>
+</li>
+<li><p><strong>Command allowlist</strong>：仅指定命令能自动执行，精准管控，保障安全又保留特定自动操作。+ <strong>Command denylist</strong>：列入的命令永不自动执行，规避危险命令，加固安全防线。</p>
+</li>
+<li><p><strong>Delete file protection</strong>：启用后阻止 Agent 自动删文件，防误删关键文件，保护数据安全。+ <strong>MCP tools protection</strong>：开启则 Agent 不能自动运行 MCP 工具，避免工具误操作影响系统。+ <strong>Dot files protection</strong>：已勾选，阻止 Agent 自动改点文件（如.gitignore ），保护版本控制等配置文件。+ <strong>Outside workspace protection</strong>：勾选后，Agent 无法自动创建 &#x2F; 修改工作区外文件，防止影响外部系统，保障工作区独立性。+ <strong>Dialog ‘Don’t ask again’ preferences</strong>：管理曾选 “不再询问” 的对话框，方便回顾或重置交互确认逻辑。+ <strong>Collapse input box pills in pane or editor</strong>：勾选则折叠聊天面板 &#x2F; 编辑器输入框里的标识，节省空间，让界面更简洁。+ <strong>Iterate on lints</strong>：启用后，Agent 模式聊天自动迭代修复代码检查（linter ）错误，助力自动代码优化。+ <strong>Hierarchical Cursor Ignore</strong>：启用后，cursorignore 文件规则作用于所有子目录，改配置需重启 Cursor，统一忽略规则时用。+ <strong>Auto - accept diffs</strong>：启用后，合成器里的差异（diffs ）在不在工作树中就会被接受，自动处理版本差异，简化流程。+ <strong>Custom modes（BETA）</strong>：允许创建自定义模式，可按需定制交互逻辑，尚在测试，探索个性化玩法。+ <strong>Play sound on finish（BETA）</strong>：聊天响应完成时播放声音提醒，不用一直盯着，及时知晓结果，测试功能。+ <strong>Auto Group Changes（BETA）</strong>：自动分组聊天会话中与大语言模型（LLM ）交互产生的更改，方便集中 review，测试阶段功能。+ <strong>Web Search Tool（BETA）</strong>：已勾选，允许 Agent&#x2F;ask 模式聊天联网搜索信息，补充知识，让回答更全面，测试功能</p>
+</li>
+</ul>
+<h4 id="3-3-Ctrl-K-内联智能修改"><a href="#3-3-Ctrl-K-内联智能修改" class="headerlink" title="3.3 Ctrl+K: 内联智能修改"></a>3.3 Ctrl+K: 内联智能修改</h4><p>内联编辑 （Cmd&#x2F;Ctrl+K） 直接在编辑器窗口中生成新代码或编辑现有代码。</p>
+<p>适合已知并精准修改文件内容！</p>
+<img src="https://i-blog.csdnimg.cn/direct/141a2b819a2e422ea7bd1bfeaa1a028e.png" referrerpolicy="no-referrer" alt="image">
+
+
+<h5 id="3-3-1-触发修改提示框"><a href="#3-3-1-触发修改提示框" class="headerlink" title="3.3.1 触发修改提示框"></a>3.3.1 触发修改提示框</h5><p>在 Cursor 中，我们将按 <code>Ctrl/Cmd K</code> 时出现的栏称为“Prompt Bar”。它的工作原理类似于用于聊天的 AI 输入框，可以在其中正常键入，或使用 @引用其他上下文（后续讲解）。</p>
+<p>Cmd K的模式说明：</p>
+<ul>
+<li><strong>内联生成</strong>：如果在按 <code>Ctrl/Cmd K</code> 时未选择任何代码，Cursor 将根据您在提示栏中键入的提示生成新代码。+ <strong>内联编辑</strong>：对于就地编辑，只需选择要编辑的代码，然后在提示栏中键入即可。</li>
+</ul>
+<h5 id="3-3-2-Cmd-K-体验"><a href="#3-3-2-Cmd-K-体验" class="headerlink" title="3.3.2 Cmd + K 体验"></a>3.3.2 Cmd + K 体验</h5><ul>
+<li><p><strong>内联生成</strong></p>
+</li>
+<li><p>打开 <code>main.js</code>，光标放文件末尾（无选中代码） +  按 <code>Cmd/Ctrl + K</code>，输入提示：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">生成一个带点击动画的按钮组件，用 JavaScript 实现，点击后控制台打印次数</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实现效果</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/img_convert/98571505f83aa09a61d7699e1e5d9b3c.png" referrerpolicy="no-referrer" alt="image">
+ 
+<ul>
+<li><p><strong>内联编辑</strong></p>
+</li>
+<li><p>继续打开刚刚main.js +  选中init方法，按 <code>Cmd/Ctrl + K</code>，输入提示：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">方法添加注释和每行代码添加注释说明！！</span><br></pre></td></tr></table></figure>
+<img src="https://i-blog.csdnimg.cn/direct/448ff7c7c5544947841094791fff9387.png" referrerpolicy="no-referrer" alt="image">
+ +  实现效果 
+<img src="https://i-blog.csdnimg.cn/direct/fcee1c4df36a4466a37537e35f23c1ff.png" referrerpolicy="no-referrer" alt="image">
+ 
+ 
+
+
+<h5 id="3-3-3-Terminal-Cmd-K-体验"><a href="#3-3-3-Terminal-Cmd-K-体验" class="headerlink" title="3.3.3 Terminal Cmd + K 体验"></a>3.3.3 Terminal Cmd + K 体验</h5><p>在 Cursor 终端中使用 Cmd K 通过提示栏界面生成和运行命令, 在内置的 Cursor 终端中，您可以按 <code>Ctrl/⌘ K</code> 打开终端底部的提示栏。此提示栏允许您在终端中描述所需的作，终端 Cmd K 将生成一个命令。您可以通过按 <code>esc</code> 接受命令，也可以立即使用 <code>Ctrl/⌘ + Enter</code> 运行命令。</p>
+<img src="https://i-blog.csdnimg.cn/img_convert/8ffbcc33f7563e5647e38c5be30abc84.png" referrerpolicy="no-referrer" alt="image">
+
+
+<h3 id="四、Cursor精准上下文指定"><a href="#四、Cursor精准上下文指定" class="headerlink" title="四、Cursor精准上下文指定"></a>四、Cursor精准上下文指定</h3><p>在 Cursor 工具里，“上下文（Context）” 可理解为 <strong>让 AI 准确理解需求、辅助编码的 “信息参考范围”</strong> ，是 AI 读懂代码、精准响应的关键!</p>
+<h4 id="4-1-Codebase-Indexing-代码库索引"><a href="#4-1-Codebase-Indexing-代码库索引" class="headerlink" title="4.1 Codebase Indexing 代码库索引"></a>4.1 Codebase Indexing 代码库索引</h4><h5 id="4-1-1-概念和作用"><a href="#4-1-1-概念和作用" class="headerlink" title="4.1.1 概念和作用"></a>4.1.1 概念和作用</h5><p>打开项目时，每个 Cursor 实例都将初始化该工作区的索引。初始索引设置完成后，Cursor 将自动为添加到工作区的任何新文件编制索引，以使您的代码库上下文保持最新：</p>
+<ul>
+<li>快速 “读懂” 你的项目结构（哪些是工具文件、哪些是业务逻辑）+ 定位相关代码（如搜索 <code>getUser</code> 时，知道优先查 <code>userService.js</code>）+ 理解代码关系（如 <code>Order</code> 类和 <code>Product</code> 类的关联）</li>
+</ul>
+<p><strong>Cursor 中的作用</strong>：AI 分析索引内容后，生成代码时会更贴合项目实际（如使用已有工具函数、遵循命名规范）。</p>
+<h5 id="4-1-2-代码库索引配置和示例"><a href="#4-1-2-代码库索引配置和示例" class="headerlink" title="4.1.2 代码库索引配置和示例"></a>4.1.2 代码库索引配置和示例</h5><p>代码库索引的状态位于 <code>cursor settings &gt; indexing</code><br><img src="https://i-blog.csdnimg.cn/img_convert/f67586a80242ad1382223e20d51161c7.png" referrerpolicy="no-referrer" alt="image"></p>
+<p>测试示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">查看当前项目结构，并使用文字图形形式罗列出来！</span><br></pre></td></tr></table></figure>
+
+
+<p>展示效果：</p>
+<img src="https://i-blog.csdnimg.cn/img_convert/1c233bfd43f5add8a8b6fd6678773c37.png" referrerpolicy="no-referrer" alt="image">
+
+
+<h5 id="4-1-3-忽略文件配置"><a href="#4-1-3-忽略文件配置" class="headerlink" title="4.1.3 忽略文件配置"></a>4.1.3 忽略文件配置</h5><p>Cursor 读取项目的代码库并为其编制索引以支持其功能。可以通过将 <code>.cursorignore</code> 文件添加到根目录来控制 哪些文件被忽略和Cursor限制访问。</p>
+<ul>
+<li><strong>提升索引速度</strong>：排除大型依赖、生成文件（如 <code>node_modules</code>、<code>dist</code>）+ <strong>避免干扰</strong>：某些配置文件可能包含敏感信息或与当前任务无关</li>
+</ul>
+<p>配置 <code>.cursorignore</code>忽略文件：</p>
+<ul>
+<li>自己创建 <code>.cursorignore</code> 文件添加到代码库目录的根目录下，并列出要忽略的目录和文件 +  使用cursor配置快捷创建忽略文件 <code>cursor setting &gt; indexing &gt; Configure ignored files</code></li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/direct/f0c65a151ef64c92b42ef8bee769e319.png" referrerpolicy="no-referrer" alt="image">
+ 
+
+
+<p>忽略文件配置测试：</p>
+<ul>
+<li>创建忽略文件</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/direct/ab48048dc8c4498daaff513eb3e15e23.png" referrerpolicy="no-referrer" alt="image">
+ +  添加忽略配置 
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Add directories or file patterns to ignore during indexing (e.g. foo/ or *.csv)</span></span><br><span class="line">index.html</span><br><span class="line">style.css</span><br><span class="line">main.js</span><br></pre></td></tr></table></figure>
+ +  测试示例 
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">查看当前项目结构，并使用文字图形形式罗列出来！</span><br></pre></td></tr></table></figure>
+ +  效果展示 
+<img src="https://i-blog.csdnimg.cn/img_convert/f2610255f70608d8180f595f89a18019.png" referrerpolicy="no-referrer" alt="image">
+ 
+
+
+<h4 id="4-2-Rules-规则"><a href="#4-2-Rules-规则" class="headerlink" title="4.2 Rules 规则"></a>4.2 Rules 规则</h4><h5 id="4-2-1-规则介绍"><a href="#4-2-1-规则介绍" class="headerlink" title="4.2.1 规则介绍"></a>4.2.1 规则介绍</h5><p>Rules是给Cursor AI功能（规则适用于 Chat和 Cmd K）生成结果添加规则和限制，让 AI 生成的代码贴合团队规范，减少人工二次修改成本，主要的作用如下：</p>
+<ul>
+<li>可约束代码风格（如强制用驼峰命名、要求函数必须写注释 ）+ 能限定技术选型（如禁止使用某老旧库、优先用项目指定工具类 ）+ 提前指定核心参数（如提前设置连接数据库的地址和账号密码等）</li>
+</ul>
+<p><strong>Rule主要的配置方案有两种：</strong><br><strong>维度****项目规则（Project Rules）*<em><strong>用户规则（User Rules）*<em><strong>作用范围</strong>仅对当前项目生效，团队成员共享相同规则对所有项目生效，个人专属配置</em>*存储位置</strong>项目根目录下的 <code>.cursor/rules/随意.mdc</code> 文件用户配置目录（如 <code>~/.cursor/rules</code>）<strong>同步方式</strong>随项目代码提交到版本库（如 Git），团队共享仅本地生效，不随项目同步</em>*适用场景</strong>统一团队编码规范（如函数注释格式、依赖版本）个人习惯（如快捷键、AI 响应风格）</p>
+<p>注意： 项目规则和用户规则同时存在并且规则冲突，项目规则优先级更高~~</p>
+<h5 id="4-2-2-项目规则配置"><a href="#4-2-2-项目规则配置" class="headerlink" title="4.2.2 项目规则配置"></a>4.2.2 项目规则配置</h5><ul>
+<li><p>项目下创建规则文件</p>
+</li>
+<li><p>创建文件夹自定义文件<code>项目/.cursor/rules/随意命名.mdc</code>+ 快捷命令方式创建 <code>Ctrl + Shift + P</code> &gt; “New Cursor Rule”</p>
+</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/direct/aa13472dfcbf406794d99d6d32c2d516.png" referrerpolicy="no-referrer" alt="image">
+ +  编写项目规则文件 
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">description: <span class="string">&quot;团队前端项目规范&quot;</span></span><br><span class="line">priority: 1000</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="comment"># 代码风格</span></span><br><span class="line">1. 函数必须包含 JSDoc 注释</span><br><span class="line">2. 禁止使用 `var`，统一用 `const`/`<span class="built_in">let</span>`</span><br><span class="line">3. 函数命名必须添加 zwf_前缀， 例如：zwf_login</span><br><span class="line"></span><br><span class="line"><span class="comment"># 依赖管理</span></span><br><span class="line">- 优先使用项目内已有的工具函数（如 `utils/request`）</span><br><span class="line">- 禁止引入低版本的 lodash（&lt;4.0.0）</span><br></pre></td></tr></table></figure>
+ +  项目规则文件生效测试
+
+<ul>
+<li>准备一个main.js文件 +  进入ctrl + k +  内联生成函数，查看是否规则生效</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">生成两个方法一个登录一个注册！</span><br></pre></td></tr></table></figure>
+<ul>
+<li>项目规则生效效果展示</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/img_convert/db84f503f1872ea8a6342a53efb23ce9.png" referrerpolicy="no-referrer" alt="image">
+ 
+
+
+<h5 id="4-2-3-用户规则配置"><a href="#4-2-3-用户规则配置" class="headerlink" title="4.2.3 用户规则配置"></a>4.2.3 用户规则配置</h5><ul>
+<li>用户规则在<strong>cursor settings &gt; rules</strong>中定义。 +  添加规则内容即可</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/direct/a4f6ef989cd94f32bec636d70e9add6d.png" referrerpolicy="no-referrer" alt="image">
+ +  用户规则不支持 MDC，它们只是纯文本。 
+
+
+<h5 id="4-2-4-mdc语法了解"><a href="#4-2-4-mdc语法了解" class="headerlink" title="4.2.4 mdc语法了解"></a>4.2.4 mdc语法了解</h5><p>Cursor 的 MDC（Markdown with Cursor）语法是专门为编写项目规则设计的轻量级格式，它结合了 Markdown 的可读性和元数据配置能力。接下来，我们来说明下mdc文件语法。<br>4.2.4.1 MDC 文件组成部分：</p>
+<ul>
+<li><p>前置元数据（Frontmatter） </p>
+</li>
+<li><p>用 <code>---</code> 包裹的 YAML 格式配置+ 定义规则的基本属性（如作用范围、优先级）</p>
+</li>
+<li><p>规则内容（Markdown 正文） </p>
+</li>
+<li><p>用 Markdown 语法写具体规则</p>
+</li>
+</ul>
+<p>4.2.4.2 前置元数据</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="comment"># 官方约定字段（推荐用，AI 更易理解）</span></span><br><span class="line">description: <span class="string">&quot;前端项目规则&quot;</span></span><br><span class="line">globs: <span class="string">&quot;src/**/*.tsx&quot;</span></span><br><span class="line">priority: 1000</span><br><span class="line"></span><br><span class="line"><span class="comment"># 自定义字段（自己或团队约定含义）</span></span><br><span class="line">author: <span class="string">&quot;技术团队&quot;</span></span><br><span class="line">review_date: <span class="string">&quot;2025-06-04&quot;</span></span><br><span class="line">special_rule: <span class="string">&quot;仅周一至周五生效&quot;</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+
+<p>常用元数据字段<br>字段作用示例<code>description</code>描述规则用途，指导 AI 如何应用规则<code>&quot;前端组件编码规范&quot;``globs</code>指定规则生效的文件范围（支持 glob 语法）<code>&quot;src/**/*.{js,ts,jsx}&quot;``priority</code>规则优先级（数值越大越优先），解决规则冲突<code>1000``version</code>规则版本号（可选）<code>&quot;1.0.0&quot;</code><br>4.2.4.3 规则内容（Markdown 正文）</p>
+<p>用 Markdown 的标题、列表、代码块等语法写具体规则，常见结构：</p>
+<p>代码风格规则（最常用）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一、代码风格</span></span><br><span class="line">1. 函数必须包含 JSDoc 注释  </span><br><span class="line">   - 至少包含 `@param` 和 `@<span class="built_in">return</span>` 描述  </span><br><span class="line">2. 变量命名必须使用驼峰命名法（camelCase）  </span><br><span class="line">3. 每行代码长度不超过 120 个字符  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 二、技术选型</span></span><br><span class="line">- 禁止直接使用原生 fetch，必须通过项目封装的 request 工具  </span><br><span class="line">- 优先使用 React Hooks 而非 Class 组件  </span><br></pre></td></tr></table></figure>
+
+
+<p>安全约束规则</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安全规范</span></span><br><span class="line">1. 禁止使用 <span class="built_in">eval</span>() 函数  </span><br><span class="line">2. SQL 查询必须使用参数化查询，防止注入攻击  </span><br><span class="line">3. 敏感信息（如 API 密钥）必须从环境变量读取  </span><br></pre></td></tr></table></figure>
+
+
+<p>特殊语法：引用项目文件</p>
+<p>用 <code>@file</code> 引用项目内的配置文件，让 AI 参考：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 工具链配置</span></span><br><span class="line">1. ESLint 规则必须符合 @file .eslintrc.js  </span><br><span class="line">2. 测试用例必须遵循 Jest 框架规范  </span><br></pre></td></tr></table></figure>
+
+<p>4.2.4.4 <strong>完整示例（TypeScript 项目规则）</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">description: <span class="string">&quot;TypeScript 项目编码规范&quot;</span></span><br><span class="line">globs: <span class="string">&quot;src/**/*.ts&quot;</span></span><br><span class="line">priority: 1000</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="comment"># 一、基础规范</span></span><br><span class="line">1. 所有文件必须使用 UTF-8 编码  </span><br><span class="line">2. 统一使用 2 空格缩进  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 二、类型约束</span></span><br><span class="line">1. 禁止使用隐式 any 类型  </span><br><span class="line">   - 示例：`const num: number = 123`（显式）  </span><br><span class="line">   - 禁止：`const num = 123`（隐式）  </span><br><span class="line">2. 接口命名必须以 `I` 开头（如 `interface IUser`）  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 三、项目约束</span></span><br><span class="line">- 所有 HTTP 请求必须通过 @file src/utils/request.ts 封装的工具  </span><br><span class="line">- 状态管理必须使用 Redux Toolkit，禁止直接修改 state  </span><br></pre></td></tr></table></figure>
+
+
+<h4 id="4-3-符号"><a href="#4-3-符号" class="headerlink" title="4.3 @ 符号"></a>4.3 @ 符号</h4><p>在 Cursor 中使用 @ 符号在聊天中引用代码、文件、文档和其他上下文的指南，直接更具体的指定上下文环境！</p>
+<img src="https://i-blog.csdnimg.cn/img_convert/6bdcdcca9d78c523448b438bd07a3b30.png" referrerpolicy="no-referrer" alt="image">
+
+
+<p>以下是所有可用 @ 符号的列表：</p>
+<ul>
+<li>@Files- 引用项目中的特定文件+ @Folders - 引用整个文件夹以获得更广泛的上下文+ @Code - 引用代码库中的特定代码片段或符号+ @Docs- 访问文档和指南+ @Git- 访问 git 历史记录和更改+ @Past Chats- 使用汇总的 Composer 会话+ @Cursor Rules-使用光标规则+ @Web- 参考外部 Web 资源和文档+ @Lint Errors- 引用 lint 错误（仅限Chat）</li>
+</ul>
+<h5 id="4-3-1-Files使用和测试"><a href="#4-3-1-Files使用和测试" class="headerlink" title="4.3.1 @Files使用和测试"></a>4.3.1 @Files使用和测试</h5><ul>
+<li>准备测试文件 main.js</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 用户登录方法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">Object</span>&#125; <span class="variable">params</span> - 登录参数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">string</span>&#125; params.username - 用户名</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">string</span>&#125; params.password - 密码</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns</span> &#123;<span class="type">Promise</span>&#125; 登录结果</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">zwf_login</span> = <span class="keyword">async</span> (<span class="params">params</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> request.<span class="title function_">post</span>(<span class="string">&#x27;/api/login&#x27;</span>, params);</span><br><span class="line">    <span class="keyword">return</span> response.<span class="property">data</span>;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;登录失败:&#x27;</span>, error);</span><br><span class="line">    <span class="keyword">throw</span> error;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 用户注册方法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">Object</span>&#125; <span class="variable">params</span> - 注册参数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">string</span>&#125; params.username - 用户名</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">string</span>&#125; params.password - 密码</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">string</span>&#125; params.email - 邮箱</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns</span> &#123;<span class="type">Promise</span>&#125; 注册结果</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">zwf_register</span> = <span class="keyword">async</span> (<span class="params">params</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> request.<span class="title function_">post</span>(<span class="string">&#x27;/api/register&#x27;</span>, params);</span><br><span class="line">    <span class="keyword">return</span> response.<span class="property">data</span>;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;注册失败:&#x27;</span>, error);</span><br><span class="line">    <span class="keyword">throw</span> error;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试@File对话</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我总结下 @main.js 中包含哪些方法？</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看对话结果</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/direct/cda61fda559242e095cbc226a4ae46c3.png" referrerpolicy="no-referrer" alt="image">
+ 
+
+
+<h5 id="4-3-2-Code使用和测试"><a href="#4-3-2-Code使用和测试" class="headerlink" title="4.3.2 @Code使用和测试"></a>4.3.2 @Code使用和测试</h5><ul>
+<li>准备测试文件 main.js</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 用户登录方法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">Object</span>&#125; <span class="variable">params</span> - 登录参数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">string</span>&#125; params.username - 用户名</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">string</span>&#125; params.password - 密码</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns</span> &#123;<span class="type">Promise</span>&#125; 登录结果</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">zwf_login</span> = <span class="keyword">async</span> (<span class="params">params</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> request.<span class="title function_">post</span>(<span class="string">&#x27;/api/login&#x27;</span>, params);</span><br><span class="line">    <span class="keyword">return</span> response.<span class="property">data</span>;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;登录失败:&#x27;</span>, error);</span><br><span class="line">    <span class="keyword">throw</span> error;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 用户注册方法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">Object</span>&#125; <span class="variable">params</span> - 注册参数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">string</span>&#125; params.username - 用户名</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">string</span>&#125; params.password - 密码</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">string</span>&#125; params.email - 邮箱</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns</span> &#123;<span class="type">Promise</span>&#125; 注册结果</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">zwf_register</span> = <span class="keyword">async</span> (<span class="params">params</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> request.<span class="title function_">post</span>(<span class="string">&#x27;/api/register&#x27;</span>, params);</span><br><span class="line">    <span class="keyword">return</span> response.<span class="property">data</span>;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;注册失败:&#x27;</span>, error);</span><br><span class="line">    <span class="keyword">throw</span> error;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试@Code 对话</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">帮我逐行解释下 @zwf_register 代码的含义！并且最终在源文件中添加注释！</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看对话结果</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/direct/406e621db72b4c6c8a3af413fad48e28.png" referrerpolicy="no-referrer" alt="image">
+ 
+
+
+<h5 id="4-3-3-Docs使用和测试"><a href="#4-3-3-Docs使用和测试" class="headerlink" title="4.3.3 @Docs使用和测试"></a>4.3.3 @Docs使用和测试</h5><ul>
+<li><p>@Docs作用说明 <code>@Docs</code> 将 Cursor 连接到来自常用工具和框架的官方文档。当需要以下内容的最新权威信息时，请使用它：</p>
+</li>
+<li><p>API 参考：函数签名、参数、返回类型+ 入门指南 ：设置、配置、基本用法+ 最佳做法 ：源中的推荐模式+ 特定于框架的调试 ：官方故障排除指南</p>
+</li>
+<li><p>@Docs对应文档配置 可以通过<code> cursor settings &gt; features &gt; Docs</code>(cursor近期更新频繁，配置页面会有调整)来进行文档索引配置。粘贴所需文档的 URL 后，将显示以下模式：</p>
+</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/img_convert/d4abd91c34916f8a78659d06f4b3f83e.png" referrerpolicy="no-referrer" alt="image">
+ 地址： https://baomidou.com/introduce/ （mybatis-plus的官网测试）
+
+<ul>
+<li>name：一般用于标识文档的名称、简称或唯一识别名，方便在系统里区分不同文档配置。比如这里填<code>MyBatis - plus</code>，就是用框架名称作为文档标识，后续可通过这个<code>name</code>快速找到、关联对应的文档配置。 +  prefix：常指文档 URL 的前缀部分，可用于拼接完整文档路径，或作为统一的基础地址标识。像填的<code>https://baomidou.com</code> ，可能是该框架文档介绍板块的基础前缀，后续若要拼接具体文档子页面路径（如某个功能详细说明路径 ），可以基于这个<code>prefix</code>去扩展，让文档地址管理更规整 。 +  entrypoint：一般是文档的入口地址，即用户访问该文档时最先进入的页面。这里和<code>prefix</code>填了一样的地址，说明<code>https://baomidou.com/introduce/</code> 就是<code>MyBatis - plus</code>文档的起始访问页面，用户通过这个<code>entrypoint</code>能直接进入到对应文档内容开始浏览 。 </li>
+<li>测试@Docs对话</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">基于 @MyBatis-plus 查询下乐观锁插件如何使用</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看对话结果</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/direct/a6b8219d272d426d9434f1430e0c2bf7.png" referrerpolicy="no-referrer" alt="image">
+ 
+
+
+<h5 id="4-3-4-Web使用和测试"><a href="#4-3-4-Web使用和测试" class="headerlink" title="4.3.4 @Web使用和测试"></a>4.3.4 @Web使用和测试</h5><ul>
+<li><p>@Web作用说明 <code>@Web</code> 在实时 Internet 上搜索当前信息、博客文章和社区讨论。当您需要时使用它：</p>
+</li>
+<li><p>最近的教程 ：社区生成的内容和示例+ 比较 ：比较不同方法的文章+ 最近更新 ：Very Recent updates or announcement（最近的更新或公告）+ 多种视角 ：不同的问题处理方法</p>
+</li>
+<li><p>测试@Web对话</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@Web React 19 的最新性能优化</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看对话结果</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/direct/2349651513df442f850294e83db4caa1.png" referrerpolicy="no-referrer" alt="image">
+ +  对比@Docs和MCP配置 
+<img src="https://i-blog.csdnimg.cn/img_convert/34aa1a237d648556ac852209ce4c2209.png" referrerpolicy="no-referrer" alt="image">
+ 
+
+
+<h5 id="4-3-5-Linter-Errors使用和测试"><a href="#4-3-5-Linter-Errors使用和测试" class="headerlink" title="4.3.5 @Linter Errors使用和测试"></a>4.3.5 @Linter Errors使用和测试</h5><ul>
+<li>@Linter Errors作用和说明 <code>@Linter Errors</code> 符号会自动捕获并提供有关当前活动文件中的任何 linting 错误和警告的上下文。 +  准备错误代码（BubbleSort.java）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BubbleSort</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 冒泡排序方法</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> arr 待排序的数组</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">bubbleSort</span><span class="params">(<span class="type">int</span>[] arr)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> arr.length;</span><br><span class="line">        <span class="comment">// 外层循环控制排序轮数</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="comment">// 内层循环进行相邻元素比较和交换</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; n - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">                <span class="comment">// 如果当前元素大于下一个元素，则交换它们</span></span><br><span class="line">                <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                    <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> arr[j];</span><br><span class="line">                    arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                    arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 打印数组的辅助方法</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> arr 要打印的数组</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">printArray</span><span class="params">(<span class="type">int</span>[] arr)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">            <span class="comment">//此处故意出现错误，会出现数组越界</span></span><br><span class="line">            System.out.print(arr[i+<span class="number">2</span>] + <span class="string">&quot; &quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 测试数组</span></span><br><span class="line">        <span class="type">int</span>[] arr = &#123;<span class="number">64</span>, <span class="number">34</span>, <span class="number">25</span>, <span class="number">12</span>, <span class="number">22</span>, <span class="number">11</span>, <span class="number">90</span>&#125;;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">&quot;排序前的数组：&quot;</span>);</span><br><span class="line">        printArray(arr);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 执行冒泡排序</span></span><br><span class="line">        bubbleSort(arr);</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">&quot;排序后的数组：&quot;</span>);</span><br><span class="line">        printArray(arr);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试@Lint Errors 对话</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@Linter Errors 程序运行报错了，你基于报错信息分析下，并且直接解决下错误！</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试结果</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/direct/7b9bbbd359bd4bac84cf1219042d05bb.png" referrerpolicy="no-referrer" alt="image">
+ 
+
+
+<h3 id="五、Cursor智能插件开发实战"><a href="#五、Cursor智能插件开发实战" class="headerlink" title="五、Cursor智能插件开发实战"></a>五、Cursor智能插件开发实战</h3><p>Cursor官网开发指导流程：</p>
+<img src="https://i-blog.csdnimg.cn/direct/73f80ea233b4418985b304352bd6ce16.png" referrerpolicy="no-referrer" alt="image">
+
+
+<h4 id="5-1-Cursor设计Chrome浏览器插件"><a href="#5-1-Cursor设计Chrome浏览器插件" class="headerlink" title="5.1 Cursor设计Chrome浏览器插件"></a>5.1 Cursor设计Chrome浏览器插件</h4><ul>
+<li>需求设计 创建：01_chrome插件需求和要求说明</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">实现一款Chrome的插件，要包含下面三个功能：</span><br><span class="line">   1. 解释选中的段落或者关键词</span><br><span class="line">   2. 翻译选中的段落或者关键词（支持中文和英文翻译即可）</span><br><span class="line">   3. 朗读选中的段落或者关键字（支持中文和英文朗读）</span><br><span class="line">   4. 润色和替换选中的文本文案</span><br><span class="line">细节要求：</span><br><span class="line">   1. 当选中段落或者关键词时，出现插件，直接悬浮在选中关键词和段落上！（显示顺序：解释，翻译，朗读，润色）</span><br><span class="line">   2. 解释，翻译，润色的结果直接在悬浮下方出现结果即可</span><br><span class="line">   3. 翻译添加语言选择（翻译目标： 中文还是英文）</span><br><span class="line">   4. 润色结果可以进行修改，同时提供一键替换功能，替换目标文案内容（可编辑情况下可以直接替换）！</span><br><span class="line">   5. 翻译、解释、润色功能实用kimi的api实现即可，具体参考配置kimi api文档</span><br><span class="line">   6. 朗读直接调用chrome浏览器内置插件即可（提供中文和英文朗读）</span><br><span class="line">   7. 并且帮我们写好readme文档，写清在chrome部署插件的过程</span><br></pre></td></tr></table></figure>
+<p> <a target="_blank" rel="noopener" href="https://platform.moonshot.cn/docs">https://platform.moonshot.cn/docs</a> +  设计和生成项目ui图文本 chat agent模式对话： </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@01_chrome插件需求和要求说明 根据插件需求文档，帮我写一份项目的UI文本设计图，将设计图写到 02_chrome插件UI设计图 文件中！ 要求页面简洁，清晰！</span><br></pre></td></tr></table></figure>
+<p> 生成 02_chrome插件UI设计图 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Chrome插件UI设计文档</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 1. 悬浮菜单设计</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 1.1 基础悬浮菜单</span></span><br><span class="line">​```</span><br><span class="line">+------------------------+</span><br><span class="line">|     功能按钮组         |</span><br><span class="line">+------------------------+</span><br><span class="line">| [解释] [翻译] [朗读] [润色] |</span><br><span class="line">+------------------------+</span><br><span class="line">​```</span><br><span class="line"></span><br><span class="line"><span class="comment">### 1.2 功能展示区域</span></span><br><span class="line">​```</span><br><span class="line">+------------------------+</span><br><span class="line">|     功能按钮组         |</span><br><span class="line">+------------------------+</span><br><span class="line">| [解释] [翻译] [朗读] [润色] |</span><br><span class="line">+------------------------+</span><br><span class="line">|     结果展示区域        |</span><br><span class="line">|                        |</span><br><span class="line">|                        |</span><br><span class="line">+------------------------+</span><br><span class="line">​```</span><br><span class="line"></span><br><span class="line"><span class="comment">## 2. 各功能界面设计</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 2.1 解释功能</span></span><br><span class="line">​```</span><br><span class="line">+------------------------+</span><br><span class="line">|     功能按钮组         |</span><br><span class="line">+------------------------+</span><br><span class="line">| [解释] [翻译] [朗读] [润色] |</span><br><span class="line">+------------------------+</span><br><span class="line">|     解释结果           |</span><br><span class="line">| 选中的文本解释内容...    |</span><br><span class="line">+------------------------+</span><br><span class="line">​```</span><br><span class="line"></span><br><span class="line"><span class="comment">### 2.2 翻译功能</span></span><br><span class="line">​```</span><br><span class="line">+------------------------+</span><br><span class="line">|     功能按钮组         |</span><br><span class="line">+------------------------+</span><br><span class="line">| [解释] [翻译] [朗读] [润色] |</span><br><span class="line">+------------------------+</span><br><span class="line">| 目标语言: [中文 ▼]      |</span><br><span class="line">+------------------------+</span><br><span class="line">|     翻译结果           |</span><br><span class="line">| 翻译后的文本内容...      |</span><br><span class="line">+------------------------+</span><br><span class="line">​```</span><br><span class="line"></span><br><span class="line"><span class="comment">### 2.3 朗读功能</span></span><br><span class="line">​```</span><br><span class="line">+------------------------+</span><br><span class="line">|     功能按钮组         |</span><br><span class="line">+------------------------+</span><br><span class="line">| [解释] [翻译] [朗读] [润色] |</span><br><span class="line">+------------------------+</span><br><span class="line">| 朗读语言: [中文 ▼]      |</span><br><span class="line">| [▶ 开始朗读] [■ 停止]   |</span><br><span class="line">+------------------------+</span><br><span class="line">​```</span><br><span class="line"></span><br><span class="line"><span class="comment">### 2.4 润色功能</span></span><br><span class="line">​```</span><br><span class="line">+------------------------+</span><br><span class="line">|     功能按钮组         |</span><br><span class="line">+------------------------+</span><br><span class="line">| [解释] [翻译] [朗读] [润色] |</span><br><span class="line">+------------------------+</span><br><span class="line">|     润色结果           |</span><br><span class="line">| 润色后的文本内容...      |</span><br><span class="line">|                        |</span><br><span class="line">+------------------------+</span><br><span class="line">| [编辑] [替换原文]       |</span><br><span class="line">+------------------------+</span><br><span class="line">​```</span><br><span class="line"></span><br><span class="line"><span class="comment">## 3. 设计规范</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 3.1 颜色方案</span></span><br><span class="line">- 主色调：#4A90E2（蓝色）</span><br><span class="line">- 背景色：#FFFFFF（白色）</span><br><span class="line">- 文字颜色：#333333（深灰）</span><br><span class="line">- 边框颜色：#E5E5E5（浅灰）</span><br><span class="line"></span><br><span class="line"><span class="comment">### 3.2 字体规范</span></span><br><span class="line">- 主字体：系统默认字体</span><br><span class="line">- 标题：14px</span><br><span class="line">- 正文：12px</span><br><span class="line">- 按钮文字：12px</span><br><span class="line"></span><br><span class="line"><span class="comment">### 3.3 间距规范</span></span><br><span class="line">- 内边距：8px</span><br><span class="line">- 按钮间距：4px</span><br><span class="line">- 功能区间距：12px</span><br><span class="line"></span><br><span class="line"><span class="comment">### 3.4 交互规范</span></span><br><span class="line">1. 选中文本后，悬浮菜单自动显示在选中文本附近</span><br><span class="line">2. 点击功能按钮后，结果区域自动展开</span><br><span class="line">3. 鼠标移出悬浮菜单区域，菜单自动隐藏</span><br><span class="line">4. 所有按钮hover效果：背景色变浅</span><br><span class="line">5. 编辑区域支持直接修改，替换按钮一键替换原文</span><br><span class="line"></span><br><span class="line"><span class="comment">## 4. 响应式设计</span></span><br><span class="line">- 悬浮菜单宽度：最小200px，最大400px</span><br><span class="line">- 高度自适应内容</span><br><span class="line">- 确保在各种屏幕分辨率下都能正常显示 </span><br></pre></td></tr></table></figure>
+<ul>
+<li>配置和导入kimi docs文档 配置位置： cursor settings &gt; Features &gt; Docs &gt; add new doc</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/img_convert/f23b4c46fe43567f7d0f0e79aeba46af.png" referrerpolicy="no-referrer" alt="image">
+ +  生成kimi api key 登录kimi api 用户中心： https://platform.moonshot.cn/console/api-keys 创建kimi api key (第一次赠送15元)： 
+<img src="https://i-blog.csdnimg.cn/img_convert/b41d9c9df5d2e71636ea78493c0d66d9.png" referrerpolicy="no-referrer" alt="image">
+ 
+
+
+<h4 id="5-2-Chrome插件实现"><a href="#5-2-Chrome插件实现" class="headerlink" title="5.2 Chrome插件实现"></a>5.2 Chrome插件实现</h4><ul>
+<li>准备一个参考界面（参考豆包）</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/direct/51f6b2fd1d2746309bef69f7a8632ec8.png" referrerpolicy="no-referrer" alt="image">
+ +  实现插件功能 
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@01_chrome插件需求和要求说明 @02_chrome插件UI设计图   基于需求和UI设计图，以及参考 @doubaoui.png 图片风格，直接在当前chrome-plugin文件夹下实现插件功能，同时提取单独配置文件用于填写kimi api url和key的位置！代码添加中文注释，实现后再次自检查，确保插件正常运行和实现功能！</span><br></pre></td></tr></table></figure>
+ +  配置kimi api key 
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// API配置</span><br><span class="line">const config = &#123;</span><br><span class="line">    // Kimi API配置</span><br><span class="line">    kimi: &#123;</span><br><span class="line">        apiUrl: <span class="string">&#x27;https://api.moonshot.cn/v1&#x27;</span>, // 替换为实际的Kimi API URL</span><br><span class="line">        apiKey: <span class="string">&#x27;YOUR_KIMI_API_KEY&#x27;</span>  // 替换为实际的Kimi API Key</span><br><span class="line">    &#125;,</span><br><span class="line">    </span><br><span class="line">    // 默认设置</span><br><span class="line">    defaults: &#123;</span><br><span class="line">        translationTarget: <span class="string">&#x27;zh&#x27;</span>, // 默认翻译目标语言：zh-中文，en-英文</span><br><span class="line">        speechLanguage: <span class="string">&#x27;zh&#x27;</span>    // 默认朗读语言：zh-中文，en-英文</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 导出配置</span><br><span class="line"><span class="built_in">export</span> default config; </span><br></pre></td></tr></table></figure>
+ 
+
+
+<h4 id="5-3-Chrome插件调试和发布"><a href="#5-3-Chrome插件调试和发布" class="headerlink" title="5.3 Chrome插件调试和发布"></a>5.3 Chrome插件调试和发布</h4><ul>
+<li>第一次回出现问题（使用cursor调试）</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/direct/ec29deaf87634d168961d2529d2c0186.png" referrerpolicy="no-referrer" alt="image">
+ 
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将插件文件夹发布到chrome浏览器，报图片的错误，你给我从网上查找几张图片放在对应的位置即可！</span><br></pre></td></tr></table></figure>
+<p> 很大概率，cursor不给我们生成缺少的图片，安全原因，那么就需要我们自己手动添加！！ +  有错误信息显示 Uncaught SyntaxError: Cannot use import statement outside a module<br><img src="https://i-blog.csdnimg.cn/direct/de8b3cd197de4b449ebaedeb8552c2ee.png" referrerpolicy="no-referrer" alt="image"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Uncaught SyntaxError: Cannot use import statement outside a module 解决错误信息！</span><br></pre></td></tr></table></figure>
+<ul>
+<li>确保添加完成</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/img_convert/c50175bc2355ffa12037ea411f36940e.png" referrerpolicy="no-referrer" alt="image">
+ +  测试功能和调试 +  实现和测试 
+
+
+</article><div class="post-copyright"><div class="post-copyright__title"><span class="post-copyright-info"><h>Cursor快速上手及无限使用指南</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="https://lxttz.github.io/posts/cursor-unlimited.html">https://lxttz.github.io/posts/cursor-unlimited.html</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a"><h>作者</h><div class="post-copyright-cc-info"><h>阿洛博客世界🥝</h></div></div><div class="post-copyright-c"><h>发布于</h><div class="post-copyright-cc-info"><h>2026-08-14</h></div></div><div class="post-copyright-u"><h>更新于</h><div class="post-copyright-cc-info"><h>2026-06-29</h></div></div><div class="post-copyright-c"><h>许可协议</h><div class="post-copyright-cc-info"><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div></div></div></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/"><div class="tags-punctuation"><svg class="faa-tada icon" style="height:1.1em;width:1.1em;fill:currentColor;position:relative;top:2px;margin-right:3px" aria-hidden="true"><use xlink:href="#icon-sekuaibiaoqian"></use></svg></div>教程</a><a class="post-meta__tags" href="/tags/Cursor/"><div class="tags-punctuation"><svg class="faa-tada icon" style="height:1.1em;width:1.1em;fill:currentColor;position:relative;top:2px;margin-right:3px" aria-hidden="true"><use xlink:href="#icon-sekuaibiaoqian"></use></svg></div>Cursor</a><a class="post-meta__tags" href="/tags/AI%E7%BC%96%E7%A8%8B/"><div class="tags-punctuation"><svg class="faa-tada icon" style="height:1.1em;width:1.1em;fill:currentColor;position:relative;top:2px;margin-right:3px" aria-hidden="true"><use xlink:href="#icon-sekuaibiaoqian"></use></svg></div>AI编程</a></div></div><link rel="stylesheet" href="/css/coin.css" media="defer" onload="this.media='all'"/><div class="post-reward"><button class="tip-button reward-button"><span class="tip-button__text">投喂作者</span><div class="coin-wrapper"><div class="coin"><div class="coin__middle"></div><div class="coin__back"></div><div class="coin__front"></div></div></div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://postimage.me/images/2025/03/23/weixin.md.jpg" target="_blank"><img class="post-qr-code-img" src="https://postimage.me/images/2025/03/23/weixin.md.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://postimage.me/images/2025/03/23/zhifubao.md.jpg" target="_blank"><img class="post-qr-code-img" src="https://postimage.me/images/2025/03/23/zhifubao.md.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></button></div><audio id="coinAudio" src="https://npm.elemecdn.com/akilar-candyassets@1.0.36/audio/aowu.m4a"></audio><script defer="defer" src="/js/coin.js"></script><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/hermes-agent.html"><img class="prev-cover" src="https://source.fomal.cc/img/default_cover_36.webp" onerror="onerror=null;src='/assets/r2.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Hermes Agent 完整使用教程</div></div></a></div><div class="next-post pull-right"><a href="/posts/codex-deepseek-api.html"><img class="next-cover" src="https://source.fomal.cc/img/default_cover_39.webp" onerror="onerror=null;src='/assets/r2.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Codex桌面版 + DeepSeek纯API接入教程｜无需Codex账号，支持国内模型</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/8dd20daax.html" title="在Cursor中接入DeepSeek-V4-Pro模型（亲测可用）"><img class="cover" src="https://source.fomal.cc/img/default_cover_30.webp" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2026-05-28</div><div class="title">在Cursor中接入DeepSeek-V4-Pro模型（亲测可用）</div></div></a></div><div><a href="/posts/codex-plus-plus.html" title="Codex++ 的教程｜Codex增强版下载与使用指南"><img class="cover" src="https://source.fomal.cc/img/default_cover_25.webp" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2026-06-29</div><div class="title">Codex++ 的教程｜Codex增强版下载与使用指南</div></div></a></div><div><a href="/posts/b2f82380.html" title="Yarn安装速度优化一键换源+清缓存+重装依赖"><img class="cover" src="https://source.fomal.cc/img/default_cover_27.webp" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2026-05-29</div><div class="title">Yarn安装速度优化一键换源+清缓存+重装依赖</div></div></a></div><div><a href="/posts/638cac72.html" title="OpenClaw v2.6.6 部署教程 - 小龙虾本地AI智能体Windows完整安装"><img class="cover" src="https://source.fomal.cc/img/default_cover_35.webp" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2026-05-28</div><div class="title">OpenClaw v2.6.6 部署教程 - 小龙虾本地AI智能体Windows完整安装</div></div></a></div><div><a href="/posts/vscode-markdown-pdf.html" title="VSCode配置Markdown环境 - 写作必备VSCode导出PDF全流程"><img class="cover" src="https://source.fomal.cc/img/default_cover_30.webp" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2026-05-29</div><div class="title">VSCode配置Markdown环境 - 写作必备VSCode导出PDF全流程</div></div></a></div><div><a href="/posts/a4ccee63.html" title="将网站发布在公网上最简单且免费的方式（通过CodeBuddy MCP）"><img class="cover" src="https://source.fomal.cc/img/default_cover_21.webp" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2026-05-28</div><div class="title">将网站发布在公网上最简单且免费的方式（通过CodeBuddy MCP）</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><svg class="meta_icon" style="width:22px;height:22px;position:relative;top:5px"><use xlink:href="#icon-mulu1"></use></svg><span style="font-weight:bold">目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cursor%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B-%E7%A7%91%E5%AD%A6%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97"><span class="toc-text">Cursor快速上手+科学使用指南</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E8%A8%80"><span class="toc-text">一、前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Cursor%E6%A6%82%E8%BF%B0%E3%80%81%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-text">二、Cursor概述、安装以及环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E6%A6%82%E8%BF%B0"><span class="toc-text">2.1 概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E5%AE%89%E8%A3%85%E3%80%81%E7%99%BB%E5%BD%95%E5%92%8C%E6%97%A0%E9%99%90%E7%BB%AD%E6%9D%AF"><span class="toc-text">2.2 安装、登录和无限续杯</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-1-%E5%AE%89%E8%A3%85"><span class="toc-text">2.2.1 安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-2-%E7%99%BB%E5%BD%95"><span class="toc-text">2.2.2 登录</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-3-%E6%97%A0%E9%99%90%E7%BB%AD%E6%9D%AF"><span class="toc-text">2.2.3 无限续杯</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-Cursor%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E%E4%BB%A5%E5%8F%8A%E6%B1%89%E5%8C%96"><span class="toc-text">2.3 Cursor配置说明以及汉化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3-1-Cursor-AI%E7%9B%B8%E5%85%B3%E8%AE%BE%E7%BD%AE"><span class="toc-text">2.3.1 Cursor AI相关设置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-432-Cursor-%E7%BC%96%E8%BE%91%E5%99%A8%E8%AE%BE%E7%BD%AE"><span class="toc-text">2.432 Cursor 编辑器设置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3-3-Cursor-%E6%B1%89%E5%8C%96%E9%85%8D%E7%BD%AE"><span class="toc-text">2.3.3 Cursor 汉化配置</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-%E4%BB%8EVS-Code%E9%85%8D%E7%BD%AE%E8%BF%81%E7%A7%BB"><span class="toc-text">2.4 从VS Code配置迁移</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-4-1-%E4%B8%80%E9%94%AE%E5%AF%BC%E5%85%A5%E9%85%8D%E7%BD%AE"><span class="toc-text">2.4.1 一键导入配置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-4-2-%E6%89%8B%E5%8A%A8%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%BF%81%E7%A7%BB"><span class="toc-text">2.4.2 手动配置文件迁移</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-Java%E8%AF%AD%E8%A8%80%E7%8E%AF%E5%A2%83"><span class="toc-text">2.5 Java语言环境</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-5-1-%E9%85%8D%E7%BD%AE%E6%9C%AC%E5%9C%B0jdk%E5%92%8Cmaven%E9%85%8D%E7%BD%AE"><span class="toc-text">2.5.1 配置本地jdk和maven配置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-5-2-Java%E7%8E%AF%E5%A2%83%E6%89%A9%E5%B1%95%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="toc-text">2.5.2 Java环境扩展插件安装和使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81Cursor%E4%B8%89%E5%A4%A7%E6%A0%B8%E5%BF%83AI%E5%8A%9F%E8%83%BD"><span class="toc-text">三、Cursor三大核心AI功能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-Tab%E9%94%AE%EF%BC%9A%E6%99%BA%E8%83%BD%E5%B0%8F%E5%8A%A9%E6%89%8B"><span class="toc-text">3.1 Tab键：智能小助手</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1-1-%E5%8D%95%E8%A1%8C-%E5%A4%9A%E8%A1%8C%E4%BB%A3%E7%A0%81%E8%A1%A5%E5%85%A8"><span class="toc-text">3.1.1 单行&#x2F;多行代码补全</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1-2-%E6%99%BA%E8%83%BD%E4%BB%A3%E7%A0%81%E9%87%8D%E5%86%99"><span class="toc-text">3.1.2 智能代码重写</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1-3-%E5%A4%9A%E8%A1%8C%E5%8D%8F%E5%90%8C%E4%BC%98%E5%8C%96"><span class="toc-text">3.1.3 多行协同优化</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1-4-%E5%85%89%E6%A0%87%E4%BD%8D%E7%BD%AE%E9%A2%84%E6%B5%8B"><span class="toc-text">3.1.4 光标位置预测</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1-5-%E6%8E%A5%E5%8F%97%EF%BC%8C%E6%8E%A5%E5%8F%97%E9%83%A8%E5%88%86%E5%92%8C%E6%8B%92%E7%BB%9D"><span class="toc-text">3.1.5 接受，接受部分和拒绝</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1-6-Tab%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E"><span class="toc-text">3.1.6 Tab相关配置说明</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-Chat-%E5%AF%B9%E8%AF%9D%E6%A8%A1%E5%BC%8F"><span class="toc-text">3.2 Chat: 对话模式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-2-1-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B"><span class="toc-text">3.2.1 快速开始</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-2-2-Chat%E4%B8%89%E7%A7%8D%E6%A8%A1%E5%BC%8F"><span class="toc-text">3.2.2 Chat三种模式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-2-3-Chat%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%B6%E4%BB%96%E7%BB%86%E8%8A%82"><span class="toc-text">3.2.3 Chat模式的其他细节</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-2-4-Chat%E7%9B%B8%E5%85%B3%E7%9A%84%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E"><span class="toc-text">3.2.4 Chat相关的配置说明</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-Ctrl-K-%E5%86%85%E8%81%94%E6%99%BA%E8%83%BD%E4%BF%AE%E6%94%B9"><span class="toc-text">3.3 Ctrl+K: 内联智能修改</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3-1-%E8%A7%A6%E5%8F%91%E4%BF%AE%E6%94%B9%E6%8F%90%E7%A4%BA%E6%A1%86"><span class="toc-text">3.3.1 触发修改提示框</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3-2-Cmd-K-%E4%BD%93%E9%AA%8C"><span class="toc-text">3.3.2 Cmd + K 体验</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3-3-Terminal-Cmd-K-%E4%BD%93%E9%AA%8C"><span class="toc-text">3.3.3 Terminal Cmd + K 体验</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81Cursor%E7%B2%BE%E5%87%86%E4%B8%8A%E4%B8%8B%E6%96%87%E6%8C%87%E5%AE%9A"><span class="toc-text">四、Cursor精准上下文指定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-Codebase-Indexing-%E4%BB%A3%E7%A0%81%E5%BA%93%E7%B4%A2%E5%BC%95"><span class="toc-text">4.1 Codebase Indexing 代码库索引</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-1-1-%E6%A6%82%E5%BF%B5%E5%92%8C%E4%BD%9C%E7%94%A8"><span class="toc-text">4.1.1 概念和作用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-1-2-%E4%BB%A3%E7%A0%81%E5%BA%93%E7%B4%A2%E5%BC%95%E9%85%8D%E7%BD%AE%E5%92%8C%E7%A4%BA%E4%BE%8B"><span class="toc-text">4.1.2 代码库索引配置和示例</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-1-3-%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="toc-text">4.1.3 忽略文件配置</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-Rules-%E8%A7%84%E5%88%99"><span class="toc-text">4.2 Rules 规则</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-1-%E8%A7%84%E5%88%99%E4%BB%8B%E7%BB%8D"><span class="toc-text">4.2.1 规则介绍</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-2-%E9%A1%B9%E7%9B%AE%E8%A7%84%E5%88%99%E9%85%8D%E7%BD%AE"><span class="toc-text">4.2.2 项目规则配置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-3-%E7%94%A8%E6%88%B7%E8%A7%84%E5%88%99%E9%85%8D%E7%BD%AE"><span class="toc-text">4.2.3 用户规则配置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-4-mdc%E8%AF%AD%E6%B3%95%E4%BA%86%E8%A7%A3"><span class="toc-text">4.2.4 mdc语法了解</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-%E7%AC%A6%E5%8F%B7"><span class="toc-text">4.3 @ 符号</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-3-1-Files%E4%BD%BF%E7%94%A8%E5%92%8C%E6%B5%8B%E8%AF%95"><span class="toc-text">4.3.1 @Files使用和测试</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-3-2-Code%E4%BD%BF%E7%94%A8%E5%92%8C%E6%B5%8B%E8%AF%95"><span class="toc-text">4.3.2 @Code使用和测试</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-3-3-Docs%E4%BD%BF%E7%94%A8%E5%92%8C%E6%B5%8B%E8%AF%95"><span class="toc-text">4.3.3 @Docs使用和测试</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-3-4-Web%E4%BD%BF%E7%94%A8%E5%92%8C%E6%B5%8B%E8%AF%95"><span class="toc-text">4.3.4 @Web使用和测试</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-3-5-Linter-Errors%E4%BD%BF%E7%94%A8%E5%92%8C%E6%B5%8B%E8%AF%95"><span class="toc-text">4.3.5 @Linter Errors使用和测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81Cursor%E6%99%BA%E8%83%BD%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98"><span class="toc-text">五、Cursor智能插件开发实战</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-Cursor%E8%AE%BE%E8%AE%A1Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6"><span class="toc-text">5.1 Cursor设计Chrome浏览器插件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-Chrome%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0"><span class="toc-text">5.2 Chrome插件实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-Chrome%E6%8F%92%E4%BB%B6%E8%B0%83%E8%AF%95%E5%92%8C%E5%8F%91%E5%B8%83"><span class="toc-text">5.3 Chrome插件调试和发布</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-color: transparent;"><div id="footer-wrap"><div id="ft"><div class="ft-item-1"><div class="t-top"><div class="t-t-l"><p class="ft-t t-l-t">格言🧬</p><div class="bg-ad"><div>再看看那个光点，它就在这里，这是家园，这是我们 —— 你所爱的每一个人，你认识的一个人，你听说过的每一个人，曾经有过的每一个人，都在它上面度过他们的一生✨</div><div class="btn-xz-box"><a class="btn-xz" target="_blank" rel="noopener" href="https://stellarium.org/">点击开启星辰之旅</a></div></div></div><div class="t-t-r"><p class="ft-t t-l-t">猜你想看💡</p><ul class="ft-links"><li><a href="/posts/eec9786.html">魔改指南</a><a href="/box/nav/">网址导航</a></li><li><a href="/social/link/">我的朋友</a><a href="/comments/">留点什么</a></li><li><a href="/personal/about/">关于作者</a><a href="/archives/">文章归档</a></li><li><a href="/categories/">文章分类</a><a href="/tags/">文章标签</a></li><li><a href="/box/Gallery/">我的画廊</a><a href="/personal/bb/">我的唠叨</a></li><li><a href="/site/time/">建设进程</a><a href="/site/census/">网站统计</a></li></ul></div></div></div><div class="ft-item-2"><p class="ft-t">推荐友链⌛</p><div class="ft-img-group"><div class="img-group-item"><a href="https://lxttz.github.io/" title="阿洛博客世界🥝"><img src="https://lxttz.github.io/assets/zhizhuxia/toxiang.jpg" alt=""/></a></div></div></div></div><div class="copyright"><span><b>&copy;2022-2026</b></span><span><b>&nbsp;&nbsp;By 阿洛博客世界🥝</b></span></div><div id="workboard"></div><!-- 徽章功能已禁用以避免连接超时错误//- a.github-badge(target='_blank' href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style='margin-inline:5px' title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可")
+//-   img(src="https://sourcebucket.s3.ladydaily.com/badge/Copyright-BY--NC--SA--4.svg" alt='')--></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><a class="icon-V hidden" onclick="switchNightMode()" title="浅色和深色模式转换"><svg width="25" height="25" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-moon"></use></svg></a><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button><button class="share" type="button" title="右键模式" onclick="changeMouseMode()"><i class="fas fa-mouse"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog right_side"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button class="share" type="button" title="分享链接" onclick="share()"><i class="fas fa-share-nodes"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i><span id="percent">0<span>%</span></span></button><button id="go-down" type="button" title="直达底部" onclick="btf.scrollToDest(document.body.scrollHeight, 500)"><i class="fas fa-arrow-down"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div class="js-pjax" id="rightMenu"><div class="rightMenu-group rightMenu-small"><a class="rightMenu-item" href="javascript:window.history.back();"><i class="fa fa-arrow-left"></i></a><a class="rightMenu-item" href="javascript:window.history.forward();"><i class="fa fa-arrow-right"></i></a><a class="rightMenu-item" href="javascript:window.location.reload();"><i class="fa fa-refresh"></i></a><a class="rightMenu-item" href="javascript:rmf.scrollToTop();"><i class="fa fa-arrow-up"></i></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-text"><a class="rightMenu-item" href="javascript:rmf.copySelect();"><i class="fa fa-copy"></i><span>复制</span></a><a class="rightMenu-item" href="javascript:window.open(&quot;https://www.baidu.com/s?wd=&quot;+window.getSelection().toString());window.location.reload();"><i class="fa fa-search"></i><span>百度搜索</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-too"><a class="rightMenu-item" href="javascript:window.open(window.getSelection().toString());window.location.reload();"><i class="fa fa-link"></i><span>转到链接</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-paste"><a class="rightMenu-item" href="javascript:rmf.paste()"><i class="fa fa-copy"></i><span>粘贴</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-post"><a class="rightMenu-item" href="#post-comment"><i class="fas fa-comment"></i><span>空降评论</span></a><a class="rightMenu-item" href="javascript:rmf.copyWordsLink()"><i class="fa fa-link"></i><span>复制本文地址</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-to"><a class="rightMenu-item" href="javascript:rmf.openWithNewTab()"><i class="fa fa-window-restore"></i><span>新窗口打开</span></a><a class="rightMenu-item" id="menu-too" href="javascript:rmf.open()"><i class="fa fa-link"></i><span>转到链接</span></a><a class="rightMenu-item" href="javascript:rmf.copyLink()"><i class="fa fa-copy"></i><span>复制链接</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-img"><a class="rightMenu-item" href="javascript:rmf.saveAs()"><i class="fa fa-download"></i><span>保存图片</span></a><a class="rightMenu-item" href="javascript:rmf.openWithNewTab()"><i class="fa fa-window-restore"></i><span>在新窗口打开</span></a><a class="rightMenu-item" href="javascript:rmf.copyLink()"><i class="fa fa-copy"></i><span>复制图片链接</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:randomPost()"><i class="fa fa-paper-plane"></i><span>随便逛逛</span></a><a class="rightMenu-item" href="javascript:switchNightMode();"><i class="fa fa-moon"></i><span>昼夜切换</span></a><a class="rightMenu-item" href="javascript:rmf.switchReadMode();"><i class="fa fa-book"></i><span>阅读模式</span></a><a class="rightMenu-item" href="/personal/about/"><i class="fa fa-info-circle"></i><span>关于博客</span></a><a class="rightMenu-item" href="javascript:toggleWinbox();"><i class="fas fa-cog"></i><span>美化设置</span></a><a class="rightMenu-item" href="javascript:rmf.fullScreen();"><i class="fas fa-expand"></i><span>切换全屏</span></a><a class="rightMenu-item" href="javascript:window.print();"><i class="fa-solid fa-print"></i><span>打印页面</span></a></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.staticfile.org/fancyapps-ui/4.0.31/fancybox.umd.min.js"></script><script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script><script src="/js/search/local-search.js"></script><script async="async">var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())
+setTimeout(function(){preloader.endLoading();}, 5000);
+document.getElementById('loading-box').addEventListener('click',()=> {preloader.endLoading()})</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script src="https://cdn.staticfile.org/jquery/3.6.3/jquery.min.js"></script><script async src="https://cdn1.tianli0.top/npm/vue@2.6.14/dist/vue.min.js"></script><script async src="https://cdn1.tianli0.top/npm/element-ui@2.15.6/lib/index.js"></script><script async src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script><script defer type="text/javascript" src="https://cdn1.tianli0.top/npm/sweetalert2@8.19.0/dist/sweetalert2.all.js"></script><script async src="//npm.elemecdn.com/pace-js@1.2.4/pace.min.js"></script><script defer src="https://cdn1.tianli0.top/gh/nextapps-de/winbox/dist/winbox.bundle.min.js"></script><script async src="//at.alicdn.com/t/c/font_3586335_hsivh70x0fm.js"></script><script async src="//at.alicdn.com/t/c/font_3636804_gr02jmjr3y9.js"></script><script async src="//at.alicdn.com/t/c/font_3612150_kfv55xn3u2g.js"></script><script async src="https://cdn.wpon.cn/2022-sucai/Gold-ingot.js"></script><canvas id="universe"></canvas><script>(function(){var bp=document.createElement('script');var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js'}else{bp.src='http://push.zhanzhang.baidu.com/push.js'}var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bp,s)})();</script><canvas id="snow"></canvas><script defer src="/js/fomal.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="30" mobile="false" src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/canvas-nest.min.js"></script><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://cdn1.tianli0.top/npm/js-heo@1.0.12/metingjs/Meting.min.js"></script><script src="https://lib.baomitu.com/pjax/0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show","#web_bg",".js-pjax","#bibi","body > title","#app","#tag-echarts","#posts-echart","#categories-echarts"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/e19c53d6.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_20.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2025-05-22</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/e19c53d6.html&quot;);" href="javascript:void(0);" alt="">如何创建多个公钥</a><div class="blog-slider__text">解决一台电脑上生成多个密钥，从而达到管理多个github账号的网站</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/e19c53d6.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/116b0f3c.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_26.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2025-02-27</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/116b0f3c.html&quot;);" href="javascript:void(0);" alt="">博客搭建教程</a><div class="blog-slider__text">博客搭建笔记，零基础，手把手，不需要任何代码基础（看不懂代码也没事）</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/116b0f3c.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/55a7f856.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_54.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2025-02-27</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/55a7f856.html&quot;);" href="javascript:void(0);" alt="">博客指南</a><div class="blog-slider__text">博客标题含义和常用的指令，vscode 终端无法正常执行脚本命令如何解决，npm下载速度慢 解决方法</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/55a7f856.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/2013454d.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_46.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-08-09</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/2013454d.html&quot;);" href="javascript:void(0);" alt="">Markdown语法与外挂标签写法汇总</a><div class="blog-slider__text">🥧本文汇总Markdown格式以及外挂标签在网页端的渲染效果，可作为文档进行查询</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/2013454d.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var qweather_key = 'b16a1fa0e63c46a4b8f28abfb06ae3fe';
+  var qweather_api_host = 'nj6r6pm8pt.re.qweatherapi.com';
+  var ip_api_key = 'Kq1pRjB3WyDja7rhKcWV9f5QU8';
+  var gaud_map_key = '87220d3a8b12eeb211bbd14528ecd89b';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '113.34532,23.15624';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.js"></script><script data-pjax src="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.js"></script><script data-pjax>
+  function gitcalendar_injector_config(){
+      var parent_div_git = document.getElementById('gitZone');
+      var item_html = '<div class="recent-post-item" id="gitcalendarBar" style="width:100%;height:auto;padding:10px;"><style>#git_container{min-height: 320px}@media screen and (max-width:650px) {#git_container{min-height: 0px}}</style><div id="git_loading" style="width:10%;height:100%;margin:0 auto;display: block;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animatetransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animatetransform></path></svg><style>#git_container{display: none;}</style></div><div id="git_container"></div></div>';
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      console.log('已挂载gitcalendar')
+      }
+
+    if( document.getElementById('gitZone') && (location.pathname ==='/'|| '/' ==='all')){
+        gitcalendar_injector_config()
+        GitCalendarInit("https://gitcalendar.fomal.cc/api?Fomalhaut-Blog",['#d9e0df', '#c6e0dc', '#a8dcd4', '#9adcd2', '#89ded1', '#77e0d0', '#5fdecb', '#47dcc6', '#39dcc3', '#1fdabe', '#00dab9'],'Fomalhaut-Blog')
+    }
+  </script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '2s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '2s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script></div><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":350},"mobile":{"show":true},"log":false});</script></body></html>

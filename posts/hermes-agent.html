@@ -1,0 +1,653 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><div id="myscoll"></div><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Hermes Agent 完整使用教程 | Arlos Blog World🥝</title><meta name="keywords" content="教程,Hermes,AI Agent"><meta name="author" content="阿洛博客世界🥝"><meta name="copyright" content="阿洛博客世界🥝"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="Hermes Agent完整使用教程，从安装配置到MCP接入、Gateway多平台、cron后台任务自动化全流程指南">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hermes Agent 完整使用教程">
+<meta property="og:url" content="https://lxttz.github.io/posts/hermes-agent.html">
+<meta property="og:site_name" content="Arlos Blog World🥝">
+<meta property="og:description" content="Hermes Agent完整使用教程，从安装配置到MCP接入、Gateway多平台、cron后台任务自动化全流程指南">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://source.fomal.cc/img/default_cover_36.webp">
+<meta property="article:published_time" content="2026-08-29T02:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-29T02:14:19.049Z">
+<meta property="article:author" content="阿洛博客世界🥝">
+<meta property="article:tag" content="AI Agent">
+<meta property="article:tag" content="Hermes">
+<meta property="article:tag" content="教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://source.fomal.cc/img/default_cover_36.webp"><link rel="shortcut icon" href="https://lxttz.github.io/assets/zhizhuxia/zhizhu01.png"><link rel="canonical" href="https://lxttz.github.io/posts/hermes-agent"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.staticfile.org/fancyapps-ui/4.0.31/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdnjs.cloudflare.com/ajax/libs/flickr-justified-gallery/2.1.2/fjGallery.min.js',
+      css: 'https://cdnjs.cloudflare.com/ajax/libs/flickr-justified-gallery/2.1.2/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hermes Agent 完整使用教程',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-06-29 10:14:19'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn1.tianli0.top/npm/element-ui@2.15.6/packages/theme-chalk/lib/index.css"><style id="themeColor"></style><style id="rightSide"></style><style id="transPercent"></style><style id="blurNum"></style><style id="settingStyle"></style><span id="fps"></span><style id="defineBg"></style><style id="menu_shadow"></style><svg aria-hidden="true" style="position:absolute; overflow:hidden; width:0; height:0"><symbol id="icon-sun" viewBox="0 0 1024 1024"><path d="M960 512l-128 128v192h-192l-128 128-128-128H192v-192l-128-128 128-128V192h192l128-128 128 128h192v192z" fill="#FFD878" p-id="8420"></path><path d="M736 512a224 224 0 1 0-448 0 224 224 0 1 0 448 0z" fill="#FFE4A9" p-id="8421"></path><path d="M512 109.248L626.752 224H800v173.248L914.752 512 800 626.752V800h-173.248L512 914.752 397.248 800H224v-173.248L109.248 512 224 397.248V224h173.248L512 109.248M512 64l-128 128H192v192l-128 128 128 128v192h192l128 128 128-128h192v-192l128-128-128-128V192h-192l-128-128z" fill="#4D5152" p-id="8422"></path><path d="M512 320c105.888 0 192 86.112 192 192s-86.112 192-192 192-192-86.112-192-192 86.112-192 192-192m0-32a224 224 0 1 0 0 448 224 224 0 0 0 0-448z" fill="#4D5152" p-id="8423"></path></symbol><symbol id="icon-moon" viewBox="0 0 1024 1024"><path d="M611.370667 167.082667a445.013333 445.013333 0 0 1-38.4 161.834666 477.824 477.824 0 0 1-244.736 244.394667 445.141333 445.141333 0 0 1-161.109334 38.058667 85.077333 85.077333 0 0 0-65.066666 135.722666A462.08 462.08 0 1 0 747.093333 102.058667a85.077333 85.077333 0 0 0-135.722666 65.024z" fill="#FFB531" p-id="11345"></path><path d="M329.728 274.133333l35.157333-35.157333a21.333333 21.333333 0 1 0-30.165333-30.165333l-35.157333 35.157333-35.114667-35.157333a21.333333 21.333333 0 0 0-30.165333 30.165333l35.114666 35.157333-35.114666 35.157334a21.333333 21.333333 0 1 0 30.165333 30.165333l35.114667-35.157333 35.157333 35.157333a21.333333 21.333333 0 1 0 30.165333-30.165333z" fill="#030835" p-id="11346"></path></symbol></svg><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="Arlos Blog World🥝" type="application/atom+xml">
+</head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://lxttz.github.io/assets/zhizhuxia/toxiang.jpg" onerror="onerror=null;src='/assets/toxiang.jpg'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">128</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">152</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">75</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-home"></use></svg><span class="menu_word" style="font-size:17px"> 首页</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--article"></use></svg><span class="menu_word" style="font-size:17px"> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-guidang1">                   </use></svg><span class="menu_word" style="font-size:17px"> 归档</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-sekuaibiaoqian">                   </use></svg><span class="menu_word" style="font-size:17px"> 标签</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-fenlei">                   </use></svg><span class="menu_word" style="font-size:17px"> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-pinweishenghuo"></use></svg><span class="menu_word" style="font-size:17px"> 休闲</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/life/music/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-yinle">                   </use></svg><span class="menu_word" style="font-size:17px"> 八音盒</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/life/movies/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-dianying1">                   </use></svg><span class="menu_word" style="font-size:17px"> 影院</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/life/games/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-youxishoubing">                   </use></svg><span class="menu_word" style="font-size:17px"> 娱乐</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xiangzi"></use></svg><span class="menu_word" style="font-size:17px"> 八宝箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/box/gallery/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-tubiaozhizuomoban">                   </use></svg><span class="menu_word" style="font-size:17px"> 智能AI</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/box/animation/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-nvwumao">                   </use></svg><span class="menu_word" style="font-size:17px"> 学习院</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/box/nav/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-zhifengche">                   </use></svg><span class="menu_word" style="font-size:17px"> 百宝箱</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shejiaoxinxi"></use></svg><span class="menu_word" style="font-size:17px"> 社交</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/social/fcircle/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-pengyouquan">                   </use></svg><span class="menu_word" style="font-size:17px"> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-liuyan">                   </use></svg><span class="menu_word" style="font-size:17px"> 留言板</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/social/link/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-lianjie">                   </use></svg><span class="menu_word" style="font-size:17px"> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-wangye"></use></svg><span class="menu_word" style="font-size:17px"> 网站</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/site/census/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--tongjibiao">                   </use></svg><span class="menu_word" style="font-size:17px"> 网站统计</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/site/echarts/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shujutongji1">                   </use></svg><span class="menu_word" style="font-size:17px"> 文章统计</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/site/time/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xianxingshalou">                   </use></svg><span class="menu_word" style="font-size:17px"> 个人世界</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shejiaoxinxi"></use></svg><span class="menu_word" style="font-size:17px"> 博客</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/blog/notes/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--tongjibiao">                   </use></svg><span class="menu_word" style="font-size:17px"> 文章笔记</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/blog/link/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shujutongji1">                   </use></svg><span class="menu_word" style="font-size:17px"> 博客相关</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/blog/about/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xianxingshalou">                   </use></svg><span class="menu_word" style="font-size:17px"> 关于页面</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-maoliang"></use></svg><span class="menu_word" style="font-size:17px"> 个人</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/personal/bb/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-qunliaotian">                   </use></svg><span class="menu_word" style="font-size:17px"> 唠叨</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/personal/love/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-love-sign">                   </use></svg><span class="menu_word" style="font-size:17px"> 恋爱小屋</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/personal/about/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-paperplane">                   </use></svg><span class="menu_word" style="font-size:17px"> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Arlos Blog World🥝</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-home"></use></svg><span class="menu_word" style="font-size:17px"> 首页</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--article"></use></svg><span class="menu_word" style="font-size:17px"> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-guidang1">                   </use></svg><span class="menu_word" style="font-size:17px"> 归档</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-sekuaibiaoqian">                   </use></svg><span class="menu_word" style="font-size:17px"> 标签</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-fenlei">                   </use></svg><span class="menu_word" style="font-size:17px"> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-pinweishenghuo"></use></svg><span class="menu_word" style="font-size:17px"> 休闲</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/life/music/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-yinle">                   </use></svg><span class="menu_word" style="font-size:17px"> 八音盒</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/life/movies/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-dianying1">                   </use></svg><span class="menu_word" style="font-size:17px"> 影院</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/life/games/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-youxishoubing">                   </use></svg><span class="menu_word" style="font-size:17px"> 娱乐</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xiangzi"></use></svg><span class="menu_word" style="font-size:17px"> 八宝箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/box/gallery/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-tubiaozhizuomoban">                   </use></svg><span class="menu_word" style="font-size:17px"> 智能AI</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/box/animation/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-nvwumao">                   </use></svg><span class="menu_word" style="font-size:17px"> 学习院</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/box/nav/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-zhifengche">                   </use></svg><span class="menu_word" style="font-size:17px"> 百宝箱</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shejiaoxinxi"></use></svg><span class="menu_word" style="font-size:17px"> 社交</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/social/fcircle/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-pengyouquan">                   </use></svg><span class="menu_word" style="font-size:17px"> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-liuyan">                   </use></svg><span class="menu_word" style="font-size:17px"> 留言板</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/social/link/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-lianjie">                   </use></svg><span class="menu_word" style="font-size:17px"> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-wangye"></use></svg><span class="menu_word" style="font-size:17px"> 网站</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/site/census/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--tongjibiao">                   </use></svg><span class="menu_word" style="font-size:17px"> 网站统计</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/site/echarts/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shujutongji1">                   </use></svg><span class="menu_word" style="font-size:17px"> 文章统计</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/site/time/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xianxingshalou">                   </use></svg><span class="menu_word" style="font-size:17px"> 个人世界</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shejiaoxinxi"></use></svg><span class="menu_word" style="font-size:17px"> 博客</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/blog/notes/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--tongjibiao">                   </use></svg><span class="menu_word" style="font-size:17px"> 文章笔记</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/blog/link/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shujutongji1">                   </use></svg><span class="menu_word" style="font-size:17px"> 博客相关</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/blog/about/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xianxingshalou">                   </use></svg><span class="menu_word" style="font-size:17px"> 关于页面</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-maoliang"></use></svg><span class="menu_word" style="font-size:17px"> 个人</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/personal/bb/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-qunliaotian">                   </use></svg><span class="menu_word" style="font-size:17px"> 唠叨</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/personal/love/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-love-sign">                   </use></svg><span class="menu_word" style="font-size:17px"> 恋爱小屋</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/personal/about/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-paperplane">                   </use></svg><span class="menu_word" style="font-size:17px"> 关于</span></a></li></ul></div></div><center id="name-container"><a id="page-name" href="javascript:scrollToTop()">PAGE_NAME</a></center><div id="nav-right"><div id="search-button"><a class="search faa-parent animated-hover" title="检索站内任何你想要的信息"><svg class="faa-tada icon" style="height:24px;width:24px;fill:currentColor;position:relative;top:6px" aria-hidden="true"><use xlink:href="#icon-valentine_-search-love-find-heart"></use></svg><span> 搜索</span></a></div><a class="meihua faa-parent animated-hover" onclick="toggleWinbox()" title="美化设置-自定义你的风格" id="meihua-button"><svg class="faa-tada icon" style="height:26px;width:26px;fill:currentColor;position:relative;top:8px" aria-hidden="true"><use xlink:href="#icon-tupian1"></use></svg></a><a class="sun_moon faa-parent animated-hover" onclick="switchNightMode()" title="浅色和深色模式转换" id="nightmode-button"><svg class="faa-tada" style="height:25px;width:25px;fill:currentColor;position:relative;top:7px" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-moon">       </use></svg></a><div id="toggle-menu"><a><i class="fas fa-bars fa-fw"></i></a></div></div></div></nav><div id="post-info"><h1 class="post-title">Hermes Agent 完整使用教程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><svg class="meta_icon post-meta-icon" style="width:30px;height:30px;position:relative;top:10px"><use xlink:href="#icon-rili"></use></svg><span class="post-meta-label">发表于 </span><time class="post-meta-date-created" datetime="2026-08-29T02:00:00.000Z" title="发表于 2026-08-29 10:00:00">2026-08-29</time><span class="post-meta-separator">|</span><svg class="meta_icon post-meta-icon" style="width:18px;height:18px;position:relative;top:5px"><use xlink:href="#icon-gengxin1"></use></svg><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-29T02:14:19.049Z" title="更新于 2026-06-29 10:14:19">2026-06-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><svg class="meta_icon post-meta-icon" style="width:18px;height:18px;position:relative;top:5px"><use xlink:href="#icon-biaoqian"></use></svg><a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B/">教程</a><i class="fas fa-angle-right post-meta-separator"></i><svg class="meta_icon post-meta-icon" style="width:18px;height:18px;position:relative;top:5px"><use xlink:href="#icon-biaoqian"></use></svg><a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B/AI/">AI</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><svg class="meta_icon post-meta-icon" style="width:25px;height:25px;position:relative;top:8px"><use xlink:href="#icon-charuword"></use></svg><span class="post-meta-label">字数总计:</span><span class="word-count">2666</span><span class="post-meta-separator">|</span><svg class="meta_icon post-meta-icon" style="width:20px;height:20px;position:relative;top:5px"><use xlink:href="#icon-shizhong"></use></svg><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Hermes Agent 完整使用教程"><svg class="meta_icon post-meta-icon" style="width:25px;height:25px;position:relative;top:5px"><use xlink:href="#icon-eye"></use></svg><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Hermes-Agent-完整使用教程"><a href="#Hermes-Agent-完整使用教程" class="headerlink" title="Hermes Agent 完整使用教程"></a>Hermes Agent 完整使用教程</h2><h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
+<li>Hermes 是什么+ 安装与初始化+ 第一次进入 CLI+ 配置、模型与 profile+ 工具、toolset 与执行边界+ skill、memory 与上下文文件+ MCP 接入外部系统+ Gateway 与多平台使用+ cron、后台任务与自动化+ 开发扩展+ 调试、测试与排障+ 最佳实践</li>
+</ul>
+<h3 id="1-Hermes-是什么"><a href="#1-Hermes-是什么" class="headerlink" title="1. Hermes 是什么"></a>1. Hermes 是什么</h3><p>Hermes Agent 不是单纯的聊天界面，也不是只能在 IDE 里工作的代码补全器。它更像一个统一的 agent 运行时：</p>
+<ul>
+<li>在 CLI 里，它可以读写文件、执行命令、管理会话、切换模型、调用工具+ 在 Gateway 里，它可以通过 Telegram、Discord、Slack、WhatsApp、Signal 等平台长期在线+ 通过 skill、memory 和 context file，它能把流程知识、事实信息和项目约束长期保留下来+ 通过 MCP 和 plugins，它能对接外部系统+ 通过 cron 和背景任务，它能定时、异步、持续地工作</li>
+</ul>
+<p>你可以把 Hermes 的核心结构概括成下面几层：</p>
+<ul>
+<li>入口层：CLI、Gateway、ACP、batch runner+ agent 层：<code>AIAgent</code> 和 prompt &#x2F; provider &#x2F; tool 调度+ 执行层：tools、toolsets、terminal backend、browser backend、MCP+ 持久层：sessions、memory、skills、profiles</li>
+</ul>
+<p>这意味着 Hermes 的效果不仅取决于模型，还取决于工具可用性、上下文质量和你的使用方式。</p>
+<h3 id="2-安装与初始化"><a href="#2-安装与初始化" class="headerlink" title="2. 安装与初始化"></a>2. 安装与初始化</h3><h4 id="普通安装"><a href="#普通安装" class="headerlink" title="普通安装"></a>普通安装</h4><p>最快的方式是官方安装脚本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash</span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br><span class="line"><span class="comment"># 或 source ~/.zshrc</span></span><br><span class="line">hermes</span><br></pre></td></tr></table></figure>
+
+
+<p>官方支持 Linux、macOS 和 WSL2。原生 Windows 不在推荐路径里。</p>
+<h4 id="仓库开发安装"><a href="#仓库开发安装" class="headerlink" title="仓库开发安装"></a>仓库开发安装</h4><p>如果你打算直接修改仓库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/NousResearch/hermes-agent.git</span><br><span class="line"><span class="built_in">cd</span> hermes-agent</span><br><span class="line">uv venv venv --python 3.11</span><br><span class="line"><span class="built_in">source</span> venv/bin/activate</span><br><span class="line">uv pip install -e <span class="string">&quot;.[all,dev]&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>对于这个仓库本身，<code>AGENTS.md</code> 明确要求：运行 Python 相关命令前要先 <code>source venv/bin/activate</code>。</p>
+<h4 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h4><p>首次安装后建议运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hermes setup</span><br></pre></td></tr></table></figure>
+
+
+<p>它会帮你处理：</p>
+<ul>
+<li>模型与 provider+ terminal backend+ gateway 平台+ tools+ agent 行为</li>
+</ul>
+<p>默认配置目录是 <code>~/.hermes/</code>，你最需要知道的文件通常是：</p>
+<ul>
+<li><code>~/.hermes/config.yaml</code>+ <code>~/.hermes/.env</code>+ <code>~/.hermes/SOUL.md</code></li>
+</ul>
+<p><code>.env</code> 里通常先配一个可用 provider，例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">OPENROUTER_API_KEY=...</span><br><span class="line"></span><br><span class="line">智谱 glm 配置： </span><br><span class="line">base-url 写这个：</span><br><span class="line">https://open.bigmodel.cn/api/coding/paas/v4</span><br></pre></td></tr></table></figure>
+
+
+<p>安装验证建议用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hermes version</span><br><span class="line">hermes doctor</span><br><span class="line">hermes status</span><br><span class="line">hermes</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="3-第一次进入-CLI"><a href="#3-第一次进入-CLI" class="headerlink" title="3. 第一次进入 CLI"></a>3. 第一次进入 CLI</h3><p>CLI 是最完整的主入口。推荐你第一次就用它，而不是先上消息平台。</p>
+<p>启动：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hermes</span><br></pre></td></tr></table></figure>
+
+
+<p>进入后先跑这几条：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/help</span><br><span class="line">/model</span><br><span class="line">/usage</span><br><span class="line">/toolsets</span><br></pre></td></tr></table></figure>
+
+
+<p>然后给一个带动作的任务，而不是“你好”，例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">阅读当前目录结构并总结这个仓库的核心组成。</span><br></pre></td></tr></table></figure>
+
+
+<p>这样你能马上看到 Hermes 是否会用 file 或 terminal 工具。</p>
+<h4 id="你很快会常用到的命令"><a href="#你很快会常用到的命令" class="headerlink" title="你很快会常用到的命令"></a>你很快会常用到的命令</h4><ul>
+<li><code>/new</code> &#x2F; <code>/reset</code>：新会话+ <code>/title</code>：命名会话+ <code>/resume</code>：恢复命名会话+ <code>/model</code>：切换模型+ <code>/usage</code>：看 token、成本、上下文+ <code>/compress</code>：压缩上下文+ <code>/verbose</code>：观察工具输出+ <code>/background &lt;prompt&gt;</code>：后台启动独立任务+ <code>/skills</code>：搜索和安装 skill+ <code>/tools list</code>：看当前工具</li>
+</ul>
+<p>CLI 外也别忘了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hermes -c</span><br><span class="line">hermes -r <span class="string">&quot;session-title&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>复杂任务建议尽早 <code>/title</code>，否则后续恢复会话会很痛苦。</p>
+<h3 id="4-配置、模型与-profile"><a href="#4-配置、模型与-profile" class="headerlink" title="4. 配置、模型与 profile"></a>4. 配置、模型与 profile</h3><p>Hermes 的配置分两类：</p>
+<ul>
+<li><code>config.yaml</code>：结构化行为配置+ <code>.env</code>：API key、base URL、平台 token、终端环境变量等</li>
+</ul>
+<p>最常见的 provider 相关变量有：</p>
+<ul>
+<li><code>OPENROUTER_API_KEY</code>+ <code>OPENAI_API_KEY</code>+ <code>OPENAI_BASE_URL</code>+ <code>ANTHROPIC_API_KEY</code>+ <code>GLM_API_KEY</code></li>
+</ul>
+<p>选择模型最直接的方式是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hermes model</span><br></pre></td></tr></table></figure>
+
+
+<p>会话中可以：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/model</span><br><span class="line">/model openrouter:anthropic/claude-sonnet-4</span><br><span class="line">/model zai:glm-5</span><br><span class="line">/model custom:qwen-2.5</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="profile-为什么重要"><a href="#profile-为什么重要" class="headerlink" title="profile 为什么重要"></a>profile 为什么重要</h4><p>如果你有多个用途，强烈建议用 profile 隔离，而不是把所有配置堆在一个默认实例里。</p>
+<p>常见命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hermes profile list</span><br><span class="line">hermes profile create work --<span class="built_in">clone</span></span><br><span class="line">hermes profile use work</span><br><span class="line">hermes profile show work</span><br><span class="line">hermes profile use default</span><br></pre></td></tr></table></figure>
+
+
+<p>profile 隔离的是整套 Hermes home，包括配置、技能、会话、memory、gateway 状态等。</p>
+<h4 id="关于-prompt-cache"><a href="#关于-prompt-cache" class="headerlink" title="关于 prompt cache"></a>关于 prompt cache</h4><p>Hermes 很依赖稳定的系统提示前缀来命中缓存。频繁改模型、系统提示、上下文文件、技能加载方式，会提高成本并降低会话稳定性。不要把“中途乱改配置”当作常态。</p>
+<h3 id="5-工具、toolset-与执行边界"><a href="#5-工具、toolset-与执行边界" class="headerlink" title="5. 工具、toolset 与执行边界"></a>5. 工具、toolset 与执行边界</h3><p>Hermes 的执行力来自工具。每个工具属于一个 toolset，你平时更常控制的是 toolset。</p>
+<p>常见 toolset：</p>
+<ul>
+<li><code>file</code>+ <code>terminal</code>+ <code>web</code>+ <code>browser</code>+ <code>skills</code>+ <code>memory</code>+ <code>code_execution</code>+ <code>delegation</code>+ <code>cronjob</code></li>
+</ul>
+<p>查看当前会话可用能力：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/toolsets</span><br><span class="line">/tools list</span><br></pre></td></tr></table></figure>
+
+
+<p>从命令行按会话选择：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hermes chat --toolsets web,file,terminal</span><br><span class="line">hermes chat --toolsets debugging</span><br><span class="line">hermes chat --toolsets all</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="怎样选对工具层级"><a href="#怎样选对工具层级" class="headerlink" title="怎样选对工具层级"></a>怎样选对工具层级</h4><ul>
+<li>读写搜索文件：<code>file</code>+ 真正执行命令：<code>terminal</code>+ 快速搜索网页或抽取正文：<code>web</code>+ 点击按钮、填表单、真实页面交互：<code>browser</code>+ 多步机械流程：<code>execute_code</code>+ 并行子任务或新上下文分析：<code>delegate_task</code></li>
+</ul>
+<p>高频误区是“什么都开、什么都用”，这会增加风险、成本和不可预测性。更好的方式是为任务提供最小且足够的能力集合。</p>
+<h3 id="6-skill、memory-与上下文文件"><a href="#6-skill、memory-与上下文文件" class="headerlink" title="6. skill、memory 与上下文文件"></a>6. skill、memory 与上下文文件</h3><p>Hermes 的长期稳定性主要来自三类东西：</p>
+<ul>
+<li>skill：如何做+ memory：是什么+ context file：默认背景和规则</li>
+</ul>
+<h4 id="使用-skill"><a href="#使用-skill" class="headerlink" title="使用 skill"></a>使用 skill</h4><p>查看和安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/skills</span><br><span class="line">/skills search docker</span><br><span class="line">/skills browse</span><br></pre></td></tr></table></figure>
+
+
+<p>或：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hermes skills list</span><br><span class="line">hermes skills install official/research/arxiv</span><br></pre></td></tr></table></figure>
+
+
+<p>skill 安装后通常会直接变成 slash command，例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/plan 设计一个 REST API</span><br><span class="line">/ascii-art Make a banner</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="使用-memory"><a href="#使用-memory" class="headerlink" title="使用 memory"></a>使用 memory</h4><p>适合保存长期事实，例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">记住：我们的 CI 用 GitHub Actions，部署工作流是 deploy.yml。</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="使用-AGENTS-md-和-SOUL-md"><a href="#使用-AGENTS-md-和-SOUL-md" class="headerlink" title="使用 AGENTS.md 和 SOUL.md"></a>使用 <code>AGENTS.md</code> 和 <code>SOUL.md</code></h4><ul>
+<li><code>AGENTS.md</code>：项目规则、架构约束、测试要求+ <code>SOUL.md</code>：Hermes 的长期风格和行为倾向</li>
+</ul>
+<p>如果你总在重复同一批规则，就应该把它们写进 <code>AGENTS.md</code>，而不是继续每次重说。</p>
+<h4 id="一个重要限制"><a href="#一个重要限制" class="headerlink" title="一个重要限制"></a>一个重要限制</h4><p>不要把 <code>AGENTS.md</code> 写成百科全书。它会进入系统上下文，太长会增加成本并稀释重点。</p>
+<h3 id="7-MCP-接入外部系统"><a href="#7-MCP-接入外部系统" class="headerlink" title="7. MCP 接入外部系统"></a>7. MCP 接入外部系统</h3><p>MCP 适合把外部系统接成 Hermes 的工具。例如 GitHub、文件系统、内部 API、远程知识库。</p>
+<p>当前仓库和代码使用的配置键是：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mcp_servers:</span></span><br><span class="line">  <span class="string">...</span></span><br></pre></td></tr></table></figure>
+
+
+<p>不是 <code>mcp.servers</code>。</p>
+<h4 id="最小-stdio-示例"><a href="#最小-stdio-示例" class="headerlink" title="最小 stdio 示例"></a>最小 stdio 示例</h4><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mcp_servers:</span></span><br><span class="line">  <span class="attr">filesystem:</span></span><br><span class="line">    <span class="attr">command:</span> <span class="string">&quot;npx&quot;</span></span><br><span class="line">    <span class="attr">args:</span> [<span class="string">&quot;-y&quot;</span>, <span class="string">&quot;@modelcontextprotocol/server-filesystem&quot;</span>, <span class="string">&quot;/home/user/projects&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="最小-HTTP-示例"><a href="#最小-HTTP-示例" class="headerlink" title="最小 HTTP 示例"></a>最小 HTTP 示例</h4><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mcp_servers:</span></span><br><span class="line">  <span class="attr">company_api:</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">&quot;https://mcp.internal.example.com&quot;</span></span><br><span class="line">    <span class="attr">headers:</span></span><br><span class="line">      <span class="attr">Authorization:</span> <span class="string">&quot;Bearer ***&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>改完配置后，记得：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/reload-mcp</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="先过滤，再暴露"><a href="#先过滤，再暴露" class="headerlink" title="先过滤，再暴露"></a>先过滤，再暴露</h4><p>非常推荐一开始就做白名单或黑名单控制：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mcp_servers:</span></span><br><span class="line">  <span class="attr">github:</span></span><br><span class="line">    <span class="attr">command:</span> <span class="string">&quot;npx&quot;</span></span><br><span class="line">    <span class="attr">args:</span> [<span class="string">&quot;-y&quot;</span>, <span class="string">&quot;@modelcontextprotocol/server-github&quot;</span>]</span><br><span class="line">    <span class="attr">env:</span></span><br><span class="line">      <span class="attr">GITHUB_PERSONAL_ACCESS_TOKEN:</span> <span class="string">&quot;***&quot;</span></span><br><span class="line">    <span class="attr">tools:</span></span><br><span class="line">      <span class="attr">include:</span> [<span class="string">list_issues</span>, <span class="string">create_issue</span>, <span class="string">search_code</span>]</span><br><span class="line">      <span class="attr">prompts:</span> <span class="literal">false</span></span><br><span class="line">      <span class="attr">resources:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+
+<p>判断标准可以记为：</p>
+<ul>
+<li>内置工具已经够用：优先内置工具+ 只是流程复杂：优先 skill+ 需要接外部系统：优先 MCP</li>
+</ul>
+<h3 id="8-Gateway-与多平台使用"><a href="#8-Gateway-与多平台使用" class="headerlink" title="8. Gateway 与多平台使用"></a>8. Gateway 与多平台使用</h3><p>Hermes 可以通过 gateway 暴露到 Telegram、Discord、Slack、WhatsApp、Signal 等平台。</p>
+<p>核心命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hermes gateway setup</span><br><span class="line">hermes gateway run</span><br><span class="line">hermes gateway start</span><br><span class="line">hermes gateway stop</span><br><span class="line">hermes gateway status</span><br></pre></td></tr></table></figure>
+
+
+<p>常见平台变量包括：</p>
+<ul>
+<li><code>TELEGRAM_BOT_TOKEN</code>+ <code>DISCORD_BOT_TOKEN</code>+ <code>SLACK_BOT_TOKEN</code>+ <code>SLACK_APP_TOKEN</code></li>
+</ul>
+<h4 id="授权控制必须认真做"><a href="#授权控制必须认真做" class="headerlink" title="授权控制必须认真做"></a>授权控制必须认真做</h4><p>不要轻易开放所有用户。优先配置：</p>
+<ul>
+<li><code>TELEGRAM_ALLOWED_USERS</code>+ <code>DISCORD_ALLOWED_USERS</code>+ <code>GATEWAY_ALLOWED_USERS</code></li>
+</ul>
+<h4 id="home-channel-很重要"><a href="#home-channel-很重要" class="headerlink" title="home channel 很重要"></a>home channel 很重要</h4><p>进入对应聊天后执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/sethome</span><br></pre></td></tr></table></figure>
+
+
+<p>cron 和后台结果才知道发去哪里。</p>
+<p>消息平台常见命令包括：</p>
+<ul>
+<li><code>/new</code>+ <code>/status</code>+ <code>/model</code>+ <code>/personality</code>+ <code>/retry</code>+ <code>/undo</code>+ <code>/sethome</code>+ <code>/compress</code>+ <code>/title</code>+ <code>/resume</code>+ <code>/usage</code>+ <code>/reload-mcp</code>+ <code>/background</code></li>
+</ul>
+<p>而 <code>/tools</code>、<code>/toolsets</code>、<code>/browser</code> 之类通常更偏 CLI。</p>
+<h3 id="9-cron、后台任务与自动化"><a href="#9-cron、后台任务与自动化" class="headerlink" title="9. cron、后台任务与自动化"></a>9. cron、后台任务与自动化</h3><p>Hermes 的 cron 是“在新 session 中运行一个 agent 任务”，而不是单纯执行系统计划任务。所以最关键的规则是：</p>
+<p>你的 prompt 必须完全自包含。</p>
+<h4 id="创建-job"><a href="#创建-job" class="headerlink" title="创建 job"></a>创建 job</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/cron add <span class="string">&quot;0 9 * * 1&quot;</span> 生成每周 AI 摘要并发送到 home channel。</span><br></pre></td></tr></table></figure>
+
+
+<p>或：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hermes cron create <span class="string">&quot;0 9 * * 1&quot;</span> <span class="string">&quot;生成每周 AI 摘要并发送到 home channel。&quot;</span> --name <span class="string">&quot;weekly-ai&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>常见管理：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/cron list</span><br><span class="line">/cron run &lt;job_id&gt;</span><br><span class="line">/cron pause &lt;job_id&gt;</span><br><span class="line">/cron resume &lt;job_id&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="背景任务"><a href="#背景任务" class="headerlink" title="背景任务"></a>背景任务</h4><p>如果只是想把当前任务异步化，而不是按时间重复执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/background 总结这个仓库的工具系统并写一份建议。</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="自动化设计的一个好模式"><a href="#自动化设计的一个好模式" class="headerlink" title="自动化设计的一个好模式"></a>自动化设计的一个好模式</h4><ul>
+<li>脚本负责抓数据、做机械步骤、保存状态+ agent 负责解释、筛选、总结</li>
+</ul>
+<p>很多监控类任务还应该显式约定：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果没有变化，回复 [SILENT]。</span><br></pre></td></tr></table></figure>
+
+
+<p>这样不会把通知刷屏。</p>
+<h3 id="10-开发扩展"><a href="#10-开发扩展" class="headerlink" title="10. 开发扩展"></a>10. 开发扩展</h3><p>如果你要修改这个仓库，先记住关键结构：</p>
+<ul>
+<li><code>run_agent.py</code>：AIAgent 核心循环+ <code>cli.py</code>：CLI+ <code>gateway/run.py</code>：Gateway+ <code>model_tools.py</code>：工具发现和 dispatch+ <code>tools/registry.py</code>：工具注册+ <code>toolsets.py</code>：工具分组</li>
+</ul>
+<h4 id="新增-tool-的最小路径"><a href="#新增-tool-的最小路径" class="headerlink" title="新增 tool 的最小路径"></a>新增 tool 的最小路径</h4><p>一般要动 3 个地方：</p>
+<ul>
+<li><code>tools/your_tool.py</code>+ <code>toolsets.py</code>+ <code>model_tools.py</code></li>
+</ul>
+<p>其中 handler 应返回 JSON 字符串，错误也应包装成 JSON。</p>
+<h4 id="新增-slash-command"><a href="#新增-slash-command" class="headerlink" title="新增 slash command"></a>新增 slash command</h4><p>一般要动：</p>
+<ul>
+<li><code>hermes_cli/commands.py</code>+ <code>cli.py</code>+ <code>gateway/run.py</code>（如果 Gateway 也支持）</li>
+</ul>
+<h4 id="profile-safe-规则"><a href="#profile-safe-规则" class="headerlink" title="profile-safe 规则"></a>profile-safe 规则</h4><p>不要硬编码 <code>~/.hermes</code>。代码里应使用：</p>
+<ul>
+<li><code>get_hermes_home()</code></li>
+</ul>
+<p>用户可见提示中应使用：</p>
+<ul>
+<li><code>display_hermes_home()</code></li>
+</ul>
+<h4 id="本仓库开发测试"><a href="#本仓库开发测试" class="headerlink" title="本仓库开发测试"></a>本仓库开发测试</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> venv/bin/activate</span><br><span class="line">python -m pytest tests/ -q</span><br><span class="line">python -m pytest tests/test_model_tools.py -q</span><br><span class="line">python -m pytest tests/gateway/ -q</span><br><span class="line">python -m pytest tests/tools/ -q</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="11-调试、测试与排障"><a href="#11-调试、测试与排障" class="headerlink" title="11. 调试、测试与排障"></a>11. 调试、测试与排障</h3><p>遇到问题时，先按层次判断：</p>
+<ul>
+<li>安装层：<code>hermes</code> 能否启动+ provider 层：认证、API key、base URL+ tool 层：toolset 是否启用，依赖是否满足+ MCP 层：server 是否加载+ Gateway 层：token、allowlist、home channel+ 上下文层：skills、memory、会话状态、prompt cache</li>
+</ul>
+<p>通用命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hermes doctor</span><br><span class="line">hermes status</span><br><span class="line">hermes version</span><br><span class="line">hermes profile show &lt;name&gt;</span><br></pre></td></tr></table></figure>
+
+
+<p>CLI 内常用辅助：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/model</span><br><span class="line">/usage</span><br><span class="line">/toolsets</span><br><span class="line">/tools list</span><br><span class="line">/verbose</span><br></pre></td></tr></table></figure>
+
+
+<p>MCP 问题优先检查：</p>
+<ul>
+<li><code>mcp_servers</code> 键名是否正确+ 本地依赖命令是否存在+ 是否执行了 <code>/reload-mcp</code></li>
+</ul>
+<p>消息平台问题优先检查：</p>
+<ul>
+<li>token 是否正确+ allowlist 是否允许当前用户+ 是否需要 mention+ home channel 是否配置</li>
+</ul>
+<p>不要一上来就删整个 <code>~/.hermes</code>。大多数问题都可以局部定位。</p>
+<h3 id="12-最佳实践"><a href="#12-最佳实践" class="headerlink" title="12. 最佳实践"></a>12. 最佳实践</h3><p>最后给你一套更稳的长期使用方式：</p>
+<h4 id="1-第一条消息尽量把上下文给够"><a href="#1-第一条消息尽量把上下文给够" class="headerlink" title="1. 第一条消息尽量把上下文给够"></a>1. 第一条消息尽量把上下文给够</h4><p>不要只说“帮我修一下”。尽量直接给：</p>
+<ul>
+<li>文件路径+ 错误信息+ 期望结果+ 约束条件</li>
+</ul>
+<h4 id="2-复杂任务先命名会话"><a href="#2-复杂任务先命名会话" class="headerlink" title="2. 复杂任务先命名会话"></a>2. 复杂任务先命名会话</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/title auth-refactor</span><br></pre></td></tr></table></figure>
+
+
+<p>以后恢复就简单很多。</p>
+<h4 id="3-重要规则写进-AGENTS-md"><a href="#3-重要规则写进-AGENTS-md" class="headerlink" title="3. 重要规则写进 AGENTS.md"></a>3. 重要规则写进 <code>AGENTS.md</code></h4><p>不要依赖聊天记录记住所有项目约定。</p>
+<h4 id="4-长会话定期看-usage"><a href="#4-长会话定期看-usage" class="headerlink" title="4. 长会话定期看 /usage"></a>4. 长会话定期看 <code>/usage</code></h4><p>必要时 <code>/compress</code>，不要等上下文快爆了才处理。</p>
+<h4 id="5-选对执行方式"><a href="#5-选对执行方式" class="headerlink" title="5. 选对执行方式"></a>5. 选对执行方式</h4><ul>
+<li>单一动作：直接工具+ 多步机械流程：<code>execute_code</code>+ 并行分析：<code>delegate_task</code>+ 可复用流程：skill</li>
+</ul>
+<h4 id="6-用-profile-管隔离"><a href="#6-用-profile-管隔离" class="headerlink" title="6. 用 profile 管隔离"></a>6. 用 profile 管隔离</h4><p>工作、个人、bot、实验环境，最好分 profile，而不是混在一个实例里。</p>
+<h4 id="7-对不可信代码使用隔离环境"><a href="#7-对不可信代码使用隔离环境" class="headerlink" title="7. 对不可信代码使用隔离环境"></a>7. 对不可信代码使用隔离环境</h4><p>优先 Docker、Daytona 等，而不是默认本地 terminal。</p>
+<h4 id="8-最小暴露原则"><a href="#8-最小暴露原则" class="headerlink" title="8. 最小暴露原则"></a>8. 最小暴露原则</h4><p>toolset、MCP、Gateway 授权都遵循同一个原则：只开必须的，不要因为“以后可能用到”而默认暴露。</p>
+</article><div class="post-copyright"><div class="post-copyright__title"><span class="post-copyright-info"><h>Hermes Agent 完整使用教程</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="https://lxttz.github.io/posts/hermes-agent.html">https://lxttz.github.io/posts/hermes-agent.html</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a"><h>作者</h><div class="post-copyright-cc-info"><h>阿洛博客世界🥝</h></div></div><div class="post-copyright-c"><h>发布于</h><div class="post-copyright-cc-info"><h>2026-08-29</h></div></div><div class="post-copyright-u"><h>更新于</h><div class="post-copyright-cc-info"><h>2026-06-29</h></div></div><div class="post-copyright-c"><h>许可协议</h><div class="post-copyright-cc-info"><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div></div></div></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/"><div class="tags-punctuation"><svg class="faa-tada icon" style="height:1.1em;width:1.1em;fill:currentColor;position:relative;top:2px;margin-right:3px" aria-hidden="true"><use xlink:href="#icon-sekuaibiaoqian"></use></svg></div>教程</a><a class="post-meta__tags" href="/tags/Hermes/"><div class="tags-punctuation"><svg class="faa-tada icon" style="height:1.1em;width:1.1em;fill:currentColor;position:relative;top:2px;margin-right:3px" aria-hidden="true"><use xlink:href="#icon-sekuaibiaoqian"></use></svg></div>Hermes</a><a class="post-meta__tags" href="/tags/AI-Agent/"><div class="tags-punctuation"><svg class="faa-tada icon" style="height:1.1em;width:1.1em;fill:currentColor;position:relative;top:2px;margin-right:3px" aria-hidden="true"><use xlink:href="#icon-sekuaibiaoqian"></use></svg></div>AI Agent</a></div></div><link rel="stylesheet" href="/css/coin.css" media="defer" onload="this.media='all'"/><div class="post-reward"><button class="tip-button reward-button"><span class="tip-button__text">投喂作者</span><div class="coin-wrapper"><div class="coin"><div class="coin__middle"></div><div class="coin__back"></div><div class="coin__front"></div></div></div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://postimage.me/images/2025/03/23/weixin.md.jpg" target="_blank"><img class="post-qr-code-img" src="https://postimage.me/images/2025/03/23/weixin.md.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://postimage.me/images/2025/03/23/zhifubao.md.jpg" target="_blank"><img class="post-qr-code-img" src="https://postimage.me/images/2025/03/23/zhifubao.md.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></button></div><audio id="coinAudio" src="https://npm.elemecdn.com/akilar-candyassets@1.0.36/audio/aowu.m4a"></audio><script defer="defer" src="/js/coin.js"></script><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/cursor-unlimited.html"><img class="next-cover" src="https://source.fomal.cc/img/default_cover_48.webp" onerror="onerror=null;src='/assets/r2.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Cursor快速上手及无限使用指南</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/b2f82380.html" title="Yarn安装速度优化一键换源+清缓存+重装依赖"><img class="cover" src="https://source.fomal.cc/img/default_cover_27.webp" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2026-05-29</div><div class="title">Yarn安装速度优化一键换源+清缓存+重装依赖</div></div></a></div><div><a href="/posts/638cac72.html" title="OpenClaw v2.6.6 部署教程 - 小龙虾本地AI智能体Windows完整安装"><img class="cover" src="https://source.fomal.cc/img/default_cover_35.webp" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2026-05-28</div><div class="title">OpenClaw v2.6.6 部署教程 - 小龙虾本地AI智能体Windows完整安装</div></div></a></div><div><a href="/posts/vscode-markdown-pdf.html" title="VSCode配置Markdown环境 - 写作必备VSCode导出PDF全流程"><img class="cover" src="https://source.fomal.cc/img/default_cover_30.webp" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2026-05-29</div><div class="title">VSCode配置Markdown环境 - 写作必备VSCode导出PDF全流程</div></div></a></div><div><a href="/posts/a4ccee63.html" title="将网站发布在公网上最简单且免费的方式（通过CodeBuddy MCP）"><img class="cover" src="https://source.fomal.cc/img/default_cover_21.webp" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2026-05-28</div><div class="title">将网站发布在公网上最简单且免费的方式（通过CodeBuddy MCP）</div></div></a></div><div><a href="/posts/5a4cdcli.html" title="MongoDB Compass安装和使用教程（新手必看）"><img class="cover" src="https://source.fomal.cc/img/default_cover_38.webp" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2026-05-28</div><div class="title">MongoDB Compass安装和使用教程（新手必看）</div></div></a></div><div><a href="/posts/c661a3d8.html" title="更好用的Wordpress二次元主题！Mokore更新1.2啦"><img class="cover" src="https://source.fomal.cc/img/default_cover_46.webp" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2026-05-28</div><div class="title">更好用的Wordpress二次元主题！Mokore更新1.2啦</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><svg class="meta_icon" style="width:22px;height:22px;position:relative;top:5px"><use xlink:href="#icon-mulu1"></use></svg><span style="font-weight:bold">目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hermes-Agent-%E5%AE%8C%E6%95%B4%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="toc-text">Hermes Agent 完整使用教程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-text">目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Hermes-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">1. Hermes 是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85%E4%B8%8E%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">2. 安装与初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E5%AE%89%E8%A3%85"><span class="toc-text">普通安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%93%E5%BA%93%E5%BC%80%E5%8F%91%E5%AE%89%E8%A3%85"><span class="toc-text">仓库开发安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE"><span class="toc-text">初始化配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%BF%9B%E5%85%A5-CLI"><span class="toc-text">3. 第一次进入 CLI</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%A0%E5%BE%88%E5%BF%AB%E4%BC%9A%E5%B8%B8%E7%94%A8%E5%88%B0%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="toc-text">你很快会常用到的命令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%85%8D%E7%BD%AE%E3%80%81%E6%A8%A1%E5%9E%8B%E4%B8%8E-profile"><span class="toc-text">4. 配置、模型与 profile</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#profile-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%87%8D%E8%A6%81"><span class="toc-text">profile 为什么重要</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E-prompt-cache"><span class="toc-text">关于 prompt cache</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%B7%A5%E5%85%B7%E3%80%81toolset-%E4%B8%8E%E6%89%A7%E8%A1%8C%E8%BE%B9%E7%95%8C"><span class="toc-text">5. 工具、toolset 与执行边界</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%8E%E6%A0%B7%E9%80%89%E5%AF%B9%E5%B7%A5%E5%85%B7%E5%B1%82%E7%BA%A7"><span class="toc-text">怎样选对工具层级</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-skill%E3%80%81memory-%E4%B8%8E%E4%B8%8A%E4%B8%8B%E6%96%87%E6%96%87%E4%BB%B6"><span class="toc-text">6. skill、memory 与上下文文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-skill"><span class="toc-text">使用 skill</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-memory"><span class="toc-text">使用 memory</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-AGENTS-md-%E5%92%8C-SOUL-md"><span class="toc-text">使用 AGENTS.md 和 SOUL.md</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E9%87%8D%E8%A6%81%E9%99%90%E5%88%B6"><span class="toc-text">一个重要限制</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-MCP-%E6%8E%A5%E5%85%A5%E5%A4%96%E9%83%A8%E7%B3%BB%E7%BB%9F"><span class="toc-text">7. MCP 接入外部系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F-stdio-%E7%A4%BA%E4%BE%8B"><span class="toc-text">最小 stdio 示例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F-HTTP-%E7%A4%BA%E4%BE%8B"><span class="toc-text">最小 HTTP 示例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%88%E8%BF%87%E6%BB%A4%EF%BC%8C%E5%86%8D%E6%9A%B4%E9%9C%B2"><span class="toc-text">先过滤，再暴露</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-Gateway-%E4%B8%8E%E5%A4%9A%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8"><span class="toc-text">8. Gateway 与多平台使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%88%E6%9D%83%E6%8E%A7%E5%88%B6%E5%BF%85%E9%A1%BB%E8%AE%A4%E7%9C%9F%E5%81%9A"><span class="toc-text">授权控制必须认真做</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#home-channel-%E5%BE%88%E9%87%8D%E8%A6%81"><span class="toc-text">home channel 很重要</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-cron%E3%80%81%E5%90%8E%E5%8F%B0%E4%BB%BB%E5%8A%A1%E4%B8%8E%E8%87%AA%E5%8A%A8%E5%8C%96"><span class="toc-text">9. cron、后台任务与自动化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-job"><span class="toc-text">创建 job</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%83%8C%E6%99%AF%E4%BB%BB%E5%8A%A1"><span class="toc-text">背景任务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E8%AE%BE%E8%AE%A1%E7%9A%84%E4%B8%80%E4%B8%AA%E5%A5%BD%E6%A8%A1%E5%BC%8F"><span class="toc-text">自动化设计的一个好模式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-%E5%BC%80%E5%8F%91%E6%89%A9%E5%B1%95"><span class="toc-text">10. 开发扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E-tool-%E7%9A%84%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84"><span class="toc-text">新增 tool 的最小路径</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E-slash-command"><span class="toc-text">新增 slash command</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#profile-safe-%E8%A7%84%E5%88%99"><span class="toc-text">profile-safe 规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E4%BB%93%E5%BA%93%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95"><span class="toc-text">本仓库开发测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-%E8%B0%83%E8%AF%95%E3%80%81%E6%B5%8B%E8%AF%95%E4%B8%8E%E6%8E%92%E9%9A%9C"><span class="toc-text">11. 调试、测试与排障</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="toc-text">12. 最佳实践</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%AC%AC%E4%B8%80%E6%9D%A1%E6%B6%88%E6%81%AF%E5%B0%BD%E9%87%8F%E6%8A%8A%E4%B8%8A%E4%B8%8B%E6%96%87%E7%BB%99%E5%A4%9F"><span class="toc-text">1. 第一条消息尽量把上下文给够</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%A4%8D%E6%9D%82%E4%BB%BB%E5%8A%A1%E5%85%88%E5%91%BD%E5%90%8D%E4%BC%9A%E8%AF%9D"><span class="toc-text">2. 复杂任务先命名会话</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%87%8D%E8%A6%81%E8%A7%84%E5%88%99%E5%86%99%E8%BF%9B-AGENTS-md"><span class="toc-text">3. 重要规则写进 AGENTS.md</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E9%95%BF%E4%BC%9A%E8%AF%9D%E5%AE%9A%E6%9C%9F%E7%9C%8B-usage"><span class="toc-text">4. 长会话定期看 &#x2F;usage</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E9%80%89%E5%AF%B9%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F"><span class="toc-text">5. 选对执行方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E7%94%A8-profile-%E7%AE%A1%E9%9A%94%E7%A6%BB"><span class="toc-text">6. 用 profile 管隔离</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E5%AF%B9%E4%B8%8D%E5%8F%AF%E4%BF%A1%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E9%9A%94%E7%A6%BB%E7%8E%AF%E5%A2%83"><span class="toc-text">7. 对不可信代码使用隔离环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E6%9C%80%E5%B0%8F%E6%9A%B4%E9%9C%B2%E5%8E%9F%E5%88%99"><span class="toc-text">8. 最小暴露原则</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-color: transparent;"><div id="footer-wrap"><div id="ft"><div class="ft-item-1"><div class="t-top"><div class="t-t-l"><p class="ft-t t-l-t">格言🧬</p><div class="bg-ad"><div>再看看那个光点，它就在这里，这是家园，这是我们 —— 你所爱的每一个人，你认识的一个人，你听说过的每一个人，曾经有过的每一个人，都在它上面度过他们的一生✨</div><div class="btn-xz-box"><a class="btn-xz" target="_blank" rel="noopener" href="https://stellarium.org/">点击开启星辰之旅</a></div></div></div><div class="t-t-r"><p class="ft-t t-l-t">猜你想看💡</p><ul class="ft-links"><li><a href="/posts/eec9786.html">魔改指南</a><a href="/box/nav/">网址导航</a></li><li><a href="/social/link/">我的朋友</a><a href="/comments/">留点什么</a></li><li><a href="/personal/about/">关于作者</a><a href="/archives/">文章归档</a></li><li><a href="/categories/">文章分类</a><a href="/tags/">文章标签</a></li><li><a href="/box/Gallery/">我的画廊</a><a href="/personal/bb/">我的唠叨</a></li><li><a href="/site/time/">建设进程</a><a href="/site/census/">网站统计</a></li></ul></div></div></div><div class="ft-item-2"><p class="ft-t">推荐友链⌛</p><div class="ft-img-group"><div class="img-group-item"><a href="https://lxttz.github.io/" title="阿洛博客世界🥝"><img src="https://lxttz.github.io/assets/zhizhuxia/toxiang.jpg" alt=""/></a></div></div></div></div><div class="copyright"><span><b>&copy;2022-2026</b></span><span><b>&nbsp;&nbsp;By 阿洛博客世界🥝</b></span></div><div id="workboard"></div><!-- 徽章功能已禁用以避免连接超时错误//- a.github-badge(target='_blank' href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style='margin-inline:5px' title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可")
+//-   img(src="https://sourcebucket.s3.ladydaily.com/badge/Copyright-BY--NC--SA--4.svg" alt='')--></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><a class="icon-V hidden" onclick="switchNightMode()" title="浅色和深色模式转换"><svg width="25" height="25" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-moon"></use></svg></a><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button><button class="share" type="button" title="右键模式" onclick="changeMouseMode()"><i class="fas fa-mouse"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog right_side"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button class="share" type="button" title="分享链接" onclick="share()"><i class="fas fa-share-nodes"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i><span id="percent">0<span>%</span></span></button><button id="go-down" type="button" title="直达底部" onclick="btf.scrollToDest(document.body.scrollHeight, 500)"><i class="fas fa-arrow-down"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div class="js-pjax" id="rightMenu"><div class="rightMenu-group rightMenu-small"><a class="rightMenu-item" href="javascript:window.history.back();"><i class="fa fa-arrow-left"></i></a><a class="rightMenu-item" href="javascript:window.history.forward();"><i class="fa fa-arrow-right"></i></a><a class="rightMenu-item" href="javascript:window.location.reload();"><i class="fa fa-refresh"></i></a><a class="rightMenu-item" href="javascript:rmf.scrollToTop();"><i class="fa fa-arrow-up"></i></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-text"><a class="rightMenu-item" href="javascript:rmf.copySelect();"><i class="fa fa-copy"></i><span>复制</span></a><a class="rightMenu-item" href="javascript:window.open(&quot;https://www.baidu.com/s?wd=&quot;+window.getSelection().toString());window.location.reload();"><i class="fa fa-search"></i><span>百度搜索</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-too"><a class="rightMenu-item" href="javascript:window.open(window.getSelection().toString());window.location.reload();"><i class="fa fa-link"></i><span>转到链接</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-paste"><a class="rightMenu-item" href="javascript:rmf.paste()"><i class="fa fa-copy"></i><span>粘贴</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-post"><a class="rightMenu-item" href="#post-comment"><i class="fas fa-comment"></i><span>空降评论</span></a><a class="rightMenu-item" href="javascript:rmf.copyWordsLink()"><i class="fa fa-link"></i><span>复制本文地址</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-to"><a class="rightMenu-item" href="javascript:rmf.openWithNewTab()"><i class="fa fa-window-restore"></i><span>新窗口打开</span></a><a class="rightMenu-item" id="menu-too" href="javascript:rmf.open()"><i class="fa fa-link"></i><span>转到链接</span></a><a class="rightMenu-item" href="javascript:rmf.copyLink()"><i class="fa fa-copy"></i><span>复制链接</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-img"><a class="rightMenu-item" href="javascript:rmf.saveAs()"><i class="fa fa-download"></i><span>保存图片</span></a><a class="rightMenu-item" href="javascript:rmf.openWithNewTab()"><i class="fa fa-window-restore"></i><span>在新窗口打开</span></a><a class="rightMenu-item" href="javascript:rmf.copyLink()"><i class="fa fa-copy"></i><span>复制图片链接</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:randomPost()"><i class="fa fa-paper-plane"></i><span>随便逛逛</span></a><a class="rightMenu-item" href="javascript:switchNightMode();"><i class="fa fa-moon"></i><span>昼夜切换</span></a><a class="rightMenu-item" href="javascript:rmf.switchReadMode();"><i class="fa fa-book"></i><span>阅读模式</span></a><a class="rightMenu-item" href="/personal/about/"><i class="fa fa-info-circle"></i><span>关于博客</span></a><a class="rightMenu-item" href="javascript:toggleWinbox();"><i class="fas fa-cog"></i><span>美化设置</span></a><a class="rightMenu-item" href="javascript:rmf.fullScreen();"><i class="fas fa-expand"></i><span>切换全屏</span></a><a class="rightMenu-item" href="javascript:window.print();"><i class="fa-solid fa-print"></i><span>打印页面</span></a></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.staticfile.org/fancyapps-ui/4.0.31/fancybox.umd.min.js"></script><script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script><script src="/js/search/local-search.js"></script><script async="async">var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())
+setTimeout(function(){preloader.endLoading();}, 5000);
+document.getElementById('loading-box').addEventListener('click',()=> {preloader.endLoading()})</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script src="https://cdn.staticfile.org/jquery/3.6.3/jquery.min.js"></script><script async src="https://cdn1.tianli0.top/npm/vue@2.6.14/dist/vue.min.js"></script><script async src="https://cdn1.tianli0.top/npm/element-ui@2.15.6/lib/index.js"></script><script async src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script><script defer type="text/javascript" src="https://cdn1.tianli0.top/npm/sweetalert2@8.19.0/dist/sweetalert2.all.js"></script><script async src="//npm.elemecdn.com/pace-js@1.2.4/pace.min.js"></script><script defer src="https://cdn1.tianli0.top/gh/nextapps-de/winbox/dist/winbox.bundle.min.js"></script><script async src="//at.alicdn.com/t/c/font_3586335_hsivh70x0fm.js"></script><script async src="//at.alicdn.com/t/c/font_3636804_gr02jmjr3y9.js"></script><script async src="//at.alicdn.com/t/c/font_3612150_kfv55xn3u2g.js"></script><script async src="https://cdn.wpon.cn/2022-sucai/Gold-ingot.js"></script><canvas id="universe"></canvas><script>(function(){var bp=document.createElement('script');var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js'}else{bp.src='http://push.zhanzhang.baidu.com/push.js'}var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bp,s)})();</script><canvas id="snow"></canvas><script defer src="/js/fomal.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="30" mobile="false" src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/canvas-nest.min.js"></script><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://cdn1.tianli0.top/npm/js-heo@1.0.12/metingjs/Meting.min.js"></script><script src="https://lib.baomitu.com/pjax/0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show","#web_bg",".js-pjax","#bibi","body > title","#app","#tag-echarts","#posts-echart","#categories-echarts"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/e19c53d6.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_20.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2025-05-22</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/e19c53d6.html&quot;);" href="javascript:void(0);" alt="">如何创建多个公钥</a><div class="blog-slider__text">解决一台电脑上生成多个密钥，从而达到管理多个github账号的网站</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/e19c53d6.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/116b0f3c.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_26.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2025-02-27</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/116b0f3c.html&quot;);" href="javascript:void(0);" alt="">博客搭建教程</a><div class="blog-slider__text">博客搭建笔记，零基础，手把手，不需要任何代码基础（看不懂代码也没事）</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/116b0f3c.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/55a7f856.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_54.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2025-02-27</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/55a7f856.html&quot;);" href="javascript:void(0);" alt="">博客指南</a><div class="blog-slider__text">博客标题含义和常用的指令，vscode 终端无法正常执行脚本命令如何解决，npm下载速度慢 解决方法</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/55a7f856.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/2013454d.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_46.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-08-09</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/2013454d.html&quot;);" href="javascript:void(0);" alt="">Markdown语法与外挂标签写法汇总</a><div class="blog-slider__text">🥧本文汇总Markdown格式以及外挂标签在网页端的渲染效果，可作为文档进行查询</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/2013454d.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var qweather_key = 'b16a1fa0e63c46a4b8f28abfb06ae3fe';
+  var qweather_api_host = 'nj6r6pm8pt.re.qweatherapi.com';
+  var ip_api_key = 'Kq1pRjB3WyDja7rhKcWV9f5QU8';
+  var gaud_map_key = '87220d3a8b12eeb211bbd14528ecd89b';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '113.34532,23.15624';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.js"></script><script data-pjax src="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.js"></script><script data-pjax>
+  function gitcalendar_injector_config(){
+      var parent_div_git = document.getElementById('gitZone');
+      var item_html = '<div class="recent-post-item" id="gitcalendarBar" style="width:100%;height:auto;padding:10px;"><style>#git_container{min-height: 320px}@media screen and (max-width:650px) {#git_container{min-height: 0px}}</style><div id="git_loading" style="width:10%;height:100%;margin:0 auto;display: block;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animatetransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animatetransform></path></svg><style>#git_container{display: none;}</style></div><div id="git_container"></div></div>';
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      console.log('已挂载gitcalendar')
+      }
+
+    if( document.getElementById('gitZone') && (location.pathname ==='/'|| '/' ==='all')){
+        gitcalendar_injector_config()
+        GitCalendarInit("https://gitcalendar.fomal.cc/api?Fomalhaut-Blog",['#d9e0df', '#c6e0dc', '#a8dcd4', '#9adcd2', '#89ded1', '#77e0d0', '#5fdecb', '#47dcc6', '#39dcc3', '#1fdabe', '#00dab9'],'Fomalhaut-Blog')
+    }
+  </script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '2s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '2s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script></div><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":350},"mobile":{"show":true},"log":false});</script></body></html>
