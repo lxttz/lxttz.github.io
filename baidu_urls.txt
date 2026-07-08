@@ -1,9 +1,15 @@
+https://lxttz.github.io/posts/trae-ide-guide.html
 https://lxttz.github.io/posts/hermes-agent.html
+https://lxttz.github.io/posts/pycharm-language-switch.html
 https://lxttz.github.io/posts/cursor-unlimited.html
+https://lxttz.github.io/posts/hermes-agent-wechat.html
 https://lxttz.github.io/posts/codex-deepseek-api.html
+https://lxttz.github.io/posts/cursor-download-guide.html
 https://lxttz.github.io/posts/Claude1314.html
 https://lxttz.github.io/posts/codex-plus-plus.html
 https://lxttz.github.io/posts/Claude520.html
+https://lxttz.github.io/posts/hermes-agent-windows-setup.html
+https://lxttz.github.io/posts/0.html
 https://lxttz.github.io/posts/Claude123456.html
 https://lxttz.github.io/posts/claude-code-desktop.html
 https://lxttz.github.io/posts/kali520.html
@@ -12,9 +18,3 @@ https://lxttz.github.io/posts/VMware520.html
 https://lxttz.github.io/posts/qianduan520.html
 https://lxttz.github.io/posts/MoneyPrinterTurbo123456.html
 https://lxttz.github.io/posts/hduan520.html
-https://lxttz.github.io/posts/shujukuketang.html
-https://lxttz.github.io/posts/shujuku520.html
-https://lxttz.github.io/posts/fuwuqi520.html
-https://lxttz.github.io/posts/yuming520.html
-https://lxttz.github.io/posts/Claudesiki123.html
-https://lxttz.github.io/posts/cherry-studio-api.html

@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://lxttz.github.io/posts/0.html</loc>
+    <lastmod>2026-07-08</lastmod>
+  </url>
+  <url>
+    <loc>https://lxttz.github.io/posts/trae-ide-guide.html</loc>
+    <lastmod>2026-07-06</lastmod>
+  </url>
+  <url>
+    <loc>https://lxttz.github.io/posts/pycharm-language-switch.html</loc>
+    <lastmod>2026-07-06</lastmod>
+  </url>
+  <url>
+    <loc>https://lxttz.github.io/posts/hermes-agent-wechat.html</loc>
+    <lastmod>2026-07-06</lastmod>
+  </url>
+  <url>
+    <loc>https://lxttz.github.io/posts/cursor-download-guide.html</loc>
+    <lastmod>2026-07-06</lastmod>
+  </url>
+  <url>
+    <loc>https://lxttz.github.io/posts/hermes-agent-windows-setup.html</loc>
+    <lastmod>2026-07-06</lastmod>
+  </url>
+  <url>
     <loc>https://lxttz.github.io/posts/hermes-agent.html</loc>
     <lastmod>2026-06-29</lastmod>
   </url>
