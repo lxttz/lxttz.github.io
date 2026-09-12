@@ -3157,14 +3157,14 @@ function changeBgColor() {
   changeBg(document.querySelector("#define_colors").value);
 }
 
-// 必应每日壁纸API
-let bingDayBg = screen.width <= 768 ? "url(https://bing.img.run/m.php)" : "url(https://bing.img.run/1920x1080.php)";
-// 必应历史壁纸API
-let bingHistoryBg = screen.width <= 768 ? "url(https://bing.img.run/rand_m.php)" : "url(https://bing.img.run/rand.php)";
+// 必应每日壁纸API（原 bing.img.run 域名已失效，改用 bing.biturl.top）
+let bingDayBg = screen.width <= 768 ? "url(https://bing.biturl.top/?resolution=1366&format=image&index=0&mkt=zh-CN)" : "url(https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN)";
+// 必应随机壁纸API（原 bing.img.run 域名已失效）
+let bingHistoryBg = screen.width <= 768 ? "url(https://bing.biturl.top/?resolution=1366&format=image&index=random&mkt=zh-CN)" : "url(https://bing.biturl.top/?resolution=1920&format=image&index=random&mkt=zh-CN)";
 // EEE.DOG
 let EEEDog = "url(https://wp.upx8.com/api.php)";
-// 随机美图cdn.seovx.com
-let seovx = "url(https://cdn.seovx.com/?mom=302)";
+// 随机壁纸（原 cdn.seovx.com 证书域名不匹配，改用 t.alcy.cc）
+let seovx = "url(https://t.alcy.cc/pc)";
 // picsum随机
 let picsum = "url(https://picsum.photos/1920/1080.webp)";
 // 小歪二次元
@@ -3173,8 +3173,8 @@ let waiDongman = "url(https://api.mtyqx.cn/api/random.php)";
 let waiBizhi = "url(https://wp.upx8.com/api.php?content=动漫)";
 //  小歪高清壁纸
 let mei = "url(https://wp.upx8.com/api.php?content=美女)";
-// 博天随机
-let btstu = "url(http://api.btstu.cn/sjbz/?lx=suiji)";
+// 博天随机（原接口只支持 http，HTTPS 站点会被浏览器拦截，改用 https 图源）
+let btstu = "url(https://api.anosu.top/img)";
 // tuapi 动漫
 let tuapi = "url(https://tuapi.eees.cc/api.php?category=dongman)";
 // unsplash随机 https://source.unsplash.com/random/1920x1080/daily (weekly)
@@ -3196,10 +3196,10 @@ if (localStorage.getItem("blogbg") != undefined) {
   setBg(localStorage.getItem("blogbg"));
 } else {
   document.getElementById("defineBg").innerText = `:root{
-    --default-bg: url(https://bing.img.run/m.php);
-    --darkmode-bg:url(https://bing.img.run/m.php);
-    --mobileday-bg: url(https://bing.img.run/m.php);
-
+    --default-bg: url(https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN);
+    --darkmode-bg: url(https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN);
+    --mobileday-bg: url(https://bing.biturl.top/?resolution=1366&format=image&index=0&mkt=zh-CN);
+    --mobilenight-bg: url(https://bing.biturl.top/?resolution=1366&format=image&index=0&mkt=zh-CN);
   }`;
 }
 // 切换背景主函数
@@ -3336,6 +3336,10 @@ function changeLight(flag) {
 var winbox = "";
 
 function createWinbox() {
+  if (typeof WinBox === "undefined") {
+    console.warn("WinBox 未加载成功，请检查 CDN 是否可用");
+    return;
+  }
   let div = document.createElement("div");
   document.body.appendChild(div);
   winbox = WinBox({
@@ -3428,7 +3432,7 @@ function createWinbox() {
 <h3>1. 二次元</h3>
 {% folding cyan, 查看二次元背景 %}
 <div class="bgbox">
-<a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://lskypro.acozycotage.net/Fomalhaut/img/home_bg.webp)" class="imgbox" onclick="changeBg('url(https://lskypro.acozycotage.net/Fomalhaut/img/home_bg.webp)')"></a>
+<!-- 原预设图 lskypro.acozycotage.net/Fomalhaut/img/home_bg.webp 所在域名已失效，如需使用请替换为自己的图片链接 -->
 
 </div>
 {% endfolding %}
@@ -3438,7 +3442,7 @@ function createWinbox() {
 
 {% folding cyan, 查看风景背景 %}
 <div class="bgbox">
-<a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://lskypro.acozycotage.net/Fomalhaut/img/fj1.webp)" class="imgbox" onclick="changeBg('url(https://lskypro.acozycotage.net/Fomalhaut/img/fj1.webp)')"></a>
+<!-- 原预设图 lskypro.acozycotage.net/Fomalhaut/img/fj1.webp 所在域名已失效，如需使用请替换为自己的图片链接 -->
 
 
 </div>
@@ -3448,7 +3452,7 @@ function createWinbox() {
 
 {% folding cyan, 查看萌宠背景 %}
 <div class="bgbox">
-<a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://lskypro.acozycotage.net/Fomalhaut/img/mc1.webp)" class="imgbox" onclick="changeBg('url(https://lskypro.acozycotage.net/Fomalhaut/img/mc1.webp)')"></a>
+<!-- 原预设图 lskypro.acozycotage.net/Fomalhaut/img/mc1.webp 所在域名已失效，如需使用请替换为自己的图片链接 -->
 
 </div>
 {% endfolding %}
@@ -3487,7 +3491,7 @@ function createWinbox() {
 <h3>6. 适配手机</h3>
 {% folding cyan, 查看适配手机的背景 %}
 <div class="bgbox">
-<a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://lskypro.acozycotage.net/Fomalhaut/img/mb4.webp)" class="pimgbox" onclick="changeBg('url(https://lskypro.acozycotage.net/Fomalhaut/img/mb4.webp)')"></a>
+<!-- 原预设图 lskypro.acozycotage.net/Fomalhaut/img/mb4.webp 所在域名已失效，如需使用请替换为自己的图片链接 -->
 
 </div>
 {% endfolding %}

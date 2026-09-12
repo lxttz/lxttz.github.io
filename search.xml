@@ -944,25 +944,6 @@
     
     
     <entry>
-      <title>MoneyPrinterTurbo_深度解析与部署实战：AI_一键短视频生成，从源码到上线全攻略 - MoneyPrinterTurbo - 教程</title>
-      <link href="/posts/MoneyPrinterTurbo123456.html"/>
-      <url>/posts/MoneyPrinterTurbo123456.html</url>
-      
-        <content type="html"><![CDATA[<h4 id="一、为什么-MoneyPrinterTurbo-值得关注？">一、为什么 MoneyPrinterTurbo 值得关注？</h4><p>2025-2026年，AI 内容创作赛道持续火热。据《2025年中国AI内容创作行业发展白皮书》数据显示，国内 AI 内容创作市场规模预计达 210 亿元，其中短视频 AI 生成领域占比超 40%，年增长率高达 62.3%（<em>数据来源：行业研究报告，仅供参考</em>）。在这个赛道上，MoneyPrinterTurbo 用一个极其简洁的承诺切入：</p><p><strong>只需提供一个主题或关键词，全自动生成视频文案、视频素材、字幕、背景音乐，合成高清短视频。</strong></p><p>这不是 demo，而是一个完整的、可部署的产品。</p><h5 id="项目数据一览">项目数据一览</h5><p>指标数值GitHub Stars23,000+（截至 2026 年 5 月，具体数字以 <a href="https://github.com/harry0703/MoneyPrinterTurbo">GitHub 页面</a> 实时显示为准）最新版本v1.2.8（2026-05-28）许可证开源主要语言Python 3.11原生支持的 LLM 提供商16 个（含 LiteLLM 网关可扩展至 100+）</p><h4 id="二、架构深度拆解">二、架构深度拆解</h4><p>MoneyPrinterTurbo 采用经典的 <strong>MVC 架构</strong>，但在此基础上做了视频生成领域的特化设计。</p><h5 id="2-1-整体架构">2.1 整体架构</h5><p>复制代码</p><pre><code class="language-bash">┌─────────────────────────────────────────────────┐│                   用户入口层                       ││    Streamlit WebUI  /  FastAPI REST API           │└─────────────┬───────────────────┬───────────────┘              │                   │┌─────────────▼───────────────────▼───────────────┐│                  控制器层 (Controller)             ││         任务队列 / 批量调度 / 状态管理              │└──────┬────────┬────────┬────────┬───────────────┘       │        │        │        │┌──────▼──┐ ┌───▼───┐ ┌──▼───┐ ┌─▼──────────┐│ LLM 文案 │ │ TTS   │ │ 字幕 │ │ 素材检索    ││ 生成模块 │ │ 语音  │ │ 生成 │ │ (Pexels/   ││         │ │ 合成  │ │      │ │  Pixabay)  │└─────────┘ └───────┘ └──────┘ └────────────┘              │┌─────────────▼───────────────────────────────────┐│                视频合成层 (View)                    ││   MoviePy + ImageMagick + FFmpeg                  ││   素材拼接 → 字幕渲染 → 音频混合 → 最终导出         │└─────────────────────────────────────────────────┘```##### 2.2 核心模块解析① LLM 文案生成模块这是整个流水线的&quot;大脑&quot;。项目通过统一的 LLM 适配层支持多种大模型，所有提供商的切换仅需修改 `config.toml` 中的 `llm_provider` 字段，业务代码零改动。**原生支持的 16 个提供商**（来自 config.example.toml 和 [llm.py](http://llm.py/) 源码）：提供商config 值说明OpenAI`openai`同时支持 OpenRouter 等兼容接口Moonshot`moonshot`月之暗面，国内直连Azure OpenAI`azure`微软企业级部署通义千问`qwen`阿里云 DashScopeDeepSeek`deepseek`国内推荐，性价比极高Google Gemini`gemini`默认模型 `gemini-2.5-flash`Ollama`ollama`本地部署任意开源模型Grok/xAI`grok`默认模型 `grok-4.3`，base_url `https://api.x.ai/v1`MiniMax`minimax`默认模型 `MiniMax-M2.7`文心一言`ernie`百度大模型Cloudflare`cloudflare`Workers AIModelScope`modelscope`魔搭社区，默认 `Qwen/Qwen3-32B`OneAPI`oneapi`统一 API 网关Pollinations`pollinations`免费，API Key 可选，默认模型 `openai-fast`LiteLLM`litellm`**v1.2.8 新增**，网关接入 100+ 提供商g4f`g4f`默认禁用，需显式开启**注意** ：g4f（GPT4Free）依赖逆向工程的第三方接口，存在供应链和合规风险。v1.2.8 起默认禁用，必须在 config 中设置 `enable_g4f = true` 才能使用，且需要额外安装可选依赖 `uv sync --extra g4f`。② TTS 语音合成模块支持两种引擎：+ **Edge TTS** ：免费、速度快，微软 Edge 浏览器同款引擎，适合快速出片。v1.2.8 新增了 `edge_tts_timeout` 配置项（默认 30 秒），解决了网络异常时 Edge TTS 流式请求无限挂起的问题。+ **Azure TTS**：付费但质量更高，v1.1.2 新增 9 种真人级合成声音。③ 字幕生成模块两种方案可选：+ **edge 模式**：基于 TTS 时间戳对齐，速度快，无需 GPU+ **whisper 模式**：使用 OpenAI Whisper Large-V3 本地转录，精度更高但需要约 3GB 模型文件v1.2.8 修复了千分位数字（如 `1,000`）被错误断句的问题------这在财经类视频中尤为关键。④ 视频合成模块核心依赖链：`MoviePy → ImageMagick → FFmpeg`工作流程：+ 根据文案关键词从 Pexels 或 Pixabay API 拉取无版权高清素材（两个素材源均已支持，通过 `video_source` 配置切换）+ 按配置的片段时长裁切素材+ 叠加字幕渲染（支持字体、颜色、描边自定义）+ 混合背景音乐（支持随机/指定）+ FFmpeg 编码输出最终视频（支持 9:16 竖屏和 16:9 横屏）#### 三、v1.2.8 重点更新解读（2026-05-28）这个版本距离 v1.2.7 仅一个月，但改进幅度很大。##### 3.1 LiteLLM 集成 --- 100+ 模型一键切换这是本次最重磅的更新。通过集成 LiteLLM，MoneyPrinterTurbo 的模型支持从十几个原生提供商扩展到 100+，包括 Anthropic Claude、AWS Bedrock、Google Vertex AI、Mistral、Cohere、Together AI 等。**配置方式**（基于 config.example.toml，LiteLLM 通过环境变量读取各提供商 API Key）：toml复制代码```bash[app]llm_provider = &quot;litellm&quot;# LiteLLM 配置项（具体字段名请以项目 config.example.toml 为准）# LiteLLM 通过环境变量自动读取各提供商的 API Key# 例如使用 Anthropic Claude：#   export ANTHROPIC_API_KEY=&quot;sk-ant-xxx&quot;#   然后在 model 配置中指定 &quot;claude-sonnet-4-20250514&quot;```LiteLLM 的核心价值在于：统一接口 + 自动 fallback + 成本追踪。支持的完整提供商列表见 [LiteLLM 文档](https://docs.litellm.ai/docs/providers)。##### 3.2 Grok/xAI 支持通过独立的 `grok` 提供商接入 xAI 的 Grok 模型，默认模型为 `grok-4.3`，API 端点为 `https://api.x.ai/v1`。toml复制代码```bash[app]grok_api_key = &quot;your-xai-api-key&quot;grok_model_name = &quot;grok-4.3&quot;grok_base_url = &quot;https://api.x.ai/v1&quot;```##### 3.3 WebUI 自定义音频上传现在可以直接在 Web 界面上传本地音频/旁白文件，跳过 LLM 文案 + TTS 环节，直接进入视频合成。这对已有录音素材的创作者非常友好。##### 3.4 安全加固+ 任务队列增加上限约束，防止资源耗尽+ 上传/下载文件路径校验加固，防止路径穿越攻击+ 默认禁用 g4f，改为显式可选依赖+ 外部请求恢复 TLS 验证（`tls_verify = true`）+ 新增针对文件路径、任务状态、LLM、素材、视频、语音的回归测试##### 3.5 其他改进+ 修复 Redis 任务分页和状态列表行为+ 修复 bundled ffmpeg 的自动发现机制+ 关闭音频时长探测后的文件句柄，避免泄漏+ 抑制 MoviePy 素材检查时的冗余输出+ 更新 Google Colab notebook 使用隔离的 uv 环境+ 支持 Docker 部署时覆盖 Redis host#### 四、三种部署方式实战##### 4.1 方式一：Docker 一键部署（推荐新手）bash复制代码```bash# 1. 克隆项目git clone https://github.com/harry0703/MoneyPrinterTurbo.gitcd MoneyPrinterTurbo# 2. 复制并修改配置文件cp config.example.toml config.toml# 编辑 config.toml，配置素材 API Key 和 llm_provider# 3. 启动（新版 Docker 自带 compose 插件）docker compose up```访问 `http://localhost:8501` 进入 WebUI，或 `http://localhost:8080/docs` 查看 API 文档。**注意事项**：+ Docker 会自动处理 ImageMagick、FFmpeg 等依赖+ v1.2.8 支持通过环境变量 `MPT_APP_REDIS_HOST` 或 `REDIS_HOST` 覆盖 Redis 地址+ Windows 用户需先安装 WSL2##### 4.2 方式二：uv 手动部署（推荐开发者）bash复制代码```bash# 1. 克隆项目git clone https://github.com/harry0703/MoneyPrinterTurbo.gitcd MoneyPrinterTurbo# 2. 安装 Python 3.11 并同步依赖uv python install 3.11uv sync --frozen# 3. 安装 ImageMagick# macOS:   brew install imagemagick# Ubuntu:  sudo apt-get install imagemagick# CentOS:  sudo yum install ImageMagick# Windows: 下载静态库版本安装（切记选 static 版本）# 4. 配置文件cp config.example.toml config.toml# 编辑 config.toml# 5. 启动 WebUIuv run streamlit run ./webui/Main.py --browser.gatherUsageStats=False# 或启动 API 服务uv run python main.py```**为什么推荐 uv？** v1.2.7 开始项目引入了 `pyproject.toml` + `uv.lock`，uv 是 Astral 团队开发的 Python 包管理器，速度比 pip 快 10-100 倍，且锁文件确保环境一致性。##### 4.3 方式三：Google Colab 免装环境直接点击 README 中的 Colab 徽章即可。v1.2.8 已更新 Colab notebook 使用隔离的 uv 环境（`uv sync --frozen --python 3.11`），避免与 Colab 全局依赖冲突。适合快速体验，不适合长期使用（Colab 有运行时限制）。##### 4.4 Windows 一键启动包目前提供的打包版本为 v1.2.6（较旧），下载后**务必先执行 `update.bat` 更新到最新代码** ，再执行 `start.bat` 启动。路径中不要包含中文、特殊字符或空格。#### 五、配置调优指南##### 5.1 关键配置项toml复制代码```bash[app]# 素材来源：pexels 或 pixabayvideo_source = &quot;pexels&quot;# 素材 API Key（必填，至少配一个源的 Key）pexels_api_keys = [&quot;your-pexels-key&quot;]pixabay_api_keys = []  # 或配置 Pixabay# LLM 提供商llm_provider = &quot;deepseek&quot;  # 国内推荐 deepseek 或 moonshot# 字幕引擎subtitle_provider = &quot;edge&quot;  # 快速；质量不佳时切换为 whisper# Edge TTS 超时（秒），防止卡死edge_tts_timeout = 30# TLS 验证（正常情况保持 true）tls_verify = true# ImageMagick 路径（Windows 必填）imagemagick_path = &quot;C:\\Program Files\\ImageMagick-7.1.1-Q16-HDRI\\magick.exe&quot;```##### 5.2 模型选择建议场景推荐模型原因国内快速出片DeepSeek（`deepseek-chat`）国内直连，性价比极高高质量文案GPT-4o / Claude（via LiteLLM）逻辑更缜密，文风更自然本地隐私优先Ollama + Qwen2.5数据不出本机免费体验Pollinations（无需 API Key）零成本入门多模型切换LiteLLM 网关一个接口管理所有模型##### 5.3 素材源选择通过 `video_source` 配置项切换：+ **Pexels**（默认）：素材库大，质量稳定，需注册 API Key（[https://www.pexels.com/api/）](https://www.pexels.com/api/%EF%BC%89)+ **Pixabay**：同样免费无版权，部分场景素材更丰富，需注册 API Key（[https://pixabay.com/api/docs/）](https://pixabay.com/api/docs/%EF%BC%89)+ 两者都支持多 Key 轮换（数组格式），避免触发速率限制+ 也可使用本地素材，跳过在线检索#### 六、常见问题排雷##### ❓ ffmpeg 找不到通常 ffmpeg 会被自动下载。如果失败，手动下载后在 config 中指定路径：toml复制代码```bash[app]ffmpeg_path = &quot;/usr/local/bin/ffmpeg&quot;```下载地址：[Builds - CODEX FFMPEG @ gyan.dev](https://www.gyan.dev/ffmpeg/builds/)##### ❓ ImageMagick 安全策略报错编辑 ImageMagick 的 `policy.xml`（通常在 `/etc/ImageMagick-7/` 或安装目录下），将包含 `pattern=&quot;@&quot;` 的条目从 `rights=&quot;none&quot;` 改为 `rights=&quot;read|write&quot;`。##### ❓ Whisper 模型下载失败国内网络无法直接访问 HuggingFace，可通过以下方式手动下载 `whisper-large-v3` 模型：+ 百度网盘：[百度网盘 请输入提取码](https://pan.baidu.com/s/11h3Q6tsDtjQKTjUu3sc5cA?pwd=xjs9)+ 夸克网盘：[夸克网盘分享](https://pan.quark.cn/s/3ee3d991d64b)解压到 `./models/whisper-large-v3/` 目录即可。##### ❓ OSError: Too many open filesbash复制代码```bashulimit -n 10240```##### ❓ 生成的视频素材与文案不匹配这是当前所有基于关键词检索的 AI 视频生成工具的通病。MoneyPrinterTurbo 从 Pexels/Pixabay 按关键词检索素材，语义匹配精度取决于关键词提取质量。建议：+ 调大 `video_clip_duration` 减少素材切换次数+ 使用更具体的主题关键词+ 或使用本地素材替代在线检索#### 七、与同类工具对比工具开源模型自由切换部署方式特点**MoneyPrinterTurbo**✅✅ 16 个原生 + 100+ via LiteLLMDocker/本地/Colab功能全面，社区活跃InVideo AI❌❌ 内置SaaS有水印，按月付费Pictory❌❌ 内置SaaS英文为主，价格高HeyGen❌❌ 内置SaaS数字人方向，非通用视频Clipchamp❌❌ 内置SaaS/桌面微软出品，功能偏基础MoneyPrinterTurbo 的核心优势：**开源 + 可私有化部署 + 模型自由切换 + 无版权素材 + 无水印**。#### 八、总结与展望MoneyPrinterTurbo 用一年多时间从一个实验性项目成长为 GitHub 热门项目。v1.2.8 的 LiteLLM 集成是质的飞跃------100+ 模型的统一接入意味着你永远可以找到最适合当前任务的模型，而不被任何单一供应商绑定。**下一步值得关注的方向**：+ AI 生成素材（如 Sora/Kling）替代 Pexels 检索素材，实现真正的&quot;从零生成&quot;+ 多轨时间线编辑，支持更复杂的视频结构+ 字幕样式 AI 自动匹配视频风格+ 更多素材源接入（如 Pixabay 已支持，未来可能接入更多）如果你正在做短视频内容创作、知识付费、或想搭建自己的 AI 视频生成服务，MoneyPrinterTurbo 是目前最值得投入时间研究的开源项目之一。**项目地址**：[https://github.com/harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo)&lt;img src=&quot;https://i-blog.csdnimg.cn/direct/9c2607ce80ca4f4d8a8ad5d4224ee3d2.png&quot; referrerpolicy=&quot;no-referrer&quot; alt=&quot;image&quot;&gt;</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> 教程 </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>前端框架全景解析（前端01）</title>
       <link href="/posts/qianduan520.html"/>
       <url>/posts/qianduan520.html</url>
@@ -985,9 +966,9 @@
             
             <tag> 框架 </tag>
             
-            <tag> 神级秘籍 </tag>
-            
             <tag> 前端 </tag>
+            
+            <tag> 神级秘籍 </tag>
             
         </tags>
       
@@ -996,33 +977,19 @@
     
     
     <entry>
-      <title>全编程语言主流后端框架（后端02）</title>
-      <link href="/posts/hduan520.html"/>
-      <url>/posts/hduan520.html</url>
+      <title>MoneyPrinterTurbo_深度解析与部署实战：AI_一键短视频生成，从源码到上线全攻略 - MoneyPrinterTurbo - 教程</title>
+      <link href="/posts/MoneyPrinterTurbo123456.html"/>
+      <url>/posts/MoneyPrinterTurbo123456.html</url>
       
-        <content type="html"><![CDATA[<h1>全编程语言主流后端框架全景解析</h1><p>本文档为<strong>最新完整版后端框架汇总</strong>，覆盖 Java、Go、Python、Node.js、PHP、Rust、C# 七大主流后端编程语言。所有框架均标注<strong>出品方、最新稳定版本、核心优势、核心劣势、适用场景</strong>，适配求职、项目选型、技术栈搭建，与前端全景文档配套，形成完整全栈技术手册。</p><hr><h1>一、Java 后端生态（企业级霸主、就业最多）</h1><p>Java 后端主打<strong>稳定、高可用、强事务、微服务成熟</strong>，是金融、政企、大型互联网企业核心技术栈，生态最完善、岗位基数最大。</p><h2 id="1-Spring-Boot-Spring-Cloud">1. Spring Boot / Spring Cloud</h2><ul><li><p><strong>出品方</strong>：VMware（Pivotal）开源维护，Java 生态官方标杆框架</p></li><li><p><strong>最新稳定版</strong>：Spring Boot 3.4+、Spring Cloud 2024.0.x</p></li><li><p><strong>核心优势</strong></p><ul><li><p>零配置自动装配，快速开发单体、微服务项目，开箱即用</p></li><li><p>生态全网最全，中间件、插件、适配方案全覆盖，无技术盲区</p></li><li><p>支持虚拟线程、GraalVM 原生镜像，大幅提升高并发性能</p></li><li><p>Spring Cloud 整套微服务体系：注册中心、网关、配置中心、熔断限流全覆盖</p></li><li><p>金融、政企级别稳定性，高可用、高并发、事务一致性极强</p></li></ul></li><li><p><strong>核心劣势</strong>：代码冗余、启动速度慢、项目臃肿，轻量场景开发效率偏低</p></li><li><p><strong>适用场景</strong>：大型微服务、金融支付、政企系统、电商后台、高可用企业级项目</p></li></ul><h2 id="2-Quarkus（Java-云原生新星）">2. Quarkus（Java 云原生新星）</h2><ul><li><p><strong>出品方</strong>：RedHat（红帽）官方开源</p></li><li><p><strong>最新稳定版</strong>：Quarkus 3.10+</p></li><li><p><strong>核心优势</strong></p><ul><li><p>专为云原生、容器、K8s 设计，启动速度毫秒级，内存占用极低</p></li><li><p>支持 GraalVM 原生编译，性能远超传统 Spring 项目</p></li><li><p>兼容 Spring 语法，学习迁移成本极低</p></li></ul></li><li><p><strong>核心劣势</strong>：生态不如 Spring 完善，小众中间件适配少</p></li><li><p><strong>适用场景</strong>：云原生微服务、Serverless、容器化部署、轻量化 Java 服务</p></li></ul><h2 id="3-Micronaut">3. Micronaut</h2><ul><li><p><strong>出品方</strong>：Micronaut 社区开源</p></li><li><p><strong>最新稳定版</strong>：Micronaut 4.6+</p></li><li><p><strong>核心优势</strong>：无反射、低内存、极速启动，云原生性能优异，支持多语言</p></li><li><p><strong>核心劣势</strong>：国内就业少、生态小众、资料稀缺</p></li><li><p><strong>适用场景</strong>：高性能轻量化 Java 微服务、边缘服务</p></li></ul><hr><h1>二、Go 后端生态（高性能、云原生第一）</h1><p>Go 主打<strong>超高并发、轻量、编译快、部署简单</strong>，是云原生、微服务、中间件、高并发接口首选语言。</p><h2 id="1-Gin（国内Go主流第一）">1. Gin（国内Go主流第一）</h2><ul><li><p><strong>出品方</strong>：Go 社区开源，国内大厂普遍采用</p></li><li><p><strong>最新稳定版</strong>：Gin 1.9+</p></li><li><p><strong>核心优势</strong></p><ul><li><p>Go 生态最主流 Web 框架，路由性能极致，适配高并发场景</p></li><li><p>中间件生态成熟（日志、鉴权、限流、跨域），开箱即用</p></li><li><p>语法简单、上手极快，国内文档、项目案例极其丰富</p></li></ul></li><li><p><strong>核心劣势</strong>：无官方全套解决方案，大型项目需自行封装架构</p></li><li><p><strong>适用场景</strong>：互联网高并发接口、网关服务、中台接口、中小型微服务</p></li></ul><h2 id="2-Echo">2. Echo</h2><ul><li><p><strong>出品方</strong>：社区开源，海外主流 Go 框架</p></li><li><p><strong>最新稳定版</strong>：Echo 4.12+</p></li><li><p><strong>核心优势</strong>：性能极强、API 简洁、中间件完善、标准化程度高</p></li><li><p><strong>核心劣势</strong>：国内热度低于 Gin，生态相对小众</p></li><li><p><strong>适用场景</strong>：海外项目、标准化 RESTful API 服务</p></li></ul><h2 id="3-Kitex（字节官方）">3. Kitex（字节官方）</h2><ul><li><p><strong>出品方</strong>：字节跳动官方开源</p></li><li><p><strong>最新稳定版</strong>：Kitex 0.11+</p></li><li><p><strong>核心优势</strong>：Go 生态最强 RPC 微服务框架，超高性能、适配海量并发，字节内部全量使用</p></li><li><p><strong>核心劣势</strong>：偏重微服务 RPC，普通 Web 项目略显厚重</p></li><li><p><strong>适用场景</strong>：大型互联网微服务、RPC 服务、超高并发中台</p></li></ul><h2 id="4-Hertz（字节Web框架）">4. Hertz（字节Web框架）</h2><ul><li><p><strong>出品方</strong>：字节跳动官方开源</p></li><li><p><strong>最新稳定版</strong>：Hertz 1.2+</p></li><li><p><strong>核心优势</strong>：国产高性能 Web 框架，性能超越 Gin，适配大型企业级 Web 服务</p></li><li><p><strong>核心劣势</strong>：生态仍在完善中，小众场景适配少</p></li><li><p><strong>适用场景</strong>：大型企业 Web 服务、高并发网关、中台系统</p></li></ul><hr><h1>三、Python 后端生态（AI、快速开发首选）</h1><p>Python 主打<strong>开发速度快、语法简洁、AI 生态无敌</strong>，是人工智能、数据分析、快速迭代项目首选。</p><h2 id="1-FastAPI（当前Python顶流）">1. FastAPI（当前Python顶流）</h2><ul><li><p><strong>出品方</strong>：Sebastián Ramírez 开源社区维护</p></li><li><p><strong>最新稳定版</strong>：FastAPI 0.110+</p></li><li><p><strong>核心优势</strong></p><ul><li><p>原生异步、性能媲美 Go，是 Python 最快 Web 框架</p></li><li><p>自动生成 Swagger 接口文档、类型校验、开箱即用</p></li><li><p>AI 项目标配，适配 LLM、向量检索、智能问答后端</p></li></ul></li><li><p><strong>核心劣势</strong>：大型传统企业业务落地案例少于 Django</p></li><li><p><strong>适用场景</strong>：AI 后端、LLM 服务、智能接口、快速迭代 API、高并发轻量服务</p></li></ul><h2 id="2-Django（全能重型框架）">2. Django（全能重型框架）</h2><ul><li><p><strong>出品方</strong>：Django 官方社区，老牌开源框架</p></li><li><p><strong>最新稳定版</strong>：Django 5.1+</p></li><li><p><strong>核心优势</strong>：内置 Admin 后台、ORM、权限、登录、安全机制，全能全家桶，开发后台系统极快</p></li><li><p><strong>核心劣势</strong>：同步为主，高并发性能一般，框架较重</p></li><li><p><strong>适用场景</strong>：管理后台、内容系统、博客、传统企业业务系统</p></li></ul><h2 id="3-Flask（轻量极简）">3. Flask（轻量极简）</h2><ul><li><p><strong>出品方</strong>：Armin Ronacher 开源</p></li><li><p><strong>最新稳定版</strong>：Flask 3.0+</p></li><li><p><strong>核心优势</strong>：极简轻量、灵活自由，按需扩展插件，学习成本极低</p></li><li><p><strong>核心劣势</strong>：裸框架能力弱，大型项目需大量手动封装</p></li><li><p><strong>适用场景</strong>：小型接口、原型开发、简单后台、轻量化服务</p></li></ul><hr><h1>四、Node.js 后端生态（全栈统一、TS 首选）</h1><p>Node.js 主打<strong>前后端同栈、TypeScript 友好、开发效率高</strong>，适合全栈项目、B端后台、实时服务。</p><h2 id="1-NestJS（企业级TS后端王者）">1. NestJS（企业级TS后端王者）</h2><ul><li><p><strong>出品方</strong>：Kamil Mysliwiec 开源，社区主导维护</p></li><li><p><strong>最新稳定版</strong>：NestJS 11+</p></li><li><p><strong>核心优势</strong></p><ul><li><p>100% TypeScript 原生，模块化、依赖注入，架构极度规范</p></li><li><p>适配微服务、RPC、网关，企业级大型项目首选</p></li><li><p>和前端 TS/Next.js 技术栈无缝统一，全栈开发效率拉满</p></li></ul></li><li><p><strong>核心劣势</strong>：学习成本高，小型项目略显笨重</p></li><li><p><strong>适用场景</strong>：大型 SaaS、企业后台、TS 全栈项目、微服务系统</p></li></ul><h2 id="2-Fastify（高性能Node框架）">2. Fastify（高性能Node框架）</h2><ul><li><p><strong>出品方</strong>：OpenJS 基金会开源</p></li><li><p><strong>最新稳定版</strong>：Fastify 5+</p></li><li><p><strong>核心优势</strong>：性能远超 Express，低开销、高并发、插件生态丰富</p></li><li><p><strong>核心劣势</strong>：规范度不如 NestJS，大型架构需自行约束</p></li><li><p><strong>适用场景</strong>：高并发 API、实时服务、轻量化 Node 后端</p></li></ul><h2 id="3-Express（经典老牌）">3. Express（经典老牌）</h2><ul><li><p><strong>出品方</strong>：OpenJS 基金会</p></li><li><p><strong>最新稳定版</strong>：Express 4.19+</p></li><li><p><strong>核心优势</strong>：极简、稳定、生态极大，兼容性最强</p></li><li><p><strong>核心劣势</strong>：无架构规范，大型项目易混乱，性能一般</p></li><li><p><strong>适用场景</strong>：小型接口、老项目维护、快速原型开发</p></li></ul><h2 id="4-Hono（边缘轻量新星）">4. Hono（边缘轻量新星）</h2><ul><li><p><strong>出品方</strong>：Yusuke Wada 开源</p></li><li><p><strong>最新稳定版</strong>：Hono 4+</p></li><li><p><strong>核心优势</strong>：超轻量、多运行时适配（Node/Cloudflare/Vercel），边缘服务首选</p></li><li><p><strong>核心劣势</strong>：企业级大型项目落地案例少</p></li><li><p><strong>适用场景</strong>：边缘函数、Serverless、轻量 API 服务</p></li></ul><hr><h1>五、PHP 后端生态（快速建站、中小企业首选）</h1><p>PHP 主打<strong>开发快、部署简单、建站成本低</strong>，是官网、商城、中小企业后台主流技术栈。</p><h2 id="1-Laravel（PHP-绝对主流）">1. Laravel（PHP 绝对主流）</h2><ul><li><p><strong>出品方</strong>：Taylor Otwell 主导开源</p></li><li><p><strong>最新稳定版</strong>：Laravel 11+</p></li><li><p><strong>核心优势</strong>：语法优雅、全家桶齐全（路由、ORM、队列、权限、验证），开发效率极高</p></li><li><p><strong>核心劣势</strong>：高并发大型项目性能偏弱</p></li><li><p><strong>适用场景</strong>：企业官网、商城、中小型后台、快速迭代 Web 项目</p></li></ul><h2 id="2-ThinkPHP（国产PHP框架）">2. ThinkPHP（国产PHP框架）</h2><ul><li><p><strong>出品方</strong>：中国 ThinkPHP 团队开源</p></li><li><p><strong>最新稳定版</strong>：ThinkPHP 8+</p></li><li><p><strong>核心优势</strong>：中文文档完善、上手简单、国内中小企业生态成熟</p></li><li><p><strong>核心劣势</strong>：海外生态弱，大型高端项目使用少</p></li><li><p><strong>适用场景</strong>：国内中小企业网站、后台管理、外包项目</p></li></ul><hr><h1>六、Rust 后端生态（极致性能、安全新星）</h1><p>Rust 主打<strong>无内存泄漏、极致性能、高安全、高并发</strong>，是底层服务、高性能中间件、区块链、边缘服务未来趋势技术栈。</p><h2 id="1-Axum（Rust-主流Web框架）">1. Axum（Rust 主流Web框架）</h2><ul><li><p><strong>出品方</strong>：Tokio 团队官方开源</p></li><li><p><strong>最新稳定版</strong>：Axum 0.7+</p></li><li><p><strong>核心优势</strong>：基于 Tokio 异步运行时，性能极致、安全稳定、语法简洁</p></li><li><p><strong>核心劣势</strong>：学习曲线极陡，开发周期长，生态不如主流语言</p></li><li><p><strong>适用场景</strong>：高性能网关、底层服务、边缘计算、高安全接口</p></li></ul><h2 id="2-Rocket">2. Rocket</h2><ul><li><p><strong>出品方</strong>：社区开源</p></li><li><p><strong>最新稳定版</strong>：Rocket 0.5+</p></li><li><p><strong>核心优势</strong>：语法极简、开发体验好，适配快速开发 Rust 服务</p></li><li><p><strong>核心劣势</strong>：异步支持不如 Axum 成熟</p></li><li><p><strong>适用场景</strong>：Rust 入门项目、轻量化高性能服务</p></li></ul><hr><h1>七、C#/.NET 后端生态（Windows生态、政企、跨平台）</h1><p>C# /.NET 主打<strong>跨平台、语法优雅、政企生态完善、全栈能力强</strong>，适配 Windows 生态项目、传统政企系统、游戏后端。</p><h2 id="1-ASP-NET-Core">1. ASP.NET Core</h2><ul><li><p><strong>出品方</strong>：微软官方开源</p></li><li><p><strong>最新稳定版</strong>：.NET 9 / ASP.NET Core 9.0+</p></li><li><p><strong>核心优势</strong>：跨平台、高性能、内置依赖注入、ORM、鉴权，企业级规范完善</p></li><li><p><strong>核心劣势</strong>：国内互联网岗位少于 Java/Go，开源生态相对封闭</p></li><li><p><strong>适用场景</strong>：政企系统、Windows 生态项目、游戏后端、传统企业软件</p></li></ul><hr><h1>八、2026后端框架选型总结（速记版）</h1><ul><li><p><strong>Java Spring Boot</strong>：VMware，企业级稳定、生态最全，求职首选、大型项目标配</p></li><li><p><strong>Go Gin/Hertz</strong>：社区/字节，超高并发、云原生、轻量高效，互联网高并发首选</p></li><li><p><strong>Python FastAPI</strong>：社区，异步高性能、自动文档、AI 项目绝对主流</p></li><li><p><strong>Node NestJS</strong>：社区，TS 全栈、架构规范，企业级全栈项目首选</p></li><li><p><strong>PHP Laravel</strong>：开源大神，开发快、建站神器，中小企业快速落地首选</p></li><li><p><strong>Rust Axum</strong>：Tokio团队，极致性能、安全，底层/边缘/高安全场景首选</p></li><li><p><strong>C# ASP.NET Core</strong>：微软，政企、Windows生态、游戏后端专用</p></li></ul>]]></content>
+        <content type="html"><![CDATA[<h4 id="一、为什么-MoneyPrinterTurbo-值得关注？">一、为什么 MoneyPrinterTurbo 值得关注？</h4><p>2025-2026年，AI 内容创作赛道持续火热。据《2025年中国AI内容创作行业发展白皮书》数据显示，国内 AI 内容创作市场规模预计达 210 亿元，其中短视频 AI 生成领域占比超 40%，年增长率高达 62.3%（<em>数据来源：行业研究报告，仅供参考</em>）。在这个赛道上，MoneyPrinterTurbo 用一个极其简洁的承诺切入：</p><p><strong>只需提供一个主题或关键词，全自动生成视频文案、视频素材、字幕、背景音乐，合成高清短视频。</strong></p><p>这不是 demo，而是一个完整的、可部署的产品。</p><h5 id="项目数据一览">项目数据一览</h5><p>指标数值GitHub Stars23,000+（截至 2026 年 5 月，具体数字以 <a href="https://github.com/harry0703/MoneyPrinterTurbo">GitHub 页面</a> 实时显示为准）最新版本v1.2.8（2026-05-28）许可证开源主要语言Python 3.11原生支持的 LLM 提供商16 个（含 LiteLLM 网关可扩展至 100+）</p><h4 id="二、架构深度拆解">二、架构深度拆解</h4><p>MoneyPrinterTurbo 采用经典的 <strong>MVC 架构</strong>，但在此基础上做了视频生成领域的特化设计。</p><h5 id="2-1-整体架构">2.1 整体架构</h5><p>复制代码</p><pre><code class="language-bash">┌─────────────────────────────────────────────────┐│                   用户入口层                       ││    Streamlit WebUI  /  FastAPI REST API           │└─────────────┬───────────────────┬───────────────┘              │                   │┌─────────────▼───────────────────▼───────────────┐│                  控制器层 (Controller)             ││         任务队列 / 批量调度 / 状态管理              │└──────┬────────┬────────┬────────┬───────────────┘       │        │        │        │┌──────▼──┐ ┌───▼───┐ ┌──▼───┐ ┌─▼──────────┐│ LLM 文案 │ │ TTS   │ │ 字幕 │ │ 素材检索    ││ 生成模块 │ │ 语音  │ │ 生成 │ │ (Pexels/   ││         │ │ 合成  │ │      │ │  Pixabay)  │└─────────┘ └───────┘ └──────┘ └────────────┘              │┌─────────────▼───────────────────────────────────┐│                视频合成层 (View)                    ││   MoviePy + ImageMagick + FFmpeg                  ││   素材拼接 → 字幕渲染 → 音频混合 → 最终导出         │└─────────────────────────────────────────────────┘```##### 2.2 核心模块解析① LLM 文案生成模块这是整个流水线的&quot;大脑&quot;。项目通过统一的 LLM 适配层支持多种大模型，所有提供商的切换仅需修改 `config.toml` 中的 `llm_provider` 字段，业务代码零改动。**原生支持的 16 个提供商**（来自 config.example.toml 和 [llm.py](http://llm.py/) 源码）：提供商config 值说明OpenAI`openai`同时支持 OpenRouter 等兼容接口Moonshot`moonshot`月之暗面，国内直连Azure OpenAI`azure`微软企业级部署通义千问`qwen`阿里云 DashScopeDeepSeek`deepseek`国内推荐，性价比极高Google Gemini`gemini`默认模型 `gemini-2.5-flash`Ollama`ollama`本地部署任意开源模型Grok/xAI`grok`默认模型 `grok-4.3`，base_url `https://api.x.ai/v1`MiniMax`minimax`默认模型 `MiniMax-M2.7`文心一言`ernie`百度大模型Cloudflare`cloudflare`Workers AIModelScope`modelscope`魔搭社区，默认 `Qwen/Qwen3-32B`OneAPI`oneapi`统一 API 网关Pollinations`pollinations`免费，API Key 可选，默认模型 `openai-fast`LiteLLM`litellm`**v1.2.8 新增**，网关接入 100+ 提供商g4f`g4f`默认禁用，需显式开启**注意** ：g4f（GPT4Free）依赖逆向工程的第三方接口，存在供应链和合规风险。v1.2.8 起默认禁用，必须在 config 中设置 `enable_g4f = true` 才能使用，且需要额外安装可选依赖 `uv sync --extra g4f`。② TTS 语音合成模块支持两种引擎：+ **Edge TTS** ：免费、速度快，微软 Edge 浏览器同款引擎，适合快速出片。v1.2.8 新增了 `edge_tts_timeout` 配置项（默认 30 秒），解决了网络异常时 Edge TTS 流式请求无限挂起的问题。+ **Azure TTS**：付费但质量更高，v1.1.2 新增 9 种真人级合成声音。③ 字幕生成模块两种方案可选：+ **edge 模式**：基于 TTS 时间戳对齐，速度快，无需 GPU+ **whisper 模式**：使用 OpenAI Whisper Large-V3 本地转录，精度更高但需要约 3GB 模型文件v1.2.8 修复了千分位数字（如 `1,000`）被错误断句的问题------这在财经类视频中尤为关键。④ 视频合成模块核心依赖链：`MoviePy → ImageMagick → FFmpeg`工作流程：+ 根据文案关键词从 Pexels 或 Pixabay API 拉取无版权高清素材（两个素材源均已支持，通过 `video_source` 配置切换）+ 按配置的片段时长裁切素材+ 叠加字幕渲染（支持字体、颜色、描边自定义）+ 混合背景音乐（支持随机/指定）+ FFmpeg 编码输出最终视频（支持 9:16 竖屏和 16:9 横屏）#### 三、v1.2.8 重点更新解读（2026-05-28）这个版本距离 v1.2.7 仅一个月，但改进幅度很大。##### 3.1 LiteLLM 集成 --- 100+ 模型一键切换这是本次最重磅的更新。通过集成 LiteLLM，MoneyPrinterTurbo 的模型支持从十几个原生提供商扩展到 100+，包括 Anthropic Claude、AWS Bedrock、Google Vertex AI、Mistral、Cohere、Together AI 等。**配置方式**（基于 config.example.toml，LiteLLM 通过环境变量读取各提供商 API Key）：toml复制代码```bash[app]llm_provider = &quot;litellm&quot;# LiteLLM 配置项（具体字段名请以项目 config.example.toml 为准）# LiteLLM 通过环境变量自动读取各提供商的 API Key# 例如使用 Anthropic Claude：#   export ANTHROPIC_API_KEY=&quot;sk-ant-xxx&quot;#   然后在 model 配置中指定 &quot;claude-sonnet-4-20250514&quot;```LiteLLM 的核心价值在于：统一接口 + 自动 fallback + 成本追踪。支持的完整提供商列表见 [LiteLLM 文档](https://docs.litellm.ai/docs/providers)。##### 3.2 Grok/xAI 支持通过独立的 `grok` 提供商接入 xAI 的 Grok 模型，默认模型为 `grok-4.3`，API 端点为 `https://api.x.ai/v1`。toml复制代码```bash[app]grok_api_key = &quot;your-xai-api-key&quot;grok_model_name = &quot;grok-4.3&quot;grok_base_url = &quot;https://api.x.ai/v1&quot;```##### 3.3 WebUI 自定义音频上传现在可以直接在 Web 界面上传本地音频/旁白文件，跳过 LLM 文案 + TTS 环节，直接进入视频合成。这对已有录音素材的创作者非常友好。##### 3.4 安全加固+ 任务队列增加上限约束，防止资源耗尽+ 上传/下载文件路径校验加固，防止路径穿越攻击+ 默认禁用 g4f，改为显式可选依赖+ 外部请求恢复 TLS 验证（`tls_verify = true`）+ 新增针对文件路径、任务状态、LLM、素材、视频、语音的回归测试##### 3.5 其他改进+ 修复 Redis 任务分页和状态列表行为+ 修复 bundled ffmpeg 的自动发现机制+ 关闭音频时长探测后的文件句柄，避免泄漏+ 抑制 MoviePy 素材检查时的冗余输出+ 更新 Google Colab notebook 使用隔离的 uv 环境+ 支持 Docker 部署时覆盖 Redis host#### 四、三种部署方式实战##### 4.1 方式一：Docker 一键部署（推荐新手）bash复制代码```bash# 1. 克隆项目git clone https://github.com/harry0703/MoneyPrinterTurbo.gitcd MoneyPrinterTurbo# 2. 复制并修改配置文件cp config.example.toml config.toml# 编辑 config.toml，配置素材 API Key 和 llm_provider# 3. 启动（新版 Docker 自带 compose 插件）docker compose up```访问 `http://localhost:8501` 进入 WebUI，或 `http://localhost:8080/docs` 查看 API 文档。**注意事项**：+ Docker 会自动处理 ImageMagick、FFmpeg 等依赖+ v1.2.8 支持通过环境变量 `MPT_APP_REDIS_HOST` 或 `REDIS_HOST` 覆盖 Redis 地址+ Windows 用户需先安装 WSL2##### 4.2 方式二：uv 手动部署（推荐开发者）bash复制代码```bash# 1. 克隆项目git clone https://github.com/harry0703/MoneyPrinterTurbo.gitcd MoneyPrinterTurbo# 2. 安装 Python 3.11 并同步依赖uv python install 3.11uv sync --frozen# 3. 安装 ImageMagick# macOS:   brew install imagemagick# Ubuntu:  sudo apt-get install imagemagick# CentOS:  sudo yum install ImageMagick# Windows: 下载静态库版本安装（切记选 static 版本）# 4. 配置文件cp config.example.toml config.toml# 编辑 config.toml# 5. 启动 WebUIuv run streamlit run ./webui/Main.py --browser.gatherUsageStats=False# 或启动 API 服务uv run python main.py```**为什么推荐 uv？** v1.2.7 开始项目引入了 `pyproject.toml` + `uv.lock`，uv 是 Astral 团队开发的 Python 包管理器，速度比 pip 快 10-100 倍，且锁文件确保环境一致性。##### 4.3 方式三：Google Colab 免装环境直接点击 README 中的 Colab 徽章即可。v1.2.8 已更新 Colab notebook 使用隔离的 uv 环境（`uv sync --frozen --python 3.11`），避免与 Colab 全局依赖冲突。适合快速体验，不适合长期使用（Colab 有运行时限制）。##### 4.4 Windows 一键启动包目前提供的打包版本为 v1.2.6（较旧），下载后**务必先执行 `update.bat` 更新到最新代码** ，再执行 `start.bat` 启动。路径中不要包含中文、特殊字符或空格。#### 五、配置调优指南##### 5.1 关键配置项toml复制代码```bash[app]# 素材来源：pexels 或 pixabayvideo_source = &quot;pexels&quot;# 素材 API Key（必填，至少配一个源的 Key）pexels_api_keys = [&quot;your-pexels-key&quot;]pixabay_api_keys = []  # 或配置 Pixabay# LLM 提供商llm_provider = &quot;deepseek&quot;  # 国内推荐 deepseek 或 moonshot# 字幕引擎subtitle_provider = &quot;edge&quot;  # 快速；质量不佳时切换为 whisper# Edge TTS 超时（秒），防止卡死edge_tts_timeout = 30# TLS 验证（正常情况保持 true）tls_verify = true# ImageMagick 路径（Windows 必填）imagemagick_path = &quot;C:\\Program Files\\ImageMagick-7.1.1-Q16-HDRI\\magick.exe&quot;```##### 5.2 模型选择建议场景推荐模型原因国内快速出片DeepSeek（`deepseek-chat`）国内直连，性价比极高高质量文案GPT-4o / Claude（via LiteLLM）逻辑更缜密，文风更自然本地隐私优先Ollama + Qwen2.5数据不出本机免费体验Pollinations（无需 API Key）零成本入门多模型切换LiteLLM 网关一个接口管理所有模型##### 5.3 素材源选择通过 `video_source` 配置项切换：+ **Pexels**（默认）：素材库大，质量稳定，需注册 API Key（[https://www.pexels.com/api/）](https://www.pexels.com/api/%EF%BC%89)+ **Pixabay**：同样免费无版权，部分场景素材更丰富，需注册 API Key（[https://pixabay.com/api/docs/）](https://pixabay.com/api/docs/%EF%BC%89)+ 两者都支持多 Key 轮换（数组格式），避免触发速率限制+ 也可使用本地素材，跳过在线检索#### 六、常见问题排雷##### ❓ ffmpeg 找不到通常 ffmpeg 会被自动下载。如果失败，手动下载后在 config 中指定路径：toml复制代码```bash[app]ffmpeg_path = &quot;/usr/local/bin/ffmpeg&quot;```下载地址：[Builds - CODEX FFMPEG @ gyan.dev](https://www.gyan.dev/ffmpeg/builds/)##### ❓ ImageMagick 安全策略报错编辑 ImageMagick 的 `policy.xml`（通常在 `/etc/ImageMagick-7/` 或安装目录下），将包含 `pattern=&quot;@&quot;` 的条目从 `rights=&quot;none&quot;` 改为 `rights=&quot;read|write&quot;`。##### ❓ Whisper 模型下载失败国内网络无法直接访问 HuggingFace，可通过以下方式手动下载 `whisper-large-v3` 模型：+ 百度网盘：[百度网盘 请输入提取码](https://pan.baidu.com/s/11h3Q6tsDtjQKTjUu3sc5cA?pwd=xjs9)+ 夸克网盘：[夸克网盘分享](https://pan.quark.cn/s/3ee3d991d64b)解压到 `./models/whisper-large-v3/` 目录即可。##### ❓ OSError: Too many open filesbash复制代码```bashulimit -n 10240```##### ❓ 生成的视频素材与文案不匹配这是当前所有基于关键词检索的 AI 视频生成工具的通病。MoneyPrinterTurbo 从 Pexels/Pixabay 按关键词检索素材，语义匹配精度取决于关键词提取质量。建议：+ 调大 `video_clip_duration` 减少素材切换次数+ 使用更具体的主题关键词+ 或使用本地素材替代在线检索#### 七、与同类工具对比工具开源模型自由切换部署方式特点**MoneyPrinterTurbo**✅✅ 16 个原生 + 100+ via LiteLLMDocker/本地/Colab功能全面，社区活跃InVideo AI❌❌ 内置SaaS有水印，按月付费Pictory❌❌ 内置SaaS英文为主，价格高HeyGen❌❌ 内置SaaS数字人方向，非通用视频Clipchamp❌❌ 内置SaaS/桌面微软出品，功能偏基础MoneyPrinterTurbo 的核心优势：**开源 + 可私有化部署 + 模型自由切换 + 无版权素材 + 无水印**。#### 八、总结与展望MoneyPrinterTurbo 用一年多时间从一个实验性项目成长为 GitHub 热门项目。v1.2.8 的 LiteLLM 集成是质的飞跃------100+ 模型的统一接入意味着你永远可以找到最适合当前任务的模型，而不被任何单一供应商绑定。**下一步值得关注的方向**：+ AI 生成素材（如 Sora/Kling）替代 Pexels 检索素材，实现真正的&quot;从零生成&quot;+ 多轨时间线编辑，支持更复杂的视频结构+ 字幕样式 AI 自动匹配视频风格+ 更多素材源接入（如 Pixabay 已支持，未来可能接入更多）如果你正在做短视频内容创作、知识付费、或想搭建自己的 AI 视频生成服务，MoneyPrinterTurbo 是目前最值得投入时间研究的开源项目之一。**项目地址**：[https://github.com/harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo)&lt;img src=&quot;https://i-blog.csdnimg.cn/direct/9c2607ce80ca4f4d8a8ad5d4224ee3d2.png&quot; referrerpolicy=&quot;no-referrer&quot; alt=&quot;image&quot;&gt;</code></pre>]]></content>
       
       
       <categories>
           
           <category> 教程 </category>
           
-          <category> 工具 </category>
-          
       </categories>
       
-      
-        <tags>
-            
-            <tag> 教程 </tag>
-            
-            <tag> 框架 </tag>
-            
-            <tag> 后端 </tag>
-            
-            <tag> 神级秘籍 </tag>
-            
-        </tags>
       
     </entry>
     
@@ -1056,6 +1023,39 @@
     
     
     <entry>
+      <title>全编程语言主流后端框架（后端02）</title>
+      <link href="/posts/hduan520.html"/>
+      <url>/posts/hduan520.html</url>
+      
+        <content type="html"><![CDATA[<h1>全编程语言主流后端框架全景解析</h1><p>本文档为<strong>最新完整版后端框架汇总</strong>，覆盖 Java、Go、Python、Node.js、PHP、Rust、C# 七大主流后端编程语言。所有框架均标注<strong>出品方、最新稳定版本、核心优势、核心劣势、适用场景</strong>，适配求职、项目选型、技术栈搭建，与前端全景文档配套，形成完整全栈技术手册。</p><hr><h1>一、Java 后端生态（企业级霸主、就业最多）</h1><p>Java 后端主打<strong>稳定、高可用、强事务、微服务成熟</strong>，是金融、政企、大型互联网企业核心技术栈，生态最完善、岗位基数最大。</p><h2 id="1-Spring-Boot-Spring-Cloud">1. Spring Boot / Spring Cloud</h2><ul><li><p><strong>出品方</strong>：VMware（Pivotal）开源维护，Java 生态官方标杆框架</p></li><li><p><strong>最新稳定版</strong>：Spring Boot 3.4+、Spring Cloud 2024.0.x</p></li><li><p><strong>核心优势</strong></p><ul><li><p>零配置自动装配，快速开发单体、微服务项目，开箱即用</p></li><li><p>生态全网最全，中间件、插件、适配方案全覆盖，无技术盲区</p></li><li><p>支持虚拟线程、GraalVM 原生镜像，大幅提升高并发性能</p></li><li><p>Spring Cloud 整套微服务体系：注册中心、网关、配置中心、熔断限流全覆盖</p></li><li><p>金融、政企级别稳定性，高可用、高并发、事务一致性极强</p></li></ul></li><li><p><strong>核心劣势</strong>：代码冗余、启动速度慢、项目臃肿，轻量场景开发效率偏低</p></li><li><p><strong>适用场景</strong>：大型微服务、金融支付、政企系统、电商后台、高可用企业级项目</p></li></ul><h2 id="2-Quarkus（Java-云原生新星）">2. Quarkus（Java 云原生新星）</h2><ul><li><p><strong>出品方</strong>：RedHat（红帽）官方开源</p></li><li><p><strong>最新稳定版</strong>：Quarkus 3.10+</p></li><li><p><strong>核心优势</strong></p><ul><li><p>专为云原生、容器、K8s 设计，启动速度毫秒级，内存占用极低</p></li><li><p>支持 GraalVM 原生编译，性能远超传统 Spring 项目</p></li><li><p>兼容 Spring 语法，学习迁移成本极低</p></li></ul></li><li><p><strong>核心劣势</strong>：生态不如 Spring 完善，小众中间件适配少</p></li><li><p><strong>适用场景</strong>：云原生微服务、Serverless、容器化部署、轻量化 Java 服务</p></li></ul><h2 id="3-Micronaut">3. Micronaut</h2><ul><li><p><strong>出品方</strong>：Micronaut 社区开源</p></li><li><p><strong>最新稳定版</strong>：Micronaut 4.6+</p></li><li><p><strong>核心优势</strong>：无反射、低内存、极速启动，云原生性能优异，支持多语言</p></li><li><p><strong>核心劣势</strong>：国内就业少、生态小众、资料稀缺</p></li><li><p><strong>适用场景</strong>：高性能轻量化 Java 微服务、边缘服务</p></li></ul><hr><h1>二、Go 后端生态（高性能、云原生第一）</h1><p>Go 主打<strong>超高并发、轻量、编译快、部署简单</strong>，是云原生、微服务、中间件、高并发接口首选语言。</p><h2 id="1-Gin（国内Go主流第一）">1. Gin（国内Go主流第一）</h2><ul><li><p><strong>出品方</strong>：Go 社区开源，国内大厂普遍采用</p></li><li><p><strong>最新稳定版</strong>：Gin 1.9+</p></li><li><p><strong>核心优势</strong></p><ul><li><p>Go 生态最主流 Web 框架，路由性能极致，适配高并发场景</p></li><li><p>中间件生态成熟（日志、鉴权、限流、跨域），开箱即用</p></li><li><p>语法简单、上手极快，国内文档、项目案例极其丰富</p></li></ul></li><li><p><strong>核心劣势</strong>：无官方全套解决方案，大型项目需自行封装架构</p></li><li><p><strong>适用场景</strong>：互联网高并发接口、网关服务、中台接口、中小型微服务</p></li></ul><h2 id="2-Echo">2. Echo</h2><ul><li><p><strong>出品方</strong>：社区开源，海外主流 Go 框架</p></li><li><p><strong>最新稳定版</strong>：Echo 4.12+</p></li><li><p><strong>核心优势</strong>：性能极强、API 简洁、中间件完善、标准化程度高</p></li><li><p><strong>核心劣势</strong>：国内热度低于 Gin，生态相对小众</p></li><li><p><strong>适用场景</strong>：海外项目、标准化 RESTful API 服务</p></li></ul><h2 id="3-Kitex（字节官方）">3. Kitex（字节官方）</h2><ul><li><p><strong>出品方</strong>：字节跳动官方开源</p></li><li><p><strong>最新稳定版</strong>：Kitex 0.11+</p></li><li><p><strong>核心优势</strong>：Go 生态最强 RPC 微服务框架，超高性能、适配海量并发，字节内部全量使用</p></li><li><p><strong>核心劣势</strong>：偏重微服务 RPC，普通 Web 项目略显厚重</p></li><li><p><strong>适用场景</strong>：大型互联网微服务、RPC 服务、超高并发中台</p></li></ul><h2 id="4-Hertz（字节Web框架）">4. Hertz（字节Web框架）</h2><ul><li><p><strong>出品方</strong>：字节跳动官方开源</p></li><li><p><strong>最新稳定版</strong>：Hertz 1.2+</p></li><li><p><strong>核心优势</strong>：国产高性能 Web 框架，性能超越 Gin，适配大型企业级 Web 服务</p></li><li><p><strong>核心劣势</strong>：生态仍在完善中，小众场景适配少</p></li><li><p><strong>适用场景</strong>：大型企业 Web 服务、高并发网关、中台系统</p></li></ul><hr><h1>三、Python 后端生态（AI、快速开发首选）</h1><p>Python 主打<strong>开发速度快、语法简洁、AI 生态无敌</strong>，是人工智能、数据分析、快速迭代项目首选。</p><h2 id="1-FastAPI（当前Python顶流）">1. FastAPI（当前Python顶流）</h2><ul><li><p><strong>出品方</strong>：Sebastián Ramírez 开源社区维护</p></li><li><p><strong>最新稳定版</strong>：FastAPI 0.110+</p></li><li><p><strong>核心优势</strong></p><ul><li><p>原生异步、性能媲美 Go，是 Python 最快 Web 框架</p></li><li><p>自动生成 Swagger 接口文档、类型校验、开箱即用</p></li><li><p>AI 项目标配，适配 LLM、向量检索、智能问答后端</p></li></ul></li><li><p><strong>核心劣势</strong>：大型传统企业业务落地案例少于 Django</p></li><li><p><strong>适用场景</strong>：AI 后端、LLM 服务、智能接口、快速迭代 API、高并发轻量服务</p></li></ul><h2 id="2-Django（全能重型框架）">2. Django（全能重型框架）</h2><ul><li><p><strong>出品方</strong>：Django 官方社区，老牌开源框架</p></li><li><p><strong>最新稳定版</strong>：Django 5.1+</p></li><li><p><strong>核心优势</strong>：内置 Admin 后台、ORM、权限、登录、安全机制，全能全家桶，开发后台系统极快</p></li><li><p><strong>核心劣势</strong>：同步为主，高并发性能一般，框架较重</p></li><li><p><strong>适用场景</strong>：管理后台、内容系统、博客、传统企业业务系统</p></li></ul><h2 id="3-Flask（轻量极简）">3. Flask（轻量极简）</h2><ul><li><p><strong>出品方</strong>：Armin Ronacher 开源</p></li><li><p><strong>最新稳定版</strong>：Flask 3.0+</p></li><li><p><strong>核心优势</strong>：极简轻量、灵活自由，按需扩展插件，学习成本极低</p></li><li><p><strong>核心劣势</strong>：裸框架能力弱，大型项目需大量手动封装</p></li><li><p><strong>适用场景</strong>：小型接口、原型开发、简单后台、轻量化服务</p></li></ul><hr><h1>四、Node.js 后端生态（全栈统一、TS 首选）</h1><p>Node.js 主打<strong>前后端同栈、TypeScript 友好、开发效率高</strong>，适合全栈项目、B端后台、实时服务。</p><h2 id="1-NestJS（企业级TS后端王者）">1. NestJS（企业级TS后端王者）</h2><ul><li><p><strong>出品方</strong>：Kamil Mysliwiec 开源，社区主导维护</p></li><li><p><strong>最新稳定版</strong>：NestJS 11+</p></li><li><p><strong>核心优势</strong></p><ul><li><p>100% TypeScript 原生，模块化、依赖注入，架构极度规范</p></li><li><p>适配微服务、RPC、网关，企业级大型项目首选</p></li><li><p>和前端 TS/Next.js 技术栈无缝统一，全栈开发效率拉满</p></li></ul></li><li><p><strong>核心劣势</strong>：学习成本高，小型项目略显笨重</p></li><li><p><strong>适用场景</strong>：大型 SaaS、企业后台、TS 全栈项目、微服务系统</p></li></ul><h2 id="2-Fastify（高性能Node框架）">2. Fastify（高性能Node框架）</h2><ul><li><p><strong>出品方</strong>：OpenJS 基金会开源</p></li><li><p><strong>最新稳定版</strong>：Fastify 5+</p></li><li><p><strong>核心优势</strong>：性能远超 Express，低开销、高并发、插件生态丰富</p></li><li><p><strong>核心劣势</strong>：规范度不如 NestJS，大型架构需自行约束</p></li><li><p><strong>适用场景</strong>：高并发 API、实时服务、轻量化 Node 后端</p></li></ul><h2 id="3-Express（经典老牌）">3. Express（经典老牌）</h2><ul><li><p><strong>出品方</strong>：OpenJS 基金会</p></li><li><p><strong>最新稳定版</strong>：Express 4.19+</p></li><li><p><strong>核心优势</strong>：极简、稳定、生态极大，兼容性最强</p></li><li><p><strong>核心劣势</strong>：无架构规范，大型项目易混乱，性能一般</p></li><li><p><strong>适用场景</strong>：小型接口、老项目维护、快速原型开发</p></li></ul><h2 id="4-Hono（边缘轻量新星）">4. Hono（边缘轻量新星）</h2><ul><li><p><strong>出品方</strong>：Yusuke Wada 开源</p></li><li><p><strong>最新稳定版</strong>：Hono 4+</p></li><li><p><strong>核心优势</strong>：超轻量、多运行时适配（Node/Cloudflare/Vercel），边缘服务首选</p></li><li><p><strong>核心劣势</strong>：企业级大型项目落地案例少</p></li><li><p><strong>适用场景</strong>：边缘函数、Serverless、轻量 API 服务</p></li></ul><hr><h1>五、PHP 后端生态（快速建站、中小企业首选）</h1><p>PHP 主打<strong>开发快、部署简单、建站成本低</strong>，是官网、商城、中小企业后台主流技术栈。</p><h2 id="1-Laravel（PHP-绝对主流）">1. Laravel（PHP 绝对主流）</h2><ul><li><p><strong>出品方</strong>：Taylor Otwell 主导开源</p></li><li><p><strong>最新稳定版</strong>：Laravel 11+</p></li><li><p><strong>核心优势</strong>：语法优雅、全家桶齐全（路由、ORM、队列、权限、验证），开发效率极高</p></li><li><p><strong>核心劣势</strong>：高并发大型项目性能偏弱</p></li><li><p><strong>适用场景</strong>：企业官网、商城、中小型后台、快速迭代 Web 项目</p></li></ul><h2 id="2-ThinkPHP（国产PHP框架）">2. ThinkPHP（国产PHP框架）</h2><ul><li><p><strong>出品方</strong>：中国 ThinkPHP 团队开源</p></li><li><p><strong>最新稳定版</strong>：ThinkPHP 8+</p></li><li><p><strong>核心优势</strong>：中文文档完善、上手简单、国内中小企业生态成熟</p></li><li><p><strong>核心劣势</strong>：海外生态弱，大型高端项目使用少</p></li><li><p><strong>适用场景</strong>：国内中小企业网站、后台管理、外包项目</p></li></ul><hr><h1>六、Rust 后端生态（极致性能、安全新星）</h1><p>Rust 主打<strong>无内存泄漏、极致性能、高安全、高并发</strong>，是底层服务、高性能中间件、区块链、边缘服务未来趋势技术栈。</p><h2 id="1-Axum（Rust-主流Web框架）">1. Axum（Rust 主流Web框架）</h2><ul><li><p><strong>出品方</strong>：Tokio 团队官方开源</p></li><li><p><strong>最新稳定版</strong>：Axum 0.7+</p></li><li><p><strong>核心优势</strong>：基于 Tokio 异步运行时，性能极致、安全稳定、语法简洁</p></li><li><p><strong>核心劣势</strong>：学习曲线极陡，开发周期长，生态不如主流语言</p></li><li><p><strong>适用场景</strong>：高性能网关、底层服务、边缘计算、高安全接口</p></li></ul><h2 id="2-Rocket">2. Rocket</h2><ul><li><p><strong>出品方</strong>：社区开源</p></li><li><p><strong>最新稳定版</strong>：Rocket 0.5+</p></li><li><p><strong>核心优势</strong>：语法极简、开发体验好，适配快速开发 Rust 服务</p></li><li><p><strong>核心劣势</strong>：异步支持不如 Axum 成熟</p></li><li><p><strong>适用场景</strong>：Rust 入门项目、轻量化高性能服务</p></li></ul><hr><h1>七、C#/.NET 后端生态（Windows生态、政企、跨平台）</h1><p>C# /.NET 主打<strong>跨平台、语法优雅、政企生态完善、全栈能力强</strong>，适配 Windows 生态项目、传统政企系统、游戏后端。</p><h2 id="1-ASP-NET-Core">1. ASP.NET Core</h2><ul><li><p><strong>出品方</strong>：微软官方开源</p></li><li><p><strong>最新稳定版</strong>：.NET 9 / ASP.NET Core 9.0+</p></li><li><p><strong>核心优势</strong>：跨平台、高性能、内置依赖注入、ORM、鉴权，企业级规范完善</p></li><li><p><strong>核心劣势</strong>：国内互联网岗位少于 Java/Go，开源生态相对封闭</p></li><li><p><strong>适用场景</strong>：政企系统、Windows 生态项目、游戏后端、传统企业软件</p></li></ul><hr><h1>八、2026后端框架选型总结（速记版）</h1><ul><li><p><strong>Java Spring Boot</strong>：VMware，企业级稳定、生态最全，求职首选、大型项目标配</p></li><li><p><strong>Go Gin/Hertz</strong>：社区/字节，超高并发、云原生、轻量高效，互联网高并发首选</p></li><li><p><strong>Python FastAPI</strong>：社区，异步高性能、自动文档、AI 项目绝对主流</p></li><li><p><strong>Node NestJS</strong>：社区，TS 全栈、架构规范，企业级全栈项目首选</p></li><li><p><strong>PHP Laravel</strong>：开源大神，开发快、建站神器，中小企业快速落地首选</p></li><li><p><strong>Rust Axum</strong>：Tokio团队，极致性能、安全，底层/边缘/高安全场景首选</p></li><li><p><strong>C# ASP.NET Core</strong>：微软，政企、Windows生态、游戏后端专用</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 教程 </tag>
+            
+            <tag> 框架 </tag>
+            
+            <tag> 神级秘籍 </tag>
+            
+            <tag> 后端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>全品类主流数据库（数据库03）</title>
       <link href="/posts/shujuku520.html"/>
       <url>/posts/shujuku520.html</url>
@@ -1076,11 +1076,11 @@
             
             <tag> 教程 </tag>
             
-            <tag> 数据库 </tag>
-            
             <tag> 框架 </tag>
             
             <tag> 神级秘籍 </tag>
+            
+            <tag> 数据库 </tag>
             
         </tags>
       
@@ -1142,9 +1142,9 @@
             
             <tag> 教程 </tag>
             
-            <tag> 域名 </tag>
-            
             <tag> 神级秘籍 </tag>
+            
+            <tag> 域名 </tag>
             
         </tags>
       
@@ -1857,35 +1857,6 @@
     
     
     <entry>
-      <title>学习通网页版粘贴教程，超简单版！</title>
-      <link href="/posts/xuexitong-paste-tutorial.html"/>
-      <url>/posts/xuexitong-paste-tutorial.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="前言说明">前言说明</h2><p>适用于：学习通网页版 / 电脑版操作系统<br>操作平台：Windows浏览器（博主使用的edge)</p><p>有时候我们在学习通上提交作业时，发现<strong>无法通过 Ctrl+V 粘贴内容</strong>，尤其是在考试或作业答题框中，系统会禁止粘贴外部复制的内容，这对于我们提前准备好答案的同学来说非常不便。</p><img src="https://i-blog.csdnimg.cn/direct/a17586c1d97e4d4e92fe67a8f5f33331.png" referrerpolicy="no-referrer" alt="image"><p>今天教大家一个小技巧，只需几步操作，就能<strong>完美绕过限制</strong>，轻松粘贴答案！</p><h2 id="操作步骤（精简详细实操版）">操作步骤（精简详细实操版）</h2><h3 id="1-在答题页面-右键选择“检查”（或按-F12-键打开开发者工具），进入调试页面。"><strong>1.在答题页面 右键选择“检查”（或按 <code>F12</code> 键打开开发者工具），进入调试页面。</strong></h3><img src="https://i-blog.csdnimg.cn/direct/2a91dea0d151403e80d13304e196b6e9.png" referrerpolicy="no-referrer" alt="image"><img src="https://i-blog.csdnimg.cn/direct/3ac91a2014274d118f7f86305c140dfa.png" referrerpolicy="no-referrer" alt="image"><h3 id="2-找到窗口左上角的图标（鼠标-方框">2.找到窗口左上角的图标（鼠标+方框</h3><img src="https://i-blog.csdnimg.cn/direct/6db45251b4c144ceab22bec10f83649c.png" referrerpolicy="no-referrer" alt="image">），已用红色箭头标出。点击它。<img src="https://i-blog.csdnimg.cn/direct/0d8cc6db2fb4420792e3ca1e12f9d76e.png" referrerpolicy="no-referrer" alt="image"><h3 id="3-将鼠标光标定位到作答的文本框，点击一下，调试界面的代码也会自动定位，代码块呈蓝色。">3.将鼠标光标定位到作答的文本框，点击一下，调试界面的代码也会自动定位，代码块呈蓝色。</h3><img src="https://i-blog.csdnimg.cn/direct/b231c907b26845bdbf68838e7b13fea6.png" referrerpolicy="no-referrer" alt="image"><img src="https://i-blog.csdnimg.cn/direct/4e4625213de64bf8923f24e9a930efbe.png" referrerpolicy="no-referrer" alt="image"><h3 id="4-双击代码块-body-前的三个小点，展开内容。">4.双击代码块</body>前的三个小点，展开内容。</h3><img src="https://i-blog.csdnimg.cn/direct/85b2c7bed7bf4ebea8c7e7f82899986c.png" referrerpolicy="no-referrer" alt="image"><h3 id="5-点击-p-前的三个小点，进一步展开内容。">5.点击</p>前的三个小点，进一步展开内容。</h3><img src="https://i-blog.csdnimg.cn/direct/61bbde4b5e5e455e9a7e34372ec63f93.png" referrerpolicy="no-referrer" alt="image"><h3 id="6-双击展开内容里的-ZeroWidthSpace-，让它变成待输入状态。">6.双击展开内容里的**&amp;ZeroWidthSpace**，让它变成待输入状态。</h3><img src="https://i-blog.csdnimg.cn/direct/cf5ba0f2b0994a6c813b79fcba7f47dc.png" referrerpolicy="no-referrer" alt="image"><h3 id="7-直接Ctrl-V粘贴想要输入的内容啦">7.直接Ctrl+V粘贴想要输入的内容啦!</h3><img src="https://i-blog.csdnimg.cn/direct/17c6bced1a1e406eb4b2db89a18a0e32.png" referrerpolicy="no-referrer" alt="image"><h3 id="8-完成！点有页面右上角叉叉关闭开发者模式，文本已经在答题框里啦！">8.完成！点有页面右上角叉叉关闭开发者模式，文本已经在答题框里啦！</h3><img src="https://i-blog.csdnimg.cn/direct/ffdbbeb843864994b5e77486c82e2182.png" referrerpolicy="no-referrer" alt="image"><h2 id="一些问题补充！！！">一些问题补充！！！</h2><h3 id="1-没有-ZeroWidthSpace怎么办！">1.没有**&amp;ZeroWidthSpace怎么办！**</h3><p>你的图应该是这样的！点击<br>这一行，再点击鼠标右键，点击编辑为HTML,在<br>前面粘贴你的答案文本就行！剩下的和操作步骤第8步一样~</p><img src="https://i-blog.csdnimg.cn/direct/53e3eda76b49401eba1c5018c0985b4d.png" referrerpolicy="no-referrer" alt="image"><img src="https://i-blog.csdnimg.cn/direct/54dd89a336ac4904a0cde0c3d0bfd2e6.png" referrerpolicy="no-referrer" alt="image"><h3 id="2-粘贴后格式变了怎么办！">2.粘贴后格式变了怎么办！</h3><p>直接在答案框里面用学习通上的工具修改就行~</p><h3 id="3-如果遇到其他问题也可以评论，我会尽力解答-😊">3.如果遇到其他问题也可以评论，我会尽力解答 😊</h3><p>希望对您有帮助！</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 教程 </category>
-          
-          <category> 网站 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 教程 </tag>
-            
-            <tag> 学习通 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>关于NoSQL数据库的一切，终于说清楚了</title>
       <link href="/posts/nosql-database-guide.html"/>
       <url>/posts/nosql-database-guide.html</url>
@@ -1909,6 +1880,35 @@
             <tag> 数据库 </tag>
             
             <tag> NoSQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>学习通网页版粘贴教程，超简单版！</title>
+      <link href="/posts/xuexitong-paste-tutorial.html"/>
+      <url>/posts/xuexitong-paste-tutorial.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言说明">前言说明</h2><p>适用于：学习通网页版 / 电脑版操作系统<br>操作平台：Windows浏览器（博主使用的edge)</p><p>有时候我们在学习通上提交作业时，发现<strong>无法通过 Ctrl+V 粘贴内容</strong>，尤其是在考试或作业答题框中，系统会禁止粘贴外部复制的内容，这对于我们提前准备好答案的同学来说非常不便。</p><img src="https://i-blog.csdnimg.cn/direct/a17586c1d97e4d4e92fe67a8f5f33331.png" referrerpolicy="no-referrer" alt="image"><p>今天教大家一个小技巧，只需几步操作，就能<strong>完美绕过限制</strong>，轻松粘贴答案！</p><h2 id="操作步骤（精简详细实操版）">操作步骤（精简详细实操版）</h2><h3 id="1-在答题页面-右键选择“检查”（或按-F12-键打开开发者工具），进入调试页面。"><strong>1.在答题页面 右键选择“检查”（或按 <code>F12</code> 键打开开发者工具），进入调试页面。</strong></h3><img src="https://i-blog.csdnimg.cn/direct/2a91dea0d151403e80d13304e196b6e9.png" referrerpolicy="no-referrer" alt="image"><img src="https://i-blog.csdnimg.cn/direct/3ac91a2014274d118f7f86305c140dfa.png" referrerpolicy="no-referrer" alt="image"><h3 id="2-找到窗口左上角的图标（鼠标-方框">2.找到窗口左上角的图标（鼠标+方框</h3><img src="https://i-blog.csdnimg.cn/direct/6db45251b4c144ceab22bec10f83649c.png" referrerpolicy="no-referrer" alt="image">），已用红色箭头标出。点击它。<img src="https://i-blog.csdnimg.cn/direct/0d8cc6db2fb4420792e3ca1e12f9d76e.png" referrerpolicy="no-referrer" alt="image"><h3 id="3-将鼠标光标定位到作答的文本框，点击一下，调试界面的代码也会自动定位，代码块呈蓝色。">3.将鼠标光标定位到作答的文本框，点击一下，调试界面的代码也会自动定位，代码块呈蓝色。</h3><img src="https://i-blog.csdnimg.cn/direct/b231c907b26845bdbf68838e7b13fea6.png" referrerpolicy="no-referrer" alt="image"><img src="https://i-blog.csdnimg.cn/direct/4e4625213de64bf8923f24e9a930efbe.png" referrerpolicy="no-referrer" alt="image"><h3 id="4-双击代码块-body-前的三个小点，展开内容。">4.双击代码块</body>前的三个小点，展开内容。</h3><img src="https://i-blog.csdnimg.cn/direct/85b2c7bed7bf4ebea8c7e7f82899986c.png" referrerpolicy="no-referrer" alt="image"><h3 id="5-点击-p-前的三个小点，进一步展开内容。">5.点击</p>前的三个小点，进一步展开内容。</h3><img src="https://i-blog.csdnimg.cn/direct/61bbde4b5e5e455e9a7e34372ec63f93.png" referrerpolicy="no-referrer" alt="image"><h3 id="6-双击展开内容里的-ZeroWidthSpace-，让它变成待输入状态。">6.双击展开内容里的**&amp;ZeroWidthSpace**，让它变成待输入状态。</h3><img src="https://i-blog.csdnimg.cn/direct/cf5ba0f2b0994a6c813b79fcba7f47dc.png" referrerpolicy="no-referrer" alt="image"><h3 id="7-直接Ctrl-V粘贴想要输入的内容啦">7.直接Ctrl+V粘贴想要输入的内容啦!</h3><img src="https://i-blog.csdnimg.cn/direct/17c6bced1a1e406eb4b2db89a18a0e32.png" referrerpolicy="no-referrer" alt="image"><h3 id="8-完成！点有页面右上角叉叉关闭开发者模式，文本已经在答题框里啦！">8.完成！点有页面右上角叉叉关闭开发者模式，文本已经在答题框里啦！</h3><img src="https://i-blog.csdnimg.cn/direct/ffdbbeb843864994b5e77486c82e2182.png" referrerpolicy="no-referrer" alt="image"><h2 id="一些问题补充！！！">一些问题补充！！！</h2><h3 id="1-没有-ZeroWidthSpace怎么办！">1.没有**&amp;ZeroWidthSpace怎么办！**</h3><p>你的图应该是这样的！点击<br>这一行，再点击鼠标右键，点击编辑为HTML,在<br>前面粘贴你的答案文本就行！剩下的和操作步骤第8步一样~</p><img src="https://i-blog.csdnimg.cn/direct/53e3eda76b49401eba1c5018c0985b4d.png" referrerpolicy="no-referrer" alt="image"><img src="https://i-blog.csdnimg.cn/direct/54dd89a336ac4904a0cde0c3d0bfd2e6.png" referrerpolicy="no-referrer" alt="image"><h3 id="2-粘贴后格式变了怎么办！">2.粘贴后格式变了怎么办！</h3><p>直接在答案框里面用学习通上的工具修改就行~</p><h3 id="3-如果遇到其他问题也可以评论，我会尽力解答-😊">3.如果遇到其他问题也可以评论，我会尽力解答 😊</h3><p>希望对您有帮助！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+          <category> 网站 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 教程 </tag>
+            
+            <tag> 学习通 </tag>
             
         </tags>
       
@@ -2030,9 +2030,9 @@
       
         <tags>
             
-            <tag> Hexo </tag>
-            
             <tag> 博客 </tag>
+            
+            <tag> Hexo </tag>
             
             <tag> Qexo </tag>
             
@@ -2251,9 +2251,9 @@
             
             <tag> 教程 </tag>
             
-            <tag> MongoDB </tag>
-            
             <tag> 数据库 </tag>
+            
+            <tag> MongoDB </tag>
             
         </tags>
       
