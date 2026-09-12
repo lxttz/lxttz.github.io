@@ -1,6 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://lxttz.github.io/posts/python-review-notes.html</loc>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+  <url>
+    <loc>https://lxttz.github.io/posts/grok4-guide.html</loc>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+  <url>
+    <loc>https://lxttz.github.io/posts/python-idle-tutorial.html</loc>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+  <url>
+    <loc>https://lxttz.github.io/posts/pycharm-basic-usage.html</loc>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+  <url>
+    <loc>https://lxttz.github.io/posts/mysql-complete-guide.html</loc>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+  <url>
+    <loc>https://lxttz.github.io/posts/java-jdk-install.html</loc>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+  <url>
+    <loc>https://lxttz.github.io/posts/intellij-idea-install.html</loc>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+  <url>
+    <loc>https://lxttz.github.io/posts/digital-media-thesis-topics.html</loc>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+  <url>
+    <loc>https://lxttz.github.io/posts/graduation-project-flow.html</loc>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+  <url>
+    <loc>https://lxttz.github.io/posts/hermes-web-ui.html</loc>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+  <url>
+    <loc>https://lxttz.github.io/posts/mysql-study-notes.html</loc>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+  <url>
+    <loc>https://lxttz.github.io/posts/obsidian-guide.html</loc>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+  <url>
+    <loc>https://lxttz.github.io/posts/pycharm-pro-install.html</loc>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+  <url>
+    <loc>https://lxttz.github.io/posts/pycharm-tips.html</loc>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+  <url>
+    <loc>https://lxttz.github.io/posts/computer-level2-python.html</loc>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+  <url>
     <loc>https://lxttz.github.io/posts/0.html</loc>
     <lastmod>2026-07-08</lastmod>
   </url>
@@ -137,11 +197,11 @@
     <lastmod>2026-05-29</lastmod>
   </url>
   <url>
-    <loc>https://lxttz.github.io/posts/xuexitong-paste-tutorial.html</loc>
+    <loc>https://lxttz.github.io/posts/python-uninstall-guide.html</loc>
     <lastmod>2026-05-29</lastmod>
   </url>
   <url>
-    <loc>https://lxttz.github.io/posts/python-uninstall-guide.html</loc>
+    <loc>https://lxttz.github.io/posts/xuexitong-paste-tutorial.html</loc>
     <lastmod>2026-05-29</lastmod>
   </url>
   <url>
@@ -197,6 +257,10 @@
     <lastmod>2026-05-28</lastmod>
   </url>
   <url>
+    <loc>https://lxttz.github.io/posts/qianduan520.html</loc>
+    <lastmod>2026-05-28</lastmod>
+  </url>
+  <url>
     <loc>https://lxttz.github.io/posts/hduan520.html</loc>
     <lastmod>2026-05-28</lastmod>
   </url>
@@ -210,10 +274,6 @@
   </url>
   <url>
     <loc>https://lxttz.github.io/posts/yuming520.html</loc>
-    <lastmod>2026-05-28</lastmod>
-  </url>
-  <url>
-    <loc>https://lxttz.github.io/posts/qianduan520.html</loc>
     <lastmod>2026-05-28</lastmod>
   </url>
   <url>
@@ -281,24 +341,24 @@
     <lastmod>2026-03-11</lastmod>
   </url>
   <url>
+    <loc>https://lxttz.github.io/posts/116b0f3c.html</loc>
+    <lastmod>2026-03-11</lastmod>
+  </url>
+  <url>
     <loc>https://lxttz.github.io/posts/55a7f856.html</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-11</lastmod>
+  </url>
+  <url>
+    <loc>https://lxttz.github.io/posts/5e9fb3a0.html</loc>
+    <lastmod>2026-03-11</lastmod>
   </url>
   <url>
     <loc>https://lxttz.github.io/posts/19518dbe.html</loc>
     <lastmod>2026-02-23</lastmod>
   </url>
   <url>
-    <loc>https://lxttz.github.io/posts/5e9fb3a0.html</loc>
-    <lastmod>2026-02-23</lastmod>
-  </url>
-  <url>
     <loc>https://lxttz.github.io/posts/7dde12a1.html</loc>
     <lastmod>2026-02-05</lastmod>
-  </url>
-  <url>
-    <loc>https://lxttz.github.io/posts/116b0f3c.html</loc>
-    <lastmod>2026-02-04</lastmod>
   </url>
   <url>
     <loc>https://lxttz.github.io/posts/347b7ac9.html</loc>
