@@ -1,0 +1,723 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><div id="myscoll"></div><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Ollama本地化部署大模型从入门到精通（保姆级教程） | Arlos Blog World🥝</title><meta name="keywords" content="AI,本地AI,大模型,Ollama"><meta name="author" content="阿洛博客世界🥝"><meta name="copyright" content="阿洛博客世界🥝"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="Ollama 本地部署大模型保姆级教程：安装、核心命令、自定义模型与 API 集成">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ollama本地化部署大模型从入门到精通（保姆级教程）">
+<meta property="og:url" content="https://lxttz.github.io/posts/ollama-local-llm-guide.html">
+<meta property="og:site_name" content="Arlos Blog World🥝">
+<meta property="og:description" content="Ollama 本地部署大模型保姆级教程：安装、核心命令、自定义模型与 API 集成">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://source.fomal.cc/img/default_cover_64.webp">
+<meta property="article:published_time" content="2026-10-15T01:40:15.000Z">
+<meta property="article:modified_time" content="2026-11-11T11:08:42.260Z">
+<meta property="article:author" content="阿洛博客世界🥝">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="Ollama">
+<meta property="article:tag" content="大模型">
+<meta property="article:tag" content="本地AI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://source.fomal.cc/img/default_cover_64.webp"><link rel="shortcut icon" href="https://lxttz.github.io/assets/zhizhuxia/zhizhu01.png"><link rel="canonical" href="https://lxttz.github.io/posts/ollama-local-llm-guide"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.staticfile.org/fancyapps-ui/4.0.31/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdnjs.cloudflare.com/ajax/libs/flickr-justified-gallery/2.1.2/fjGallery.min.js',
+      css: 'https://cdnjs.cloudflare.com/ajax/libs/flickr-justified-gallery/2.1.2/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Ollama本地化部署大模型从入门到精通（保姆级教程）',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-11-11 19:08:42'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://npm.elemecdn.com/element-ui@2.15.6/packages/theme-chalk/lib/index.css"><style id="themeColor"></style><style id="rightSide"></style><style id="transPercent"></style><style id="blurNum"></style><style id="settingStyle"></style><span id="fps"></span><style id="defineBg"></style><style id="menu_shadow"></style><svg aria-hidden="true" style="position:absolute; overflow:hidden; width:0; height:0"><symbol id="icon-sun" viewBox="0 0 1024 1024"><path d="M960 512l-128 128v192h-192l-128 128-128-128H192v-192l-128-128 128-128V192h192l128-128 128 128h192v192z" fill="#FFD878" p-id="8420"></path><path d="M736 512a224 224 0 1 0-448 0 224 224 0 1 0 448 0z" fill="#FFE4A9" p-id="8421"></path><path d="M512 109.248L626.752 224H800v173.248L914.752 512 800 626.752V800h-173.248L512 914.752 397.248 800H224v-173.248L109.248 512 224 397.248V224h173.248L512 109.248M512 64l-128 128H192v192l-128 128 128 128v192h192l128 128 128-128h192v-192l128-128-128-128V192h-192l-128-128z" fill="#4D5152" p-id="8422"></path><path d="M512 320c105.888 0 192 86.112 192 192s-86.112 192-192 192-192-86.112-192-192 86.112-192 192-192m0-32a224 224 0 1 0 0 448 224 224 0 0 0 0-448z" fill="#4D5152" p-id="8423"></path></symbol><symbol id="icon-moon" viewBox="0 0 1024 1024"><path d="M611.370667 167.082667a445.013333 445.013333 0 0 1-38.4 161.834666 477.824 477.824 0 0 1-244.736 244.394667 445.141333 445.141333 0 0 1-161.109334 38.058667 85.077333 85.077333 0 0 0-65.066666 135.722666A462.08 462.08 0 1 0 747.093333 102.058667a85.077333 85.077333 0 0 0-135.722666 65.024z" fill="#FFB531" p-id="11345"></path><path d="M329.728 274.133333l35.157333-35.157333a21.333333 21.333333 0 1 0-30.165333-30.165333l-35.157333 35.157333-35.114667-35.157333a21.333333 21.333333 0 0 0-30.165333 30.165333l35.114666 35.157333-35.114666 35.157334a21.333333 21.333333 0 1 0 30.165333 30.165333l35.114667-35.157333 35.157333 35.157333a21.333333 21.333333 0 1 0 30.165333-30.165333z" fill="#030835" p-id="11346"></path></symbol></svg><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="Arlos Blog World🥝" type="application/atom+xml">
+</head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://lxttz.github.io/assets/zhizhuxia/toxiang.jpg" onerror="onerror=null;src='/assets/toxiang.jpg'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">163</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">196</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">90</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-home"></use></svg><span class="menu_word" style="font-size:17px"> 首页</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--article"></use></svg><span class="menu_word" style="font-size:17px"> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-guidang1">                   </use></svg><span class="menu_word" style="font-size:17px"> 归档</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-sekuaibiaoqian">                   </use></svg><span class="menu_word" style="font-size:17px"> 标签</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-fenlei">                   </use></svg><span class="menu_word" style="font-size:17px"> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-pinweishenghuo"></use></svg><span class="menu_word" style="font-size:17px"> 休闲</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/life/music/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-yinle">                   </use></svg><span class="menu_word" style="font-size:17px"> 八音盒</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/life/movies/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-dianying1">                   </use></svg><span class="menu_word" style="font-size:17px"> 影院</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/life/games/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-youxishoubing">                   </use></svg><span class="menu_word" style="font-size:17px"> 娱乐</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xiangzi"></use></svg><span class="menu_word" style="font-size:17px"> 八宝箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/box/gallery/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-tubiaozhizuomoban">                   </use></svg><span class="menu_word" style="font-size:17px"> 智能AI</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/box/animation/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-nvwumao">                   </use></svg><span class="menu_word" style="font-size:17px"> 学习院</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/box/nav/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-zhifengche">                   </use></svg><span class="menu_word" style="font-size:17px"> 百宝箱</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shejiaoxinxi"></use></svg><span class="menu_word" style="font-size:17px"> 社交</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/social/fcircle/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-pengyouquan">                   </use></svg><span class="menu_word" style="font-size:17px"> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-liuyan">                   </use></svg><span class="menu_word" style="font-size:17px"> 留言板</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/social/link/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-lianjie">                   </use></svg><span class="menu_word" style="font-size:17px"> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-wangye"></use></svg><span class="menu_word" style="font-size:17px"> 网站</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/site/census/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--tongjibiao">                   </use></svg><span class="menu_word" style="font-size:17px"> 网站统计</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/site/echarts/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shujutongji1">                   </use></svg><span class="menu_word" style="font-size:17px"> 文章统计</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/site/time/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xianxingshalou">                   </use></svg><span class="menu_word" style="font-size:17px"> 个人世界</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shejiaoxinxi"></use></svg><span class="menu_word" style="font-size:17px"> 博客</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/blog/notes/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--tongjibiao">                   </use></svg><span class="menu_word" style="font-size:17px"> 文章笔记</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/blog/link/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shujutongji1">                   </use></svg><span class="menu_word" style="font-size:17px"> 博客相关</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/blog/about/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xianxingshalou">                   </use></svg><span class="menu_word" style="font-size:17px"> 关于页面</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-maoliang"></use></svg><span class="menu_word" style="font-size:17px"> 个人</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/personal/bb/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-qunliaotian">                   </use></svg><span class="menu_word" style="font-size:17px"> 唠叨</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/personal/love/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-love-sign">                   </use></svg><span class="menu_word" style="font-size:17px"> 恋爱小屋</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/personal/about/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-paperplane">                   </use></svg><span class="menu_word" style="font-size:17px"> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Arlos Blog World🥝</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-home"></use></svg><span class="menu_word" style="font-size:17px"> 首页</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--article"></use></svg><span class="menu_word" style="font-size:17px"> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-guidang1">                   </use></svg><span class="menu_word" style="font-size:17px"> 归档</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-sekuaibiaoqian">                   </use></svg><span class="menu_word" style="font-size:17px"> 标签</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-fenlei">                   </use></svg><span class="menu_word" style="font-size:17px"> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-pinweishenghuo"></use></svg><span class="menu_word" style="font-size:17px"> 休闲</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/life/music/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-yinle">                   </use></svg><span class="menu_word" style="font-size:17px"> 八音盒</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/life/movies/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-dianying1">                   </use></svg><span class="menu_word" style="font-size:17px"> 影院</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/life/games/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-youxishoubing">                   </use></svg><span class="menu_word" style="font-size:17px"> 娱乐</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xiangzi"></use></svg><span class="menu_word" style="font-size:17px"> 八宝箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/box/gallery/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-tubiaozhizuomoban">                   </use></svg><span class="menu_word" style="font-size:17px"> 智能AI</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/box/animation/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-nvwumao">                   </use></svg><span class="menu_word" style="font-size:17px"> 学习院</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/box/nav/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-zhifengche">                   </use></svg><span class="menu_word" style="font-size:17px"> 百宝箱</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shejiaoxinxi"></use></svg><span class="menu_word" style="font-size:17px"> 社交</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/social/fcircle/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-pengyouquan">                   </use></svg><span class="menu_word" style="font-size:17px"> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-liuyan">                   </use></svg><span class="menu_word" style="font-size:17px"> 留言板</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/social/link/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-lianjie">                   </use></svg><span class="menu_word" style="font-size:17px"> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-wangye"></use></svg><span class="menu_word" style="font-size:17px"> 网站</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/site/census/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--tongjibiao">                   </use></svg><span class="menu_word" style="font-size:17px"> 网站统计</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/site/echarts/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shujutongji1">                   </use></svg><span class="menu_word" style="font-size:17px"> 文章统计</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/site/time/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xianxingshalou">                   </use></svg><span class="menu_word" style="font-size:17px"> 个人世界</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shejiaoxinxi"></use></svg><span class="menu_word" style="font-size:17px"> 博客</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/blog/notes/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon--tongjibiao">                   </use></svg><span class="menu_word" style="font-size:17px"> 文章笔记</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/blog/link/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-shujutongji1">                   </use></svg><span class="menu_word" style="font-size:17px"> 博客相关</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/blog/about/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-xianxingshalou">                   </use></svg><span class="menu_word" style="font-size:17px"> 关于页面</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-maoliang"></use></svg><span class="menu_word" style="font-size:17px"> 个人</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/personal/bb/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-qunliaotian">                   </use></svg><span class="menu_word" style="font-size:17px"> 唠叨</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/personal/love/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-love-sign">                   </use></svg><span class="menu_word" style="font-size:17px"> 恋爱小屋</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/personal/about/"><svg class="menu_icon faa-tada" aria-hidden="true" style="width:1.30em;height:1.30em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;"><use xlink:href="#icon-paperplane">                   </use></svg><span class="menu_word" style="font-size:17px"> 关于</span></a></li></ul></div></div><center id="name-container"><a id="page-name" href="javascript:scrollToTop()">PAGE_NAME</a></center><div id="nav-right"><div id="search-button"><a class="search faa-parent animated-hover" title="检索站内任何你想要的信息"><svg class="faa-tada icon" style="height:24px;width:24px;fill:currentColor;position:relative;top:6px" aria-hidden="true"><use xlink:href="#icon-valentine_-search-love-find-heart"></use></svg><span> 搜索</span></a></div><a class="meihua faa-parent animated-hover" onclick="toggleWinbox()" title="美化设置-自定义你的风格" id="meihua-button"><svg class="faa-tada icon" style="height:26px;width:26px;fill:currentColor;position:relative;top:8px" aria-hidden="true"><use xlink:href="#icon-tupian1"></use></svg></a><a class="sun_moon faa-parent animated-hover" onclick="switchNightMode()" title="浅色和深色模式转换" id="nightmode-button"><svg class="faa-tada" style="height:25px;width:25px;fill:currentColor;position:relative;top:7px" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-moon">       </use></svg></a><div id="toggle-menu"><a><i class="fas fa-bars fa-fw"></i></a></div></div></div></nav><div id="post-info"><h1 class="post-title">Ollama本地化部署大模型从入门到精通（保姆级教程）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><svg class="meta_icon post-meta-icon" style="width:30px;height:30px;position:relative;top:10px"><use xlink:href="#icon-rili"></use></svg><span class="post-meta-label">发表于 </span><time class="post-meta-date-created" datetime="2026-10-15T01:40:15.000Z" title="发表于 2026-10-15 09:40:15">2026-10-15</time><span class="post-meta-separator">|</span><svg class="meta_icon post-meta-icon" style="width:18px;height:18px;position:relative;top:5px"><use xlink:href="#icon-gengxin1"></use></svg><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-11-11T11:08:42.260Z" title="更新于 2026-11-11 19:08:42">2026-11-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><svg class="meta_icon post-meta-icon" style="width:18px;height:18px;position:relative;top:5px"><use xlink:href="#icon-biaoqian"></use></svg><a class="post-meta-categories" href="/categories/AI/">AI</a><i class="fas fa-angle-right post-meta-separator"></i><svg class="meta_icon post-meta-icon" style="width:18px;height:18px;position:relative;top:5px"><use xlink:href="#icon-biaoqian"></use></svg><a class="post-meta-categories" href="/categories/AI/%E6%9C%AC%E5%9C%B0AI/">本地AI</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><svg class="meta_icon post-meta-icon" style="width:25px;height:25px;position:relative;top:8px"><use xlink:href="#icon-charuword"></use></svg><span class="post-meta-label">字数总计:</span><span class="word-count">9137</span><span class="post-meta-separator">|</span><svg class="meta_icon post-meta-icon" style="width:20px;height:20px;position:relative;top:5px"><use xlink:href="#icon-shizhong"></use></svg><span class="post-meta-label">阅读时长:</span><span>29分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Ollama本地化部署大模型从入门到精通（保姆级教程）"><svg class="meta_icon post-meta-icon" style="width:25px;height:25px;position:relative;top:5px"><use xlink:href="#icon-eye"></use></svg><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>本文是一篇终极Ollama实战指南，专为希望在本地计算机上运行大语言模型的AI爱好者和开发者设计。无论你是Windows、macOS还是Linux用户，无论你是否具备深厚的技术背景，这篇“保姆级”教程都将手把手带你走过从硬件检查、环境配置、Ollama安装与核心命令详解，到创建自定义模型、通过API进行编程集成的全过程。我们将以最通俗易懂的语言，结合大量实例和问题排查方案，彻底攻克本地部署大模型的难关。读完本文，你不仅能轻松玩转Qwen（通义千问）等主流模型，更能掌握将Ollama融入自己工作流的进阶技巧，真正实现AI生产力的“私有化”和“自由化”。</p>
+<h3 id="1-序章：我们为什么要在本地“养”一个大模型？"><a href="#1-序章：我们为什么要在本地“养”一个大模型？" class="headerlink" title="1. 序章：我们为什么要在本地“养”一个大模型？"></a>1. 序章：我们为什么要在本地“养”一个大模型？</h3><p>各位CSDN的朋友们，大家好，我是你们的老朋友，一个热爱钻研AI技术的博主。</p>
+<p>最近，我身边不少刚入行AI的朋友都向我抱怨一件事：玩AI的成本太高了！想调用个GPT-4的API，写个小工具，结果没测试几次，账单就蹭蹭往上涨，心疼得不行；有些公司内部的项目，想用大模型处理一些敏感数据，又担心数据隐私泄露，毕竟把核心数据传给第三方，总觉得心里不踏实；更别提有时候那不稳定的网络，关键时刻API请求超时，能把人急出心脏病。</p>
+<p>是不是感觉说到了你的心坎里？这些问题，归根结底都指向一个方向：我们对云端大模型的依赖太强了。那么，有没有一种方法，能让我们像在自己电脑上装个Office一样，轻松地把大模型“请”到我们自己的机器上呢？</p>
+<p>答案是：<strong>有，而且比你想象的要简单得多！</strong></p>
+<p>这就要引出我们今天的主角——<strong>Ollama</strong>。</p>
+<p>你可以把Ollama想象成一个“大模型的魔法盒子”。它是一个开源工具，能让你用极其简单的方式，在自己的电脑上下载、安装、运行和管理各种主流的大语言模型，比如阿里的Qwen（通义千问）、Meta的Llama 3、Google的Gemma等等。</p>
+<p>Ollama的出现，彻底改变了本地部署大模型的游戏规则。它把曾经需要复杂环境配置、繁琐模型转换、高深技术门槛的“专业级”操作，简化成了一两行命令。它就像大模型领域的“Docker”，把模型和运行环境打包好，让你一键启动，即刻开聊。</p>
+<p>这篇指南，就是我为所有想迈出“AI自由”第一步的朋友们准备的。我将用最接地气的方式，带你从零开始，把Ollama这个强大的工具彻底玩明白。这篇文章不玩虚的，全是干货，从安装的每一个细节，到命令的每一种用法，再到自定义模型和API调用的“骚操作”，我都会掰开了、揉碎了讲给你听。</p>
+<p>准备好了吗？让我们一起开启这趟激动人心的本地大模型之旅，把AI真正变成我们自己的“私人助理”！</p>
+<h3 id="2-深入浅出：Ollama究竟是个什么“神仙”？"><a href="#2-深入浅出：Ollama究竟是个什么“神仙”？" class="headerlink" title="2. 深入浅出：Ollama究竟是个什么“神仙”？"></a>2. 深入浅出：Ollama究竟是个什么“神仙”？</h3><p>在咱们动手之前，得先花几分钟搞清楚，Ollama到底是个啥，它凭什么能这么牛？</p>
+<p>用最简单的一句话来概括：<strong>Ollama，就是大模型领域的Docker。</strong></p>
+<p>我相信在座的各位开发者对Docker都不陌生。在没有Docker的时代，我们要部署一个Web应用，得先在服务器上装操作系统，再装数据库，再装各种依赖库，配置环境变量……一套下来，人基本就晕了，而且换台机器还得重来一遍。Docker的出现，把应用和它所有的依赖打包成一个轻量的“容器镜像”，我们只需要一条<code>docker run</code>命令，就能在任何支持Docker的机器上完美运行，省去了所有繁琐的环境配置。</p>
+<p>Ollama做的就是完全一样的事情，只不过对象从Web应用换成了大语言模型。</p>
+<p>一个大模型，本身其实是一堆巨大的参数文件（我们常说的7B、13B就是指参数量），要让它跑起来，你需要：</p>
+<ul>
+<li><strong>模型文件本身</strong>：得从Hugging Face这类地方下载，动辄几个G甚至几十个G。+ <strong>运行框架</strong>：比如PyTorch或TensorFlow。+ <strong>底层驱动</strong>：如果用GPU加速，还得有正确的CUDA或ROCm驱动。+ <strong>加载和推理代码</strong>：你需要写代码来加载模型、处理输入（Tokenization）、执行推理、解码输出。</li>
+</ul>
+<p>这一套流程，对于新手来说，每一步都可能踩坑。</p>
+<p>而Ollama的伟大之处就在于它的<strong>核心设计哲学：极致简化与整合</strong>。</p>
+<ul>
+<li><strong>整合（Bundling）</strong>：Ollama把“模型权重”、“配置参数”和“运行所需的一切”全部打包成一个单一的模型文件（在Ollama里通过一个叫<code>Modelfile</code>的东西来定义）。你不需要关心模型是什么格式（比如GGUF），也不需要关心它具体怎么加载。+ <strong>简化（Simplicity）</strong>：Ollama提供了一个极其简单的命令行工具。你想用阿里的通义千问模型？只需要一条命令：<code>ollama run qwen</code>。下载、配置、启动，所有复杂的工作，Ollama在后台默默帮你搞定。</li>
+</ul>
+<p>所以，你可以把Ollama理解为一个<strong>本地大模型运行器和管理器</strong>。它在你的电脑上以后台服务的形式运行，负责管理所有模型文件，并提供了一个统一的命令行接口和REST API接口，让你能轻松地与这些本地模型进行交互。</p>
+<p>有了这个“大模型管家”，我们就可以把精力完全集中在“用”模型上，而不是“装”模型上。这，就是Ollama的魔力所在。</p>
+<h3 id="3-终极安装指南"><a href="#3-终极安装指南" class="headerlink" title="3. 终极安装指南"></a>3. 终极安装指南</h3><p>好了，理论知识储备完毕，下面进入全文最关键的实战环节：安装Ollama。</p>
+<p><strong>重要提示：硬件要求</strong> 在开始之前，我们得先“掂量掂量”自己的电脑。虽然Ollama不挑食，但大模型本身是个吃内存和显存的“大胃王”。</p>
+<ul>
+<li><p><strong>内存（RAM）</strong>：建议至少有 <strong>16GB</strong> 内存。8GB也能跑，但只能玩一些小模型（如3B），而且可能会比较卡。32GB或以上则能更流畅地运行7B、13B甚至更大的模型。+ <strong>硬盘（Storage）</strong>：每个模型文件大小在3GB到几十GB不等，请确保你有足够的硬盘空间。建议至少有 <strong>50GB</strong> 的可用空间。+ <strong>显卡（GPU）</strong>：这是<strong>强烈推荐</strong>的选项！虽然Ollama也支持纯CPU运行，但速度会非常慢，体验很差。 </p>
+</li>
+<li><p><strong>NVIDIA显卡</strong>：最佳选择。需要安装正确的CUDA驱动。Ollama会自动检测并使用。+ <strong>AMD显卡</strong>：在Linux上支持较好（通过ROCm），Windows上的支持正在逐步完善。+ <strong>Apple Silicon（M1&#x2F;M2&#x2F;M3芯片）</strong>：苹果的M系列芯片内置了强大的GPU（Metal），Ollama对其支持非常好，是Mac用户的福音。</p>
+</li>
+</ul>
+<h4 id="3-1-Windows系统详细安装指南"><a href="#3-1-Windows系统详细安装指南" class="headerlink" title="3.1. Windows系统详细安装指南"></a>3.1. Windows系统详细安装指南</h4><p>Windows用户是幸福的，因为Ollama提供了图形化的安装包，整个过程非常无脑。</p>
+<p><strong>第一步：检查NVIDIA驱动（如果你有N卡）</strong></p>
+<p>这是最重要的一步，也是最多人出问题的地方。Ollama需要通过NVIDIA的CUDA工具包来使用你的显卡。</p>
+<ul>
+<li>在桌面点击鼠标右键，选择“NVIDIA 控制面板”。 +  打开后，点击左下角的“系统信息”。 +  在弹出的窗口中，查看“组件”选项卡。你会看到一个类似 <code>NVCUDA64.DLL</code> 或 <code>NVCUDA.DLL</code> 的条目，后面跟着你的CUDA驱动版本号。<strong>请确保你的驱动版本至少是 11.2 或更高</strong>。 +  如果你的驱动版本过低，或者根本没有“NVIDIA 控制面板”，请访问 <a target="_blank" rel="noopener" href="https://www.nvidia.cn/geforce/drivers/">NVIDIA官网驱动下载页面</a>，选择你的显卡型号，下载并安装最新的“Game Ready”或“Studio”驱动程序。安装完成后重启电脑。</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/direct/f788eac620bc47cebb9f4e72d4b3c39a.png" referrerpolicy="no-referrer" alt="image">
+ 
+
+
+
+<p><strong>小白避坑指南：</strong></p>
+<ul>
+<li><strong>问：</strong> 我怎么知道我电脑有没有NVIDIA显卡？+ <strong>答：</strong> 右键点击“此电脑” -&gt; “属性” -&gt; “设备管理器”，展开“显示适配器”看看。如果有NVIDIA GeForce&#x2F;RTX&#x2F;Quadro等字样，就是N卡。如果只有Intel HD Graphics或AMD Radeon Graphics，那你可能无法使用NVIDIA的GPU加速。</li>
+</ul>
+<p><strong>第二步：下载并安装Ollama</strong></p>
+<ul>
+<li>打开你的浏览器，访问Ollama的官方网站：<a target="_blank" rel="noopener" href="https://ollama.com/">https://ollama.com/</a>+ 网站会自动检测到你的操作系统是Windows，并显示一个大大的“Download for Windows”按钮。点击它。</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/direct/b921b3b7a0224ecdaabd453c408bb395.png" referrerpolicy="no-referrer" alt="image">
+
+
+<ul>
+<li>下载完成后，你会得到一个名为 <code>OllamaSetup.exe</code> 的文件。双击运行它。+ 接下来就是标准的Windows软件安装流程，一路点击“Next”或“Install”即可。安装程序会自动将Ollama添加到系统路径，并将其设置为开机自启动的后台服务。</li>
+</ul>
+<p><strong>第三步：验证安装</strong></p>
+<p>安装完成后，我们需要验证一下Ollama是否正常工作。</p>
+<ul>
+<li>按下 <code>Win + R</code> 键，输入 <code>cmd</code>，然后回车，打开命令提示符窗口。 +  在窗口中输入以下命令并回车：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ollama --version</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果你看到类似 <code>ollama version is 0.1.40</code> 这样的版本号信息，恭喜你，Ollama命令行工具已经安装成功！</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/direct/05922c94c17c4af891c1a77375625600.png" referrerpolicy="no-referrer" alt="image">
+
+
+<ul>
+<li>Ollama在安装后会自动在后台运行一个服务。你可以在任务栏的右下角找到一个小小的“羊驼”图标，这就是Ollama的服务进程。</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/direct/d33a145a8eb9447788e5c1345e67c78e.png" referrerpolicy="no-referrer" alt="image">
+
+
+<p><strong>Windows常见安装问题与排查</strong></p>
+<ul>
+<li><p><strong>问题1：</strong> 在<code>cmd</code>中输入<code>ollama</code>提示“不是内部或外部命令”。</p>
+</li>
+<li><p><strong>原因：</strong> 环境变量没有配置成功。+ <strong>解决方案：</strong> 手动添加。通常Ollama安装在 <code>C:\Users\你的用户名\AppData\Local\Ollama</code> 目录下。将这个路径添加到系统的<code>Path</code>环境变量中，然后重启<code>cmd</code>窗口。如果嫌麻烦，最简单的办法是卸载重装一遍Ollama。</p>
+</li>
+<li><p><strong>问题2：</strong> 运行模型时感觉非常慢，风扇狂转但任务管理器显示GPU利用率很低。</p>
+</li>
+<li><p><strong>原因：</strong> Ollama没有成功调用NVIDIA显卡，正在使用CPU进行计算。+ <strong>解决方案：</strong></p>
+</li>
+<li><p><strong>确认驱动：</strong> 重新执行“第一步：检查NVIDIA驱动”，确保驱动版本正确。+ <strong>查看日志：</strong> Ollama的日志文件位于 <code>C:\Users\你的用户名\.ollama\logs</code> 目录下。打开最新的日志文件，搜索关键词 <code>cuda</code> 或 <code>gpu</code>。如果你看到类似 <code>Found NVIDIA GPU</code> 的信息，说明识别成功。如果看到的是 <code>no NVIDIA GPU detected</code>，那大概率是驱动问题。+ <strong>重启服务：</strong> 右键点击任务栏的Ollama图标，选择“Quit”。然后从开始菜单重新启动Ollama。</p>
+</li>
+</ul>
+<h4 id="3-2-macOS-与-Linux-系统安装"><a href="#3-2-macOS-与-Linux-系统安装" class="headerlink" title="3.2. macOS 与 Linux 系统安装"></a>3.2. macOS 与 Linux 系统安装</h4><p>对于macOS和Linux用户，安装过程同样非常直接。</p>
+<ul>
+<li><strong>macOS用户</strong>：直接从Ollama官网下载<code>.dmg</code>安装包，像安装普通Mac应用一样拖拽到“应用程序”文件夹即可。Ollama会自动处理好命令行工具的配置。+ <strong>Linux用户</strong>：官方提供了一键安装脚本，在终端中运行 <code>curl -fsSL https://ollama.com/install.sh | sh</code> 即可完成安装和服务配置。</li>
+</ul>
+<p>由于不同用户的系统环境千差万别，如果在macOS或Linux上遇到任何安装问题，欢迎在评论区留言，我会尽力帮助大家解答。</p>
+<h3 id="4-核心命令精讲：成为Ollama指挥官"><a href="#4-核心命令精讲：成为Ollama指挥官" class="headerlink" title="4. 核心命令精讲：成为Ollama指挥官"></a>4. 核心命令精讲：成为Ollama指挥官</h3><p>Ollama的命令行接口（CLI）设计得非常直观。掌握了下面几个核心命令，你就掌握了99%的日常操作。我会用最详尽的方式，为你拆解每一个命令。</p>
+<h4 id="4-1-ollama-run-你的第一个AI对话"><a href="#4-1-ollama-run-你的第一个AI对话" class="headerlink" title="4.1. ollama run - 你的第一个AI对话"></a>4.1. <code>ollama run</code> - 你的第一个AI对话</h4><p>这是最核心、最常用的命令。它的作用是：运行一个指定的模型，如果本地没有这个模型，它会自动帮你下载。</p>
+<ul>
+<li><p><strong>用途：</strong> 启动并与一个模型进行交互式聊天，或者让模型处理单个提示。+ <strong>语法：</strong> <code>ollama run &lt;model_name&gt;[:tag] [prompt]</code></p>
+</li>
+<li><p><code>&lt;model_name&gt;</code>: 必需。模型的名字，比如 <code>qwen</code>, <code>llama3</code>, <code>gemma</code>。+ <code>[:tag]</code>: 可选。模型的标签或版本。默认是<code>latest</code>。比如 <code>qwen:7b</code> 表示70亿参数的版本，<code>qwen:4b</code> 表示40亿参数的版本。你可以在 <a target="_blank" rel="noopener" href="https://ollama.com/library">Ollama模型库</a> 找到所有可用的模型和标签。+ <code>[prompt]</code>: 可选。如果你在命令后面直接跟上文字，Ollama会处理完这段文字并输出结果，然后退出，而不是进入交互式聊天。</p>
+</li>
+</ul>
+<p><strong>实战演练：</strong></p>
+<ul>
+<li><strong>启动交互式聊天（最常用）</strong> 打开你的终端或CMD，输入：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ollama run qwen:4b</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li><p><strong>背后发生了什么？</strong></p>
+</li>
+<li><p>Ollama首先检查你本地有没有一个叫 <code>qwen</code> 且标签为 <code>4b</code> 的模型。 +  发现没有，于是它会连接到Ollama服务器，开始下载模型文件。你会看到一个进度条，显示下载的各个层（layers）。 +  下载完成后，Ollama会加载模型到内存（如果是第一次，可能会有一个编译或准备的过程）。</p>
+</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/direct/42fd5fafb1144a14b397fb023c8581b9.png" referrerpolicy="no-referrer" alt="image">
+ +  加载完毕，你会看到一个提示符 `>>> Send a message (/? for help)`，表示你可以开始聊天了！ 
+<img src="https://i-blog.csdnimg.cn/direct/8b5365594ea44595a127278ae77803d6.png" referrerpolicy="no-referrer" alt="image">
+ 
+<ul>
+<li><strong>如何聊天？</strong> 直接输入你的问题，比如 <code>你好，介绍一下你自己</code> 然后回车。模型会思考片刻，然后输出答案。你可以一直聊下去。想退出聊天，输入 <code>/bye</code> 即可。 </li>
+<li><strong>处理单个任务（适合脚本）</strong> 假设你想让模型帮你写一个Python的hello world，并且不希望进入聊天模式。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ollama run qwen:4b <span class="string">&quot;写一个打印hello world的Python函数&quot;</span></span><br></pre></td></tr></table></figure>
+<p> 模型会直接输出代码，然后程序结束，返回到你的命令行提示符。这个用法在写自动化脚本时非常有用。 </p>
+<p><strong>高手小贴士：</strong></p>
+<ul>
+<li>在交互式聊天中，输入 <code>/?</code> 可以查看所有可用的内部命令，比如 <code>/set</code>, <code>/show</code>, <code>/bye</code> 等，可以用来调整模型参数或查看信息。+ 如果你想运行的模型非常大，而你的网络又不太好，<code>run</code>命令可能会因为下载时间太长而显得卡顿。这时，更好的做法是先用下面的 <code>pull</code> 命令把模型下载好。</li>
+</ul>
+<h4 id="4-2-ollama-pull-提前“备货”"><a href="#4-2-ollama-pull-提前“备货”" class="headerlink" title="4.2. ollama pull - 提前“备货”"></a>4.2. <code>ollama pull</code> - 提前“备货”</h4><p>这个命令就像<code>git pull</code>或者<code>docker pull</code>，它的作用是只下载模型，而不立即运行它。</p>
+<ul>
+<li><strong>用途：</strong> 预先下载模型到本地，以便之后可以快速启动。+ <strong>语法：</strong> <code>ollama pull &lt;model_name&gt;[:tag]</code></li>
+</ul>
+<p><strong>实战演练：</strong></p>
+<p>假设你晚上准备用通义千问70亿参数的模型，但它比较大，你可以在白天工作的时候就让电脑在后台下载。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ollama pull qwen:7b</span><br></pre></td></tr></table></figure>
+
+
+<p>执行后，你会看到和<code>run</code>命令首次运行时一样的下载进度条。下载完成后，命令结束。之后你再执行 <code>ollama run qwen:7b</code>，模型会瞬间启动，因为文件已经躺在你的硬盘里了。</p>
+<h4 id="4-3-ollama-list-查看你的“军火库”"><a href="#4-3-ollama-list-查看你的“军火库”" class="headerlink" title="4.3. ollama list - 查看你的“军火库”"></a>4.3. <code>ollama list</code> - 查看你的“军火库”</h4><p>当你下载的模型越来越多，你可能需要一个命令来查看自己本地到底有哪些模型。</p>
+<ul>
+<li><strong>用途：</strong> 列出所有已经下载到本地的Ollama模型。+ <strong>语法：</strong> <code>ollama list</code></li>
+</ul>
+<p><strong>实战演练：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ollama list</span><br></pre></td></tr></table></figure>
+
+
+<p>你会看到一个清晰的表格，包含以下信息：</p>
+<ul>
+<li><code>NAME</code>: 模型的名字和标签，如 <code>qwen:4b</code>。+ <code>ID</code>: 模型的唯一标识符。+ <code>SIZE</code>: 模型文件在硬盘上占用的空间。+ <code>MODIFIED</code>: 模型的最后修改时间。</li>
+</ul>
+<img src="https://i-blog.csdnimg.cn/direct/06164c87a6f34d8183bb9be2f50eb59a.png" referrerpolicy="no-referrer" alt="image">
+
+
+<h4 id="4-4-ollama-rm-“清理门户”"><a href="#4-4-ollama-rm-“清理门户”" class="headerlink" title="4.4. ollama rm - “清理门户”"></a>4.4. <code>ollama rm</code> - “清理门户”</h4><p>模型文件都很大，硬盘空间宝贵。当你不再需要某个模型时，可以用<code>rm</code>命令删除它。</p>
+<ul>
+<li><strong>用途：</strong> 删除本地的一个或多个模型。+ <strong>语法：</strong> <code>ollama rm &lt;model_name&gt;[:tag]</code></li>
+</ul>
+<p><strong>实战演练：</strong></p>
+<ul>
+<li><strong>删除一个特定版本的模型</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ollama <span class="built_in">rm</span> qwen:4b</span><br></pre></td></tr></table></figure>
+<p> Ollama会确认并删除 <code>qwen:4b</code> 这个模型，释放硬盘空间。 +  <strong>删除一个模型的所有版本</strong> 如果你下载了 <code>qwen:7b</code>, <code>qwen:4b</code>, <code>qwen:1.8b</code>，想把所有<code>qwen</code>相关的都删掉，可以只写模型名： </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ollama <span class="built_in">rm</span> qwen</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>警告：</strong> 这个操作会删除所有名为<code>qwen</code>的本地模型，请谨慎使用。</p>
+<p><strong>高手小貼士：</strong> <code>ollama rm</code> 是不可逆的。删除前，最好用 <code>ollama list</code> 确认一下。</p>
+<h4 id="4-5-ollama-cp-“克隆”与“微调”的起点"><a href="#4-5-ollama-cp-“克隆”与“微调”的起点" class="headerlink" title="4.5. ollama cp - “克隆”与“微调”的起点"></a>4.5. <code>ollama cp</code> - “克隆”与“微调”的起点</h4><p><code>cp</code> 命令（copy的缩写）非常有趣。它允许你为一个已有的模型创建一个“副本”，并给它一个新的名字。这在你想要基于一个基础模型进行自定义时特别有用。</p>
+<ul>
+<li><strong>用途：</strong> 复制一个本地模型，为创建自定义模型做准备。+ <strong>语法：</strong> <code>ollama cp &lt;source_model&gt; &lt;destination_model&gt;</code></li>
+</ul>
+<p><strong>实战演练：</strong></p>
+<p>假设你很喜欢<code>qwen:7b</code>，但你想创建一个专门用来帮你写代码的“编程版Qwen”。你可以先复制一份：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ollama <span class="built_in">cp</span> qwen:7b my-qwen-coder</span><br></pre></td></tr></table></figure>
+
+
+<p>执行后，再运行 <code>ollama list</code>，你会发现多了一个名为 <code>my-qwen-coder:latest</code> 的模型。它的ID和<code>qwen:7b</code>完全一样，因为它们目前指向的是同一个底层文件。但现在，你可以对 <code>my-qwen-coder</code> 进行修改（通过我们后面要讲的<code>Modelfile</code>），而不会影响到原始的<code>qwen:7b</code>模型。</p>
+<p>这个命令是通往高级玩法的第一步。</p>
+<h4 id="4-6-ollama-show-揭开模型的神秘面纱"><a href="#4-6-ollama-show-揭开模型的神秘面纱" class="headerlink" title="4.6. ollama show - 揭开模型的神秘面纱"></a>4.6. <code>ollama show</code> - 揭开模型的神秘面纱</h4><p>你想知道一个模型的“内幕”吗？比如它的系统提示词是什么？它的温度参数（temperature）设置的是多少？<code>show</code>命令可以满足你的好奇心。</p>
+<ul>
+<li><strong>用途：</strong> 显示一个模型的详细信息，包括它的<code>Modelfile</code>内容。+ <strong>语法：</strong> <code>ollama show &lt;model_name&gt;[:tag]</code></li>
+</ul>
+<p><strong>实战演练：</strong></p>
+<p>让我们看看<code>qwen:7b</code>的配置信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ollama show qwen:7b</span><br></pre></td></tr></table></figure>
+
+
+<p>你会看到一大段输出，包含了<code>Modelfile</code>的各种指令，比如：</p>
+<ul>
+<li><code>FROM ...</code>: 它基于哪个基础模型文件。+ <code>TEMPLATE ...</code>: 它的对话模板结构。+ <code>PARAMETER ...</code>: 它的默认参数，如 <code>temperature</code>, <code>top_p</code>, <code>stop</code> 等。+ <code>SYSTEM ...</code>: 它的默认系统提示词。</li>
+</ul>
+<p>通过<code>show</code>命令，你可以学习到官方模型是如何配置的，为我们自己创建模型提供灵感。</p>
+<h4 id="4-7-ollama-ps-谁在“吃”我的显存？"><a href="#4-7-ollama-ps-谁在“吃”我的显存？" class="headerlink" title="4.7. ollama ps - 谁在“吃”我的显存？"></a>4.7. <code>ollama ps</code> - 谁在“吃”我的显存？</h4><p><code>ps</code> (process status) 命令可以告诉你当前有哪些模型正在运行（即被加载到了内存&#x2F;显存中）。</p>
+<ul>
+<li><strong>用途：</strong> 查看当前正在运行的模型进程。+ <strong>语法：</strong> <code>ollama ps</code></li>
+</ul>
+<p><strong>实战演练：</strong></p>
+<p>当你运行了一个模型后（比如<code>ollama run qwen:4b</code>），不要关闭这个终端。另外打开一个新的终端，输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ollama ps</span><br></pre></td></tr></table></figure>
+
+
+<p>你会看到类似下面的输出，告诉你<code>qwen:4b</code>正在运行，占用了多少内存，以及它已经运行了多久。这在你同时运行多个模型或者排查性能问题时非常有用。<br><img src="https://i-blog.csdnimg.cn/direct/c851254c395646d6ad302653733cc9e7.png" referrerpolicy="no-referrer" alt="image"></p>
+<p><strong>高手小贴士：</strong> Ollama默认在一段时间没有活动后，会自动从内存中卸载模型以释放资源。你可以通过<code>ps</code>命令来确认模型是否还在运行。</p>
+<h3 id="5-第一个实战项目：与通义千问-Qwen-进行一场深度对话"><a href="#5-第一个实战项目：与通义千问-Qwen-进行一场深度对话" class="headerlink" title="5. 第一个实战项目：与通义千问(Qwen)进行一场深度对话"></a>5. 第一个实战项目：与通义千问(Qwen)进行一场深度对话</h3><p>理论说了这么多，是时候来点真格的了！我们将一起动手，完成从下载到与优秀的国产大模型——阿里的通义千问(Qwen)——进行对话的全过程。</p>
+<p><strong>第一步：拉取Qwen模型</strong></p>
+<p>我们采用好习惯，先<code>pull</code>后<code>run</code>。Qwen有多个版本，我们选择70亿参数的<code>qwen:7b</code>，它在性能和资源消耗上取得了很好的平衡，适合大多数现代PC。</p>
+<p>打开你的终端&#x2F;CMD，执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ollama pull qwen:7b</span><br></pre></td></tr></table></figure>
+
+
+<p>根据你的网速，这可能需要几分钟到十几分钟。你会看到类似这样的下载过程：</p>
+<img src="https://i-blog.csdnimg.cn/direct/8553ec40f3154134b6404f26410130b7.png" referrerpolicy="no-referrer" alt="image">
+
+
+<p>看到<code>success</code>就表示大功告成！</p>
+<p><strong>第二步：启动并对话</strong></p>
+<p>现在，激动人心的时刻到了。执行<code>run</code>命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ollama run qwen:7b</span><br></pre></td></tr></table></figure>
+
+
+<p>由于模型已经下载好了，Ollama会直接开始加载模型。这个过程会占用大量内存和显存。你可以打开任务管理器（Windows）或活动监视器（macOS）来观察资源变化。</p>
+<p>加载完成后，你会看到熟悉的提示符： <code>&gt;&gt;&gt; Send a message (/? for help)</code></p>
+<p>现在，让我们来考验一下通义千问的能力。作为国产模型，它的中文能力非常出色。</p>
+<p><strong>示例对话1：生活小助手</strong></p>
+<p>你： <code>我晚上想做个西红柿炒鸡蛋，但我是个厨房新手，能给我一个详细的步骤吗？</code></p>
+<p>Qwen可能会给你类似下面这样的回答：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">当然可以！西红柿炒鸡蛋是一道非常经典的家常菜，简单又美味。下面是一个新手也能轻松掌握的详细步骤：</span><br><span class="line"></span><br><span class="line">**准备材料：**</span><br><span class="line">*   西红柿：2个（中等大小）</span><br><span class="line">*   鸡蛋：3个</span><br><span class="line">*   小葱：1根</span><br><span class="line">*   盐：约3-4克（一小勺）</span><br><span class="line">*   糖：约5克（一小勺，用于中和西红柿的酸味）</span><br><span class="line">*   食用油：适量</span><br><span class="line"></span><br><span class="line">**制作步骤：**</span><br><span class="line"></span><br><span class="line">1.  **准备工作**：</span><br><span class="line">    *   将西红柿洗净，在顶部划一个十字花刀，然后用开水烫一下，这样很容易就能把皮剥掉。去皮后切成小块备用。</span><br><span class="line">    *   将鸡蛋打入碗中，加少许盐（约1克），用筷子或打蛋器充分搅打均匀，直到蛋液表面出现一层细密的泡沫。</span><br><span class="line">    *   小葱切成葱花。</span><br><span class="line"></span><br><span class="line">2.  **炒鸡蛋**：</span><br><span class="line">    *   热锅中倒入比平时炒菜多一点的油，油温七成热时（油面微微冒烟），倒入蛋液。</span><br><span class="line">    *   蛋液下锅后不要马上翻动，等它稍微凝固后，用铲子迅速划散，炒成大块的鸡蛋块。炒好后盛出备用。</span><br><span class="line"></span><br><span class="line">3.  **炒西红柿**：</span><br><span class="line">    *   锅里留底油，如果油不够可以再加一点。放入葱花爆香。</span><br><span class="line">    *   倒入切好的西红柿块，用中火翻炒，直到西红柿变软，炒出红色的汤汁。</span><br><span class="line">    *   加入一小勺糖和剩下的盐，翻炒均匀。</span><br><span class="line"></span><br><span class="line">4.  **混合出锅**：</span><br><span class="line">    *   将之前炒好的鸡蛋倒回锅中，和西红柿一起快速翻炒均匀，让鸡蛋充分吸收西红柿的汤汁。</span><br><span class="line">    *   翻炒约30秒后，即可关火出锅。</span><br><span class="line"></span><br><span class="line">**小贴士：**</span><br><span class="line">*   喜欢汤汁多一点的，可以在炒西红柿的时候加少量水。</span><br><span class="line">*   剥西红柿皮会让口感更好。</span><br><span class="line">*   炒鸡蛋时油温高一点，炒出来的鸡蛋更蓬松。</span><br><span class="line"></span><br><span class="line">祝你成功！</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>示例对话2：创意写作</strong></p>
+<p>你： <code>我正在写一篇题为《人为什么活着》的演讲稿，帮我想一句有吸引力的开场白。</code></p>
+<p>Qwen可能会给你的输出：<br><img src="https://i-blog.csdnimg.cn/direct/0528b29214af4c699d1030f0f3b014aa.png" referrerpolicy="no-referrer" alt="image"></p>
+<p>是不是非常强大？现在，你拥有了一个7x24小时待命、反应迅速、无需联网、并且绝对保护你隐私的AI伙伴。你可以随时退出聊天（输入<code>/bye</code>），下次再通过<code>ollama run qwen:7b</code>回来继续。</p>
+<h3 id="6-进阶玩法：释放Ollama的全部潜能"><a href="#6-进阶玩法：释放Ollama的全部潜能" class="headerlink" title="6. 进阶玩法：释放Ollama的全部潜能"></a>6. 进阶玩法：释放Ollama的全部潜能</h3><p>玩转了基础命令，你已经是一个合格的Ollama用户了。但要想成为高手，我们还得学习两个“杀手锏”：<code>Modelfile</code>和<code>REST API</code>。</p>
+<h4 id="6-1-使用Modelfile定制你的专属模型"><a href="#6-1-使用Modelfile定制你的专属模型" class="headerlink" title="6.1. 使用Modelfile定制你的专属模型"></a>6.1. 使用<code>Modelfile</code>定制你的专属模型</h4><p>还记得我们之前用<code>ollama cp</code>创建了一个副本吗？现在是时候让它变得独一无二了。<code>Modelfile</code>就是Ollama中用于定义和创建模型的“配方文件”，它和<code>Dockerfile</code>的理念如出一辙。</p>
+<p><strong><code>Modelfile</code>的核心指令解析：</strong></p>
+<ul>
+<li><p><code>FROM</code> (必需): 指定你创建的模型基于哪个基础模型。这必须是Ollama本地已经存在的模型。+ <code>PARAMETER</code>: 设置模型的默认运行参数。这会覆盖基础模型中的参数。常用的有： </p>
+</li>
+<li><p><code>temperature</code>: 控制输出的随机性。值越高（如1.0），回答越有创意和多样性；值越低（如0.2），回答越确定和保守。+ <code>top_p</code>: 一种替代<code>temperature</code>的采样方法，控制生成文本的“焦点”。+ <code>stop</code>: 定义一个或多个字符串，当模型生成这些字符串时，会自动停止。比如可以设置为<code>&quot;用户:&quot;</code>，防止模型角色扮演时自己生成下一轮对话。</p>
+</li>
+<li><p><code>SYSTEM</code>: 设置一个系统级的指令。这个指令会在每次会话开始时被加载，告诉模型它应该扮演什么角色、遵循什么规则。这是进行角色扮演（Role-Playing）和能力定制的核心。+ <code>TEMPLATE</code>: 定义模型的完整对话模板。Ollama使用这个模板来组织用户的输入、历史记录和系统提示，然后喂给模型。你可以通过修改它来改变模型的交互方式。+ <code>ADAPTER</code>: (高级) 用于应用LoRA等微调适配器。这允许你加载一个小的、经过特定任务训练的“补丁”，来改变基础模型的行为，而无需重新训练整个模型。</p>
+</li>
+</ul>
+<p><strong>实战项目：打造一个“Python代码审查专家”模型</strong></p>
+<p>我们的目标是创建一个名为 <code>code-reviewer</code> 的模型。它基于<code>qwen:7b</code>，但它的唯一使命是：以一种严格但友好的方式，审查用户提供的Python代码，并给出优化建议。</p>
+<p><strong>第一步：创建<code>Modelfile</code>文件</strong></p>
+<p>在你的电脑上任意位置，创建一个名为 <code>Modelfile</code> 的纯文本文件（没有后缀名）。然后输入以下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基于强大的通义千问7B基础模型</span></span><br><span class="line">FROM qwen:7b</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置参数，让审查意见更具确定性和专业性</span></span><br><span class="line">PARAMETER temperature 0.2</span><br><span class="line">PARAMETER top_p 0.9</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义一个非常严格的系统提示词，赋予模型“代码审查专家”的人格</span></span><br><span class="line">SYSTEM <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">你是一位资深的Python代码审查专家，你的名字叫“码神”。</span></span><br><span class="line"><span class="string">你将收到用户提供的一段Python代码。</span></span><br><span class="line"><span class="string">你的任务是分析代码中潜在的错误、风格问题（遵循PEP 8规范）、性能瓶颈和安全漏洞。</span></span><br><span class="line"><span class="string">你必须以结构化的格式提供反馈：</span></span><br><span class="line"><span class="string">1.  **总体评价:** 对代码质量进行一句话的简短总结。</span></span><br><span class="line"><span class="string">2.  **优点:** 列出2-3点代码做得好的地方。</span></span><br><span class="line"><span class="string">3.  **改进建议:** 以编号列表的形式，给出具体的、可操作的建议。对于每条建议，请提供“修改前”和“修改后”的代码块，以清晰地展示变化，并解释*为什么*推荐这样修改。</span></span><br><span class="line"><span class="string">4.  **最终评分:** 对代码进行1到10分的评分（1=需要完全重写, 10=完美）。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">你的语气应该专业、有建设性且富有鼓励性。不要进行闲聊，只专注于代码审查本身。</span></span><br><span class="line"><span class="string">&quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 自定义对话模板，确保用户的代码被正确地放入上下文中</span></span><br><span class="line"><span class="comment"># 对于Qwen这类聊天模型，通常不需要修改默认模板，Ollama会自动处理。</span></span><br><span class="line"><span class="comment"># 但如果需要，可以像下面这样自定义。为保持简单，我们先注释掉。</span></span><br><span class="line"><span class="comment"># TEMPLATE &quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># [INST] &#123;&#123; .System &#125;&#125;</span></span><br><span class="line"><span class="comment"># 这是我希望你审查的Python代码：</span></span><br><span class="line"><span class="comment"># ```python</span></span><br><span class="line"><span class="comment"># &#123;&#123; .Prompt &#125;&#125;</span></span><br><span class="line"><span class="comment"># ```</span></span><br><span class="line"><span class="comment"># [/INST]</span></span><br><span class="line"><span class="comment"># &quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>第二步：使用<code>ollama create</code>构建模型</strong></p>
+<p>保存好<code>Modelfile</code>文件后，打开终端，并<code>cd</code>到<code>Modelfile</code>所在的目录。然后执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ollama create code-reviewer -f ./Modelfile</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li><code>ollama create</code>: 这是创建自定义模型的命令。+ <code>code-reviewer</code>: 这是你给新模型起的名字。+ <code>-f ./Modelfile</code>: <code>-f</code>参数指定了你的<code>Modelfile</code>文件的路径。</li>
+</ul>
+<p>Ollama会读取你的<code>Modelfile</code>，并基于<code>qwen:7b</code>创建一个新的模型层。这个过程非常快。完成后，你可以用<code>ollama list</code>看到你的新模型<code>code-reviewer:latest</code>已经出现在列表中了。</p>
+<p><strong>第三步：运行和测试你的专属模型</strong></p>
+<p>现在，让我们来检验一下成果！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ollama run code-reviewer</span><br></pre></td></tr></table></figure>
+
+
+<p>启动后，我们给它一段有待优化的Python代码。直接把下面的代码粘贴到聊天框里：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">process_data</span>(<span class="params">l</span>):</span><br><span class="line">    result = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> l:</span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">            result.append(i*i)</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">my_list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line"><span class="built_in">print</span>(process_data(my_list))</span><br></pre></td></tr></table></figure>
+
+
+<p>看看我们的“码神”会给出怎样的专业反馈：</p>
+<img src="https://i-blog.csdnimg.cn/direct/9db62eebbbc448ac8ce415538673ff0b.png" referrerpolicy="no-referrer" alt="image">
+
+
+<p>看到了吗？我们没有对<code>qwen:7b</code>进行任何重新训练，仅仅通过一个精心设计的<code>Modelfile</code>，就把它从一个通用聊天机器人，变成了一个专注、专业的代码审查工具。这就是<code>Modelfile</code>的强大之处。你可以举一反三，创建“小红书文案生成器”、“英语翻译专家”、“SQL生成器”等等任何你想要的专属模型。</p>
+<h4 id="6-2-通过REST-API将Ollama集成到你的代码中"><a href="#6-2-通过REST-API将Ollama集成到你的代码中" class="headerlink" title="6.2. 通过REST API将Ollama集成到你的代码中"></a>6.2. 通过REST API将Ollama集成到你的代码中</h4><p>Ollama不仅仅是一个命令行工具，它本质上是一个<strong>API服务器</strong>。这意味着，任何能够发送HTTP请求的程序，都可以与Ollama进行交互。这为我们将本地大模型集成到自己的应用程序（网站、桌面工具、自动化脚本等）中打开了无限可能。</p>
+<p>Ollama默认在<code>http://localhost:11434</code>上提供服务。</p>
+<p><strong>第一步：使用<code>curl</code>测试API</strong></p>
+<p><code>curl</code>是一个强大的命令行工具，用于发送网络请求。我们可以用它来快速测试Ollama的API端点。</p>
+<p>Ollama最核心的两个API端点是：</p>
+<ul>
+<li><code>/api/generate</code>: 用于生成文本（类似<code>ollama run model &quot;prompt&quot;</code>）。+ <code>/api/chat</code>: 用于进行多轮对话。</li>
+</ul>
+<p><strong>测试<code>/api/chat</code>端点（并开启流式响应）：</strong></p>
+<p>流式响应（streaming）是与大模型交互的最佳方式，用户可以像在ChatGPT网站上一样，看到文字一个一个地蹦出来，体验更好。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">curl http://localhost:11434/api/chat -d <span class="string">&#x27;&#123;</span></span><br><span class="line"><span class="string">  &quot;model&quot;: &quot;qwen:7b&quot;,</span></span><br><span class="line"><span class="string">  &quot;messages&quot;: [</span></span><br><span class="line"><span class="string">    &#123; &quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;你好，你是谁？&quot; &#125;</span></span><br><span class="line"><span class="string">  ],</span></span><br><span class="line"><span class="string">  &quot;stream&quot;: true</span></span><br><span class="line"><span class="string">&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li><code>messages</code>: 这是一个数组，可以包含多轮对话历史。<code>role</code>可以是<code>user</code>、<code>assistant</code>或<code>system</code>。+ <code>stream</code>: 设置为<code>true</code>。</li>
+</ul>
+<p>执行后，你会看到终端立刻开始打印出一连串的JSON对象，每个对象都包含一小部分回答（在<code>message.content</code>字段里）。这就是流式传输。</p>
+<p><strong>第二步：编写Python脚本构建一个命令行聊天程序</strong></p>
+<p>现在，让我们用Python的<code>requests</code>库，来编写一个完整的、支持流式对话的命令行聊天程序。</p>
+<p>新建一个Python文件，比如<code>ollama_chat.py</code>，然后写入以下代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="comment"># Ollama API的URL</span></span><br><span class="line">OLLAMA_API_URL = <span class="string">&quot;http://localhost:11434/api/chat&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 对话历史，用于支持多轮对话</span></span><br><span class="line">conversation_history = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">chat_with_ollama</span>(<span class="params">prompt: <span class="built_in">str</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    发送用户输入到Ollama API并流式处理响应。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 将用户的当前输入添加到对话历史中</span></span><br><span class="line">    conversation_history.append(&#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="string">&quot;content&quot;</span>: prompt&#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 构建请求体</span></span><br><span class="line">    payload = &#123;</span><br><span class="line">        <span class="string">&quot;model&quot;</span>: <span class="string">&quot;qwen:7b&quot;</span>,  <span class="comment"># 你可以换成任何你本地有的模型</span></span><br><span class="line">        <span class="string">&quot;messages&quot;</span>: conversation_history,</span><br><span class="line">        <span class="string">&quot;stream&quot;</span>: <span class="literal">True</span>  <span class="comment"># 开启流式响应</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># 使用 stream=True 来接收流式响应</span></span><br><span class="line">        <span class="keyword">with</span> requests.post(OLLAMA_API_URL, json=payload, stream=<span class="literal">True</span>) <span class="keyword">as</span> response:</span><br><span class="line">            response.raise_for_status()  <span class="comment"># 如果请求失败（如404, 500），则抛出异常</span></span><br><span class="line"></span><br><span class="line">            full_response = <span class="string">&quot;&quot;</span></span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;\n助手: &quot;</span>, end=<span class="string">&quot;&quot;</span>, flush=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 逐行迭代响应内容</span></span><br><span class="line">            <span class="keyword">for</span> line <span class="keyword">in</span> response.iter_lines():</span><br><span class="line">                <span class="keyword">if</span> line:</span><br><span class="line">                    <span class="comment"># 解码每一行（它们是JSON字符串）</span></span><br><span class="line">                    chunk = json.loads(line.decode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">                    </span><br><span class="line">                    <span class="comment"># 提取消息内容</span></span><br><span class="line">                    content = chunk[<span class="string">&#x27;message&#x27;</span>][<span class="string">&#x27;content&#x27;</span>]</span><br><span class="line">                    <span class="built_in">print</span>(content, end=<span class="string">&quot;&quot;</span>, flush=<span class="literal">True</span>)</span><br><span class="line">                    full_response += content</span><br><span class="line"></span><br><span class="line">                    <span class="comment"># 检查对话是否结束</span></span><br><span class="line">                    <span class="keyword">if</span> chunk.get(<span class="string">&#x27;done&#x27;</span>, <span class="literal">False</span>):</span><br><span class="line">                        <span class="comment"># 将完整的助手回答添加到历史记录中</span></span><br><span class="line">                        conversation_history.append(&#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;assistant&quot;</span>, <span class="string">&quot;content&quot;</span>: full_response&#125;)</span><br><span class="line">                        <span class="built_in">print</span>() <span class="comment"># 换行</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">except</span> requests.exceptions.RequestException <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;\n[错误] 无法连接到Ollama API: <span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> json.JSONDecodeError <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;\n[错误] 解析JSON响应失败: <span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Ollama 命令行聊天程序&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;模型: qwen:7b | 输入 &#x27;exit&#x27; 或 &#x27;quit&#x27; 退出。&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-&quot;</span> * <span class="number">50</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        user_input = <span class="built_in">input</span>(<span class="string">&quot;你: &quot;</span>)</span><br><span class="line">        <span class="keyword">if</span> user_input.lower() <span class="keyword">in</span> [<span class="string">&quot;exit&quot;</span>, <span class="string">&quot;quit&quot;</span>]:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;再见!&quot;</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        </span><br><span class="line">        chat_with_ollama(user_input)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>代码逐行解析：</strong></p>
+<ul>
+<li><p>我们导入了<code>requests</code>和<code>json</code>库。+ <code>OLLAMA_API_URL</code>定义了API地址。+ <code>conversation_history</code>是一个列表，用于存储整个对话的上下文。这是实现多轮对话的关键。+ <code>chat_with_ollama</code>函数是核心逻辑： </p>
+</li>
+<li><p>它接收用户输入<code>prompt</code>，并将其作为<code>user</code>角色的消息添加到<code>conversation_history</code>。+ 它构建了与<code>curl</code>示例中类似的<code>payload</code>，但<code>messages</code>字段现在包含了完整的对话历史。+ <code>requests.post</code>函数中，<code>stream=True</code>是关键，它告诉<code>requests</code>库不要一次性下载所有内容，而是保持连接，按块接收。+ <code>response.iter_lines()</code>会迭代服务器发来的每一行数据。+ Ollama流式输出的每一行都是一个独立的JSON对象，所以我们用<code>json.loads()</code>来解析它。+ 我们从解析后的<code>chunk</code>中提取<code>message.content</code>，这就是模型生成的文本片段。+ <code>print(content, end=&quot;&quot;, flush=True)</code>实现了打字机效果。<code>end=&quot;&quot;</code>防止<code>print</code>自动换行，<code>flush=True</code>强制立即输出到屏幕。+ 当一个<code>chunk</code>中包含<code>&quot;done&quot;: true</code>时，表示模型已经说完了这句话。此时，我们将完整的回答<code>full_response</code>作为<code>assistant</code>角色的消息存入历史记录，为下一轮对话做准备。</p>
+</li>
+<li><p>主程序部分<code>if __name__ == &quot;__main__&quot;:</code>创建了一个无限循环，不断接收用户输入，调用<code>chat_with_ollama</code>函数，直到用户输入<code>exit</code>或<code>quit</code>。</p>
+</li>
+</ul>
+<p><strong>运行你的聊天程序：</strong></p>
+<p>在终端中，确保你的Ollama服务正在运行，然后执行这个Python脚本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python ollama_chat.py</span><br></pre></td></tr></table></figure>
+
+
+<p>现在，你就有了一个完全由你自己代码驱动、后端是本地Qwen模型的聊天机器人了！你可以试着和它进行多轮对话，比如：</p>
+<img src="https://i-blog.csdnimg.cn/direct/70093e1ca8fb46b4b06de21267cf8d78.png" referrerpolicy="no-referrer" alt="image">
+
+
+<p>因为它保存了对话历史，所以能记住你之前说过的话。这个简单的脚本就是你构建更复杂AI应用（如集成到Flask网站、Discord机器人、自动化工作流等）的起点。</p>
+<h3 id="7-结语与展望：你的AI征程，才刚刚开始"><a href="#7-结语与展望：你的AI征程，才刚刚开始" class="headerlink" title="7. 结语与展望：你的AI征程，才刚刚开始"></a>7. 结语与展望：你的AI征程，才刚刚开始</h3><p>恭喜你，坚持读到这里！如果你跟着我的步骤一路走下来，你现在已经不再是本地大模型的门外汉了。</p>
+<p>让我们回顾一下你在这篇指南中学到的硬核技能：</p>
+<ul>
+<li>你理解了<strong>本地部署大模型的价值</strong>，以及<strong>Ollama作为“大模型Docker”的核心理念</strong>。+ 你掌握了在<strong>Windows、macOS和Linux</strong>上从零到一安装和配置Ollama的完整流程，并学会了如何排查常见问题。+ 你对Ollama的<strong>七大核心命令</strong>（<code>run</code>, <code>pull</code>, <code>list</code>, <code>rm</code>, <code>cp</code>, <code>show</code>, <code>ps</code>）了如指掌，能够像管理文件一样管理你的模型。+ 你亲手完成了与<strong>通义千问(Qwen)<strong>的第一次亲密接触，体验了本地AI的强大。+ 你学会了使用</strong><code>Modelfile</code><strong>这一神器，将通用模型定制为你专属的“Python代码审查专家”。+ 你掌握了通过</strong>REST API</strong>和<strong>Python</strong>编程，将Ollama的AI能力集成到你自己程序中的终极技巧。</li>
+</ul>
+<p>从对本地AI一无所知，到能够熟练使用、定制甚至开发，你已经完成了“从0到1”的蜕变。</p>
+<p>但这绝不是终点，而是一个全新的起点。本地AI的世界正在以惊人的速度发展。Ollama的生态也在不断壮大，支持越来越多的多模态模型（如视觉模型LLaVA）、更高效的量化技术、以及与LangChain、LlamaIndex等主流AI开发框架的深度集成。</p>
+<p>接下来，我鼓励你去探索更多：</p>
+<ul>
+<li><strong>访问Ollama模型库</strong>：尝试运行更多有趣的模型，比如Google的Gemma、Meta的Llama 3、法国Mistral AI的Mistral等，感受它们之间风格和能力的差异。+ <strong>挑战多模态</strong>：尝试运行<code>llava</code>模型，给它一张图片，看看它能描述出什么。+ <strong>深入<code>Modelfile</code></strong>：创造更多属于你自己的、用于解决特定问题的定制化模型。+ <strong>构建真实应用</strong>：将今天写的Python脚本作为基础，尝试把它集成到一个Web框架（如Flask或FastAPI）中，做一个可以分享给朋友的网页版AI聊天工具。</li>
+</ul>
+<p>本地化部署大模型，赋予了我们前所未有的能力去掌控AI。它关乎成本，更关乎数据隐私、定制化自由和不受限制的探索精神。Ollama为你打开了这扇大门，而门后的广阔天地，正等待着你去驰骋。</p>
+<p>希望这篇教程，能成为你AI开发道路上一块坚实的垫脚石。如果你觉得有收获，别忘了点赞、收藏、分享。</p>
+</article><div class="post-copyright"><div class="post-copyright__title"><span class="post-copyright-info"><h>Ollama本地化部署大模型从入门到精通（保姆级教程）</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="https://lxttz.github.io/posts/ollama-local-llm-guide.html">https://lxttz.github.io/posts/ollama-local-llm-guide.html</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a"><h>作者</h><div class="post-copyright-cc-info"><h>阿洛博客世界🥝</h></div></div><div class="post-copyright-c"><h>发布于</h><div class="post-copyright-cc-info"><h>2026-10-15</h></div></div><div class="post-copyright-u"><h>更新于</h><div class="post-copyright-cc-info"><h>2026-11-11</h></div></div><div class="post-copyright-c"><h>许可协议</h><div class="post-copyright-cc-info"><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div></div></div></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AI/"><div class="tags-punctuation"><svg class="faa-tada icon" style="height:1.1em;width:1.1em;fill:currentColor;position:relative;top:2px;margin-right:3px" aria-hidden="true"><use xlink:href="#icon-sekuaibiaoqian"></use></svg></div>AI</a><a class="post-meta__tags" href="/tags/%E6%9C%AC%E5%9C%B0AI/"><div class="tags-punctuation"><svg class="faa-tada icon" style="height:1.1em;width:1.1em;fill:currentColor;position:relative;top:2px;margin-right:3px" aria-hidden="true"><use xlink:href="#icon-sekuaibiaoqian"></use></svg></div>本地AI</a><a class="post-meta__tags" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/"><div class="tags-punctuation"><svg class="faa-tada icon" style="height:1.1em;width:1.1em;fill:currentColor;position:relative;top:2px;margin-right:3px" aria-hidden="true"><use xlink:href="#icon-sekuaibiaoqian"></use></svg></div>大模型</a><a class="post-meta__tags" href="/tags/Ollama/"><div class="tags-punctuation"><svg class="faa-tada icon" style="height:1.1em;width:1.1em;fill:currentColor;position:relative;top:2px;margin-right:3px" aria-hidden="true"><use xlink:href="#icon-sekuaibiaoqian"></use></svg></div>Ollama</a></div></div><link rel="stylesheet" href="/css/coin.css" media="defer" onload="this.media='all'"/><div class="post-reward"><button class="tip-button reward-button"><span class="tip-button__text">投喂作者</span><div class="coin-wrapper"><div class="coin"><div class="coin__middle"></div><div class="coin__back"></div><div class="coin__front"></div></div></div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://postimage.me/images/2025/03/23/weixin.md.jpg" target="_blank"><img class="post-qr-code-img" src="https://postimage.me/images/2025/03/23/weixin.md.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://postimage.me/images/2025/03/23/zhifubao.md.jpg" target="_blank"><img class="post-qr-code-img" src="https://postimage.me/images/2025/03/23/zhifubao.md.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></button></div><audio id="coinAudio" src="https://npm.elemecdn.com/akilar-candyassets@1.0.36/audio/aowu.m4a"></audio><script defer="defer" src="/js/coin.js"></script><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/ncre-python-basic-ops-notes.html"><img class="prev-cover" src="https://source.fomal.cc/img/default_cover_66.webp" onerror="onerror=null;src='/assets/r2.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">计算机二级 Python 基本操作题（15分）真题笔记（0101~1903 全套）</div></div></a></div><div class="next-post pull-right"><a href="/posts/2026-frontend-framework-ranking.html"><img class="next-cover" src="https://source.fomal.cc/img/default_cover_20.webp" onerror="onerror=null;src='/assets/r2.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">2026年前端框架排行榜</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/codex-windows-install.html" title="Codex windows版安装包下载和安装教程（Windows无法微软商店下载解决方法）"><img class="cover" src="https://source.fomal.cc/img/default_cover_46.webp" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2026-05-28</div><div class="title">Codex windows版安装包下载和安装教程（Windows无法微软商店下载解决方法）</div></div></a></div><div><a href="/posts/grok4-guide.html" title="马斯克最强AI&quot;Grok4&quot;免费开放，3分钟教你如何使用"><img class="cover" src="https://source.fomal.cc/img/default_cover_37.webp" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2026-09-12</div><div class="title">马斯克最强AI&quot;Grok4&quot;免费开放，3分钟教你如何使用</div></div></a></div><div><a href="/posts/deepseek-harness-desktop-install.html" title="DeepSeek Harness 桌面版安装教程（附2个值得装的插件清单）"><img class="cover" src="https://source.fomal.cc/img/default_cover_34.webp" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2026-11-11</div><div class="title">DeepSeek Harness 桌面版安装教程（附2个值得装的插件清单）</div></div></a></div><div><a href="/posts/638cac72.html" title="OpenClaw v2.6.6 部署教程 - 小龙虾本地AI智能体Windows完整安装"><img class="cover" src="https://source.fomal.cc/img/default_cover_52.webp" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2026-05-28</div><div class="title">OpenClaw v2.6.6 部署教程 - 小龙虾本地AI智能体Windows完整安装</div></div></a></div><div><a href="/posts/8dd20daax.html" title="在Cursor中接入DeepSeek-V4-Pro模型（亲测可用）"><img class="cover" src="https://source.fomal.cc/img/default_cover_36.webp" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2026-05-28</div><div class="title">在Cursor中接入DeepSeek-V4-Pro模型（亲测可用）</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><svg class="meta_icon" style="width:22px;height:22px;position:relative;top:5px"><use xlink:href="#icon-mulu1"></use></svg><span style="font-weight:bold">目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%BA%8F%E7%AB%A0%EF%BC%9A%E6%88%91%E4%BB%AC%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%9C%A8%E6%9C%AC%E5%9C%B0%E2%80%9C%E5%85%BB%E2%80%9D%E4%B8%80%E4%B8%AA%E5%A4%A7%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="toc-text">1. 序章：我们为什么要在本地“养”一个大模型？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%EF%BC%9AOllama%E7%A9%B6%E7%AB%9F%E6%98%AF%E4%B8%AA%E4%BB%80%E4%B9%88%E2%80%9C%E7%A5%9E%E4%BB%99%E2%80%9D%EF%BC%9F"><span class="toc-text">2. 深入浅出：Ollama究竟是个什么“神仙”？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%BB%88%E6%9E%81%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97"><span class="toc-text">3. 终极安装指南</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-Windows%E7%B3%BB%E7%BB%9F%E8%AF%A6%E7%BB%86%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97"><span class="toc-text">3.1. Windows系统详细安装指南</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-macOS-%E4%B8%8E-Linux-%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85"><span class="toc-text">3.2. macOS 与 Linux 系统安装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4%E7%B2%BE%E8%AE%B2%EF%BC%9A%E6%88%90%E4%B8%BAOllama%E6%8C%87%E6%8C%A5%E5%AE%98"><span class="toc-text">4. 核心命令精讲：成为Ollama指挥官</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-ollama-run-%E4%BD%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AAAI%E5%AF%B9%E8%AF%9D"><span class="toc-text">4.1. ollama run - 你的第一个AI对话</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-ollama-pull-%E6%8F%90%E5%89%8D%E2%80%9C%E5%A4%87%E8%B4%A7%E2%80%9D"><span class="toc-text">4.2. ollama pull - 提前“备货”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-ollama-list-%E6%9F%A5%E7%9C%8B%E4%BD%A0%E7%9A%84%E2%80%9C%E5%86%9B%E7%81%AB%E5%BA%93%E2%80%9D"><span class="toc-text">4.3. ollama list - 查看你的“军火库”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-4-ollama-rm-%E2%80%9C%E6%B8%85%E7%90%86%E9%97%A8%E6%88%B7%E2%80%9D"><span class="toc-text">4.4. ollama rm - “清理门户”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-ollama-cp-%E2%80%9C%E5%85%8B%E9%9A%86%E2%80%9D%E4%B8%8E%E2%80%9C%E5%BE%AE%E8%B0%83%E2%80%9D%E7%9A%84%E8%B5%B7%E7%82%B9"><span class="toc-text">4.5. ollama cp - “克隆”与“微调”的起点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-6-ollama-show-%E6%8F%AD%E5%BC%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%A5%9E%E7%A7%98%E9%9D%A2%E7%BA%B1"><span class="toc-text">4.6. ollama show - 揭开模型的神秘面纱</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-7-ollama-ps-%E8%B0%81%E5%9C%A8%E2%80%9C%E5%90%83%E2%80%9D%E6%88%91%E7%9A%84%E6%98%BE%E5%AD%98%EF%BC%9F"><span class="toc-text">4.7. ollama ps - 谁在“吃”我的显存？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE%EF%BC%9A%E4%B8%8E%E9%80%9A%E4%B9%89%E5%8D%83%E9%97%AE-Qwen-%E8%BF%9B%E8%A1%8C%E4%B8%80%E5%9C%BA%E6%B7%B1%E5%BA%A6%E5%AF%B9%E8%AF%9D"><span class="toc-text">5. 第一个实战项目：与通义千问(Qwen)进行一场深度对话</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E8%BF%9B%E9%98%B6%E7%8E%A9%E6%B3%95%EF%BC%9A%E9%87%8A%E6%94%BEOllama%E7%9A%84%E5%85%A8%E9%83%A8%E6%BD%9C%E8%83%BD"><span class="toc-text">6. 进阶玩法：释放Ollama的全部潜能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-%E4%BD%BF%E7%94%A8Modelfile%E5%AE%9A%E5%88%B6%E4%BD%A0%E7%9A%84%E4%B8%93%E5%B1%9E%E6%A8%A1%E5%9E%8B"><span class="toc-text">6.1. 使用Modelfile定制你的专属模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-%E9%80%9A%E8%BF%87REST-API%E5%B0%86Ollama%E9%9B%86%E6%88%90%E5%88%B0%E4%BD%A0%E7%9A%84%E4%BB%A3%E7%A0%81%E4%B8%AD"><span class="toc-text">6.2. 通过REST API将Ollama集成到你的代码中</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E7%BB%93%E8%AF%AD%E4%B8%8E%E5%B1%95%E6%9C%9B%EF%BC%9A%E4%BD%A0%E7%9A%84AI%E5%BE%81%E7%A8%8B%EF%BC%8C%E6%89%8D%E5%88%9A%E5%88%9A%E5%BC%80%E5%A7%8B"><span class="toc-text">7. 结语与展望：你的AI征程，才刚刚开始</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-color: transparent;"><div id="footer-wrap"><div id="ft"><div class="ft-item-1"><div class="t-top"><div class="t-t-l"><p class="ft-t t-l-t">格言🧬</p><div class="bg-ad"><div>再看看那个光点，它就在这里，这是家园，这是我们 —— 你所爱的每一个人，你认识的一个人，你听说过的每一个人，曾经有过的每一个人，都在它上面度过他们的一生✨</div><div class="btn-xz-box"><a class="btn-xz" target="_blank" rel="noopener" href="https://stellarium.org/">点击开启星辰之旅</a></div></div></div><div class="t-t-r"><p class="ft-t t-l-t">猜你想看💡</p><ul class="ft-links"><li><a href="/posts/eec9786.html">魔改指南</a><a href="/box/nav/">网址导航</a></li><li><a href="/social/link/">我的朋友</a><a href="/comments/">留点什么</a></li><li><a href="/personal/about/">关于作者</a><a href="/archives/">文章归档</a></li><li><a href="/categories/">文章分类</a><a href="/tags/">文章标签</a></li><li><a href="/box/Gallery/">我的画廊</a><a href="/personal/bb/">我的唠叨</a></li><li><a href="/site/time/">建设进程</a><a href="/site/census/">网站统计</a></li></ul></div></div></div><div class="ft-item-2"><p class="ft-t">推荐友链⌛</p><div class="ft-img-group"><div class="img-group-item"><a href="https://lxttz.github.io/" title="阿洛博客世界🥝"><img src="https://lxttz.github.io/assets/zhizhuxia/toxiang.jpg" alt=""/></a></div></div></div></div><div class="copyright"><span><b>&copy;2022-2026</b></span><span><b>&nbsp;&nbsp;By 阿洛博客世界🥝</b></span></div><div id="workboard"></div><!-- 徽章功能已禁用以避免连接超时错误//- a.github-badge(target='_blank' href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style='margin-inline:5px' title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可")
+//-   img(src="https://sourcebucket.s3.ladydaily.com/badge/Copyright-BY--NC--SA--4.svg" alt='')--></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><a class="icon-V hidden" onclick="switchNightMode()" title="浅色和深色模式转换"><svg width="25" height="25" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-moon"></use></svg></a><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button><button class="share" type="button" title="右键模式" onclick="changeMouseMode()"><i class="fas fa-mouse"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog right_side"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button class="share" type="button" title="分享链接" onclick="share()"><i class="fas fa-share-nodes"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i><span id="percent">0<span>%</span></span></button><button id="go-down" type="button" title="直达底部" onclick="btf.scrollToDest(document.body.scrollHeight, 500)"><i class="fas fa-arrow-down"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div class="js-pjax" id="rightMenu"><div class="rightMenu-group rightMenu-small"><a class="rightMenu-item" href="javascript:window.history.back();"><i class="fa fa-arrow-left"></i></a><a class="rightMenu-item" href="javascript:window.history.forward();"><i class="fa fa-arrow-right"></i></a><a class="rightMenu-item" href="javascript:window.location.reload();"><i class="fa fa-refresh"></i></a><a class="rightMenu-item" href="javascript:rmf.scrollToTop();"><i class="fa fa-arrow-up"></i></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-text"><a class="rightMenu-item" href="javascript:rmf.copySelect();"><i class="fa fa-copy"></i><span>复制</span></a><a class="rightMenu-item" href="javascript:window.open(&quot;https://www.baidu.com/s?wd=&quot;+window.getSelection().toString());window.location.reload();"><i class="fa fa-search"></i><span>百度搜索</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-too"><a class="rightMenu-item" href="javascript:window.open(window.getSelection().toString());window.location.reload();"><i class="fa fa-link"></i><span>转到链接</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-paste"><a class="rightMenu-item" href="javascript:rmf.paste()"><i class="fa fa-copy"></i><span>粘贴</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-post"><a class="rightMenu-item" href="#post-comment"><i class="fas fa-comment"></i><span>空降评论</span></a><a class="rightMenu-item" href="javascript:rmf.copyWordsLink()"><i class="fa fa-link"></i><span>复制本文地址</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-to"><a class="rightMenu-item" href="javascript:rmf.openWithNewTab()"><i class="fa fa-window-restore"></i><span>新窗口打开</span></a><a class="rightMenu-item" id="menu-too" href="javascript:rmf.open()"><i class="fa fa-link"></i><span>转到链接</span></a><a class="rightMenu-item" href="javascript:rmf.copyLink()"><i class="fa fa-copy"></i><span>复制链接</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-img"><a class="rightMenu-item" href="javascript:rmf.saveAs()"><i class="fa fa-download"></i><span>保存图片</span></a><a class="rightMenu-item" href="javascript:rmf.openWithNewTab()"><i class="fa fa-window-restore"></i><span>在新窗口打开</span></a><a class="rightMenu-item" href="javascript:rmf.copyLink()"><i class="fa fa-copy"></i><span>复制图片链接</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:randomPost()"><i class="fa fa-paper-plane"></i><span>随便逛逛</span></a><a class="rightMenu-item" href="javascript:switchNightMode();"><i class="fa fa-moon"></i><span>昼夜切换</span></a><a class="rightMenu-item" href="javascript:rmf.switchReadMode();"><i class="fa fa-book"></i><span>阅读模式</span></a><a class="rightMenu-item" href="/personal/about/"><i class="fa fa-info-circle"></i><span>关于博客</span></a><a class="rightMenu-item" href="javascript:toggleWinbox();"><i class="fas fa-cog"></i><span>美化设置</span></a><a class="rightMenu-item" href="javascript:rmf.fullScreen();"><i class="fas fa-expand"></i><span>切换全屏</span></a><a class="rightMenu-item" href="javascript:window.print();"><i class="fa-solid fa-print"></i><span>打印页面</span></a></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.staticfile.org/fancyapps-ui/4.0.31/fancybox.umd.min.js"></script><script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script><script src="/js/search/local-search.js"></script><script async="async">var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())
+setTimeout(function(){preloader.endLoading();}, 5000);
+document.getElementById('loading-box').addEventListener('click',()=> {preloader.endLoading()})</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script src="https://cdn.staticfile.org/jquery/3.6.3/jquery.min.js"></script><script async src="https://npm.elemecdn.com/vue@2.6.14/dist/vue.min.js"></script><script async src="https://npm.elemecdn.com/element-ui@2.15.6/lib/index.js"></script><script async src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script><script defer type="text/javascript" src="https://npm.elemecdn.com/sweetalert2@8.19.0/dist/sweetalert2.all.js"></script><script async src="//npm.elemecdn.com/pace-js@1.2.4/pace.min.js"></script><script defer src="https://npm.elemecdn.com/winbox/dist/winbox.bundle.min.js"></script><script async src="//at.alicdn.com/t/c/font_3586335_hsivh70x0fm.js"></script><script async src="//at.alicdn.com/t/c/font_3636804_gr02jmjr3y9.js"></script><script async src="//at.alicdn.com/t/c/font_3612150_kfv55xn3u2g.js"></script><script async src="https://cdn.wpon.cn/2022-sucai/Gold-ingot.js"></script><canvas id="universe"></canvas><script>(function(){var bp=document.createElement('script');var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js'}else{bp.src='http://push.zhanzhang.baidu.com/push.js'}var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bp,s)})();</script><canvas id="snow"></canvas><script defer src="/js/fomal.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="30" mobile="false" src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/canvas-nest.min.js"></script><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://npm.elemecdn.com/js-heo@1.0.12/metingjs/Meting.min.js"></script><script src="https://lib.baomitu.com/pjax/0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show","#web_bg",".js-pjax","#bibi","body > title","#app","#tag-echarts","#posts-echart","#categories-echarts"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var qweather_key = 'b16a1fa0e63c46a4b8f28abfb06ae3fe';
+  var qweather_api_host = 'devapi.qweather.com';
+  var ip_api_key = 'Kq1pRjB3WyDja7rhKcWV9f5QU8';
+  var gaud_map_key = '87220d3a8b12eeb211bbd14528ecd89b';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '113.34532,23.15624';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script data-pjax src="/js/electric-clock.js"></script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/e19c53d6.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_16.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2025-05-22</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/e19c53d6.html&quot;);" href="javascript:void(0);" alt="">如何创建多个公钥</a><div class="blog-slider__text">解决一台电脑上生成多个密钥，从而达到管理多个github账号的网站</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/e19c53d6.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/116b0f3c.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_19.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2025-02-27</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/116b0f3c.html&quot;);" href="javascript:void(0);" alt="">博客搭建教程</a><div class="blog-slider__text">博客搭建笔记，零基础，手把手，不需要任何代码基础（看不懂代码也没事）</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/116b0f3c.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/55a7f856.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_12.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2025-02-27</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/55a7f856.html&quot;);" href="javascript:void(0);" alt="">博客指南</a><div class="blog-slider__text">博客标题含义和常用的指令，vscode 终端无法正常执行脚本命令如何解决，npm下载速度慢 解决方法</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/55a7f856.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/2013454d.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="https://source.fomal.cc/img/default_cover_56.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-08-09</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/2013454d.html&quot;);" href="javascript:void(0);" alt="">Markdown语法与外挂标签写法汇总</a><div class="blog-slider__text">🥧本文汇总Markdown格式以及外挂标签在网页端的渲染效果，可作为文档进行查询</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/2013454d.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '2s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '2s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script></div><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.js"></script><script data-pjax src="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.js"></script><script data-pjax>
+  function gitcalendar_injector_config(){
+      var parent_div_git = document.getElementById('gitZone');
+      var item_html = '<div class="recent-post-item" id="gitcalendarBar" style="width:100%;height:auto;padding:10px;"><style>#git_container{min-height: 320px}@media screen and (max-width:650px) {#git_container{min-height: 0px}}</style><div id="git_loading" style="width:10%;height:100%;margin:0 auto;display: block;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animatetransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animatetransform></path></svg><style>#git_container{display: none;}</style></div><div id="git_container"></div></div>';
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      console.log('已挂载gitcalendar')
+      }
+
+    if( document.getElementById('gitZone') && (location.pathname ==='/'|| '/' ==='all')){
+        gitcalendar_injector_config()
+        GitCalendarInit("https://gitcalendar.fomal.cc/api?Fomalhaut-Blog",['#d9e0df', '#c6e0dc', '#a8dcd4', '#9adcd2', '#89ded1', '#77e0d0', '#5fdecb', '#47dcc6', '#39dcc3', '#1fdabe', '#00dab9'],'Fomalhaut-Blog')
+    }
+  </script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":350},"mobile":{"show":true},"log":false});</script></body></html>
