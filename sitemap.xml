@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lxttz.github.io/life/movies/index.html</loc>
+    
+    <lastmod>2026-11-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://lxttz.github.io/posts/2026-frontend-framework-ranking.html</loc>
     
     <lastmod>2026-11-11</lastmod>
@@ -365,15 +374,6 @@
     <loc>https://lxttz.github.io/posts/cherry-studio-api.html</loc>
     
     <lastmod>2026-06-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lxttz.github.io/life/movies/index.html</loc>
-    
-    <lastmod>2026-06-13</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
